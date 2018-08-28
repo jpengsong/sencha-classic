@@ -203,6 +203,30 @@
      *
      */
     "js": [
+         {
+            "path": "resources/jquery-1.10.2.js",
+            "includeInBundle": false
+        },
+        {
+            "path": "resources/Mloading/mloading.js",
+            "includeInBundle": false
+        },
+        {
+            "path": "resources/Encrypt/BigInt.js",
+            "includeInBundle": false
+        },
+        {
+            "path": "resources/Encrypt/Barrett.js",
+            "includeInBundle": false
+        },
+        {
+            "path": "resources/Encrypt/RSA.js",
+            "includeInBundle": false
+        },
+        {
+            "path": "resources/zTree/js/jquery.ztree.all.min.js",
+            "includeInBundle": false
+        },
         {
             "path": "${framework.dir}/build/ext-all-rtl-debug.js"
         },
@@ -244,7 +268,19 @@
             // defined in .sencha/app/defaults.properties
             "path": "${build.out.css.path}",
             "bundle": true,
-            "exclude": ["fashion"]
+            "exclude": [ "fashion" ]
+        },
+        {
+            "path": "resources/zTree/css/zTreeStyle/zTreeStyle.css",
+            "includeInBundle": false
+        },
+        {
+            "path": "resources/Mloading/mloading.css",
+            "includeInBundle": false
+        },
+        {
+            "path": "resources/Site.css",
+            "includeInBundle": false
         }
     ],
 
