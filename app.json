@@ -187,18 +187,6 @@
             "includeInBundle": false
         },
         {
-            "path": "resources/Encrypt/BigInt.js",
-            "includeInBundle": false
-        },
-        {
-            "path": "resources/Encrypt/Barrett.js",
-            "includeInBundle": false
-        },
-        {
-            "path": "resources/Encrypt/RSA.js",
-            "includeInBundle": false
-        },
-        {
             "path": "resources/zTree/js/jquery.ztree.all.min.js",
             "includeInBundle": false
         },

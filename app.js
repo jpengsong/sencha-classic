@@ -10,7 +10,8 @@ Ext.application({
     requires: [
         // This will automatically load all classes in the app namespace
         // so that application classes do not need to require each other.
-        'app.*'
+        'app.*',
+        'ux.*'
     ],
 
     // The name of the initial view to create.
