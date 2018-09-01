@@ -9,7 +9,7 @@
     "requires": [
         "font-awesome"
     ],
-
+    "locale": "zh_CN",
     "indexHtmlPath": "index.html",
 
     "classpath": [

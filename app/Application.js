@@ -8,5 +8,5 @@ Ext.define('app.Application', {
 
     name: 'app',
 
-    quickTips: false
+    quickTips: true
 });
