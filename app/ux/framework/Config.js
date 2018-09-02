@@ -1,5 +1,5 @@
 ﻿Ext.define('ux.framework.Config', {
-    alternateClassName: ['Config'],
+    alternateClassName: ['config'],
     statics: {
         StoreType: {
             GridStore: "GridStore",

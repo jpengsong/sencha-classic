@@ -18,10 +18,11 @@
         try {
             responseText = Ext.decode(response.responseText);
             if (!Ext.isEmpty(responseText.Data)) {
-                data = Ext.decode(responseText.Data);
+                data = responseText.Data;
             }
+
             me.success = true;
-            if (data.length == 0 && me.type != Config.StoreType.TreeStore) {
+            if (data.length == 0 && me.type != config.StoreType.TreeStore) {
                 return new Ext.data.ResultSet({
                     total: 0,
                     count: 0,
@@ -30,13 +31,16 @@
                     message: this.message
                 });
             }
-            if (me.type == Config.StoreType.TreeStore) {
+
+            this.recordCount = data.recordCount;
+            data = data.records;
+            if (me.type == config.StoreType.TreeStore) {
                 me.raw = ux.Tree.bindTreeData(data, null, me.idField, me.parentField, me.isExpend, me.isAllExpend, me.nodeLevel, null, me.loadType, me.iconCls);
-            } else if (me.type == Config.StoreType.GridStore) {
-                data = data.List;
+            } else if (me.type == config.StoreType.GridStore) {
                 data.total = this.recordCount;
-                return data;
-            } else if (me.type == Config.StoreType.ComboStore) {
+                me.raw = data;
+            } else if (me.type == config.StoreType.ComboStore) {
+                data.total = this.recordCount;
                 me.raw = data;
             }
             return me.raw;

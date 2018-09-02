@@ -400,6 +400,7 @@ Ext.define("ux.Ajax", {
     * @param {Object} option.Data 传给后台的参数
     * @param {String} option.url 提交至后台的url地址，缺省为`/Handlers/Do.ashx`
     * @param {String} option.method 提交方法，缺省为`POST`
+    * @param {String} option.type 返回类型，缺省为`JSON`
     * @param {String} option.params 提交的其他参数
     * @param {Function} option.success 提交成功后执行的函数
     * @param {Function} option.error 提交失败后执行的函数
@@ -444,9 +445,9 @@ Ext.define("ux.Ajax", {
                     if (showMask) {
                         loadMask.destroy();
                     }
-                    var responseData = Ext.decode(response.responseText);
-                    if (responseData.Type == Config.ResponseDataType.Json && responseData.Data !== "") {
-                        responseData.Data = Ext.decode(responseData.Data);
+                    var responseData = response.responseText;
+                    if (option.type == "JSON") { 
+                        responseData= Ext.decode(responseData);
                     }
                     if (Ext.isFunction(option.success)) {
                         option.success(responseData);
