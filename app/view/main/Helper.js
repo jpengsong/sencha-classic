@@ -76,12 +76,12 @@ Ext.define('app.view.main.Setup', {
             },
             defaultType: "button",
             items: [
-                { reference:"darkblue", ui: "darkblue", colspan: 1, listeners: { click: "onThemeChange" } },
-                { reference:"green",ui: "green", colspan: 1, listeners: { click: "onThemeChange" } },
-                { reference:"gules",ui: "gules", colspan: 1, listeners: { click: "onThemeChange" } },
-                { reference:"gray",ui: "gray", colspan: 1, listeners: { click: "onThemeChange" } },
-                { reference:"neptune",ui: "neptune", colspan: 1, listeners: { click: "onThemeChange" } },
-                { reference:"aria",ui: "aria", colspan: 1, listeners: { click: "onThemeChange" } }
+                { reference: "firstbtn", theme: "first", ui: "firstbtn", colspan: 1, listeners: { click: "onThemeChange" } },
+                { reference: "thirdbtn", theme: "third", ui: "thirdbtn", colspan: 1, listeners: { click: "onThemeChange" } },
+                { reference: "fourthbtn", theme: "fourth", ui: "fourthbtn", colspan: 1, listeners: { click: "onThemeChange" } },
+                { reference: "fifthbtn", theme: "fifth", ui: "fifthbtn", colspan: 1, listeners: { click: "onThemeChange" } },
+                { reference: "sixthbtn", theme: "sixth", ui: "sixthbtn", colspan: 1, listeners: { click: "onThemeChange" } },
+                { reference: "secondbtn", theme: "second", ui: "secondbtn", colspan: 1, listeners: { click: "onThemeChange" } }
             ]
         }
     ]

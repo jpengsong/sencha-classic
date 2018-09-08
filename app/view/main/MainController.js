@@ -3,20 +3,17 @@ Ext.define("app.view.main.MainController", {
     alias: 'controller.main',
 
     //触发容器组件
-    onAfterlayout: function () {
+    onAfterender: function () {
         var me = this; refs = me.getReferences(); var viewModel = me.getViewModel();
-        ux.Ajax.request({
-            url: "resources/data/main/MainSetup.json",
-            method: "GET",
-            type: "JSON",
-            success: function (data) {
-                refs[data.Data.theme].setText(viewModel.getData().themeText);
-                refs.headerToolbar.el.dom.style.background = viewModel.getData().ui[data.Data.theme];
-                refs.mainSetupButton.setUI(data.Data.theme); refs.logout.setUI(data.Data.theme); refs.news.setUI(data.Data.theme);
-            }, error: function () {
-                alert(2);
-            }
-        })
+        var profile = ux.Cookie.GetCookie("profile");
+        if (!Ext.isEmpty(profile)) {
+            setTimeout(function(){
+                refs.headerToolbar.el.dom.style.background = viewModel.getData().backColor[profile];
+                var profilebtn = (profile + "btn");
+                refs[profilebtn].setText(viewModel.getData().themeText);
+                refs.mainSetupButton.setUI(profilebtn); refs.logout.setUI(profilebtn); refs.news.setUI(profilebtn);
+            },200);
+        }
     },
 
     //设置渲染后创建悬浮窗口
@@ -39,17 +36,13 @@ Ext.define("app.view.main.MainController", {
 
     //主题切换
     onThemeChange: function () {
-        var me, res, btns, currentTheme, theme, viewModel; me = this; refs = me.getReferences(); viewModel = me.getViewModel();
-        btns = Ext.ComponentQuery.query("button[text='" + viewModel.getData().themeText + "']", refs.mainSetupToolTip);
-        if (btns.length > 0) {
-            currentTheme = btns[0].reference;
-        }
-        theme = arguments[0].reference;
-        if (currentTheme != theme) {
-            refs.headerToolbar.el.dom.style.background = viewModel.getData().ui[theme];
-            refs[theme].setText(viewModel.getData().themeText);
-            refs[currentTheme].setText("");
-            refs.mainSetupButton.setUI(theme); refs.logout.setUI(theme); refs.news.setUI(theme);
-        }
+        var me, res, btns, theme, profile, viewModel; me = this; refs = me.getReferences(); viewModel = me.getViewModel();
+        // btns = Ext.ComponentQuery.query("button[text='" + viewModel.getData().themeText + "']", refs.mainSetupToolTip);
+        // theme = btns[0].theme;
+        profile = arguments[0].theme;
+        //if (theme != profile) {
+        ux.Cookie.SetCookie("profile", profile);
+        window.location = window.location;
+        //}
     }
 })

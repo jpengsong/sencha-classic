@@ -413,6 +413,7 @@ Ext.define("ux.Ajax", {
     */
     statics: {
         request: function (option) {
+            
             var me = this, config, loadMask, maskTarget, maskTargetMsg, showMask = false;
             //显示遮罩
             if (!Ext.isEmpty(option.showMask) && option.showMask) {

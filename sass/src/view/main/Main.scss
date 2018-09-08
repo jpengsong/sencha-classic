@@ -1,37 +1,43 @@
 @include extjs-button-small-ui (
-    $ui:"darkblue",
-    $background-color: #025b80,
+    $ui:"firstbtn",
+    $background-color: #5FA2DD,
     $border-width:0px
 );
 
 @include extjs-button-small-ui (
-    $ui:"green",
-    $background-color: #38a45a,
+    $ui:"secondbtn",
+    $background-color: #025B80,
     $border-width:0px
 );
 
 @include extjs-button-small-ui (
-    $ui:"gules",
-    $background-color: #d32f2f,
+    $ui:"thirdbtn",
+    $background-color:  #157fcc,
     $border-width:0px
 );
 
 @include extjs-button-small-ui (
-    $ui:"neptune",
-    $background-color: #157fcc,
+    $ui:"fourthbtn",
+    $background-color:  #1DA02B,
     $border-width:0px
 );
 
 @include extjs-button-small-ui (
-    $ui:"gray",
-    $background-color: #d0d0d0,
+    $ui:"fifthbtn",
+    $background-color:  #02A2AA,
     $border-width:0px
 );
 
 @include extjs-button-small-ui (
-    $ui:"aria",
-    $background-color: #3a4155,
+    $ui:"sixthbtn",
+    $background-color:  #d32f2f,
     $border-width:0px
+);
+
+@include extjs-menu-ui(
+    $ui:"eeeee",
+    $ui-background-color :#f6f6f6,
+    $ui-item-active-text-color:none,
+    $ui-item-arrow-margin:0,
+    $ui-item-height : 45
 )
-
-

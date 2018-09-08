@@ -1,14 +1,32 @@
 <!DOCTYPE HTML>
 <html manifest="">
+
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
 
     <title>app</title>
-    <!-- The line below must be kept intact for Sencha Cmd to build your application -->
+
+    <script type="text/javascript">
+        var Ext = Ext || {};
+        Ext.beforeLoad = function (tag) {
+            var arr = document.cookie.match(new RegExp("(^| )profile=([^;]*)(;|$)")); var profile = null;
+            if (arr !== null) {
+                profile = unescape(arr[2]);
+            } else {
+                profile = "first";
+                document.cookie = "profile=" + escape(profile);
+            }
+            
+            Ext.manifest = 'bootstrap.json';
+            //Ext.manifest = profile + '.json';
+        };
+    </script>
     <script id="microloader" data-app="6a3da2d1-1004-4a55-ab28-e516eab2415b" type="text/javascript" src="bootstrap.js"></script>
 
 </head>
+
 <body></body>
+
 </html>

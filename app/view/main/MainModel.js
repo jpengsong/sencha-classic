@@ -3,13 +3,13 @@ Ext.define("app.view.main.MainModel", {
     alias: "viewmodel.main",
     data: {
         themeText: "使用中",
-        ui: {
-            darkblue: "#025b80",
-            gules: "#d32f2f",
-            neptune: "#157fcc",
-            gray: "#d0d0d0",
-            aria: "#3a4155",
-            green:"#38a45a"
+        backColor: {
+            first: "#5FA2DD",
+            second: "#025B80",
+            third: "#157fcc",
+            fourth: "#1DA02B",
+            fifth: "#02A2AA",
+            sixth:"#d32f2f"
         }
     },
     stores: {

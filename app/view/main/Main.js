@@ -19,18 +19,17 @@ Ext.define("app.view.main.Main", {
                 margin: "0 5 0 10",
                 scale: "small"
             },
-            //style: "background:red",
             items: [
                 {
                     xtype: "image",
-                    width: 508,
+                    width: 150,
                     height: '100%',
-                    src: "http://trem.bjshoujia.com.cn/Content/login_q/login-logo.png",
+                    src: "/resources/Image/main/logo.jpg",
                 },
                 '->',
                 {
                     xtype: "button",
-                    reference:"news",
+                    reference: "news",
                     text: "消息（99+）",
                     iconCls: 'x-fa fa-comment-o',
                 },
@@ -46,7 +45,7 @@ Ext.define("app.view.main.Main", {
                 },
                 {
                     xtype: "button",
-                    reference:"logout",
+                    reference: "logout",
                     text: "注销",
                     iconCls: "x-fa fa-power-off"
                 }
@@ -57,16 +56,16 @@ Ext.define("app.view.main.Main", {
             padding: "0 0",
             width: "100%",
             height: 45,
-            style: {
-                "background-image": "none",
-                "background-color": "#f6f6f6",
-                "border-style": "none"
-            },
-            bodyStyle: {
-                "background-image": "none",
-                "background-color": "#f6f6f6",
-                "border-style": "none"
-            },
+            // style: {
+            //     "background-image": "none",
+            //     "background-color": "#f6f6f6",
+            //     "border-style": "none"
+            // },
+            // bodyStyle: {
+            //     "background-image": "none",
+            //     "background-color": "#f6f6f6",
+            //     "border-style": "none"
+            // },
             items: [
                 {
                     style: {
@@ -81,7 +80,7 @@ Ext.define("app.view.main.Main", {
                     },
                     text: '首页',
                     menu: [
-                        { text: 'Item ' },
+                        { text: 'Item'},
                         { text: 'Item 2' },
                         { text: 'Item 3' },
                         { text: 'Item 4' }
@@ -181,127 +180,68 @@ Ext.define("app.view.main.Main", {
                         { text: 'Item 3' },
                         { text: 'Item 4' }
                     ]
-                },
-                {
-                    style: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    bodyStyle: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    text: '预警管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    style: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    bodyStyle: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    text: '预警管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    style: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    bodyStyle: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    text: '预警管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    style: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    bodyStyle: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    text: '预警管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    style: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    bodyStyle: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    text: '预警管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    style: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    bodyStyle: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    text: '预警管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
                 }
             ]
         },
         {
-            flex: 1, html: ""
+            flex: 1,
+            layout: 'border',
+            items: [{
+                region: 'west',
+                xtype: "container",
+                width: 160,
+                items: [
+                    {
+                        xtype: "menu",
+                        ui:"eeeee",
+                        floating: false,
+                        items: [
+                            {
+                                text: '首页',
+                                iconCls: 'x-fa fa-comment-o',
+                                menu: [
+                                    { text: 'Item 1', },
+                                    { text: 'Item 2' },
+                                    {
+                                        text: 'Item 3', menu: [
+                                            { text: 'Item 1' },
+                                            { text: 'Item 2' },
+                                            {
+                                                text: 'Item 3',
+                                                menu: [
+                                                    { text: 'Item 1' },
+                                                    { text: 'Item 2' },
+                                                    { text: 'Item 3' },
+                                                    { text: 'Item 4' }
+                                                ]
+                                            },
+                                            { text: 'Item 4' }
+                                        ]
+                                    },
+                                    { text: '台账管理' }
+                                ]
+                            }, {
+                                text: '项目管理'
+                            }, {
+                                text: '预警管理'
+                            },
+                            {
+                                text: '预警管理',
+                                iconCls: 'x-fa fa-comment-o'
+                            }, {
+                                text: '预警管理'
+                            }
+                        ]
+                    }
+                ]
+            }, {
+                region: 'center',
+                xtype: 'panel',
+                layout: 'fit',
+                margin: '5 5 0 0'
+            }],
         }
     ], listeners: {
-        afterlayout: "onAfterlayout"
+        afterrender: "onAfterender"
     }
 })  

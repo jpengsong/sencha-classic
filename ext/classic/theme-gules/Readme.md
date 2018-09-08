@@ -1,2 +1,0 @@
-# theme-gules - Read Me
-

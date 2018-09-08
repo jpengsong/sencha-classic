@@ -1,2 +1,0 @@
-# Theme-blue - Read Me
-
