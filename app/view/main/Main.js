@@ -51,149 +51,109 @@ Ext.define("app.view.main.Main", {
                 }
             ]
         },
-        {
-            xtype: "toolbar",
-            padding: "0 0",
-            width: "100%",
-            height: 45,
-            // style: {
-            //     "background-image": "none",
-            //     "background-color": "#f6f6f6",
-            //     "border-style": "none"
-            // },
-            // bodyStyle: {
-            //     "background-image": "none",
-            //     "background-color": "#f6f6f6",
-            //     "border-style": "none"
-            // },
-            items: [
-                {
-                    style: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    bodyStyle: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    text: '首页',
-                    menu: [
-                        { text: 'Item'},
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    style: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    bodyStyle: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    text: '台账管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    style: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    bodyStyle: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    text: '项目管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    style: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    bodyStyle: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    text: '预警管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    style: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    bodyStyle: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    text: '预警管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    style: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    bodyStyle: {
-                        "background-image": "none",
-                        "background-color": "#f6f6f6",
-                        "border-style": "none"
-                    },
-                    text: '预警管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                }
-            ]
-        },
+        // {
+        //     xtype: "toolbar",
+        //     ui: "mainToolbar",
+        //     padding: "0 0",
+        //     width: "100%",
+        //     height: 45,
+        //     defaults: {
+        //         margin: "0 5 0 10"
+        //     },
+        //     defaultButtonUI: "defaultbtn",
+        //     items: [
+        //         {
+        //             text: '首页',
+        //             menu: [
+        //                 { text: 'Item' },
+        //                 { text: 'Item 2' },
+        //                 { text: 'Item 3' },
+        //                 { text: 'Item 4' }
+        //             ]
+        //         },
+        //         {
+        //             text: '台账管理',
+        //             menu: [
+        //                 { text: 'Item 1' },
+        //                 { text: 'Item 2' },
+        //                 { text: 'Item 3' },
+        //                 { text: 'Item 4' }
+        //             ]
+        //         },
+        //         {
+        //             text: '项目管理',
+        //             menu: [
+        //                 { text: 'Item 1' },
+        //                 { text: 'Item 2' },
+        //                 { text: 'Item 3' },
+        //                 { text: 'Item 4' }
+        //             ]
+        //         },
+        //         {
+        //             text: '预警管理',
+        //             menu: [
+        //                 { text: 'Item 1' },
+        //                 { text: 'Item 2' },
+        //                 { text: 'Item 3' },
+        //                 { text: 'Item 4' }
+        //             ]
+        //         },
+        //         {
+        //             text: '预警管理',
+        //             menu: [
+        //                 { text: 'Item 1' },
+        //                 { text: 'Item 2' },
+        //                 { text: 'Item 3' },
+        //                 { text: 'Item 4' }
+        //             ]
+        //         },
+        //         {
+        //             text: '预警管理',
+        //             menu: [
+        //                 { text: 'Item 1' },
+        //                 { text: 'Item 2' },
+        //                 { text: 'Item 3' },
+        //                 { text: 'Item 4' }
+        //             ]
+        //         }
+        //     ]
+        // },
         {
             flex: 1,
             layout: 'border',
             items: [{
                 region: 'west',
                 xtype: "container",
+                style:{
+                    "background-color":"#fbfbfb"
+                },
                 width: 160,
                 items: [
                     {
+                        xtype: "container",
+                        margin:"10 5 7",
+                        style:{
+                            "background-color":"#fbfbfb"
+                        },
+                        layout: {
+                            type: "vbox",
+                            align:"middle"
+                        },
+                        items: [
+                            {
+                                xtype: 'image',
+                                width: "70%",
+                                height: 100,
+                                style:{
+                                    "border-radius":"50%"
+                                },
+                                src: "/resources/Image/main/user.jpg"
+                            },
+                        ]
+                    },
+                    {
                         xtype: "menu",
-                        ui:"eeeee",
+                        ui: "defaultmenu",
                         floating: false,
                         items: [
                             {
@@ -238,7 +198,7 @@ Ext.define("app.view.main.Main", {
                 region: 'center',
                 xtype: 'panel',
                 layout: 'fit',
-                margin: '5 5 0 0'
+                margin: '0 0 0 1'
             }],
         }
     ], listeners: {
