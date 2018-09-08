@@ -22,10 +22,11 @@ Ext.define("app.view.main.Main", {
             items: [
                 {
                     xtype: "image",
-                    width: 150,
-                    height: '100%',
-                    src: "/resources/Image/main/logo.jpg",
+                    width: 60,
+                    height: '90%',
+                    src: "/resources/Image/main/logo.png"
                 },
+                {xtype:"container",style:{"color":"white;font-size:20px"}, html:"Sencha"},
                 '->',
                 {
                     xtype: "button",
@@ -127,7 +128,7 @@ Ext.define("app.view.main.Main", {
                 style:{
                     "background-color":"#fbfbfb"
                 },
-                width: 160,
+                width: 180,
                 items: [
                     {
                         xtype: "container",
@@ -147,7 +148,7 @@ Ext.define("app.view.main.Main", {
                                 style:{
                                     "border-radius":"50%"
                                 },
-                                src: "/resources/Image/main/user.jpg"
+                                src:"/resources/Image/main/user.png"
                             },
                         ]
                     },
