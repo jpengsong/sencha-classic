@@ -22,7 +22,7 @@
             }
 
             me.success = true;
-            if (data.length == 0 && me.type != config.StoreType.TreeStore) {
+            if (data.length == 0 && me.type != config.TreeStore) {
                 return new Ext.data.ResultSet({
                     total: 0,
                     count: 0,
@@ -34,12 +34,12 @@
 
             this.recordCount = data.recordCount;
             data = data.records;
-            if (me.type == config.StoreType.TreeStore) {
+            if (me.type == config.TreeStore) {
                 me.raw = ux.Tree.bindTreeData(data, null, me.idField, me.parentField, me.isExpend, me.isAllExpend, me.nodeLevel, null, me.loadType, me.iconCls);
-            } else if (me.type == config.StoreType.GridStore) {
+            } else if (me.type == config.GridStore) {
                 data.total = this.recordCount;
                 me.raw = data;
-            } else if (me.type == config.StoreType.ComboStore) {
+            } else if (me.type == config.ComboStore) {
                 data.total = this.recordCount;
                 me.raw = data;
             }

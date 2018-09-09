@@ -2,8 +2,130 @@
     "Data": {
         "records": [
             {
-                "type": "0",
-                "text": "左右"
+                "text": "客户管理",
+                "iconCls":"x-fa fa-folder",
+                "children":[
+                    {
+                        "text": "线索",
+                        "iconCls":"x-fa fa-folder"
+                    },
+                    {
+                        "text": "客户",
+                        "iconCls":"x-fa fa-folder"
+                    }
+                ]
+            },
+            {
+                "text": "销售机会",
+                "iconCls":"x-fa fa-folder",
+                "children":[
+                    {
+                        "text": "商机",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "报价单",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "销售合同",
+                        "iconCls":"x-fa fa-folder"
+                    }
+                ]
+            },
+            {
+                "text": "进销存",
+                "iconCls":"x-fa fa-folder",
+                "children":[
+                    {
+                        "text": "产品",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "销售单/销售退货单",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "采购单/供应商",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "库存明细/出入库单/仓库管理",
+                        "iconCls":"x-fa fa-folder"
+                    }
+                ]
+            },
+            {
+                "text": "财务",
+                "iconCls":"x-fa fa-folder"
+            },
+            {
+                "text": "办公",
+                "iconCls":"x-fa fa-folder",
+                "children":[
+                    {
+                        "text": "任务/任务统计",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "日程安排",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "知识",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "工作日志",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "工单受理",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "审批",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "公告管理",
+                        "iconCls":"x-fa fa-folder"
+                    }
+                ]
+            },
+            {
+                "text": "统计分析",
+                "iconCls":"x-fa fa-folder",
+                "children":[
+                    {
+                        "text": "业绩管理",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "线索统计",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "客户统计",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "财务统计",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "商机统计",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "产品销量统计",
+                        "iconCls":"x-fa fa-folder"
+                    }
+                ]
+            },
+            {
+                "text": "营销",
+                "iconCls":"x-fa fa-folder",
+                "children":[
+                    {
+                        "text": "短信营销",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "短信发件箱",
+                        "iconCls":"x-fa fa-folder"
+                    }, {
+                        "text": "邮件营销",
+                        "iconCls":"x-fa fa-folder"
+                    }
+                ]
+            },
+            {
+                "text": "站内信",
+                "iconCls":"x-fa fa-folder"
             }
         ]
     }

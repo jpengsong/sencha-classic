@@ -65,5 +65,11 @@
 @include extjs-toolbar-ui  (
     $ui:"mainToolbar",
     $background-color: #fbfbfb
+);
 
+@include extjs-tip-ui(
+    $ui:"maintip",
+    $ui-header-color :#fbfbfb,
+    $ui-background-color : #fbfbfb,
+    $ui-border-width :0
 )

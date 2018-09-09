@@ -1,12 +1,10 @@
 ﻿Ext.define('ux.framework.Config', {
     alternateClassName: ['config'],
     statics: {
-        StoreType: {
-            GridStore: "GridStore",
-            TreeStore: "TreeStore",
-            ComboStore: "TreeListStore",
-            ComboStore: "ComboStore",
-        },
+        GridStore: "GridStore",
+        TreeStore: "TreeStore",
+        ComboStore: "ComboStore",
+
 
         Toast: {
             Stack: 3,   //数量

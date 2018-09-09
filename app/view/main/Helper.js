@@ -7,23 +7,9 @@ Ext.define('app.view.main.Setup', {
     anchor: 'left',
     autoHide: false,
     closable: true,
+    ui:"maintip",
     header: {
-        xtype: "header",
-        style: {
-            "background-image": "none",
-            "background-color": "white",
-            "border-style": "none"
-        }
-    },
-    style: {
-        "background-image": "none",
-        "background-color": "white",
-        "border-style": "none"
-    },
-    bodyStyle: {
-        "background-image": "none",
-        "background-color": "white",
-        "border-style": "none"
+        xtype: "header"
     },
     layout: {
         type: 'vbox'

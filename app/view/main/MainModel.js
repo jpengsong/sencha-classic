@@ -9,12 +9,15 @@ Ext.define("app.view.main.MainModel", {
             third: "#157fcc",
             fourth: "#1DA02B",
             fifth: "#02A2AA",
-            sixth:"#d32f2f"
+            sixth: "#d32f2f"
         }
     },
     stores: {
         MenuLocationStore: {
-            type: "MenuLocationStore"
+            type: "main.MenuLocationStore"
+        },
+        NavigationStore: {
+            type: "main.Navigation"
         }
     }
 })

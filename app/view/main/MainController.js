@@ -5,24 +5,18 @@ Ext.define("app.view.main.MainController", {
     //触发容器组件
     onAfterender: function () {
         var me = this; refs = me.getReferences(); var viewModel = me.getViewModel();
+        //修改其它组件主题
         var profile = ux.Cookie.GetCookie("profile");
         if (!Ext.isEmpty(profile)) {
-            setTimeout(function(){
-                refs.headerToolbar.el.dom.style.background = viewModel.getData().backColor[profile];
-                var profilebtn = (profile + "btn");
-                refs[profilebtn].setText(viewModel.getData().themeText);
-                refs.mainSetupButton.setUI(profilebtn); refs.logout.setUI(profilebtn); refs.news.setUI(profilebtn);
-            },200);
+            refs.headerToolbar.el.dom.style.background = viewModel.getData().backColor[profile];
+            var profilebtn = (profile + "btn");
+            refs[profilebtn].setText(viewModel.getData().themeText);
+            refs.mainSetupButton.setUI(profilebtn); refs.logout.setUI(profilebtn); refs.news.setUI(profilebtn);
         }
+        //初始化菜单列表数据
     },
 
-    //设置渲染后创建悬浮窗口
-    onAfterrenderSetup: function () {
-        var me = this; refs = me.getReferences();
-        Ext.create({ xtype: "mainSetup" });
-    },
-
-    //点击设置弹出悬浮窗口
+    //Toobar 点击设置弹出悬浮窗口
     onClickSetup: function () {
         var me = this; refs = me.getReferences();
         if (refs.mainSetupToolTip.isHidden()) {
@@ -36,13 +30,19 @@ Ext.define("app.view.main.MainController", {
 
     //主题切换
     onThemeChange: function () {
-        var me, res, btns, theme, profile, viewModel; me = this; refs = me.getReferences(); viewModel = me.getViewModel();
-        // btns = Ext.ComponentQuery.query("button[text='" + viewModel.getData().themeText + "']", refs.mainSetupToolTip);
-        // theme = btns[0].theme;
+        var me, profile; me = this; refs = me.getReferences(); viewModel = me.getViewModel();
         profile = arguments[0].theme;
-        //if (theme != profile) {
         ux.Cookie.SetCookie("profile", profile);
         window.location = window.location;
-        //}
+    },
+
+    //菜单位置切换
+    onNavigationlayoutChange: function () {
+
+    },
+
+    //菜单点击事件
+    onNavigationChange: function () {
+        alert();
     }
 })
