@@ -392,28 +392,27 @@ Ext.define('ux.framework.Page', {
 /**
  * Ext请求数据 
  */
-Ext.define("ux.Ajax", {
+Ext.define("ux.framework.Ajax", {
     alternateClassName: ['ux.Ajax'],
-    /**
-    * 发起ajax请求
-    * @param {Object} option 包含下列属性的对象
-    * @param {Object} option.Data 传给后台的参数
-    * @param {String} option.url 提交至后台的url地址，缺省为`/Handlers/Do.ashx`
-    * @param {String} option.method 提交方法，缺省为`POST`
-    * @param {String} option.type 返回类型，缺省为`JSON`
-    * @param {String} option.params 提交的其他参数
-    * @param {Function} option.success 提交成功后执行的函数
-    * @param {Function} option.error 提交失败后执行的函数
-    * @param {Boolean} option.async 是否异步提交数据，缺省为`true`
-    * @param {Number} option.timeout 请求延时，毫秒，缺省为`30000`
-    * @param {Object} option.scope 作用域，缺省为`this`
-    * @param {Boolean} option.showMask 是否加遮罩，缺省为`false`
-    * @param {Ext.Component} option.MaskTarget 被遮罩的组件
-    * @static
-    */
     statics: {
+        /**
+        * 发起Ajax.request请求
+        * @param {Object} option 包含下列属性的对象
+        * @param {Object} option.Data 传给后台的参数
+        * @param {String} option.url 提交至后台的url地址，缺省为`http://localhost:1841/`
+        * @param {String} option.method 提交方法，缺省为`POST`
+        * @param {String} option.type 返回类型，缺省为`JSON`
+        * @param {String} option.params 提交的其他参数
+        * @param {Function} option.success 提交成功后执行的函数
+        * @param {Function} option.error 提交失败后执行的函数
+        * @param {Boolean} option.async 是否异步提交数据，缺省为`true`
+        * @param {Number} option.timeout 请求延时，毫秒，缺省为`30000`
+        * @param {Object} option.scope 作用域，缺省为`this`
+        * @param {Boolean} option.showMask 是否加遮罩，缺省为`false`
+        * @param {Ext.Component} option.MaskTarget 被遮罩的组件
+        * @static
+        */
         request: function (option) {
-            
             var me = this, config, loadMask, maskTarget, maskTargetMsg, showMask = false;
             //显示遮罩
             if (!Ext.isEmpty(option.showMask) && option.showMask) {
@@ -447,8 +446,8 @@ Ext.define("ux.Ajax", {
                         loadMask.destroy();
                     }
                     var responseData = response.responseText;
-                    if (option.type == "JSON") { 
-                        responseData= Ext.decode(responseData);
+                    if (option.type == "JSON") {
+                        responseData = Ext.decode(responseData);
                     }
                     if (Ext.isFunction(option.success)) {
                         option.success(responseData);
@@ -466,8 +465,27 @@ Ext.define("ux.Ajax", {
             Ext.Ajax.request(config);
         },
         /**
+         * 发起Ajax.proxy请求
+         * @param {String} option.url 提交至后台的url地址，缺省为`http://localhost:1841/`
+         * @param {Number} option.timeout 请求延时，毫秒，缺省为`60000`
+         * @param {Object} option.type 请求类型，缺省为`JSON`
+         * @param {Object} option.Data 传给后台的参数
+         * @param {String} option.method 提交方法，缺省为`POST`
+         * *
+         */
+        proxy: function (option) {
+            return Ext.data.proxy.Ajax({
+                url: "http://localhost:1841/" + option.url,
+                type: option.type || "JSON",
+                timeout: 60000,
+                extraParams: me.getRequestData(option),
+                actionMethods: { read: option.method || "POST" },
+                reader: Ext.create('ux.framework.Reader', { type: option.dataType })
+            })
+        },
+
+        /**
         * 获取url参数名称内容
-        * 
         * @param {String} url 
         * @param {String} name 
         * @return {Object} 没有返回null
@@ -493,7 +511,6 @@ Ext.define("ux.Ajax", {
         getRequestData: function (option) {
             var me = this, data = "";
             if (option.data !== undefined) {
-
                 if (Ext.typeOf(option.data) === "object" || Ext.typeOf(option.data) === "array") {
                     data = Ext.encode(option.data)
 
