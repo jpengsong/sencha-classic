@@ -1,16 +1,49 @@
+//头部-UI
 @include extjs-toolbar-ui (
-    $ui:"first-home-toolbar-ui",
-    $background-color :#5FA2DD,
-    $border-style:0
+    $ui:"first-home-head-toolbar",
+    $background-color :#35BAF6,
+    $border-width : 0px
 );
 
+//头部-折叠按钮UI
+@include extjs-button-small-ui (
+    $ui:"first-home-head-toolbar-bars",
+    $background-color : #35BAF6,
+    $background-color-pressed: #35BAF6,
+    $background-color-over : #35BAF6,
+    $border-width : 0,
+    $inner-border-width :0
+);
 
+//中部-左侧
+@include extjs-panel-ui (
+    $ui:"first-home-center-west",
+    $ui-body-background-color :#032342,
+    $ui-body-color:#fff
+);
 
-//******************************************************公共主题******************************************************
+//中部-左侧-菜单-按钮项
+@include extjs-button-medium-ui (
+    $ui:"first-home-center-west-menu-button",
+    $line-height:40px,
+    $icon-size:40px,
+    $glyph-font-size :25px,
+    $background-color : #032342,
+    $background-color-over :  #021A32
+);
+
+//中部-左侧-用户
+@include extjs-panel-ui(
+    $ui:"first-home-center-west-user",
+    $ui-body-color:#fff,
+    $ui-body-background-color: #04305A
+);
+
+//******************************************************公共主题UI******************************************************
 @include extjs-button-small-ui (
     $ui:"firstbtn",
     $color:#fff,
-    $background-color: #5FA2DD,
+    $background-color: #35BAF6,
     $border-width:0px
 );
 
@@ -54,4 +87,9 @@
         $ui-header-color :#fbfbfb,
         $ui-background-color : #fbfbfb,
         $ui-border-width :0
-    )
+);
+
+//******************************************************公共样式******************************************************
+.x-btn-button-center{
+    justify-content:left;
+};
