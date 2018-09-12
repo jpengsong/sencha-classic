@@ -51,28 +51,33 @@ Ext.define("app.view.main.HomeController", {
                         {
                             mouseover: "onMenuMouseOver"
                         }
-                    }; items.push(item1);
+                    };
+                    items.push(item1);
                     if (!Ext.isEmpty(record.children)) {
-                        item1.menu = [];
+                        var item1Menu = Ext.create({ xtype: "menu", ui: "first-home-center-west-menu-button-menuItem" });
                         Ext.each(record.children, function (record) {
-                            var item2 = { text: record.text, iconCls: record.iconCls }; item1.menu.push(item2);
+                            var item1child = { text: record.text, iconCls: record.iconCls };
                             if (!Ext.isEmpty(record.children)) {
-                                item2.menu = [];
+                                var item2Menu = Ext.create({ xtype: "menu", ui: "first-home-center-west-menu-button-menuItem" });
                                 Ext.each(record.children, function (record) {
-                                    var item3 = { text: record.text, iconCls: record.iconCls }; item2.menu.push(item3);
+                                    var item2child = { text: record.text, iconCls: record.iconCls };
                                     if (!Ext.isEmpty(record.children)) {
-                                        item3.menu = [];
+                                        var item3Menu = Ext.create({ xtype: "menu", ui: "first-home-center-west-menu-button-menuItem" });
                                         Ext.each(record.children, function (record) {
-                                            var item4 = { text: record.text, iconCls: record.iconCls }; item3.menu.push(item4);
+                                            var item3child = { text: record.text, iconCls: record.iconCls }; 
+                                            item3Menu.add(item3child);
                                         })
+                                        item2child.menu=item3Menu;
                                     }
+                                    item2Menu.add(item2child);
                                 })
+                                item1child.menu=item2Menu;
                             }
+                            item1Menu.add(item1child);
                         })
+                        item1.menu = item1Menu;
                     }
                 })
-                console.info(items);
-                //refs.menuTop.add(items);
                 refs.menuLeft.add(items);
             }, error: function (data) {
 

@@ -1,95 +1,106 @@
 //头部-UI
 @include extjs-toolbar-ui (
-    $ui:"first-home-head-toolbar",
-    $background-color :#35BAF6,
-    $border-width : 0px
+$ui:"first-home-head-toolbar",
+$background-color :$base-color,
+$border-width : 0px
 );
 
 //头部-折叠按钮UI
 @include extjs-button-small-ui (
-    $ui:"first-home-head-toolbar-bars",
-    $background-color : #35BAF6,
-    $background-color-pressed: #35BAF6,
-    $background-color-over : #35BAF6,
-    $border-width : 0,
-    $inner-border-width :0
+$ui:"first-home-head-toolbar-bars",
+$background-color : $base-color,
+$background-color-pressed: $base-color,
+$background-color-over : $base-color,
+$border-width : 0,
+$inner-border-width :0
 );
 
 //中部-左侧
 @include extjs-panel-ui (
-    $ui:"first-home-center-west",
-    $ui-body-background-color :#032342,
-    $ui-body-color:#fff
+$ui:"first-home-center-west",
+$ui-body-background-color :#04305A,
+$ui-body-color:#fff
 );
 
-//中部-左侧-菜单-按钮项
+//中部-左侧-菜单-按钮
 @include extjs-button-medium-ui (
-    $ui:"first-home-center-west-menu-button",
-    $line-height:40px,
-    $icon-size:40px,
-    $glyph-font-size :25px,
-    $background-color : #032342,
-    $background-color-over :  #021A32
+$ui:"first-home-center-west-menu-button",
+$line-height:40px, //行高
+$icon-size:40px, //图标宽度
+$glyph-font-size :25px,//图标大小
+$background-color : #04305A,
+$background-color-over :#032342,
+$border-width :1px,
+$border-color :#02203d
+);
+
+//中部-左侧-菜单-按钮菜单项
+@include extjs-menu-ui (
+$ui:"first-home-center-west-menu-button-menuItem",
+$ui-item-height:45px,
+$ui-item-icon-size :35px,
+$ui-glyph-font-size :28px,
+$ui-glyph-color:$base-color
 );
 
 //中部-左侧-用户
 @include extjs-panel-ui(
-    $ui:"first-home-center-west-user",
-    $ui-body-color:#fff,
-    $ui-body-background-color: #04305A
+$ui:"first-home-center-west-user",
+$ui-body-color:#fff,
+$ui-body-background-color: #032342
 );
 
 //******************************************************公共主题UI******************************************************
 @include extjs-button-small-ui (
-    $ui:"firstbtn",
-    $color:#fff,
-    $background-color: #35BAF6,
-    $border-width:0px
+$ui:"firstbtn",
+$color:#fff,
+$background-color: #35BAF6,
+$border-width:0px
 );
 
 @include extjs-button-small-ui (
-    $ui:"secondbtn",
-    $color:#fff,
-    $background-color: #025B80,
-    $border-width:0px
+$ui:"secondbtn",
+$color:#fff,
+$background-color: #025B80,
+$border-width:0px
 );
 
 @include extjs-button-small-ui (
-    $ui:"thirdbtn",
-    $color:#fff,
-    $background-color:  #157fcc,
-    $border-width:0px
+$ui:"thirdbtn",
+$color:#fff,
+$background-color:#157fcc,
+$border-width:0px
 );
 
 @include extjs-button-small-ui (
-    $ui:"fourthbtn",
-    $color:#fff,
-    $background-color:  #1DA02B,
-    $border-width:0px
+$ui:"fourthbtn",
+$color:#fff,
+$background-color:#1DA02B,
+$border-width:0px
 );
 
 @include extjs-button-small-ui (
-    $ui:"fifthbtn",
-    $color:#fff,
-    $background-color:  #02A2AA,
-    $border-width:0px
+$ui:"fifthbtn",
+$color:#fff,
+$background-color:#02A2AA,
+$border-width:0px
 );
 
 @include extjs-button-small-ui (
-    $ui:"sixthbtn",
-    $color:#fff,
-    $background-color:  #d32f2f,
-    $border-width:0px
+$ui:"sixthbtn",
+$color:#fff,
+$background-color:#d32f2f,
+$border-width:0px
 );
 
 @include extjs-tip-ui(
-        $ui:"homeheadsetupTip",
-        $ui-header-color :#fbfbfb,
-        $ui-background-color : #fbfbfb,
-        $ui-border-width :0
+$ui:"homeheadsetupTip",
+$ui-header-color :#fbfbfb,
+$ui-background-color : #fbfbfb,
+$ui-border-width :0
 );
 
 //******************************************************公共样式******************************************************
 .x-btn-button-center{
-    justify-content:left;
+justify-content:left;
 };

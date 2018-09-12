@@ -7,17 +7,7 @@
                 "children": [
                     {
                         "text": "线索",
-                        "iconCls": "x-fa fa-folder",
-                        "children": [
-                            {
-                                "text": "线索",
-                                "iconCls": "x-fa fa-folder"
-                            },
-                            {
-                                "text": "客户",
-                                "iconCls": "x-fa fa-folder"
-                            }
-                        ]
+                        "iconCls": "x-fa fa-folder"
                     },
                     {
                         "text": "客户",

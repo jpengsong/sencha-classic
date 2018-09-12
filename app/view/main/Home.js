@@ -116,7 +116,10 @@ Ext.define("app.view.main.Home.center.west.menu", {
         arrowVisible: false,
         scale: 'medium',
         menuAlign: "tr",
-        ui: "first-home-center-west-menu-button"
+        ui: "first-home-center-west-menu-button",
+        style: {
+            borderStyle: 'solid none none none'
+        }
     },
     reference: "menuLeft",
     defaultType: "button"
