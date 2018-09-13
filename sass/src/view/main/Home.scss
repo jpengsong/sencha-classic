@@ -1,19 +1,4 @@
-//头部-UI
-@include extjs-toolbar-ui (
-$ui:"first-home-head-toolbar",
-$background-color :$base-color,
-$border-width : 0
-);
 
-//头部-折叠按钮UI
-@include extjs-button-small-ui (
-$ui:"first-home-head-toolbar-bars",
-$background-color : $base-color,
-$background-color-pressed: $base-color,
-$background-color-over : $base-color,
-$border-width : 0,
-$inner-border-width :0
-);
 
 //中部-左侧
 @include extjs-panel-ui (
@@ -25,7 +10,6 @@ $ui-body-color:#fff
 //中部-左侧-菜单-按钮
 @include extjs-button-medium-ui (
 $ui:"first-home-center-west-menu-button",
-$line-height:40px, //行高
 $icon-size:40px, //图标宽度
 $glyph-font-size :25px,//图标大小
 $background-color : #04305A,
@@ -93,14 +77,45 @@ $background-color:#d32f2f,
 $border-width:0px
 );
 
+//头部-设置框
 @include extjs-tip-ui(
-$ui:"homeheadsetupTip",
+$ui:"home-head-setupTip",
 $ui-header-color :#fbfbfb,
 $ui-background-color : #fbfbfb,
 $ui-border-width :0
+);
+
+//头部-UI
+@include extjs-toolbar-ui (
+$ui:"home-head-toolbar",
+$background-color :$base-color,
+$border-width : 0
+);
+
+//头部-折叠按钮UI
+@include extjs-button-small-ui (
+$ui:"home-head-toolbar-bars",
+$background-color : $base-color,
+$background-color-pressed: $base-color,
+$background-color-over : $base-color,
+$border-width : 0,
+$inner-border-width :0
+);
+
+
+//左侧-菜单分页
+@include extjs-button-small-ui (
+    $ui:"home-small-defaultbtn",
+    $border-width : 0,
+    $background-color:transparent
 );
 
 //******************************************************公共样式******************************************************
 .x-btn-button-center{
 justify-content:left;
 };
+
+.x-toolbar-default{
+    padding:0px 0px 0px 0px;
+    background:none;
+}

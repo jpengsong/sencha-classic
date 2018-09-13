@@ -60,14 +60,14 @@ Ext.define("app.view.main.Home.head", {
     items: [
         {
             xtype: "toolbar",
-            ui: "first-home-head-toolbar",
+            ui: "home-head-toolbar",
             reference: "headerToolbar",
             padding: '0 0 0 0',
             items: [
                 { xtype: "Homeheadcompany" },
                 {
                     xtype: "button",
-                    ui: "first-home-head-toolbar-bars",
+                    ui: "home-head-toolbar-bars",
                     iconCls: "x-fa fa-bars"
                 },
                 '->',
@@ -105,9 +105,9 @@ Ext.define("app.view.main.Home.center.west.user", {
 })
 
 //首页中部左侧菜单
-Ext.define("app.view.main.Home.center.west.menu", {
-    extend: "Ext.container.Container",
-    xtype: "Homecenterwestmenu",
+Ext.define("app.view.main.Home.center.west.navigation", {
+    extend: "Ext.panel.Panel",
+    xtype: "Homecenterwestnavigation",
     layout: {
         type: "vbox",
         align: 'stretch'
@@ -116,13 +116,46 @@ Ext.define("app.view.main.Home.center.west.menu", {
         arrowVisible: false,
         scale: 'medium',
         menuAlign: "tr",
+        height:50,
         ui: "first-home-center-west-menu-button",
         style: {
-            borderStyle: 'solid none none none'
+            borderStyle: 'none none solid none'
         }
     },
-    reference: "menuLeft",
+    reference: "westnavigation",
     defaultType: "button",
+    bbar: [
+        {
+            xtype: "container",
+            height: 60,
+            padding: '0 0 0 0',
+            margin: '0 0 0 0',
+            flex: 1,
+            layout: {
+                type: "hbox",
+                align: "stretch",
+                pack: "center"
+            },
+            defaults: { ui: "home-small-defaultbtn", padding: "0 5", iconAlign: "top" },
+            items: [
+                {
+                    xtype: "button", iconCls: "x-fa fa-angle-left fa-3x", flex: 1
+                },
+                {
+                    xtype: "button", iconCls: "x-fa fa-circle",text:""
+                },
+                {
+                    xtype: "button", iconCls: "x-fa fa-circle-o"
+                },
+                {
+                    xtype: "button", iconCls: "x-fa fa-circle-o"
+                },
+                {
+                    xtype: "button", iconCls: "x-fa fa-angle-right fa-3x", flex: 1
+                }
+            ]
+        }
+    ],
     listeners: {
         afterrender: "onAfterender"
     }
@@ -141,8 +174,7 @@ Ext.define("app.view.main.Home.center.west", {
     },
     items: [
         { xtype: "Homecenterwestuser" },
-        { xtype: "Homecenterwestmenu",flex:1 },
-        { xtype: "button", text: "button",height:50 }
+        { xtype: "Homecenterwestnavigation", flex: 1 }
     ]
 })
 
@@ -184,7 +216,7 @@ Ext.define('app.view.main.Home.head.navigation.setupTip', {
     anchor: 'left',
     autoHide: false,
     closable: true,
-    ui: "homeheadsetupTip",
+    ui: "home-head-setupTip",
     header: {
         xtype: "header"
     },

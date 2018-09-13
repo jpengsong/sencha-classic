@@ -99,7 +99,7 @@ Ext.define("app.view.main.HomeController", {
                         item1.menu = item1Menu;
                     }
                 })
-                refs.menuLeft.add(items);
+                refs.westnavigation.add(items);
             }, error: function (data) {
 
             }

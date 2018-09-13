@@ -90,6 +90,42 @@
                     {
                         "text": "公告管理",
                         "iconCls": "x-fa fa-folder"
+                    },
+                    {
+                        "text": "日程安排",
+                        "iconCls": "x-fa fa-folder"
+                    },
+                    {
+                        "text": "知识",
+                        "iconCls": "x-fa fa-folder"
+                    },
+                    {
+                        "text": "工作日志",
+                        "iconCls": "x-fa fa-folder"
+                    },
+                    {
+                        "text": "工单受理",
+                        "iconCls": "x-fa fa-folder"
+                    },
+                    {
+                        "text": "审批",
+                        "iconCls": "x-fa fa-folder"
+                    },
+                    {
+                        "text": "公告管理",
+                        "iconCls": "x-fa fa-folder"
+                    },
+                    {
+                        "text": "工单受理",
+                        "iconCls": "x-fa fa-folder"
+                    },
+                    {
+                        "text": "审批",
+                        "iconCls": "x-fa fa-folder"
+                    },
+                    {
+                        "text": "公告管理",
+                        "iconCls": "x-fa fa-folder"
                     }
                 ]
             },
@@ -179,14 +215,14 @@
                 "text": "营销3",
                 "iconCls": "x-fa fa-ban"
             },
-            // {
-            //     "text": "营销4",
-            //     "iconCls": "x-fa fa-ban"
-            // },
-            // {
-            //     "text": "营销5",
-            //     "iconCls": "x-fa fa-ban"
-            // }
+            {
+                "text": "营销4",
+                "iconCls": "x-fa fa-ban"
+            },
+            {
+                "text": "营销5",
+                "iconCls": "x-fa fa-ban"
+            }
         ]
     }
 }
