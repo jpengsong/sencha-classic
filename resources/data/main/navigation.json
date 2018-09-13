@@ -138,21 +138,55 @@
                     {
                         "text": "邮件营销",
                         "iconCls": "x-fa fa-folder"
+                    },
+                    {
+                        "text": "短信发件箱",
+                        "iconCls": "x-fa fa-folder"
+                    },
+                    {
+                        "text": "邮件营销",
+                        "iconCls": "x-fa fa-folder"
+                    },
+                    {
+                        "text": "短信发件箱",
+                        "iconCls": "x-fa fa-folder"
+                    },
+                    {
+                        "text": "邮件营销1",
+                        "iconCls": "x-fa fa-folder",
+                        "children": [
+                            {
+                                "text": "短信营销",
+                                "iconCls": "x-fa fa-folder"
+                            },
+                            {
+                                "text": "短信发件箱",
+                                "iconCls": "x-fa fa-folder"
+                            },
+                            {
+                                "text": "邮件营销",
+                                "iconCls": "x-fa fa-folder"
+                            }
+                        ]
                     }
                 ]
             },
             {
-                "text": "营销1",
+                "text": "营销2",
                 "iconCls": "x-fa fa-ban"
             },
             {
-                "text": "营销1",
+                "text": "营销3",
                 "iconCls": "x-fa fa-ban"
             },
-            {
-                "text": "营销1",
-                "iconCls": "x-fa fa-ban"
-            }
+            // {
+            //     "text": "营销4",
+            //     "iconCls": "x-fa fa-ban"
+            // },
+            // {
+            //     "text": "营销5",
+            //     "iconCls": "x-fa fa-ban"
+            // }
         ]
     }
 }

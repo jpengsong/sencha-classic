@@ -80,7 +80,7 @@ Ext.define("app.view.main.Home.head", {
 Ext.define("app.view.main.Home.center.west.user", {
     extend: "Ext.panel.Panel",
     xtype: "Homecenterwestuser",
-    ui:"first-home-center-west-user",
+    ui: "first-home-center-west-user",
     height: 120,
     layout: {
         type: "vbox",
@@ -122,14 +122,17 @@ Ext.define("app.view.main.Home.center.west.menu", {
         }
     },
     reference: "menuLeft",
-    defaultType: "button"
+    defaultType: "button",
+    listeners: {
+        afterrender: "onAfterender"
+    }
 })
 
 //首页中部左侧
 Ext.define("app.view.main.Home.center.west", {
     extend: "Ext.panel.Panel",
     xtype: "Homecenterwest",
-    ui:"first-home-center-west",
+    ui: "first-home-center-west",
     layout: {
         type: "vbox"
     },
@@ -138,7 +141,8 @@ Ext.define("app.view.main.Home.center.west", {
     },
     items: [
         { xtype: "Homecenterwestuser" },
-        { xtype: "Homecenterwestmenu" }
+        { xtype: "Homecenterwestmenu",flex:1 },
+        { xtype: "button", text: "button",height:50 }
     ]
 })
 
@@ -149,7 +153,7 @@ Ext.define("app.view.main.Home.center", {
     flex: 1,
     layout: {
         type: "hbox",
-        align:"stretch"
+        align: "stretch"
     },
     items: [
         { xtype: "Homecenterwest" }
@@ -168,9 +172,7 @@ Ext.define("app.view.main.Home", {
     items: [
         { xtype: "Homehead" },
         { xtype: "Homecenter" }
-    ], listeners: {
-        afterrender: "onAfterender"
-    }
+    ]
 })
 
 //首页头部导航按钮-设置

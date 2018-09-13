@@ -54,24 +54,45 @@ Ext.define("app.view.main.HomeController", {
                     };
                     items.push(item1);
                     if (!Ext.isEmpty(record.children)) {
-                        var item1Menu = Ext.create({ xtype: "menu", ui: "first-home-center-west-menu-button-menuItem" });
+                        var item1Menu = Ext.create({
+                            xtype: "menu", ui: "first-home-center-west-menu-button-menuItem",
+                            listeners: {
+                                mouseleave: function (th) {
+                                    th.hide();
+                                }
+                            }
+                        });
                         Ext.each(record.children, function (record) {
                             var item1child = { text: record.text, iconCls: record.iconCls };
                             if (!Ext.isEmpty(record.children)) {
-                                var item2Menu = Ext.create({ xtype: "menu", ui: "first-home-center-west-menu-button-menuItem" });
+                                var item2Menu = Ext.create({
+                                    xtype: "menu", ui: "first-home-center-west-menu-button-menuItem",
+                                    listeners: {
+                                        mouseleave: function (th) {
+                                            th.hide();
+                                        }
+                                    }
+                                });
                                 Ext.each(record.children, function (record) {
                                     var item2child = { text: record.text, iconCls: record.iconCls };
                                     if (!Ext.isEmpty(record.children)) {
-                                        var item3Menu = Ext.create({ xtype: "menu", ui: "first-home-center-west-menu-button-menuItem" });
+                                        var item3Menu = Ext.create({
+                                            xtype: "menu", ui: "first-home-center-west-menu-button-menuItem",
+                                            listeners: {
+                                                mouseleave: function (th) {
+                                                    th.hide();
+                                                }
+                                            }
+                                        });
                                         Ext.each(record.children, function (record) {
-                                            var item3child = { text: record.text, iconCls: record.iconCls }; 
+                                            var item3child = { text: record.text, iconCls: record.iconCls };
                                             item3Menu.add(item3child);
                                         })
-                                        item2child.menu=item3Menu;
+                                        item2child.menu = item3Menu;
                                     }
                                     item2Menu.add(item2child);
                                 })
-                                item1child.menu=item2Menu;
+                                item1child.menu = item2Menu;
                             }
                             item1Menu.add(item1child);
                         })

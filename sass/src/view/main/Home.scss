@@ -2,7 +2,7 @@
 @include extjs-toolbar-ui (
 $ui:"first-home-head-toolbar",
 $background-color :$base-color,
-$border-width : 0px
+$border-width : 0
 );
 
 //头部-折叠按钮UI
@@ -39,7 +39,7 @@ $border-color :#02203d
 $ui:"first-home-center-west-menu-button-menuItem",
 $ui-item-height:45px,
 $ui-item-icon-size :35px,
-$ui-glyph-font-size :28px,
+$ui-glyph-font-size :26px,
 $ui-glyph-color:$base-color
 );
 
