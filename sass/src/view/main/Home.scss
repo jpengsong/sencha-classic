@@ -1,3 +1,39 @@
+//head
+@include extjs-panel-ui  (
+    $ui:"home-head",
+    $border-width : 0,
+    $ui-body-background-color :$base-color
+);
+
+//head-toolbar
+@include extjs-toolbar-ui  (
+    $ui:"home-head-toolbar",
+    $background-color : $base-color
+);
+
+//transparent-button
+@include extjs-button-small-ui (
+    $ui:"planbutton",
+    $border-width : 0,
+    $color:rgba(255,255,255,.7),
+    $background-color:transparent
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //中部-左侧
 @include extjs-panel-ui (
 $ui:"first-home-center-west-navigation",
@@ -93,14 +129,17 @@ $border-width : 0,
 $inner-border-width :0
 );
 
-//左侧-菜单分页
-@include extjs-button-small-ui (
-    $ui:"home-small-defaultbtn",
-    $border-width : 0,
-    $background-color:transparent
-);
+
 
 //******************************************************公共样式******************************************************
+
+.logo{
+    text-align:center;
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    line-height: 50px;
+};
+
 .x-btn-button-center{
 justify-content:left;
 };
