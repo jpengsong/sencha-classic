@@ -7,6 +7,5 @@ Ext.define('app.Application', {
     extend: 'Ext.app.Application',
 
     name: 'app',
-
     quickTips: true
 });

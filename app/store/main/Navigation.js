@@ -4,7 +4,7 @@ Ext.define('app.store.main.Navigation', {
     extend: 'Ext.data.Store',
     model: 'app.model.main.Navigation',
     proxy:ux.Ajax.proxy({
-        type: 'Ajax',
+        type: 'Json',
         method:"Get",
         url:'resources/data/main/Navigation.json',
         dataType:config.GridStore

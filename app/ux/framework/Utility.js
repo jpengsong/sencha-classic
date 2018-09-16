@@ -474,9 +474,9 @@ Ext.define("ux.framework.Ajax", {
          * *
          */
         proxy: function (option) {
-            return Ext.data.proxy.Ajax({
+            var me = this;
+            new Ext.data.proxy.Ajax({
                 url: "http://localhost:1841/" + option.url,
-                type: option.type || "JSON",
                 timeout: 60000,
                 extraParams: me.getRequestData(option),
                 actionMethods: { read: option.method || "POST" },
