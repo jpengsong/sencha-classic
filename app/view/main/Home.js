@@ -1,292 +1,156 @@
-// //首页头部公司
-// Ext.define("app.view.main.Home.head.company", {
-//     xtype: "Homeheadcompany",
-//     width: 180,
-//     extend: "Ext.container.Container",
-//     layout: {
-//         type: "hbox",
-//         align: "middle"
-//     },
-//     defaults: { margin: '10 5 3 10' },
-//     items: [
-//         {
-//             xtype: "image",
-//             width: 17,
-//             height: 26,
-//             src: "/resources/Image/main/logo.png"
-//         },
-//         {
-//             xtype: "container",
-//             style: "color:#f0f0f0;font-size:16px;font-weight: 400;",
-//             html: "Sencha"
-//         }
-//     ]
-// })
-
-// //首页头部导航
-// Ext.define("app.view.main.Home.head.Navigation", {
-//     extend: "Ext.container.Container",
-//     xtype: "HomeheadNavigation",
-//     defaults: { scale: "medium" },
-//     items: [
-//         {
-//             xtype: "button",
-//             reference: "news",
-//             iconCls: 'x-fa fa-comment-o',
-//         },
-//         {
-//             xtype: "button",
-//             iconCls: 'x-fa fa-home',
-//             reference: "HomeheadSetup",
-//             listeners: {
-//                 afterrender: "onAfterrenderNavigationSetup",
-//                 click: "onClickNavigationSetup",
-//             }
-//         },
-//         {
-//             xtype: "button",
-//             reference: "logout",
-//             iconCls: "x-fa fa-power-off"
-//         }
-//     ]
-// })
-
-// //首页头部
-// Ext.define("app.view.main.Home.head", {
-//     extend: "Ext.container.Container",
-//     xtype: "Homehead",
-//     height: 55,
-//     layout: "fit",
-//     items: [
-//         {
-//             xtype: "toolbar",
-//             ui: "home-head-toolbar",
-//             cls: "hometitle",
-//             reference: "headerToolbar",
-//             padding: '0 0 0 0',
-//             items: [
-//                 //{ xtype: "Homeheadcompany" },
-//                 '->',
-//                 { xtype: "HomeheadNavigation" }
-//             ]
-//         }]
-// })
-
-// //首页中部左侧用户
-// Ext.define("app.view.main.Home.center.west.user", {
-//     extend: "Ext.panel.Panel",
-//     xtype: "Homecenterwestuser",
-//     ui: "first-home-center-west-user",
-//     height: 120,
-//     layout: {
-//         type: "hbox"
-//     },
-//     items: [
-//         {
-//             xtype: "container",
-//             flex: 1,
-//             layout: {
-//                 type: "vbox",
-//                 align: "center"
-//             },
-//             items: [
-//                 {
-//                     xtype: 'image',
-//                     width: "50%",
-//                     padding: '10 0',
-//                     height: 100,
-//                     style: {
-//                         "border-radius": "50%"
-//                     },
-//                     src: "/resources/Image/main/user.png"
-//                 },
-//                 {
-//                     xtype: "container",
-//                     html: "Admin管理员"
-//                 }
-//             ]
-//         },
-//         {
-//             xtype: "button",
-//             width: 15,
-//             padding: "5 0 0 0",
-//             ui: "plainbtn",
-//             iconCls: "x-fa fa-angle-double-right"
-//         }
-//     ]
-// })
-
-// //首页中部左侧菜单
-// Ext.define("app.view.main.Home.center.west.navigation", {
-//     extend: "Ext.panel.Panel",
-//     xtype: "Homecenterwestnavigation",
-//     ui: "first-home-center-west-navigation",
-//     flex: 1,
-//     layout: {
-//         type: "vbox",
-//         align: 'stretch'
-//     },
-//     defaults: {
-//         arrowVisible: false,
-//         scale: 'medium',
-//         menuAlign: "tr",
-//         height: 53,
-//         ui: "first-home-center-west-menu-button",
-//         style: {
-//             borderStyle: 'none none solid none'
-//         }
-//     },
-//     reference: "westnavigation",
-//     defaultType: "button",
-//     bbar: [
-//         {
-//             xtype: "panel",
-//             ui: "first-home-center-west-navigation",
-//             style: {
-//                 borderStyle: 'none none none none',
-//                 "border-top-color": '#02203d',
-//                 "border-width": '1px'
-//             },
-//             height: 53,
-//             padding: '0 0 0 0',
-//             margin: '0 0 0 0',
-//             flex: 1,
-//             layout: {
-//                 type: "hbox",
-//                 align: "middle",
-//                 pack: "center"
-//             },
-//             defaults: {
-//                 style: {
-//                     "background-color": "transparent"
-//                 },
-//                 padding: "0 2",
-//                 iconAlign: "top",
-//                 border: 0
-//             },
-//             items: [
-//                 {
-//                     xtype: "button", iconCls: "x-fa fa-angle-left fa-2x", flex: 1, hidden: true
-//                 },
-//                 {
-//                     xtype: "button", iconCls: "x-fa fa-circle font-size-12px"
-//                 },
-//                 {
-//                     xtype: "button", iconCls: "x-fa fa-circle font-size-12px"
-//                 },
-//                 {
-//                     xtype: "button", iconCls: "x-fa fa-circle font-size-12px"
-//                 },
-//                 {
-//                     xtype: "button", iconCls: "x-fa fa-angle-right fa-2x", flex: 1, hidden: true
-//                 }
-//             ]
-//         }
-//     ],
-//     listeners: {
-//         afterrender: "onAfterender"
-//     }
-// })
-
-// //首页中部左侧
-// Ext.define("app.view.main.Home.center.west", {
-//     extend: "Ext.container.Container",
-//     xtype: "Homecenterwest",
-//     layout: {
-//         type: "vbox",
-//         align: 'stretch'
-//     },
-//     defaults: {
-//         width: 220
-//     },
-//     items: [
-//         { xtype: "Homecenterwestuser" },
-//         { xtype: "Homecenterwestnavigation" }
-//     ]
-// })
-
-// //首页中部
-// Ext.define("app.view.main.Home.center", {
-//     extend: "Ext.container.Container",
-//     xtype: "Homecenter",
-//     flex: 1,
-//     layout: {
-//         type: "hbox",
-//         align: "stretch"
-//     },
-//     items: [
-//         //{ xtype: "Homecenterwest" },
-//         // {
-//         //     xtype: "menu",
-//         //     ui: "first-home-center-west-menu-button-menuItem",
-//         //     width: 180,
-//         //     floating: false,  // usually you want this set to True (default)
-//         //     items: [
-//         //         {
-//         //             text: 'plain item 1', iconCls: "x-fa fa-folder",
-//         //             menu:[
-//         //                 {
-//         //                     text: 'plain item 3', iconCls: "x-fa fa-desktop"
-//         //                 }, {
-//         //                     text: 'plain item 2', iconCls: "x-fa fa-money"
-//         //                 }, {
-//         //                     text: 'plain item 3', iconCls: "x-fa fa-desktop"
-//         //                 }
-//         //             ]
-//         //         }, {
-//         //             text: 'plain item 2', iconCls: "x-fa fa-money"
-//         //         }, {
-//         //             text: 'plain item 3', iconCls: "x-fa fa-desktop"
-//         //         }, {
-//         //             text: 'plain item 2', iconCls: "x-fa fa-money"
-//         //         }, {
-//         //             text: 'plain item 3', iconCls: "x-fa fa-desktop"
-//         //         }, {
-//         //             text: 'plain item 2', iconCls: "x-fa fa-money"
-//         //         }, {
-//         //             text: 'plain item 3', iconCls: "x-fa fa-desktop"
-//         //         }, {
-//         //             text: 'plain item 2', iconCls: "x-fa fa-money"
-//         //         }, {
-//         //             text: 'plain item 3', iconCls: "x-fa fa-desktop"
-//         //         }
-//         //     ]
-//         // },
-//         {
-//             xtype: "tabpanel",
-//              flex: 1,
-//              scrollable :false,
-//             items: [
-//                 { title: "首页" },
-//                 { title: "客运管理", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true },
-//                 { title: "财务", closable: true }
-//             ]
-//         }
-//     ]
-// })
+//首页中部
+Ext.define("app.view.main.Home.center", {
+    extend: "Ext.container.Container",
+    xtype: "homecenter",
+    flex: 1,
+    layout: {
+        type: "hbox",
+        align: 'stretch'
+    },
+    items: [
+        {
+            xtype:"container",
+            width: 220,
+            style:{
+                "background-color":"#32404e"
+            },
+            scrollable:Ext.scroll.Scroller({y:true,x:false,scrollbars:false}),
+            items:[
+                {
+                    xtype: 'treelist',
+                    ui: "nav",
+                    scrollable:true,
+                    store: {
+                        root: {
+                            expanded: true,
+                            children: [
+                                {
+                                    text: 'detention',
+                                    leaf: true,
+                                    iconCls: 'x-fa fa-frown-o'
+                                },
+                                {
+                                    text: 'homework',
+                                    expanded: true,
+                                    iconCls: 'x-fa fa-folder',
+                                    children: [{
+                                        text: 'book report',
+                                        leaf: true,
+                                        iconCls: 'x-fa fa-book'
+                                    }, {
+                                        text: 'algebra',
+                                        leaf: true,
+                                        iconCls: 'x-fa fa-graduation-cap'
+                                    }]
+                                }, {
+                                    text: 'buy lottery tickets',
+                                    leaf: true,
+                                    iconCls: 'x-fa fa-usd'
+                                },
+                                {
+                                    text: 'detention',
+                                    leaf: true,
+                                    iconCls: 'x-fa fa-frown-o'
+                                },
+                                {
+                                    text: 'homework',
+                                    expanded: true,
+                                    iconCls: 'x-fa fa-folder',
+                                    children: [{
+                                        text: 'book report',
+                                        leaf: true,
+                                        iconCls: 'x-fa fa-book'
+                                    }, {
+                                        text: 'algebra',
+                                        leaf: true,
+                                        iconCls: 'x-fa fa-graduation-cap'
+                                    }]
+                                }, {
+                                    text: 'buy lottery tickets',
+                                    leaf: true,
+                                    iconCls: 'x-fa fa-usd'
+                                }, {
+                                    text: 'buy lottery tickets',
+                                    leaf: true,
+                                    iconCls: 'x-fa fa-usd'
+                                },
+                                {
+                                    text: 'detention',
+                                    leaf: true,
+                                    iconCls: 'x-fa fa-frown-o'
+                                },
+                                {
+                                    text: 'homework',
+                                    expanded: true,
+                                    iconCls: 'x-fa fa-folder',
+                                    children: [{
+                                        text: 'book report',
+                                        leaf: true,
+                                        iconCls: 'x-fa fa-book'
+                                    }, {
+                                        text: 'algebra',
+                                        leaf: true,
+                                        iconCls: 'x-fa fa-graduation-cap'
+                                    }]
+                                }, {
+                                    text: 'buy lottery tickets',
+                                    leaf: true,
+                                    iconCls: 'x-fa fa-usd'
+                                }, {
+                                    text: 'buy lottery tickets',
+                                    leaf: true,
+                                    iconCls: 'x-fa fa-usd'
+                                },
+                                {
+                                    text: 'detention',
+                                    leaf: true,
+                                    iconCls: 'x-fa fa-frown-o'
+                                },
+                                {
+                                    text: 'homework',
+                                    expanded: true,
+                                    iconCls: 'x-fa fa-folder',
+                                    children: [{
+                                        text: 'book report',
+                                        leaf: true,
+                                        iconCls: 'x-fa fa-book'
+                                    }, {
+                                        text: 'algebra',
+                                        leaf: true,
+                                        iconCls: 'x-fa fa-graduation-cap'
+                                    }]
+                                }, {
+                                    text: 'buy lottery tickets',
+                                    leaf: true,
+                                    iconCls: 'x-fa fa-usd'
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            xtype: "tabpanel",
+            flex: 1,
+            ui: "home-tab-panel",
+            tabBar: {
+                height: 40
+            },
+            autoDestroy: false,
+            items: [
+                { title: "首页" },
+                { title: "客运管理", closable: true },
+                { title: "客运管理", closable: true },
+                { title: "客运管理", closable: true },
+                { title: "客运管理", closable: true },
+                { title: "客运管理", closable: true },
+                { title: "客运管理", closable: true },
+                { title: "客运管理", closable: true }
+            ]
+        }
+    ]
+})
 
 // //首页头部导航按钮-设置
 // Ext.define('app.view.main.Home.head.navigation.setupTip', {
@@ -407,7 +271,7 @@ Ext.define("app.view.main.Home.head", {
                     ui: "planbutton"
                 },
                 {
-                    xtype:"textfield",emptyText:"搜索..."
+                    xtype: "textfield", emptyText: "搜索..."
                 },
                 '->',
                 {
@@ -423,7 +287,7 @@ Ext.define("app.view.main.Home.head", {
                     ui: "planbutton"
                 },
                 {
-                    text:"贤心",
+                    text: "贤心",
                     ui: "planbutton",
                     menu: [
                         { text: '基本资料' },
@@ -450,6 +314,6 @@ Ext.define("app.view.main.Home", {
     },
     items: [
         { xtype: "homehead" },
-        //{ xtype: "Homecenter" }
+        { xtype: "homecenter" }
     ]
 })

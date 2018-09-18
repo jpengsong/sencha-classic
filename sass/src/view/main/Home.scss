@@ -20,116 +20,16 @@
 );
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//中部-左侧
-@include extjs-panel-ui (
-$ui:"first-home-center-west-navigation",
-$ui-body-background-color :#04305A,
-$ui-body-color:#fff
+@include extjs-tab-panel-ui  (
+    $ui:"home-tab-panel",
+    $ui-tab-color:#666,
+    $ui-bar-background-color:#fff
 );
 
-//中部-左侧-菜单-按钮
-@include extjs-button-medium-ui (
-$ui:"first-home-center-west-menu-button",
-$icon-size:40px, //图标宽度
-$glyph-font-size :25px,//图标大小
-$background-color : #04305A,
-$background-color-over :#032342,
-$border-width :1px,
-$border-color :#02203d
+@include treelist-ui(
+    $ui:"navigation",
+    $background-color :#32404e
 );
-
-//中部-左侧-菜单-按钮菜单项
-@include extjs-menu-ui (
-$ui:"first-home-center-west-menu-button-menuItem",
-$ui-item-height:45px,
-$ui-item-icon-size :35px,
-$ui-glyph-font-size :26px,
-$ui-glyph-color:$base-color
-);
-
-//中部-左侧-用户
-@include extjs-panel-ui(
-$ui:"first-home-center-west-user",
-$ui-body-color:#fff,
-$ui-body-background-color: #032342
-);
-
-//******************************************************公共主题UI******************************************************
-@include extjs-button-small-ui (
-$ui:"firstbtn",
-$color:#fff,
-$background-color: #35BAF6,
-$border-width:0px
-);
-
-@include extjs-button-small-ui (
-$ui:"secondbtn",
-$color:#fff,
-$background-color: #025B80,
-$border-width:0px
-);
-
-@include extjs-button-small-ui (
-$ui:"thirdbtn",
-$color:#fff,
-$background-color:#157fcc,
-$border-width:0px
-);
-
-@include extjs-button-small-ui (
-$ui:"fourthbtn",
-$color:#fff,
-$background-color:#1DA02B,
-$border-width:0px
-);
-
-@include extjs-button-small-ui (
-$ui:"fifthbtn",
-$color:#fff,
-$background-color:#02A2AA,
-$border-width:0px
-);
-
-@include extjs-button-small-ui (
-$ui:"sixthbtn",
-$color:#fff,
-$background-color:#d32f2f,
-$border-width:0px
-);
-
-//头部-设置框
-@include extjs-tip-ui(
-$ui:"home-head-setupTip",
-$ui-header-color :#fbfbfb,
-$ui-background-color : #fbfbfb,
-$ui-border-width :0
-);
-
-//菜单透明按钮
-@include extjs-button-small-ui (
-$ui:"plainbtn",
-$background-color :transparent,
-$background-color-pressed: transparent,
-$background-color-over :transparent,
-$border-width : 0,
-$inner-border-width :0
-);
-
-
 
 //******************************************************公共样式******************************************************
 
@@ -158,4 +58,9 @@ justify-content:left;
     background-repeat:no-repeat; 
     background-size:100% 100%;
     -moz-background-size:100% 100%;
+}
+
+.x-treelist-expander-first .x-treelist-item-expander {
+    left: auto;
+    right:0 ;
 }
