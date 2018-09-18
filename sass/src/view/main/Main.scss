@@ -43,11 +43,12 @@
 @include extjs-button-small-ui   (
     $ui:"defaultbtn",
     $background-color:  #fbfbfb,
-    $background-color-over : #fbfbfb,
+    $background-color-over : #ddd,
     $background-color-pressed: #fbfbfb,
     $arrow-glyph-color:#929292,
     $border-width:0,
     $color:#404040,
+    $glyph-color :#929292,
     $font-size:13px
 );
 
@@ -60,11 +61,6 @@
     $ui-item-height : 45,
     $ui-text-color:#404040,
     $ui-item-font-size:13px
-);
-
-@include extjs-toolbar-ui  (
-    $ui:"mainToolbar",
-    $background-color: #fbfbfb
 );
 
 @include extjs-tip-ui(

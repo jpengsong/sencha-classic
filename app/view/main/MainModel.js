@@ -15,9 +15,6 @@ Ext.define("app.view.main.MainModel", {
     stores: {
         MenuLocationStore: {
             type: "main.MenuLocationStore"
-        },
-        NavigationStore: {
-            type: "main.Navigation"
         }
     }
 })

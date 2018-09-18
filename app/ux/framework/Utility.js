@@ -398,7 +398,7 @@ Ext.define("ux.framework.Ajax", {
         /**
         * 发起Ajax.request请求
         * @param {Object} option 包含下列属性的对象
-        * @param {Object} option.Data 传给后台的参数
+        * @param {Object} option.data 传给后台的参数
         * @param {String} option.url 提交至后台的url地址，缺省为`http://localhost:1841/`
         * @param {String} option.method 提交方法，缺省为`POST`
         * @param {String} option.type 返回类型，缺省为`JSON`
@@ -408,55 +408,26 @@ Ext.define("ux.framework.Ajax", {
         * @param {Boolean} option.async 是否异步提交数据，缺省为`true`
         * @param {Number} option.timeout 请求延时，毫秒，缺省为`30000`
         * @param {Object} option.scope 作用域，缺省为`this`
-        * @param {Boolean} option.showMask 是否加遮罩，缺省为`false`
-        * @param {Ext.Component} option.MaskTarget 被遮罩的组件
         * @static
         */
         request: function (option) {
-            var me = this, config, loadMask, maskTarget, maskTargetMsg, showMask = false;
-            //显示遮罩
-            if (!Ext.isEmpty(option.showMask) && option.showMask) {
-                //显示Mask
-                showMask = true;
-
-                if (Ext.isEmpty(option.maskTarget)) {
-                    maskTarget = Ext.ComponentQuery.query("container[itemId='mainView']")[0];
-                } else {
-                    maskTarget = option.maskTarget;
-                }
-                if (Ext.isEmpty(option.maskTargetMsg)) {
-                    maskTargetMsg = "处理中";
-                } else {
-                    maskTargetMsg = option.maskTargetMsg;
-                }
-                loadMask = new Ext.LoadMask({
-                    msg: maskTargetMsg,
-                    target: maskTarget
-                });
-                loadMask.show();
-            };
+            var me = this, config;
             config = {
-                url: option.url || "",
+                url: "http://localhost:1841/" + option.url || "",
                 method: option.method || "POST",
                 params: me.getRequestData(option),
-                async: option.async, //异步请求数据
+                async: option.async || true, //异步请求数据
                 timeout: option.timeout || 30000,
                 success: function (response) {
-                    if (showMask) {
-                        loadMask.destroy();
-                    }
                     var responseData = response.responseText;
                     if (option.type == "JSON") {
                         responseData = Ext.decode(responseData);
                     }
                     if (Ext.isFunction(option.success)) {
-                        option.success(responseData);
+                        option.success(responseData.Data);
                     }
                 },
                 failure: function (msg) {
-                    if (showMask) {
-                        loadMask.destroy();
-                    }
                     if (Ext.isFunction(option.error)) {
                         option.error(msg);
                     }
@@ -476,8 +447,8 @@ Ext.define("ux.framework.Ajax", {
         proxy: function (option) {
             var me = this;
             new Ext.data.proxy.Ajax({
-                url: "http://localhost:1841/" + option.url,
                 timeout: 60000,
+                url: "http://localhost:1841/" + option.url,
                 extraParams: me.getRequestData(option),
                 actionMethods: { read: option.method || "POST" },
                 reader: Ext.create('ux.framework.Reader', { type: option.dataType })

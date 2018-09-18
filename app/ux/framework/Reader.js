@@ -25,7 +25,6 @@
             if (data.length == 0 && me.type != config.TreeStore) {
                 return new Ext.data.ResultSet({
                     total: 0,
-                    count: 0,
                     records: [],
                     success: true,
                     message: this.message
@@ -42,6 +41,8 @@
             } else if (me.type == config.ComboStore) {
                 data.total = this.recordCount;
                 me.raw = data;
+            }else{
+                me.raw=data;
             }
             return me.raw;
         } catch (ex) {

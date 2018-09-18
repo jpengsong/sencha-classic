@@ -6,6 +6,7 @@ Ext.define("app.model.main.Navigation", {
         { name: 'text', type: 'string' },
         { name: 'iconCls', type: 'string' },
         { name: 'xtype', type: 'string' },
+        { name: 'routeId', type: 'string' },
         { name: 'Sort', type: 'int' },
     ],
     idProperty: 'id'

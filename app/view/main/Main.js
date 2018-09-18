@@ -54,7 +54,6 @@ Ext.define("app.view.main.Main", {
         },
         {
             xtype: "toolbar",
-            ui: "mainToolbar",
             padding: "0 0",
             width: "100%",
             height: 45,
@@ -62,145 +61,106 @@ Ext.define("app.view.main.Main", {
                 margin: "0 5 0 10"
             },
             defaultButtonUI: "defaultbtn",
-            items: [
-                {
-                    text: '首页',
-                    menu: [
-                        { text: 'Item' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    text: '台账管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    text: '项目管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    text: '预警管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    text: '预警管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                },
-                {
-                    text: '预警管理',
-                    menu: [
-                        { text: 'Item 1' },
-                        { text: 'Item 2' },
-                        { text: 'Item 3' },
-                        { text: 'Item 4' }
-                    ]
-                }
-            ]
+            reference: "menuTop",
+            hidden: false
         },
         {
+            xtype: "container",
             flex: 1,
-            layout: 'border',
-            items: [{
-                region: 'west',
-                xtype: "container",
-                style: {
-                    "background-color": "#fbfbfb"
-                },
-                width: 180,
-                items: [
-                    {
-                        xtype: "container",
-                        margin: "10 5 7",
-                        style: {
-                            "background-color": "#fbfbfb"
-                        },
-                        layout: {
-                            type: "vbox",
-                            align: "middle"
-                        },
-                        items: [
-                            {
-                                xtype: 'image',
-                                width: "70%",
-                                height: 100,
-                                style: {
-                                    "border-radius": "50%"
-                                },
-                                src: "/resources/Image/main/user.png"
+            layout: {
+                type: "hbox"
+            },
+            defaults: {
+                height: "100%"
+            },
+            items: [
+                {
+                    xtype: "container",
+                    scrollable:false,
+                    width: 180,
+                    items: [
+                        {
+                            xtype: "container",
+                            height:120,
+                            style: {
+                                "background-color": "#fbfbfb"
                             },
-                        ]
-                    },
-                    {
-                        xtype: "menu",
-                        ui: "defaultmenu",
-                        floating: false,
-                        items: [
-                            {
-                                text: '首页',
-                                iconCls: 'x-fa fa-comment-o',
-                                menu: [
-                                    { text: 'Item 1', },
-                                    { text: 'Item 2' },
-                                    {
-                                        text: 'Item 3', menu: [
-                                            { text: 'Item 1' },
-                                            { text: 'Item 2' },
-                                            {
-                                                text: 'Item 3',
-                                                menu: [
-                                                    { text: 'Item 1' },
-                                                    { text: 'Item 2' },
-                                                    { text: 'Item 3' },
-                                                    { text: 'Item 4' }
-                                                ]
-                                            },
-                                            { text: 'Item 4' }
-                                        ]
+                            layout: {
+                                type: "vbox",
+                                align: "middle"
+                            },
+                            items: [
+                                {
+                                    xtype: 'image',
+                                    width: "70%",
+                                    height: 100,
+                                    margin: "15 0",
+                                    style: {
+                                        "border-radius": "50%"
                                     },
-                                    { text: '台账管理' }
-                                ]
-                            }, {
-                                text: '项目管理'
-                            }, {
-                                text: '预警管理'
-                            },
-                            {
-                                text: '预警管理',
-                                iconCls: 'x-fa fa-comment-o'
-                            }, {
-                                text: '预警管理'
-                            }
-                        ]
-                    }
-                ]
-            }, {
-                region: 'center',
-                xtype: 'panel',
-                layout: 'fit',
-                margin: '0 0 0 1'
-            }],
+                                    src: "/resources/Image/main/user.png"
+                                },
+                            ]
+                        },
+                        {
+                            xtype: "menu",
+                            reference: "menuLeft",
+                            ui: "defaultmenu",
+                            floating: false,
+                            height:400,
+                            hidden:true
+                        }
+                    ]
+                },
+                {
+                    xtype: "container",
+                    flex: 1
+                }
+            ]
+            // layout: 'border',
+            // items: [{
+            //     region: 'west',
+            //     xtype: "container",
+            //     style: {
+            //         "background-color": "#fbfbfb"
+            //     },
+            //     width: 180,
+            //     items: [
+            //         {
+            //             xtype: "container",
+            //             margin: "10 5 7",
+            //             style: {
+            //                 "background-color": "#fbfbfb"
+            //             },
+            //             layout: {
+            //                 type: "vbox",
+            //                 align: "middle"
+            //             },
+            //             items: [
+            //                 {
+            //                     xtype: 'image',
+            //                     width: "70%",
+            //                     height: 100,
+            //                     style: {
+            //                         "border-radius": "50%"
+            //                     },
+            //                     src: "/resources/Image/main/user.png"
+            //                 },
+            //             ]
+            //         },
+            //         {
+            //             xtype: "menu",
+            //             reference: "menuLeft",
+            //             ui: "defaultmenu",
+            //             floating: false
+            //         }
+            //     ]
+            // }, {
+            //     region: 'center',
+            //     xtype: 'panel',
+            //     layout: 'fit',
+            //     margin: '0 0 0 1'
+            // }
         }
     ], listeners: {
         afterrender: "onAfterender"
