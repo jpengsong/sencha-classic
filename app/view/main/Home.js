@@ -9,29 +9,67 @@ Ext.define("app.view.main.Home.center", {
     },
     items: [
         {
-            xtype:"container",
+            xtype: "container",
             width: 220,
-            style:{
-                "background-color":"#32404e"
+            style: {
+                "background-color": "#28333E"
             },
-            scrollable:Ext.scroll.Scroller({y:true,x:false,scrollbars:false}),
-            items:[
+            scrollable: Ext.scroll.Scroller({ y: true, x: false, scrollbars: false }),
+            items: [
                 {
                     xtype: 'treelist',
-                    ui: "nav",
-                    scrollable:true,
+                    ui: "navigation",
+                    scrollable: true,
+                    singleExpand: true,
+                    expanderOnly: false,
                     store: {
                         root: {
-                            expanded: true,
+                            expanded: false,
                             children: [
                                 {
-                                    text: 'detention',
+                                    text: '主页',
                                     leaf: true,
                                     iconCls: 'x-fa fa-frown-o'
                                 },
                                 {
-                                    text: 'homework',
-                                    expanded: true,
+                                    text: '组件',
+                                    expanded: false,
+                                    iconCls: 'x-fa fa-folder',
+                                    children: [
+                                        {
+                                            text: '栅格',
+                                            leaf: true,
+                                            iconCls: 'x-fa fa-book'
+                                        }, 
+                                        {
+                                            text: '按钮',
+                                            leaf: true,
+                                            iconCls: 'x-fa fa-graduation-cap'
+                                        }, 
+                                        {
+                                            text: '表单',
+                                            leaf: true,
+                                            iconCls: 'x-fa fa-graduation-cap'
+                                        }, 
+                                        {
+                                            text: '导航',
+                                            leaf: true,
+                                            iconCls: 'x-fa fa-graduation-cap'
+                                        }
+                                    ]
+                                }, {
+                                    text: '页面',
+                                    leaf: true,
+                                    iconCls: 'x-fa fa-usd'
+                                },
+                                {
+                                    text: '应用',
+                                    leaf: true,
+                                    iconCls: 'x-fa fa-frown-o'
+                                },
+                                {
+                                    text: '高级',
+                                    expanded: false,
                                     iconCls: 'x-fa fa-folder',
                                     children: [{
                                         text: 'book report',
@@ -43,88 +81,25 @@ Ext.define("app.view.main.Home.center", {
                                         iconCls: 'x-fa fa-graduation-cap'
                                     }]
                                 }, {
-                                    text: 'buy lottery tickets',
+                                    text: '用户',
+                                    leaf: true,
+                                    iconCls: 'x-fa fa-usd'
+                                }, {
+                                    text: '设置',
                                     leaf: true,
                                     iconCls: 'x-fa fa-usd'
                                 },
                                 {
-                                    text: 'detention',
+                                    text: '授权',
                                     leaf: true,
                                     iconCls: 'x-fa fa-frown-o'
-                                },
-                                {
-                                    text: 'homework',
-                                    expanded: true,
-                                    iconCls: 'x-fa fa-folder',
-                                    children: [{
-                                        text: 'book report',
-                                        leaf: true,
-                                        iconCls: 'x-fa fa-book'
-                                    }, {
-                                        text: 'algebra',
-                                        leaf: true,
-                                        iconCls: 'x-fa fa-graduation-cap'
-                                    }]
-                                }, {
-                                    text: 'buy lottery tickets',
-                                    leaf: true,
-                                    iconCls: 'x-fa fa-usd'
-                                }, {
-                                    text: 'buy lottery tickets',
-                                    leaf: true,
-                                    iconCls: 'x-fa fa-usd'
-                                },
-                                {
-                                    text: 'detention',
-                                    leaf: true,
-                                    iconCls: 'x-fa fa-frown-o'
-                                },
-                                {
-                                    text: 'homework',
-                                    expanded: true,
-                                    iconCls: 'x-fa fa-folder',
-                                    children: [{
-                                        text: 'book report',
-                                        leaf: true,
-                                        iconCls: 'x-fa fa-book'
-                                    }, {
-                                        text: 'algebra',
-                                        leaf: true,
-                                        iconCls: 'x-fa fa-graduation-cap'
-                                    }]
-                                }, {
-                                    text: 'buy lottery tickets',
-                                    leaf: true,
-                                    iconCls: 'x-fa fa-usd'
-                                }, {
-                                    text: 'buy lottery tickets',
-                                    leaf: true,
-                                    iconCls: 'x-fa fa-usd'
-                                },
-                                {
-                                    text: 'detention',
-                                    leaf: true,
-                                    iconCls: 'x-fa fa-frown-o'
-                                },
-                                {
-                                    text: 'homework',
-                                    expanded: true,
-                                    iconCls: 'x-fa fa-folder',
-                                    children: [{
-                                        text: 'book report',
-                                        leaf: true,
-                                        iconCls: 'x-fa fa-book'
-                                    }, {
-                                        text: 'algebra',
-                                        leaf: true,
-                                        iconCls: 'x-fa fa-graduation-cap'
-                                    }]
-                                }, {
-                                    text: 'buy lottery tickets',
-                                    leaf: true,
-                                    iconCls: 'x-fa fa-usd'
                                 }
                             ]
+                        }
+                    },
+                    listeners: {
+                        itemclick: function (sender, info, eOpts) {
+                            console.info(info);
                         }
                     }
                 }

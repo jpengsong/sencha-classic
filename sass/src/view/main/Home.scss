@@ -19,19 +19,48 @@
     $background-color:transparent
 );
 
-
+//home-tab-panel
 @include extjs-tab-panel-ui  (
     $ui:"home-tab-panel",
     $ui-tab-color:#666,
     $ui-bar-background-color:#fff
 );
 
+//home-treelist
 @include treelist-ui(
     $ui:"navigation",
-    $background-color :#32404e
+    $padding:3px 0px,                                             //TreeList边距
+    $background-color :#28333E,                                 //背景颜色
+    $item-text-color:rgba(255,255,255,.7),                      //文本颜色
+    $item-text-over-color:#fff,                                 //悬浮文本颜色
+    $item-text-font-size:14px,                                    //文本字体大小
+    $row-selected-background-color:$base-color,                   //选中行颜色
+    $row-over-background-color:transparent,                       //悬浮行颜色
+    $item-expander-color:#fff,                                  //箭头颜色
+    $item-expanded-child-background-color:rgba(0,0,0,.3),       //展开子节点颜色
+    $item-line-height:40px,                                       //行高
+    $item-icon-color:rgba(255,255,255,.7),                      //图标颜色
+    $item-icon-over-color:#fff,                                 //图标悬浮颜色
+    $item-icon-width:20px,                                        //图标宽度
+    $row-indicator-selected-color : $base-color,                  //选中某一项伪类
+    $row-indicator-selected-over-color :lighten($base-color, 5%), //悬浮选中某一项伪类
+    $row-indicator-over-color :$base-color,                       //悬浮某一项伪类  
+    $row-indicator-width :6px                                     //伪类宽 
 );
 
 //******************************************************公共样式******************************************************
+
+.x-treelist-navigation .x-treelist-item-icon, .x-treelist-navigation .x-treelist-item-tool{
+    left:0px;
+    padding-left: 25px;
+    padding-right: 25px;
+};
+.x-treelist-navigation .x-treelist-item-text{
+    margin-left:50px;
+};
+.x-treelist-navigation > .x-treelist-root-container > .x-treelist-item > .x-treelist-row{
+    padding: 8px 0px !important;
+};
 
 .logo{
     text-align:center;
