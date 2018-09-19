@@ -1,0 +1,57 @@
+@include extjs-toolbar-ui (
+    $ui:"first-home-toolbar-ui",
+    $background-color :#5FA2DD,
+    $border-style:0
+);
+
+
+
+//******************************************************公共主题******************************************************
+@include extjs-button-small-ui (
+    $ui:"firstbtn",
+    $color:#fff,
+    $background-color: #5FA2DD,
+    $border-width:0px
+);
+
+@include extjs-button-small-ui (
+    $ui:"secondbtn",
+    $color:#fff,
+    $background-color: #025B80,
+    $border-width:0px
+);
+
+@include extjs-button-small-ui (
+    $ui:"thirdbtn",
+    $color:#fff,
+    $background-color:  #157fcc,
+    $border-width:0px
+);
+
+@include extjs-button-small-ui (
+    $ui:"fourthbtn",
+    $color:#fff,
+    $background-color:  #1DA02B,
+    $border-width:0px
+);
+
+@include extjs-button-small-ui (
+    $ui:"fifthbtn",
+    $color:#fff,
+    $background-color:  #02A2AA,
+    $border-width:0px
+);
+
+@include extjs-button-small-ui (
+    $ui:"sixthbtn",
+    $color:#fff,
+    $background-color:  #d32f2f,
+    $border-width:0px
+);
+
+@include extjs-tip-ui(
+        $ui:"homeheadsetupTip",
+        $ui-header-color :#fbfbfb,
+        $ui-background-color : #fbfbfb,
+        $ui-border-width :0
+    )

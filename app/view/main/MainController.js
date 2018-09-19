@@ -43,25 +43,13 @@ Ext.define("app.view.main.MainController", {
                     }
                 })
                 refs.menuTop.add(items);
-                refs.menuLeft.add(items);
+                //refs.menuLeft.add(items);
 
                 console.info(refs.menuTop.getData());
             }, error: function (data) {
 
             }
         })
-    },
-
-    //Toobar 点击设置弹出悬浮窗口
-    onClickSetup: function () {
-        var me = this; refs = me.getReferences();
-        if (refs.mainSetupToolTip.isHidden()) {
-            refs.mainSetupToolTip.setTarget(refs.mainSetupButton.getId());
-            refs.mainSetupToolTip.show();
-        } else {
-            refs.mainSetupToolTip.hide();
-            refs.mainSetupToolTip.setTarget(false);
-        }
     },
 
     //主题切换
