@@ -66,7 +66,7 @@ Ext.define("app.view.main.Home.head", {
             width: 220,
             cls: "logo",
             border: 10,
-            html: "layuiAdmin"
+            html: "sencha"
         },
         {
             xtype: "toolbar",

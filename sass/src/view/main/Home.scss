@@ -37,9 +37,9 @@
     $row-selected-background-color:$base-color,                   //选中行颜色
     $row-over-background-color:transparent,                       //悬浮行颜色
     $item-expander-color:#fff,                                  //箭头颜色
-    $item-expander-width :20px,
+    $item-expander-width :20px,                                   //箭头宽度
     $item-expanded-child-background-color:rgba(0,0,0,.3),       //展开子节点颜色
-    //$item-line-height:40px,                                       //行高
+    $item-line-height:40px,                                       //行高
     $item-icon-color:rgba(255,255,255,.7),                      //图标颜色
     $item-icon-over-color:#fff,                                 //图标悬浮颜色
     $item-icon-width:20px,                                        //图标宽度
@@ -47,7 +47,7 @@
     $row-indicator-selected-over-color :transparent,              //悬浮选中某一项伪类
     $row-indicator-over-color :lighten($base-color, 10%),         //悬浮某一项伪类  
     $row-indicator-width :6px,                                    //伪类宽 
-    $toolstrip-background-color:#28333E,                         //折叠后背景颜色
+    $toolstrip-background-color:#28333E,                        //折叠后背景颜色
     $treelist-tool-indicator-selected-color:red !important
 );
 
@@ -66,17 +66,16 @@
     padding: 5px 0px !important;
 };
 
-//菜单项文本左外边距
-.x-treelist-navigation  .x-treelist-item-text{
-    margin-left:50px;
+//选中字体颜色
+.x-treelist-item-selected > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-text,
+.x-treelist-item-selected > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-icon
+{
+    color: #fff !important;
 };
 
-//菜单项行高40px
-.x-treelist-navigation .x-treelist-item-text,
-.x-treelist-navigation .x-treelist-item-icon,
-.x-treelist-navigation .x-treelist-item-expander
-{
-    line-height: 40px;
+//菜单项文本左外边距 50px为图标宽度
+.x-treelist-navigation  .x-treelist-item-text{
+    margin-left:50px;
 };
 
 //折叠后一级菜单项
@@ -84,12 +83,26 @@
     line-height: 50px;
 };
 
+//折叠一级菜单项悬浮样式
+.x-treelist-navigation .x-treelist-item-tool:hover{
+    background-color:$base-color;
+};
+
+//折叠一级菜单文本高度
+.x-treelist-item-floated > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-text
+{
+    height: 50px;
+    line-height: 50px;
+};
+
+//折叠菜单项外边距
 .x-treelist-item-floated > .x-treelist-container  .x-treelist-item-wrap,
 .x-treelist-item-floated > .x-treelist-row
 {
     margin-left: 5px !important;
 };
 
+//折叠子菜单项文本边距
 .x-treelist-item-floated > .x-treelist-container  .x-treelist-item-wrap .x-treelist-item-text{
     margin-left: 25px !important;
 };
@@ -99,6 +112,12 @@
     color: rgba(255,255,255,0.8);
     font-size: 16px;
     line-height: 50px;
+};
+
+.logoIcon{
+    line-height: 50px;
+    background-image: url(/resources/Image/main/logo1.png);
+    background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;
 };
 
 .x-btn-button-center{
