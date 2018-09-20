@@ -1,14 +1,15 @@
-Ext.define('app.store.main.MenuLocation', {
+Ext.define('app.store.main.Navigation', {
     autoLoad: true,
     fields: ['type', 'text'],
-    alias: 'store.main.MenuLocationStore',
-    extend: 'Ext.data.Store',
-    model: 'app.model.main.MenuLocation',
+    alias: 'store.main.Navigation',
+    extend: 'Ext.data.TreeStore',
+    model: 'app.model.main.Navigation',
+    defaultRootId:"records",
     proxy: {
         type: 'ajax',
         actionMethods: { read: 'get' },
         timeout: 60000,
-        url:'resources/data/main/MenuLocation.json',
+        url:'resources/data/main/Navigation.json',
         reader: Ext.create('ux.framework.Reader', { type: config.ComboStore })
     }
 });

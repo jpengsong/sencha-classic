@@ -10,7 +10,8 @@ Ext.define("app.view.main.Home.center", {
     items: [
         {
             xtype: "container",
-            width: 220,
+            width:220,
+            reference:"navcontainer",
             style: {
                 "background-color": "#28333E"
             },
@@ -18,90 +19,11 @@ Ext.define("app.view.main.Home.center", {
             items: [
                 {
                     xtype: 'treelist',
+                    reference: "navmenu",
                     ui: "navigation",
                     scrollable: true,
                     singleExpand: true,
-                    expanderOnly: false,
-                    store: {
-                        root: {
-                            expanded: false,
-                            children: [
-                                {
-                                    text: '主页',
-                                    leaf: true,
-                                    iconCls: 'x-fa fa-frown-o'
-                                },
-                                {
-                                    text: '组件',
-                                    expanded: false,
-                                    iconCls: 'x-fa fa-folder',
-                                    children: [
-                                        {
-                                            text: '栅格',
-                                            leaf: true,
-                                            iconCls: 'x-fa fa-book'
-                                        }, 
-                                        {
-                                            text: '按钮',
-                                            leaf: true,
-                                            iconCls: 'x-fa fa-graduation-cap'
-                                        }, 
-                                        {
-                                            text: '表单',
-                                            leaf: true,
-                                            iconCls: 'x-fa fa-graduation-cap'
-                                        }, 
-                                        {
-                                            text: '导航',
-                                            leaf: true,
-                                            iconCls: 'x-fa fa-graduation-cap'
-                                        }
-                                    ]
-                                }, {
-                                    text: '页面',
-                                    leaf: true,
-                                    iconCls: 'x-fa fa-usd'
-                                },
-                                {
-                                    text: '应用',
-                                    leaf: true,
-                                    iconCls: 'x-fa fa-frown-o'
-                                },
-                                {
-                                    text: '高级',
-                                    expanded: false,
-                                    iconCls: 'x-fa fa-folder',
-                                    children: [{
-                                        text: 'book report',
-                                        leaf: true,
-                                        iconCls: 'x-fa fa-book'
-                                    }, {
-                                        text: 'algebra',
-                                        leaf: true,
-                                        iconCls: 'x-fa fa-graduation-cap'
-                                    }]
-                                }, {
-                                    text: '用户',
-                                    leaf: true,
-                                    iconCls: 'x-fa fa-usd'
-                                }, {
-                                    text: '设置',
-                                    leaf: true,
-                                    iconCls: 'x-fa fa-usd'
-                                },
-                                {
-                                    text: '授权',
-                                    leaf: true,
-                                    iconCls: 'x-fa fa-frown-o'
-                                }
-                            ]
-                        }
-                    },
-                    listeners: {
-                        itemclick: function (sender, info, eOpts) {
-                            console.info(info);
-                        }
-                    }
+                    expanderOnly: false
                 }
             ]
         },
@@ -127,81 +49,6 @@ Ext.define("app.view.main.Home.center", {
     ]
 })
 
-// //首页头部导航按钮-设置
-// Ext.define('app.view.main.Home.head.navigation.setupTip', {
-//     xtype: "HomeheadNavigationsetupTip",
-//     extend: "Ext.tip.ToolTip",
-//     width: 220,
-//     height: 225,
-//     anchor: 'left',
-//     autoHide: false,
-//     closable: true,
-//     ui: "home-head-setupTip",
-//     header: {
-//         xtype: "header"
-//     },
-//     layout: {
-//         type: 'vbox'
-//     },
-//     defaults: {
-//         width: "100%"
-//     },
-//     items: [
-//         {
-//             xtype: "title",
-//             text: '菜单布局',
-//             textAlign: "center",
-//             margin: "0 0 3 0",
-//             style: {
-//                 color: "#232d38",
-//                 font: "400 14px/16px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-//             }
-//         },
-//         {
-//             xtype: 'combobox',
-//             columnWidth: 1,
-//             forceSelection: true,
-//             //bind: { store: "{MenuLocationStore}" },
-//             queryMode: 'local',
-//             displayField: 'text',
-//             valueField: 'type',
-//             value: 0
-//         },
-//         {
-//             xtype: "title",
-//             margin: "0 0 3 0",
-//             text: '更换主题',
-//             textAlign: "center",
-//             style: {
-//                 color: "#232d38",
-//                 font: "400 14px/16px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-//             }
-//         },
-//         {
-//             flex: 1,
-//             layout: {
-//                 type: 'table',
-//                 columns: 3
-//             },
-//             defaults: {
-//                 margin: '5 2',
-//                 width: 63,
-//                 height: 45,
-//                 border: false
-//             },
-//             defaultType: "button",
-//             items: [
-//                 { reference: "firstbtn", theme: "first", ui: "firstbtn", colspan: 1, listeners: { click: "onThemeChange" } },
-//                 { reference: "thirdbtn", theme: "third", ui: "thirdbtn", colspan: 1, listeners: { click: "onThemeChange" } },
-//                 { reference: "fourthbtn", theme: "fourth", ui: "fourthbtn", colspan: 1, listeners: { click: "onThemeChange" } },
-//                 { reference: "fifthbtn", theme: "fifth", ui: "fifthbtn", colspan: 1, listeners: { click: "onThemeChange" } },
-//                 { reference: "sixthbtn", theme: "sixth", ui: "sixthbtn", colspan: 1, listeners: { click: "onThemeChange" } },
-//                 { reference: "secondbtn", theme: "second", ui: "secondbtn", colspan: 1, listeners: { click: "onThemeChange" } }
-//             ]
-//         }
-//     ]
-// })
-
 //首页头部
 Ext.define("app.view.main.Home.head", {
     extend: "Ext.panel.Panel",
@@ -215,6 +62,7 @@ Ext.define("app.view.main.Home.head", {
     items: [
         {
             xtype: "container",
+            reference:"logo",
             width: 220,
             cls: "logo",
             border: 10,
@@ -235,7 +83,10 @@ Ext.define("app.view.main.Home.head", {
             items: [
                 {
                     iconCls: "x-fa  fa-bars",
-                    ui: "planbutton"
+                    ui: "planbutton",
+                    listeners:{
+                        click:"onMicro"
+                    }
                 },
                 {
                     iconCls: "x-fa  fa-cog",
@@ -282,6 +133,7 @@ Ext.define("app.view.main.Home.head", {
 Ext.define("app.view.main.Home", {
     xtype: "home",
     extend: "Ext.container.Container",
+    viewModel: "home",
     controller: "home",
     layout: {
         type: "vbox",
@@ -290,5 +142,8 @@ Ext.define("app.view.main.Home", {
     items: [
         { xtype: "homehead" },
         { xtype: "homecenter" }
-    ]
+    ],
+    listeners: {
+        afterrender: "onafterrender"
+    }
 })

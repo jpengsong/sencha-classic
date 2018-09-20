@@ -36,73 +36,23 @@ Ext.define("app.view.main.HomeController", {
     },
 
     //初始化菜单数据
-    onAfterender: function () {
-        var me = this; refs = me.getReferences(); var viewModel = me.getViewModel();
-        ux.Ajax.request({
-            url: "resources/data/main/Navigation.json",
-            method: "GET",
-            type: "JSON",
-            success: function (data) {
-                var records = data.records; var items = [];
-                Ext.each(records, function (record) {
-                    var item1 = {
-                        text: record.text, iconCls: record.iconCls,
-                        listeners:
-                        {
-                            mouseover: "onMenuMouseOver"
-                        }
-                    };
-                    items.push(item1);
-                    if (!Ext.isEmpty(record.children)) {
-                        var item1Menu = Ext.create({
-                            xtype: "menu", ui: "first-home-center-west-menu-button-menuItem",
-                            listeners: {
-                                mouseleave: function (th) {
-                                    th.hide();
-                                }
-                            }
-                        });
-                        Ext.each(record.children, function (record) {
-                            var item1child = { text: record.text, iconCls: record.iconCls };
-                            if (!Ext.isEmpty(record.children)) {
-                                var item2Menu = Ext.create({
-                                    xtype: "menu", ui: "first-home-center-west-menu-button-menuItem",
-                                    listeners: {
-                                        mouseleave: function (th) {
-                                            th.hide();
-                                        }
-                                    }
-                                });
-                                Ext.each(record.children, function (record) {
-                                    var item2child = { text: record.text, iconCls: record.iconCls };
-                                    if (!Ext.isEmpty(record.children)) {
-                                        var item3Menu = Ext.create({
-                                            xtype: "menu", ui: "first-home-center-west-menu-button-menuItem",
-                                            listeners: {
-                                                mouseleave: function (th) {
-                                                    th.hide();
-                                                }
-                                            }
-                                        });
-                                        Ext.each(record.children, function (record) {
-                                            var item3child = { text: record.text, iconCls: record.iconCls };
-                                            item3Menu.add(item3child);
-                                        })
-                                        item2child.menu = item3Menu;
-                                    }
-                                    item2Menu.add(item2child);
-                                })
-                                item1child.menu = item2Menu;
-                            }
-                            item1Menu.add(item1child);
-                        })
-                        item1.menu = item1Menu;
-                    }
-                })
-                refs.westnavigation.add(items);
-            }, error: function (data) {
+    onafterrender: function () {
+        var me = this; refs = me.getReferences(); var vm = me.getViewModel();
+        refs.navmenu.setStore(vm.getStore("navigation"));
+    },
 
-            }
-        })
+    //折叠
+    onMicro:function(){
+        var me = this; refs = me.getReferences(); var vm = me.getViewModel();
+        var isMicro= refs.navmenu.getMicro();
+        if(!isMicro){
+            refs.navmenu.up('container').setWidth(50);
+            refs.logo.setWidth(50);
+            refs.navmenu.setMicro(true);
+        }else{
+            refs.navmenu.up('container').setWidth(220);
+            refs.logo.setWidth(220);
+            refs.navmenu.setMicro(false);
+        }
     }
 })

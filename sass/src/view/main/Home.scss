@@ -29,7 +29,7 @@
 //home-treelist
 @include treelist-ui(
     $ui:"navigation",
-    $padding:3px 0px,                                             //TreeList边距
+    $padding:0px 0px,                                             //TreeList边距
     $background-color :#28333E,                                 //背景颜色
     $item-text-color:rgba(255,255,255,.7),                      //文本颜色
     $item-text-over-color:#fff,                                 //悬浮文本颜色
@@ -37,29 +37,61 @@
     $row-selected-background-color:$base-color,                   //选中行颜色
     $row-over-background-color:transparent,                       //悬浮行颜色
     $item-expander-color:#fff,                                  //箭头颜色
+    $item-expander-width :20px,
     $item-expanded-child-background-color:rgba(0,0,0,.3),       //展开子节点颜色
-    $item-line-height:40px,                                       //行高
+    //$item-line-height:40px,                                       //行高
     $item-icon-color:rgba(255,255,255,.7),                      //图标颜色
     $item-icon-over-color:#fff,                                 //图标悬浮颜色
     $item-icon-width:20px,                                        //图标宽度
-    $row-indicator-selected-color : $base-color,                  //选中某一项伪类
-    $row-indicator-selected-over-color :lighten($base-color, 5%), //悬浮选中某一项伪类
-    $row-indicator-over-color :$base-color,                       //悬浮某一项伪类  
-    $row-indicator-width :6px                                     //伪类宽 
+    $row-indicator-selected-color : transparent,                  //选中某一项伪类
+    $row-indicator-selected-over-color :transparent,              //悬浮选中某一项伪类
+    $row-indicator-over-color :lighten($base-color, 10%),         //悬浮某一项伪类  
+    $row-indicator-width :6px,                                    //伪类宽 
+    $toolstrip-background-color:#28333E,                         //折叠后背景颜色
+    $treelist-tool-indicator-selected-color:red !important
 );
 
 //******************************************************公共样式******************************************************
 
-.x-treelist-navigation .x-treelist-item-icon, .x-treelist-navigation .x-treelist-item-tool{
+//一级菜单项目图标
+.x-treelist-navigation > .x-treelist-root-container > .x-treelist-item > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-icon,
+.x-treelist-navigation .x-treelist-item-tool{
     left:0px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 18px;
+    padding-right: 32px;
 };
-.x-treelist-navigation .x-treelist-item-text{
+
+//一级菜单项内边距
+.x-treelist-navigation > .x-treelist-root-container > .x-treelist-item > .x-treelist-row{
+    padding: 5px 0px !important;
+};
+
+//菜单项文本左外边距
+.x-treelist-navigation  .x-treelist-item-text{
     margin-left:50px;
 };
-.x-treelist-navigation > .x-treelist-root-container > .x-treelist-item > .x-treelist-row{
-    padding: 8px 0px !important;
+
+//菜单项行高40px
+.x-treelist-navigation .x-treelist-item-text,
+.x-treelist-navigation .x-treelist-item-icon,
+.x-treelist-navigation .x-treelist-item-expander
+{
+    line-height: 40px;
+};
+
+//折叠后一级菜单项
+.x-treelist-navigation .x-treelist-item-tool{
+    line-height: 50px;
+};
+
+.x-treelist-item-floated > .x-treelist-container  .x-treelist-item-wrap,
+.x-treelist-item-floated > .x-treelist-row
+{
+    margin-left: 5px !important;
+};
+
+.x-treelist-item-floated > .x-treelist-container  .x-treelist-item-wrap .x-treelist-item-text{
+    margin-left: 25px !important;
 };
 
 .logo{
