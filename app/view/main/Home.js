@@ -113,7 +113,7 @@ Ext.define("app.view.main.Home.head", {
                     ui: "planbutton"
                 },
                 {
-                    text: "贤心",
+                    text: "大学霸",
                     ui: "planbutton",
                     menu: [
                         { text: '基本资料' },
