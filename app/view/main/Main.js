@@ -12,7 +12,7 @@ Ext.define("app.view.main.Main", {
         { xtype: "login" },
         {
             xtype: "container",
-            routeId: "home",
+            routeId: "welcome",
             layout: {
                 type: "vbox",
                 align: "stretch"
@@ -20,7 +20,7 @@ Ext.define("app.view.main.Main", {
             items: [
                 {
                     xtype: "panel",
-                    ui: "home-head",
+                    ui: "welcome-head",
                     height: 50,
                     layout: {
                         type: "hbox",
@@ -42,7 +42,7 @@ Ext.define("app.view.main.Main", {
                             style: {
                                 "box-shadow": "0px 0px 0px 0.1px black"
                             },
-                            ui: "home-head-toolbar",
+                            ui: "welcome-head-toolbar",
                             reference: "headerToolbar",
                             defaults: {
                                 margin: '0 15'
@@ -128,16 +128,11 @@ Ext.define("app.view.main.Main", {
                         },
                         {
                             xtype: "tabpanel",
-                            id: "card",
+                            id: "welcomecontainer",
                             flex: 1,
-                            ui: "home-tab-panel",
+                            ui: "welcome-tab-panel",
                             tabBar: {
                                 height: 40
-                            },
-                            defaults: {
-                                bodyStyle: {
-                                    "background-color": "#eee"
-                                }
                             },
                             autoDestroy: false,
                             items: [
@@ -161,7 +156,7 @@ Ext.define("app.view.main.Main", {
                                             items: [
                                                 {
                                                     xtype: "panel",
-                                                    title: "column1",
+                                                    title: "NetWork",
                                                     columnWidth: 0.5,
                                                     html: "<div id='aaa' style='width:100%;height:100%'></div>",
                                                     listeners: {
@@ -355,6 +350,9 @@ Ext.define("app.view.main.Main", {
                                                             setTimeout(() => {
                                                                 myChart.resize();
                                                             }, 200);
+                                                        },
+                                                        resize:function(){
+                                                          
                                                         }
                                                     }
                                                 }
@@ -363,39 +361,56 @@ Ext.define("app.view.main.Main", {
                                         {
                                             iconCls: "x-fa fa-laptop",
                                             xtype: "container",
-                                            scrollable: Ext.scroll.Scroller({ y: true, x: false }),
-                                            layout: 'column',
-                                            defaults: {
-                                                margin: "15 0 15 15",
-                                                height: 500,
-                                                plugins: {
-                                                    responsive: true
-                                                },
-                                                responsiveConfig: {
-                                                    'width < 768': {
-                                                        columnWidth: 1
-                                                    },
-                                                    'width >= 768': {
-                                                        columnWidth: 0.5
-                                                    }
-                                                }
+                                            layout: {
+                                                type: 'vbox',
+                                                align: 'stretch'
                                             },
+                                            
                                             items: [
                                                 {
-                                                    xtype: "panel",
-                                                    title: "column1",
-                                                    html: "column1"
+                                                    xtype: 'slider',
+                                                    width: 400,
+                                                    fieldLabel: 'Single Slider',
+                                                    value: 40
                                                 },
                                                 {
-                                                    xtype: "panel",
-                                                    margin: "15 10 15 15",
-                                                    title: "column2",
-                                                    html: "column2"
+                                                    xtype: 'tbspacer',
+                                                    flex: 0.3
+                                                },
+                                                {
+                                                    xtype: 'multislider',
+                                                    width: 400,
+                                                    fieldLabel: 'Range Slider',
+                                                    values: [
+                                                        10,
+                                                        40
+                                                    ]
+                                                },
+                                                {
+                                                    xtype: 'tbspacer',
+                                                    flex: 0.3
+                                                },
+                                                {
+                                                    xtype: 'pagingtoolbar',
+                                                    width: 360,
+                                                    displayInfo: false
+                                                },
+                                                {
+                                                    xtype: 'tbspacer',
+                                                    flex: 0.3
+                                                },
+                                                {
+                                                    xtype: 'progressbar',
+                                                    cls: 'widget-progressbar',
+                                                    value: 0.4
+                                                },
+                                                {
+                                                    xtype: 'tbspacer'
                                                 }
                                             ]
+                                            
                                         }
                                     ]
-
                                 }
                             ]
                         }

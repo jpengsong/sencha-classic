@@ -1,13 +1,13 @@
 //head
 @include extjs-panel-ui  (
-    $ui:"home-head",
+    $ui:"welcome-head",
     $border-width : 0,
     $ui-body-background-color :$base-color
 );
 
 //head-toolbar
 @include extjs-toolbar-ui  (
-    $ui:"home-head-toolbar",
+    $ui:"welcome-head-toolbar",
     $background-color : $base-color
 );
 
@@ -19,15 +19,16 @@
     $background-color:transparent
 );
 
-//home-tab-panel
+//welcome-tab-panel
 @include extjs-tab-panel-ui  (
-    $ui:"home-tab-panel",
-    $ui-bar-background-color:#f6f6f6,                            //tab背景颜色
+    $ui:"welcome-tab-panel",
+    $ui-bar-background-color:#f6f6f6,                         //tab背景颜色
     $ui-tab-background-color-over:#f6f6f6,                    //tab悬浮背景颜色  
     $ui-tab-background-color-active:#ddd,                     //tab选中背景颜色
     $ui-tab-color:#666,                                       //tab文本颜色
     $ui-tab-color-over:#666,                                  //tab悬浮文本颜色
     $ui-tab-color-active:#000,                                //tab选中文本颜色
+    $ui-tab-closable-icon-right:5px,                            //tab关闭按钮距右边位置
     $ui-tab-closable-icon-glyph-color :#c2c2c2,               //tab关闭按钮字体颜色
     $ui-tab-closable-icon-glyph-color-over:#666,              //tab关闭按钮悬浮字体颜色  
     $ui-tab-closable-icon-glyph-color-active:#666,            //tab关闭按钮选中字体颜色  
@@ -149,10 +150,10 @@
 };
 
 //tabPanel
-.x-tab-bar-home-tab-panel-top > .x-tab-bar-body-home-tab-panel{
+.x-tab-bar-welcome-tab-panel-top > .x-tab-bar-body-welcome-tab-panel{
     padding: 0px 0px 0px 0px;
 };
 
-.x-tab-home-tab-panel-top{
+.x-tab-welcome-tab-panel-top{
     padding: 0px  15px  0px  15px ;
 };

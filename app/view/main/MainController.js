@@ -66,10 +66,8 @@ Ext.define("app.view.main.MainController", {
 
     //box.:node路由触发
     onRouteBoxChange: function (id) {
-        var me = this;
-        var home = me.getCmp("main").child("component[routeId='home']");
-        maincard.setActiveItem(home);
-        me.setCurrentView("mainCard", id);
+        var me;me = this;
+        me.setCurrentView("welcomecontainer", id);
     },
 
     //back.:node路由触发
@@ -83,7 +81,7 @@ Ext.define("app.view.main.MainController", {
         if (!Ext.isEmpty(config.getToken())) {
             treeStore = vm.getStore("navigation");
             refs.navigationTreeList.setStore(treeStore);
-            me.redirectTo("view.home");
+            me.redirectTo("view.welcome");
         } else {
             me.redirectTo("view.login", true);
         }
@@ -101,7 +99,7 @@ Ext.define("app.view.main.MainController", {
         //获取Treelist
         var treeStore = Ext.ComponentQuery.query('treelist[reference="navigationTreeList"]')[0].getStore();
         //从菜单查找routeId
-        var node = treeStore == null ? treeStore : treeStore.findNode('routeId', hashTag);
+        var node = treeStore == null ? treeStore : treeStore.findNode('xtype', hashTag);
         //如果菜单和白名单没有找到，返回404
         var view = node || vm.getStore("plist").find("xtype", hashTag) > 0 ? hashTag : null || 'page404';
         //当前视图
@@ -122,8 +120,14 @@ Ext.define("app.view.main.MainController", {
         if (!existingItem) {
             newView = Ext.create({
                 xtype: view,
+                closable:true,
                 routeId: hashTag
             });
+
+            if(maincard=="welcomecontainer"&&!Ext.isEmpty(node) ){
+                newView.setIconCls(node.data.iconCls);
+                newView.setTitle(node.data.text);
+            }
         }
         //新视图不存在或者非窗口
         if (!newView || !newView.isWindow) {
@@ -158,13 +162,19 @@ Ext.define("app.view.main.MainController", {
 
     //切换菜单项
     onNavigationTreeListChange: function (treelist, record, eOpts) {
-        var selNodes = Ext.dom.Query.select(".x-treelist-row", treelist.el.dom);
+        var me,selNodes,data;
+        me=this;
+        selNodes = Ext.dom.Query.select(".x-treelist-row", treelist.el.dom);
+        data=record.data;
         for (var i = 0; i < selNodes.length; i++) {
             selNodes[i].style.backgroundColor = "";
         }
-        if (record.data.children == null && record.data.parentId == "root" || record.data.parentId != "root") {
+        if (data.children == null && data.parentId == "root" || data.parentId != "root") {
             var selNode = Ext.dom.Query.selectNode(".x-treelist-item-selected .x-treelist-row", treelist.el.dom);
             selNode.style.backgroundColor = "#009688";
+        }
+        if(!Ext.isEmpty(data.xtype)){
+            me.redirectTo("box."+data.xtype);
         }
     },
 

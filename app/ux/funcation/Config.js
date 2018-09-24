@@ -29,8 +29,8 @@
             if (!Ext.isEmpty(token)&&Ext.isEmpty(me.user)) {
                 me.user =JSON.parse(token);
             }
-            return token;
-            //return {"userName":"Admin","userPwd":"123456","isFirst":true};
+            //return token;
+            return {"userName":"Admin","userPwd":"123456","isFirst":true};
         }
     }
 })
