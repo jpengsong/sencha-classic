@@ -3,181 +3,124 @@
         'Ext.layout.container.Column'
     ],
     xtype: "querypanel",
-    border: true,
-    extend: "Ext.Panel",
-    alias: "widget.queryPanel",
-    ButtonRegion: null,
-     controller: {
-    //     //查询
-    //     search: function () {
-    //         var me = this;
-    //         if (Ext.isFunction(me.view.Configs.search)) {
-    //             Ext.callback(me.view.scope.search, this);
-    //         } else {
-    //             var grid = me.view.scope.getGrid(me.view.GridName);
-    //             ux.Page.setQueryItems(grid.getStore(), me.view.getQueryItems());
-    //             grid.getStore().loadPage(1);
-    //         }
-    //     },
-
-    //     //重置
-    //     reset: function () {
-    //         var me = this, queryItems, refs = me.getReferences();
-    //         if (Ext.isFunction(me.view.Configs.reset)) {
-    //             Ext.callback(me.view.Configs.reset, this);
-    //         } else {
-    //             queryItems = refs.queryPanel.items.items[0].items.items[0].items;
-    //             Ext.each(queryItems.items, function (item) {
-    //                 if (item.xtype === "orgpicker") {
-    //                     if (item.getRawValue() !== "") {
-    //                         item.setValue("");
-    //                         item.setRawValue("");
-    //                     }
-    //                 }
-    //                 else if (item.xtype.indexOf("combo") !== -1) {
-    //                     item.setValue("");
-    //                 }
-    //                 else {
-    //                     item.setValue("");
-    //                 }
-    //             });
-    //         }
-    //     },
-
-    //     //查询面板初始化
-    //     queryPanelRender: function (cmp) {
-    //         var me = this;
-    //         me.view.queryPanelExpand = false;//默认展开
-    //     },
-
-    //     //查询面板调整大小
-        resizeQueryPanel: function (panel, width, height, oldwidth, oldheight) {
-            var me = this, refs = me.getReferences();
-            if (width != oldwidth) {
-                var cHeight = panel.items.first().getEl().getSize().height;
-                refs.queryPanel.setHeight(cHeight + 20);
-                me.view.queryPanelHeight = refs.queryPanel.getHeight();
-            }
-        }
-
-    //     //查询面板展开折叠
-    //     expansionClick: function () {
-    //         var me = this, refs = me.getReferences();
-    //         if (!me.view.queryPanelExpand) {
-    //             me.view.queryPanelHeight = refs.queryPanel.getHeight();
-    //             refs.queryPanel.setHeight(15);
-    //             me.view.queryPanelExpand = true;
-    //         } else {
-    //             refs.queryPanel.setHeight(me.view.queryPanelHeight);
-    //             me.view.queryPanelExpand = false;
-    //         }
-    //     }
+    extend: "Ext.Container",
+    layout: 'border',
+    width: '100%',
+    layout: {
+        type: "vbox",
     },
-    querypanelHeight: null,
+    items: [
+        {
+            margin: "0 10",
+            html: "<span class='x-fa fa-caret-right fa-lg' style='cursor:pointer'></span>",
+            listeners: {
+                el: {
+                    click: function () {
+                        var queryregion=  Ext.ComponentQuery.query("container[name='queryregion']")[0];
+                        if(queryregion.isHidden()){
+                            queryregion.show();
+                        }else{
+                            queryregion.hide();
+                        }
+                    }
+                }
+            }
+        },
+        {
+            xtype: "container",
+            name:"queryregion",
+            width: "100%",
+            layout: {
+                type: "hbox",
+                align: "middle"
+            },
+            items: []
+        }
+    ],
+    controller: {
+        //查询
+        onSearch: function () {
+            var me = this;
+            if (Ext.isFunction(me.view.Configs.search)) {
+                Ext.callback(me.view.scope.search, this);
+            } else {
+                var grid = me.view.scope.getGrid(me.view.GridName);
+                ux.Page.setQueryItems(grid.getStore(), me.view.getQueryItems());
+                grid.getStore().loadPage(1);
+            }
+        },
 
+        //重置
+        onReset: function () {
+            var me = this, queryItems, refs = me.getReferences();
+            if (Ext.isFunction(me.view.Configs.reset)) {
+                Ext.callback(me.view.Configs.reset, this);
+            } else {
+                queryItems = refs.queryPanel.items.items[0].items.items[0].items;
+                Ext.each(queryItems.items, function (item) {
+                    if (item.xtype === "orgpicker") {
+                        if (item.getRawValue() !== "") {
+                            item.setValue("");
+                            item.setRawValue("");
+                        }
+                    }
+                    else if (item.xtype.indexOf("combo") !== -1) {
+                        item.setValue("");
+                    }
+                    else {
+                        item.setValue("");
+                    }
+                });
+            }
+        },
+    },
     initComponent: function () {
-        var me = this, queryPanel, buttonPanel;
-        var query = Ext.create('Ext.panel.Panel',
-            Ext.apply({
-                layout: 'column',
-                width: '100%',
-                frame: false,
-            }, me.Configs));
+        var me, queryConfig, buttonsConfig; me = this;
+        //查询条件
+        queryConfig = Ext.apply({
+            xtype: "container",
+            flex: 1,
+            layout: 'column',
+            reference: "querycondition"
+        }, me.configs);
+        me.items[1].items[0] = queryConfig;
 
-        //查询按钮
-        buttonPanel = Ext.create("Ext.panel.Panel", {
-            width: '20%',
+        //查询条件按钮
+        buttonsConfig = Ext.apply({
+            xtype: 'container',
+            width: 160,
             layout: 'hbox',
-            frame: false,
+            reference:"querybutton",
             defaults: {
-                'margin': '5px', 'text-align': 'center'
+                margin: '0 5 5 5'
             },
             items: [
                 {
                     xtype: 'button',
                     text: '查询',
-                    iconCls: "fa fa-search fa-1-3x",
+                    iconCls: "fa fa-search",
                     listeners: {
-                        click: "search"
-                    },
-                    scope: me
+                        click: "onSearch"
+                    }
                 },
                 {
                     xtype: 'button',
                     text: '重置',
-                    iconCls: "fa fa-undo fa-1-3x",
+                    iconCls: "fa fa-undo",
                     listeners: {
-                        click: "reset"
-                    },
-                    scope: me
+                        click: "onReset"
+                    }
                 }
             ]
-        })
+        }, me.buttons);
 
-        //查询面板
-        queryPanel = Ext.create("Ext.panel.Panel", {
-            layout: 'border',
-            region: 'north',
-            reference: 'queryPanel',
-            height: 80,
-            frame: false,
-            items: [
-                {
-                    region: 'center',
-                    items: [query]
-                    // listeners: {
-                    //     resize: 'resizeQueryPanel'
-                    // }
-                },
-                {
-                    region: 'east',
-                    items: [buttonPanel]
-                },
-                // {
-                //     region: 'north',
-                //     height: 14,
-                //     bodyPadding: 0,
-                //     bodyStyle: { cursor: 'pointer' },
-                //     defaults: {
-                //         padding: '0 0 0 7',
-                //         'z-Index': 80000
-                //     },
-                //     listeners: {
-                //         el: { click: 'expansionClick' }
-                //     },
-                //     items: [
-                //         {
-                //             xtype: 'component',
-                //             autoEl: {
-                //                 tag: 'i',
-                //                 cls: 'fa fa-caret-right fa-1-4x'
-                //             }
-                //         }
-                //     ]
-                // }
-            ]
-        })
-        me.add(queryPanel);
+        //自定义查询
+        if (!Ext.isEmpty(me.buttons)) {
+            if (!Ext.isEmpty(me.buttons.items)) {
+                delete me['controller'];
+            }
+        }
+        me.items[1].items[1] = buttonsConfig;
         me.callParent();
-    },
-
-    //获取查询条件
-    getQueryItems: function () {
-        var me = this;
-        var condition = {};
-        var queryPanel = Ext.ComponentQuery.query("panel[reference='queryPanel']", me)[0];
-        condition = ux.Page.getQueryItems(queryPanel.items.items[0].items.items[0].items);
-        return condition;
-    },
-
-    constructor: function (config) {
-        var me = this;
-        if (config.Configs == undefined) {
-            config.Configs = {};
-        }
-        if (config.ButtonRegion != null) {
-            me.ButtonRegion = config.ButtonRegion;
-        }
-        me.callParent([config]);
     }
 })

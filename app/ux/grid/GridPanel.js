@@ -1,14 +1,13 @@
-﻿Ext.define("ux.grid.GridPanel", {
+﻿Ext.define("App.grid.GridPanel", {
     extend: 'Ext.grid.Panel',
     require: [
-        'ux.pagingBar.PagingBar'
+        'App.pagingBar.PagingBar'
     ],
     width: '100%',
     height: '400',
     pageSize: 10,
     pagination: true,
     initComponent: function () {
-        Ext.tip.QuickTipManager.init();
         var me; me = this;
         me.initGridPagination();
         me.callParent();
@@ -18,7 +17,7 @@
         var me = this;
         if (me.pagination) {
             store = me.store;
-            var paging = Ext.create("ux.pagingBar.PagingBar", {
+            var paging = Ext.create("App.pagingBar.PagingBar", {
                 width: "100%",
                 border: 0,
                 pageSize: me.pageSize,

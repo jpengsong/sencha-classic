@@ -1,252 +1,126 @@
-﻿Ext.define("ux.page.Page", {
+﻿Ext.define("App.page.Page", {
     extend: "Ext.panel.Panel",
     layout: "border",
-    baseCls: 'my-panel-no-border',
-    /*
-        TreeList
-    */
-    TreeList: null,
-    /*
-        GridList
-    */
-    GridList: null,
-    /*
-        QueryList
-    */
-    QueryList: null,
-    /*
-        WindowList
-    */
-    WindowList: null,
-    /*
-        FormList
-    */
-    FormList: null,
-    /*
-        TreeWidth
-    */
-    TreeWidth: null,
-    /*
-        Container
-    */
-    Container: null,
-
+    bodyStyle:{
+        "background-color":"#fff"
+    },
+    treeList: null,
+    gridList: null,
+    queryList: null,
+    treeWidth: null,
+    items:[],
     initComponent: function () {
-
         var me = this;
-        me.initPageLayout();
+        me.defaultPageLayout();
         me.callParent();
     },
 
-    initPageLayout: function () {
-        var me; me = this;
-        me.defaultPageLayout();
-    },
-
     defaultPageLayout: function () {
-
-        var me = this, gridPanel, queryPanel, leftPanel, centerPanel;
-
-        if (me.QueryList.getCount() > 0) {
-            queryPanel = me.QueryList.first();
+        var me = this, gridPanel, queryPanel, leftPanel;
+        if (me.queryList.getCount() > 0) {
+            queryPanel = me.queryList.first();
             queryPanel.region = 'north';
+            me.items[me.items.length] =queryPanel;
         }
 
-        if (me.GridList.getCount() > 0) {
-            gridPanel = me.GridList.first();
+        if (me.gridList.getCount() > 0) {
+            gridPanel = me.gridList.first();
             gridPanel.region = 'center';
+            me.items[me.items.length] =gridPanel;
         }
 
-        if (me.TreeList.getCount() > 0) {
-            leftPanel = me.TreeList.first();
+        if (me.treeList.getCount() > 0) {
+            leftPanel = me.treeList.first();
             leftPanel.region = 'west';
-            leftPanel.padding = '0 0 0 0'
-            if (TreeWidth != null && TreeWidth != "") {
-                leftPanel.width = TreeWidth;
+            if (!Ext.isEmpty(treeWidth)) {
+                leftPanel.width = treeWidth;
             } else {
                 leftPanel.width = '20%'
             }
+            me.items[me.items.length] =leftPanel;
         }
-
-        centerPanel = Ext.create('Ext.panel.Panel', {
-            region: 'center',
-            header: false,
-            border: true,
-            padding: "0 0 0 0",
-            layout: {
-                type: 'border'
-            },
-            items: [queryPanel, gridPanel]//{ region: 'center', html: 'html' }
-        });
-
-        centerPanel.on('afterrender', function (comp, eOpts) {
-            var bodyId = comp.id + "-body";
-            var body = Ext.fly(bodyId);
-            body.setStyle("border-bottom-style", 'none');
-        });
-
-        me.layout = 'border';
-        me.items = [leftPanel, centerPanel];
     },
 
-    initTree: function (key, tree, treeWidth) {
+    addTree: function (key, tree, treeWidth) {
         var me; me = this;
-        me.TreeWidth = treeWidth;
-        if (me.TreeList.containsKey(key)) {
-            me.TreeList.removeAtKey(key);
+        me.treeWidth = treeWidth;
+        if (me.treeList.containsKey(key)) {
+            me.treeList.removeAtKey(key);
         }
-        me.TreeList.add(key, tree);
+        me.treeList.add(key, tree);
     },
 
     getTree: function (key) {
         var me = this;
 
-        if (!me.TreeList.containsKey(key)) {
+        if (!me.treeList.containsKey(key)) {
             return null;
         }
         else {
-            return me.TreeList.get(key);
-        }
-    },
-
-    addForm: function (key, form) {
-        var me = this;
-
-        if (me.FormList.containsKey(key)) {
-            me.FormList.removeAtKey(key);
-        }
-        me.FormList.add(key, form);
-    },
-
-    getForm: function (key) {
-        var me = this;
-
-        if (!me.FormList.containsKey(key)) {
-            return null;
-        }
-        else {
-            return me.FormList.get(key);
+            return me.treeList.get(key);
         }
     },
 
     addQuery: function (key, query) {
         var me = this;
 
-        if (me.QueryList.containsKey(key)) {
-            me.QueryList.removeAtKey(key);
+        if (me.queryList.containsKey(key)) {
+            me.queryList.removeAtKey(key);
         }
-        me.QueryList.add(key, query);
+        me.queryList.add(key, query);
     },
 
     getQuery: function (key) {
         var me = this;
 
-        if (!me.QueryList.containsKey(key)) {
+        if (!me.queryList.containsKey(key)) {
             return null;
         }
         else {
-            return me.QueryList.get(key);
+            return me.queryList.get(key);
         }
     },
 
     addGrid: function (key, grid) {
         var me = this;
 
-        if (me.GridList.containsKey(key)) {
-            me.GridList.removeAtKey(key);
+        if (me.gridList.containsKey(key)) {
+            me.gridList.removeAtKey(key);
         }
-        me.GridList.add(key, grid);
+        me.gridList.add(key, grid);
     },
 
     getGrid: function (key) {
         var me = this;
 
-        if (!me.GridList.containsKey(key)) {
+        if (!me.gridList.containsKey(key)) {
             return null;
         }
         else {
-            return me.GridList.get(key);
-        }
-    },
-
-    addWindow: function (key, win) {
-        var me = this;
-        if (me.WindowList.containsKey(key)) {
-            me.WindowList.removeAtKey(key);
-        }
-        if (win.getXType() == "window") {
-            //只在页面中拖动
-            win.on("dragend", function (obj, e, eOpts) {
-                var lastY = obj.lastXY[1];
-                var wHeight = Ext.getBody().getHeight() - this.height;
-                if (lastY < wHeight) {
-                    this.setPosition(this.x, lastY, false);
-                }
-                else {
-                    this.setPosition(this.x, obj.startPosition[1], false);
-                }
-            });
-        }
-
-        me.WindowList.add(key, win);
-    },
-
-    getWindow: function (key) {
-        var me = this;
-
-        if (!me.WindowList.containsKey(key)) {
-            return null;
-        }
-        else {
-            return me.WindowList.get(key);
-        }
-    },
-
-    addContainer: function (key, container) {
-        var me = this;
-
-        if (!me.Container.containsKey(key)) {
-            me.Container.removeAtKey(key);
-        }
-        me.Container.add(key, container);
-    },
-
-    getContainer: function (key) {
-        var me = this;
-
-        if (!me.Container.containsKey(key)) {
-            return null;
-        }
-        else {
-            return me.Container.get(key);
+            return me.gridList.get(key);
         }
     },
 
     constructor: function (config) {
         var me = this;
-
-        me.QueryList = new Ext.util.MixedCollection();
-        me.GridList = new Ext.util.MixedCollection();
+        me.queryList = new Ext.util.MixedCollection();
+        me.gridList = new Ext.util.MixedCollection();
         me.FormList = new Ext.util.MixedCollection();
         me.WindowList = new Ext.util.MixedCollection();
-        me.TreeList = new Ext.util.MixedCollection();
-        me.Container = new Ext.util.MixedCollection();
-
+        me.treeList = new Ext.util.MixedCollection();
         me.callParent([config]);
-    }
-    ,
+    },
+
     destroy: function () {
         var me = this;
-
         Ext.destroy(
-            me.QueryList,
-            me.GridList,
+            me.queryList,
+            me.gridList,
             me.FormList,
             me.WindowList,
-            me.TreeList,
+            me.treeList,
             me.Container
         );
-
         me.callParent();
     }
 })
