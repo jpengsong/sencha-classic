@@ -44,19 +44,19 @@ Ext.define("app.view.main.HomeController", {
     //折叠
     onMicro:function(){
         var me = this; refs = me.getReferences(); var vm = me.getViewModel();
-        var isMicro= refs.navmenu.getMicro();
+        var isMicro= refs.navigationTreeList.getMicro();
         if(!isMicro){
             refs.logo.setWidth(50);
             refs.logo.addCls("ext-sencha");
             refs.logo.setHtml("");
-            refs.navmenu.up('container').setWidth(50);
-            refs.navmenu.setMicro(true);
+            refs.navigationTreeList.up('container').setWidth(50);
+            refs.navigationTreeList.setMicro(true);
         }else{
             refs.logo.setWidth(220);
             refs.logo.removeCls("ext-sencha");
             refs.logo.setHtml("sencha");
-            refs.navmenu.up('container').setWidth(220);
-            refs.navmenu.setMicro(false);
+            refs.navigationTreeList.up('container').setWidth(220);
+            refs.navigationTreeList.setMicro(false);
         }
     }
 })

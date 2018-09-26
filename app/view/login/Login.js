@@ -1,5 +1,6 @@
 Ext.define("app.view.login.Login", {
     xtype: "login",
+    routeId:"login",
     extend: "Ext.panel.Panel",
     bodyCls:"auth-login",
     layout: {

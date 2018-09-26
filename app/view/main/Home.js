@@ -19,7 +19,7 @@ Ext.define("app.view.main.Home.center", {
             items: [
                 {
                     xtype: 'treelist',
-                    reference: "navmenu",
+                    reference: "navigationTreeList",
                     ui: "navigation",
                     scrollable: true,
                     singleExpand: true,
@@ -29,6 +29,7 @@ Ext.define("app.view.main.Home.center", {
         },
         {
             xtype: "tabpanel",
+            id:"hbox",
             flex: 1,
             ui: "home-tab-panel",
             scrollable:true,
