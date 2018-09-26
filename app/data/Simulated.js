@@ -1,4 +1,4 @@
-Ext.define('app.data.Simulated', {
+Ext.define('App.data.Simulated', {
     requires: [
         'Ext.ux.ajax.JsonSimlet',
         'Ext.ux.ajax.SimManager'

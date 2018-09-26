@@ -1,4 +1,4 @@
-Ext.define("app.view.main.Main", {
+Ext.define("App.view.main.Main", {
     mixin: [
         'Ext.mixin.Responsive'
     ],

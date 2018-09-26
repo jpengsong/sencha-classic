@@ -1,7 +1,14 @@
 /**
- * Ext处理cookie 
+ * 操作Cookie的工具类。需要处理cookie时，使用此类的SetCookie和GetCookie方法来设置和获取cookie值。
+ * 例子如下：
+ * 
+ * 
+ *       @example
+ *       App.Cookie.SetCookie('username', 'abc');//设置cookie
+ *       var name = App.Cookie.GetCookie('username');//获取cookie值
+ * 
  */
-Ext.define('ux.framework.Cookie', {
+Ext.define('ux.utility.Cookie', {
     alternateClassName: ['App.Cookie'],
 
     statics: {
@@ -20,7 +27,7 @@ Ext.define('ux.framework.Cookie', {
          * 设置 cookie, 默认30天过期时间
          * @param {String} name Cookie名称
          * @param {String} value Cookie值
-         * @param {String} expires
+         * @param {String} expires 单位（秒）
          * @static
          */
         SetExpiresCookie: function (name, value, expires) {
@@ -29,7 +36,7 @@ Ext.define('ux.framework.Cookie', {
             Days = 30; //cookie 将被保存 30 天
             exp = new Date();
             if (Ext.isEmpty(expires)) {
-                exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+                exp.setTime(exp.getTime() + Days * 24 * 60 * 60);
             } else {
                 exp = expires;
             }

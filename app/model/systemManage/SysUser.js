@@ -1,13 +1,22 @@
 Ext.define("App.model.systemManage.SysUser", {
     extend: "Ext.data.Model",
     fields: [
-        { name: 'id', type: 'string' },
-        { name: 'parentid', type: 'string' },
-        { name: 'text', type: 'string' },
-        { name: 'iconCls', type: 'string' },
-        { name: 'xtype', type: 'string' },
-        { name: 'routeId', type: 'string' },
-        { name: 'Sort', type: 'int' },
+        { name: 'sysUserId', type: 'string' },
+        { name: 'orgId', type: 'string' },
+        { name: 'userName', type: 'string' },
+        { name: 'loginName', type: 'string' },
+        { name: 'loginPassWord', type: 'string' },
+        { name: 'mobile', type: 'string' },
+        { name: 'email', type: 'string' },
+        { name: 'isEdit', type: 'int' },
+        { name: 'isEnable', type: 'int' },
+        { name: 'isDel', type: 'int' },
+        { name: 'createUserId', type: 'string' },
+        { name: 'createUserName', type: 'string' },
+        { name: 'createDate', type: 'date' },
+        { name: 'modifyUserId', type: 'string' },
+        { name: 'modifyUserName', type: 'string' },
+        { name: 'modifyDate', type: 'date' },
     ],
-    idProperty: 'id'
+    idProperty: 'sysUserId'
 })

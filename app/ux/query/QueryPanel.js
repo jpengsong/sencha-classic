@@ -2,7 +2,6 @@
     requires: [
         'Ext.layout.container.Column'
     ],
-    xtype: "querypanel",
     extend: "Ext.Container",
     layout: 'border',
     width: '100%',

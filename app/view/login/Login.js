@@ -1,4 +1,4 @@
-Ext.define("app.view.login.Login", {
+Ext.define("App.view.login.Login", {
     xtype: "login",
     routeId:"login",
     controller:"login",

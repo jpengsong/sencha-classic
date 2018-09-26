@@ -1,4 +1,4 @@
-Ext.define("app.model.main.Navigation", {
+Ext.define("App.model.main.Navigation", {
     extend: "Ext.data.Model",
     fields: [
         { name: 'id', type: 'string' },

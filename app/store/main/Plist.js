@@ -1,4 +1,4 @@
-Ext.define('app.store.main.Plist', {
+Ext.define('App.store.main.Plist', {
     extend: 'Ext.data.Store',
     alias: 'store.main.Plist',
     fields: ["xtype"],

@@ -1,8 +1,8 @@
-Ext.define('app.store.main.Navigation', {
+Ext.define('App.store.main.Navigation', {
     fields: ['type', 'text'],
     alias: 'store.main.Navigation',
     extend: 'Ext.data.TreeStore',
-    model: 'app.model.main.Navigation',
+    model: 'App.model.main.Navigation',
     root: {
         expanded: true,
         children: [

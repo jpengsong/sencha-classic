@@ -1,13 +1,14 @@
 {
-    "name": "app",
-    "namespace": "app",
+    "name": "App",
+    "namespace": "App",
     "version": "1.0.0.0",
     "framework": "ext",
     "toolkit": "classic",
     "theme": "theme-fifth",
     "requires": [
         "font-awesome",
-        "ux"
+        "ux",
+        "locale"
     ],
     "locale": "zh_CN",
     "indexHtmlPath": "index.html",
@@ -41,7 +42,7 @@
          * root namespace, change this to "". Doing so would change the mapping of
          * "app.view.Foo" to "sass/src/app/view/Foo.scss".
          */
-        "namespace": "app",
+        "namespace": "App",
         /**
          * Generated sass source settings
          *

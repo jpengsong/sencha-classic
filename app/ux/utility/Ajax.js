@@ -1,7 +1,7 @@
 /**
  * Ext请求数据 
  */
-Ext.define("ux.framework.Ajax", {
+Ext.define("ux.utility.Ajax", {
     alternateClassName: ['App.Ajax'],
     statics: {
         /**
