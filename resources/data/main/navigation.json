@@ -211,18 +211,18 @@
                 "text": "营销2",
                 "iconCls": "x-fa fa-ban"
             },
-            {
-                "text": "营销3",
-                "iconCls": "x-fa fa-ban"
-            },
-            {
-                "text": "营销4",
-                "iconCls": "x-fa fa-ban"
-            },
-            {
-                "text": "营销5",
-                "iconCls": "x-fa fa-ban"
-            }
+            // {
+            //     "text": "营销3",
+            //     "iconCls": "x-fa fa-ban"
+            // },
+            // {
+            //     "text": "营销4",
+            //     "iconCls": "x-fa fa-ban"
+            // },
+            // {
+            //     "text": "营销5",
+            //     "iconCls": "x-fa fa-ban"
+            // }
         ]
     }
 }

@@ -61,15 +61,11 @@ Ext.define("app.view.main.Home.head", {
         {
             xtype: "toolbar",
             ui: "home-head-toolbar",
+            cls: "hometitle",
             reference: "headerToolbar",
             padding: '0 0 0 0',
             items: [
-                { xtype: "Homeheadcompany" },
-                {
-                    xtype: "button",
-                    ui: "home-head-toolbar-bars",
-                    iconCls: "x-fa fa-bars"
-                },
+                //{ xtype: "Homeheadcompany" },
                 '->',
                 { xtype: "HomeheadNavigation" }
             ]
@@ -83,23 +79,39 @@ Ext.define("app.view.main.Home.center.west.user", {
     ui: "first-home-center-west-user",
     height: 120,
     layout: {
-        type: "vbox",
-        align: "center"
+        type: "hbox"
     },
     items: [
         {
-            xtype: 'image',
-            width: "45%",
-            padding: '10 0',
-            height: 100,
-            style: {
-                "border-radius": "50%"
+            xtype: "container",
+            flex: 1,
+            layout: {
+                type: "vbox",
+                align: "center"
             },
-            src: "/resources/Image/main/user.png"
+            items: [
+                {
+                    xtype: 'image',
+                    width: "50%",
+                    padding: '10 0',
+                    height: 100,
+                    style: {
+                        "border-radius": "50%"
+                    },
+                    src: "/resources/Image/main/user.png"
+                },
+                {
+                    xtype: "container",
+                    html: "Admin管理员"
+                }
+            ]
         },
         {
-            xtype: "container",
-            html: "Admin管理员"
+            xtype: "button",
+            width: 15,
+            padding: "5 0 0 0",
+            ui: "plainbtn",
+            iconCls: "x-fa fa-angle-double-right"
         }
     ]
 })
@@ -108,6 +120,8 @@ Ext.define("app.view.main.Home.center.west.user", {
 Ext.define("app.view.main.Home.center.west.navigation", {
     extend: "Ext.panel.Panel",
     xtype: "Homecenterwestnavigation",
+    ui: "first-home-center-west-navigation",
+    flex: 1,
     layout: {
         type: "vbox",
         align: 'stretch'
@@ -116,7 +130,7 @@ Ext.define("app.view.main.Home.center.west.navigation", {
         arrowVisible: false,
         scale: 'medium',
         menuAlign: "tr",
-        height:50,
+        height: 53,
         ui: "first-home-center-west-menu-button",
         style: {
             borderStyle: 'none none solid none'
@@ -126,32 +140,45 @@ Ext.define("app.view.main.Home.center.west.navigation", {
     defaultType: "button",
     bbar: [
         {
-            xtype: "container",
-            height: 60,
+            xtype: "panel",
+            ui: "first-home-center-west-navigation",
+            style: {
+                borderStyle: 'none none none none',
+                "border-top-color": '#02203d',
+                "border-width": '1px'
+            },
+            height: 53,
             padding: '0 0 0 0',
             margin: '0 0 0 0',
             flex: 1,
             layout: {
                 type: "hbox",
-                align: "stretch",
+                align: "middle",
                 pack: "center"
             },
-            defaults: { ui: "home-small-defaultbtn", padding: "0 5", iconAlign: "top" },
+            defaults: {
+                style: {
+                    "background-color": "transparent"
+                },
+                padding: "0 2",
+                iconAlign: "top",
+                border: 0
+            },
             items: [
                 {
-                    xtype: "button", iconCls: "x-fa fa-angle-left fa-3x", flex: 1
+                    xtype: "button", iconCls: "x-fa fa-angle-left fa-2x", flex: 1, hidden: true
                 },
                 {
-                    xtype: "button", iconCls: "x-fa fa-circle",text:""
+                    xtype: "button", iconCls: "x-fa fa-circle font-size-12px"
                 },
                 {
-                    xtype: "button", iconCls: "x-fa fa-circle-o"
+                    xtype: "button", iconCls: "x-fa fa-circle font-size-12px"
                 },
                 {
-                    xtype: "button", iconCls: "x-fa fa-circle-o"
+                    xtype: "button", iconCls: "x-fa fa-circle font-size-12px"
                 },
                 {
-                    xtype: "button", iconCls: "x-fa fa-angle-right fa-3x", flex: 1
+                    xtype: "button", iconCls: "x-fa fa-angle-right fa-2x", flex: 1, hidden: true
                 }
             ]
         }
@@ -163,18 +190,18 @@ Ext.define("app.view.main.Home.center.west.navigation", {
 
 //首页中部左侧
 Ext.define("app.view.main.Home.center.west", {
-    extend: "Ext.panel.Panel",
+    extend: "Ext.container.Container",
     xtype: "Homecenterwest",
-    ui: "first-home-center-west",
     layout: {
-        type: "vbox"
+        type: "vbox",
+        align: 'stretch'
     },
     defaults: {
         width: 180
     },
     items: [
         { xtype: "Homecenterwestuser" },
-        { xtype: "Homecenterwestnavigation", flex: 1 }
+        { xtype: "Homecenterwestnavigation" }
     ]
 })
 
@@ -188,7 +215,51 @@ Ext.define("app.view.main.Home.center", {
         align: "stretch"
     },
     items: [
-        { xtype: "Homecenterwest" }
+        { xtype: "Homecenterwest" },
+        // {
+        //     xtype: "menu",
+        //     ui: "first-home-center-west-menu-button-menuItem",
+        //     width: 180,
+        //     floating: false,  // usually you want this set to True (default)
+        //     items: [
+        //         {
+        //             text: 'plain item 1', iconCls: "x-fa fa-folder",
+        //             menu:[
+        //                 {
+        //                     text: 'plain item 3', iconCls: "x-fa fa-desktop"
+        //                 }, {
+        //                     text: 'plain item 2', iconCls: "x-fa fa-money"
+        //                 }, {
+        //                     text: 'plain item 3', iconCls: "x-fa fa-desktop"
+        //                 }
+        //             ]
+        //         }, {
+        //             text: 'plain item 2', iconCls: "x-fa fa-money"
+        //         }, {
+        //             text: 'plain item 3', iconCls: "x-fa fa-desktop"
+        //         }, {
+        //             text: 'plain item 2', iconCls: "x-fa fa-money"
+        //         }, {
+        //             text: 'plain item 3', iconCls: "x-fa fa-desktop"
+        //         }, {
+        //             text: 'plain item 2', iconCls: "x-fa fa-money"
+        //         }, {
+        //             text: 'plain item 3', iconCls: "x-fa fa-desktop"
+        //         }, {
+        //             text: 'plain item 2', iconCls: "x-fa fa-money"
+        //         }, {
+        //             text: 'plain item 3', iconCls: "x-fa fa-desktop"
+        //         }
+        //     ]
+        // },
+        {
+            xtype: "tabpanel", flex: 1,
+            items: [
+                { title: "首页" },
+                { title: "客运管理", closable: true },
+                { title: "财务", closable: true }
+            ]
+        }
     ]
 })
 
@@ -198,9 +269,9 @@ Ext.define("app.view.main.Home", {
     extend: "Ext.container.Container",
     controller: "home",
     layout: {
-        type: "vbox"
+        type: "vbox",
+        align: "stretch"
     },
-    defaults: { width: "100%" },
     items: [
         { xtype: "Homehead" },
         { xtype: "Homecenter" }

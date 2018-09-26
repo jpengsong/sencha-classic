@@ -1,8 +1,6 @@
-
-
 //中部-左侧
 @include extjs-panel-ui (
-$ui:"first-home-center-west",
+$ui:"first-home-center-west-navigation",
 $ui-body-background-color :#04305A,
 $ui-body-color:#fff
 );
@@ -85,23 +83,15 @@ $ui-background-color : #fbfbfb,
 $ui-border-width :0
 );
 
-//头部-UI
-@include extjs-toolbar-ui (
-$ui:"home-head-toolbar",
-$background-color :$base-color,
-$border-width : 0
-);
-
-//头部-折叠按钮UI
+//菜单透明按钮
 @include extjs-button-small-ui (
-$ui:"home-head-toolbar-bars",
-$background-color : $base-color,
-$background-color-pressed: $base-color,
-$background-color-over : $base-color,
+$ui:"plainbtn",
+$background-color :transparent,
+$background-color-pressed: transparent,
+$background-color-over :transparent,
 $border-width : 0,
 $inner-border-width :0
 );
-
 
 //左侧-菜单分页
 @include extjs-button-small-ui (
@@ -118,4 +108,15 @@ justify-content:left;
 .x-toolbar-default{
     padding:0px 0px 0px 0px;
     background:none;
+};
+
+.font-size-12px{
+    font-size:8px;
+};
+
+.hometitle{
+    background-image:url(/resources/Image/main/title.jpg);
+    background-repeat:no-repeat; 
+    background-size:100% 100%;
+    -moz-background-size:100% 100%;
 }

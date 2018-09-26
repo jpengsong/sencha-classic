@@ -37,6 +37,9 @@ Ext.define("override.buton.Button", {
                 if (offset_Y < 0) {
                     menu.setY(menu.getY() + offset_Y);
                 }
+                if(menu.getHeight()>=Ext.getBody().getHeight()){
+                    menu.setHeight(Ext.getBody().getHeight());
+                }
             }
         }
         return me;
