@@ -1,9 +1,10 @@
-Ext.define('App.store.systemManage.sysUser.SysUser', {
+Ext.define('App.store.systemManage.SysUser', {
     extend: 'Ext.data.Store',
-    alias: 'store.sysUser',
+    autoLoad: 'true',
+    alias: 'store.sysuser',
     model: 'App.model.systemManage.SysUser',
     proxy: {
         type: 'api',
-        url: 'api/systemManage/SysUser'
+        url: 'api/systemmanage/sysuser'
     }
 });

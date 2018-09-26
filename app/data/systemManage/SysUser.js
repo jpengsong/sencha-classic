@@ -1,6 +1,6 @@
 Ext.define('App.data.systemManage.SysUser', {
     extend: 'App.data.Simulated',
-    "data" :[
+    data :[
         { "sysUserId":"1",  "orgId": "2", "userName": "张三", "loginName":"zhangsan",  "mobile":"13500000000" },
         { "sysUserId":"1",  "orgId": "2", "userName": "张三", "loginName":"zhangsan",  "mobile":"13500000000" },
         { "sysUserId":"2",  "orgId": "2", "userName": "张三", "loginName":"zhangsan",  "mobile":"13500000000" },

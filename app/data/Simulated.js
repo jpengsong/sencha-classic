@@ -10,6 +10,7 @@ Ext.define('App.data.Simulated', {
                 type: 'json',
                 data: data.data
             },
+             
             registration = {};
         registration[url] = simlet;
         Ext.ux.ajax.SimManager.register(registration);

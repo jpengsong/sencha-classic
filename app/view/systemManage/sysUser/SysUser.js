@@ -1,6 +1,6 @@
 Ext.define("App.view.systemManage.sysUser.SysUser", {
-    xtype:"sysuser",
-    viewModel:"sysuser",
+    xtype: "sysuser",
+    viewModel: "sysuser",
     requires: [
         'Ext.layout.container.Border'
     ],
@@ -46,12 +46,17 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
             bind: {
                 store: '{store}'
             },
-            columns: [
-                { text: '用户名', dataIndex: 'userName' },
-                { text: '登录名', dataIndex: 'loginName'},
-                { text: '手机号', dataIndex: 'mobile' },
-                { text: '邮箱', dataIndex: 'email' }
-            ],
+            columns: {
+                items: [
+                    { text: '用户名', dataIndex: 'userName' },
+                    { text: '登录名', dataIndex: 'loginName' },
+                    { text: '手机号', dataIndex: 'mobile' },
+                    { text: '邮箱', dataIndex: 'email' }
+                ],
+                defaults: {
+                    flex: 1
+                }
+            }
         })
         me.addGrid("grid", gridpanel);
     }
