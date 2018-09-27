@@ -8,7 +8,7 @@
  *       var name = App.Cookie.GetCookie('username');//获取cookie值
  * 
  */
-Ext.define('App.ux.utility.Cookie', {
+Ext.define('ux.utility.Cookie', {
     alternateClassName: ['App.Cookie'],
 
     statics: {

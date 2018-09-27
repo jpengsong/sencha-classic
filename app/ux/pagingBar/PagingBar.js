@@ -1,4 +1,4 @@
-﻿Ext.define('App.ux.pagingBar.PagingBar', {
+﻿Ext.define('ux.pagingBar.PagingBar', {
     extend: 'Ext.toolbar.Paging',
     pageSize: null,
     currentPage: 1,

@@ -1,9 +1,15 @@
-﻿Ext.define("App.ux.query.QueryPanel", {
+﻿Ext.define("ux.query.QueryPanel", {
     requires: [
         'Ext.layout.container.Column'
     ],
     extend: "Ext.Container",
     layout: 'border',
+    style:{
+        "border-bottom-width":"1px",
+        "border-bottom-style":"solid",
+        "border-bottom-color":"#d1d1d1"
+    },
+    padding:"5 0 5 0",
     width: '100%',
     layout: {
         type: "vbox",

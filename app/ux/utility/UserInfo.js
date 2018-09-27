@@ -1,7 +1,7 @@
 /**
  * 处理用户信息的工具类 
  */
-Ext.define('App.ux.utility.UserInfo', {
+Ext.define('ux.utility.UserInfo', {
     alternateClassName: ['App.UserInfo'],
 
     statics: {

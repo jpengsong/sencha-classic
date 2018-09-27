@@ -2,7 +2,7 @@
 /**
  *  Tab页面
  */
-Ext.define('App.ux.utility.Tab', {
+Ext.define('ux.utility.Tab', {
     alternateClassName: ['App.Tab'],
     statics: {
         openPage: function (url, config) {

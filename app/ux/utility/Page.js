@@ -2,7 +2,7 @@
 /**
  * 处理页面的工具类 
  */
-Ext.define('App.ux.utility.Page', {
+Ext.define('ux.utility.Page', {
     alternateClassName: ['App.Page'],
     statics: {
         getQueryItems: function (queryItems) {

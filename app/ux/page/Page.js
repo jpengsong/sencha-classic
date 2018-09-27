@@ -1,4 +1,4 @@
-﻿Ext.define("App.ux.page.Page", {
+﻿Ext.define("ux.page.Page", {
     extend: "Ext.panel.Panel",
     layout: "border",
     bodyStyle:{
@@ -25,7 +25,6 @@
 
         if (me.gridList.getCount() > 0) {
             gridPanel = me.gridList.first();
-            gridPanel.setMargin("2 0 0 0");
             gridPanel.region = 'center';
             me.items[me.items.length] =gridPanel;
         }

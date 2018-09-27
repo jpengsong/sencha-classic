@@ -1,4 +1,4 @@
-﻿Ext.define("App.ux.grid.GridPanel", {
+﻿Ext.define("ux.grid.GridPanel", {
     extend: 'Ext.grid.Panel',
     pageSize: 10,
     pagination: true,
@@ -18,7 +18,7 @@
     initPagination: function () {
         var me,paging;me = this;
         if (me.pagination) {
-             paging = Ext.create("App.ux.pagingBar.PagingBar", {
+             paging = Ext.create("ux.pagingBar.PagingBar", {
                 width: "100%",
                 dock:"bottom",
                 border: 0,

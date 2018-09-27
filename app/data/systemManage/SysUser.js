@@ -16,9 +16,15 @@ Ext.define('App.data.systemManage.SysUser', {
                 { "sysUserId":"11",  "orgId": "2", "userName": "张三", "loginName":"zhangsan",  "mobile":"13500000000" },
                 { "sysUserId":"12",  "orgId": "2", "userName": "张三", "loginName":"zhangsan",  "mobile":"13500000000" },
                 { "sysUserId":"13",  "orgId": "2", "userName": "张三", "loginName":"zhangsan",  "mobile":"13500000000" },
-                { "sysUserId":"14",  "orgId": "2", "userName": "张三", "loginName":"zhangsan",  "mobile":"13500000000" }
+                { "sysUserId":"14",  "orgId": "2", "userName": "张三", "loginName":"zhangsan",  "mobile":"13500000000" },
+                { "sysUserId":"15",  "orgId": "2", "userName": "张三", "loginName":"zhangsan",  "mobile":"13500000000" },
+                { "sysUserId":"16",  "orgId": "2", "userName": "张三", "loginName":"zhangsan",  "mobile":"13500000000" },
+                { "sysUserId":"17",  "orgId": "2", "userName": "张三", "loginName":"zhangsan",  "mobile":"13500000000" },
+                { "sysUserId":"18",  "orgId": "2", "userName": "张三", "loginName":"zhangsan",  "mobile":"13500000000" },
+                { "sysUserId":"19",  "orgId": "2", "userName": "张三", "loginName":"zhangsan",  "mobile":"13500000000" },
+                { "sysUserId":"20",  "orgId": "2", "userName": "张三", "loginName":"zhangsan",  "mobile":"13500000000" }
             ],
-            "RecordCount":133,
+            "RecordCount":20,
             "Success":true,
             "Code":""
         }
