@@ -1,13 +1,14 @@
 Ext.define("app.view.main.Main", {
-    id: "view",
+    id: "main",
     extend: "Ext.container.Viewport",
     controller: "main",
     layout: 'fit',
+    activeItem:1, 
     items: [
-        //  { xtype: "home" },
-      { xtype: "login" }
+        { xtype: "home", routeId: "home" },
+        { xtype: "login" , routeId: "login" }
     ],
-    listeners:{
+    listeners: {
         render: 'onMainViewRender'
     }
 })  

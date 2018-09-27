@@ -38,7 +38,7 @@ Ext.define("app.view.main.HomeController", {
     //初始化菜单数据
     onafterrender: function () {
         var me = this; refs = me.getReferences(); var vm = me.getViewModel();
-        refs.navmenu.setStore(vm.getStore("navigation"));
+        refs.navigationTreeList.setStore(vm.getStore("navigation"));
     },
 
     //折叠

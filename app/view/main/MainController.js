@@ -3,13 +3,24 @@ Ext.define("app.view.main.MainController", {
     alias: 'controller.main',
     lastView: null,
     routes: {
+        //跳转视图
         'view.:node': {
             before: "onBeforeUser",
             action: "onRouteChange"
+        },
+        //跳转页面
+        'box.:node': {
+            before: "onBeforeUser",
+            action: "onRouteBoxChange"
+        },
+        //显示返回后会销毁的视图
+        'back.:node': {
+            before: "onBeforeUser",
+            action: "onRouteBackChange"
         }
     },
 
-    //view.:node登录检测
+    //登录检测
     onBeforeUser: function (id, action) {
         var me = this;
         if (id != "login" && Ext.isEmpty(config.token)) {
@@ -24,15 +35,28 @@ Ext.define("app.view.main.MainController", {
     },
 
     //view.:node路由触发
-    onRouteChange: function (hashTag) {
+    onRouteChange: function (id) {
         var me = this;
-        me.setCurrentView("view", hashTag);
+        me.setCurrentView("main", id);
+    },
+
+    //box.:node路由触发
+    onRouteBoxChange: function (id) {
+        var me = this;
+        var home = me.getCmp("main").child("component[routeId='home']");
+        maincard.setActiveItem(home);
+        me.setCurrentView("mainCard", id);
+    },
+    
+    //back.:node路由触发
+    onRouteBackChange: function (id) {
+
     },
 
     //渲染视图
     setCurrentView: function (maincard, hashTag) {
         hashTag = (hashTag || '').toLowerCase();
-        var me = this,
+        var me = this,refs=me.getReferences(),
             mainCard = Ext.getCmp(maincard),
             //获取容器
             mainLayout = mainCard.getLayout(),
@@ -49,6 +73,12 @@ Ext.define("app.view.main.MainController", {
             //新视图
             newView;
 
+            console.info(refs);
+        //上个视图隐藏事件    
+        if (lastView) {
+            me.fireEvent("viewHide", lastView);
+        }
+
         //判断如果是Window窗口 销毁
         if (lastView && lastView.isWindow) {
             lastView.destroy();
@@ -60,7 +90,8 @@ Ext.define("app.view.main.MainController", {
                 routeId: hashTag
             });
         }
-        //新视图非窗口
+
+        //新视图不存在或者非窗口
         if (!newView || !newView.isWindow) {
             if (existingItem) {
                 lastView = mainLayout.getActiveItem();
@@ -68,12 +99,14 @@ Ext.define("app.view.main.MainController", {
                     mainLayout.setActiveItem(existingItem);
                 }
                 newView = existingItem;
+                newView.fireEvent('viewShow', newView);
             }
             else {
                 Ext.suspendLayouts();
                 mainLayout.setActiveItem(mainCard.add(newView));
                 Ext.resumeLayouts(true);
             }
+            mainCard.fireEvent('activeitemchange', mainCard, newView, lastView);
         }
         me.lastView = newView;
     },
