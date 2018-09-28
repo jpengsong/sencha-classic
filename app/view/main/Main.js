@@ -5,8 +5,8 @@ Ext.define("app.view.main.Main", {
     layout: 'card',
     activeItem:0, 
     items: [
-        { xtype: "home" },
-        { xtype: "login"}
+        { xtype: "login"},
+        { xtype: "home" }
     ],
     listeners: {
         render: 'onMainViewRender'
