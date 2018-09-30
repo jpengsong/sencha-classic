@@ -13,10 +13,10 @@
 
 @if $ext-trial {
     #ext-viewport:after {
-        font-family: ext-watermark;
+        
         text-shadow: 1px 1px #fff;
         font-size: 2em;
-        content: 'd';
+        ;
         position: absolute;
         bottom: .5em;
         right: .5em;
@@ -27,7 +27,7 @@
 
 @if $ext-beta {
     #ext-viewport:after {
-        font-family: ext-watermark;
+        
         text-shadow: 1px 1px #fff;
         font-size: 2em;
         content: 'b';

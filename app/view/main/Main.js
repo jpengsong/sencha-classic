@@ -107,6 +107,17 @@ Ext.define("app.view.main.Main", {
                         {
                             xtype: "container",
                             width: 220,
+                            plugins: {
+                                responsive: true
+                            },
+                            responsiveConfig: {
+                                'width < 768': {
+                                    width: 0
+                                },
+                                'width > 768': {
+                                    width: 220
+                                }
+                            },
                             reference: "navcontainer",
                             style: {
                                 "background-color": "#28333E"
@@ -128,7 +139,6 @@ Ext.define("app.view.main.Main", {
                             id: "card",
                             flex: 1,
                             ui: "home-tab-panel",
-                            scrollable: true,
                             tabBar: {
                                 height: 40
                             },
@@ -140,32 +150,48 @@ Ext.define("app.view.main.Main", {
                             autoDestroy: false,
                             items: [
                                 {
-                                    iconCls:"x-fa fa-laptop",
+                                    iconCls: "x-fa fa-laptop",
                                     xtype: "container",
+                                    scrollable: Ext.scroll.Scroller({ y: true, x: false }),
                                     layout: 'column',
                                     defaults: {
-                                        margin: "20 20"
+                                        margin: "15 0 15 15",
+                                        height: 1500,
+                                        plugins: {
+                                            responsive: true
+                                        },
+                                        responsiveConfig: {
+                                            'width < 768': {
+                                                columnWidth: 1
+                                            },
+                                            'width >= 768': {
+                                                columnWidth: 0.5
+                                            },
+                                            'width >= 1200': {
+                                                columnWidth: 0.25
+                                            }
+                                        }
                                     },
                                     items: [
                                         {
-                                            html: 'Column 1',
-                                            columnWidth: 1,
-                                            plugins: {
-                                                responsive: true
-                                            },
-                                            responsiveConfig: {
-                                                'width < 1200':{
-                                                    hidden:true 
-                                                }
-                                            }
+                                            xtype: "panel",
+                                            title: "column1",
+                                            html: "column1"
                                         },
                                         {
-                                            html: 'Column 2',
-                                            columnWidth: 0.7
+                                            xtype: "panel",
+                                            title: "column2",
+                                            html: "column2"
                                         },
                                         {
-                                            html: 'Column 3',
-                                            columnWidth: 0.3
+                                            xtype: "panel",
+                                            title: "column3",
+                                            html: "column3"
+                                        },
+                                        {
+                                            xtype: "panel",
+                                            title: "column4",
+                                            html: "column4"
                                         }
                                     ]
                                 }

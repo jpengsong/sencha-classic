@@ -73,7 +73,7 @@
     $row-indicator-selected-color : transparent,                  //选中某一项伪类
     $row-indicator-selected-over-color :transparent,              //悬浮选中某一项伪类
     $row-indicator-over-color :lighten($base-color, 10%),         //悬浮某一项伪类  
-    $row-indicator-width :3px,                                    //伪类宽 
+    $row-indicator-width :6px,                                    //伪类宽 
     $toolstrip-background-color:#28333E,                        //折叠后背景颜色
     $treelist-tool-indicator-selected-color:red !important
 );
