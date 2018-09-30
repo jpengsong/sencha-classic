@@ -57,6 +57,11 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
                 defaults: {
                     flex: 1
                 }
+            },
+            getParams: function () {
+                return [
+                    { key: "userName", Method: config.Method.Like, Type: "string", Value: "de" }
+                ]
             }
         })
         me.addGrid("grid", gridpanel);

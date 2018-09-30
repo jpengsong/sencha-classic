@@ -1,6 +1,10 @@
 ﻿Ext.define('App.ux.utility.Config', {
     alternateClassName: ['config'],
     statics: {
+        Method:{
+            Like:"Like",
+            Equals:"Equals"
+        },
         user: null,
         guid: null,
         pageNode: null,
@@ -31,6 +35,6 @@
             }
             //return token;
             return {"userName":"Admin","userPwd":"123456","isFirst":true};
-        }
+        },
     }
 })

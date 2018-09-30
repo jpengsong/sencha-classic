@@ -64,17 +64,46 @@ Ext.define("override.ux.DataSimlet", {
     },
 
     getPage: function (ctx, data) {
-        var ret = data,
+        var ret = data.Data,
             length = data.length,
-            condition=Ext.decode(ctx.params.Data),
-            queryItem=condition.QueryItem,
-            pagingSetting=condition.PagingSetting;
-            //参数
-            if(!Ext.isEmpty(queryItem)){
-                Ext.Array.each(queryItem,function(){
-                    
-                })
-            }
+            raw = [],
+            condition = Ext.decode(ctx.params.Data),
+            queryItem = condition.QueryItem,
+            pagingSetting = condition.PagingSetting;
+
+        //QueryItem 查询参数
+        if (!Ext.isEmpty(queryItem)) {
+            ret.List.filter(function (row, index, array) {
+                var isbool = true;
+                for (var queryIndex in queryItem) { 
+                   var queryitem=queryItem[queryIndex];
+                    if (queryitem.Method == config.Method.Like) {
+                        if (row[queryitem.key].indexOf(queryitem.Value) === -1) {
+                            isbool = false;
+                            break;
+                        }
+                    } else if (queryitem.Method == config.Method.Equals) {
+                        if (row[queryitem.key] == queryitem.Value) {
+                            isbool = false;
+                            break;
+                        }
+                    }
+                }
+                if (isbool) {
+                    raw.push(row);
+                }
+            })
+            ret.List=raw;
+            ret.RecordCount=ret.List.length;
+        }
+
+        //pagingSetting 查询参数
+        if (!Ext.isEmpty(pagingSetting)) {
+            console.info(pagingSetting);
+
+        }
+
+
         // if (start || end < length) {
         //     ret = ret.slice(start, end);
         // }

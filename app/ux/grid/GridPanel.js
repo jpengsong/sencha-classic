@@ -9,11 +9,6 @@
         me.initAutoLoad();
         me.callParent();
     },
-    getParams: function () {
-        return [
-            { key: "userName", Method: "like", Type: "string", Value: "" }
-        ]
-    },
 
     privates: {
         /**
