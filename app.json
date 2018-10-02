@@ -6,7 +6,8 @@
     "toolkit": "classic",
     "theme": "theme-first",
     "requires": [
-        "font-awesome"
+        "font-awesome",
+        "ux"
     ],
     "locale": "zh_CN",
     "indexHtmlPath": "index.html",

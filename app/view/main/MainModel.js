@@ -4,6 +4,9 @@ Ext.define("app.view.main.MainModel", {
     stores: {
         navigation: {
             type: "main.Navigation"
+        },
+        plist:{
+            type:"main.Plist"
         }
     }
 })

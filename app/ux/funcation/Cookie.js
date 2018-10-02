@@ -2,7 +2,7 @@
  * Ext处理cookie 
  */
 Ext.define('ux.framework.Cookie', {
-    alternateClassName: ['ux.Cookie'],
+    alternateClassName: ['App.Cookie'],
 
     statics: {
         /**

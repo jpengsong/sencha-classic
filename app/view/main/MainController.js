@@ -32,7 +32,7 @@ Ext.define("app.view.main.MainController", {
     onBeforeLoginUser: function (id, action) {
         if (!Ext.isEmpty(config.getToken())) {
             if (config.user.isFirst) {
-                config.user.isFirst=false;
+                config.user.isFirst = false;
                 action.resume();
             } else {
                 action.stop();
@@ -76,21 +76,13 @@ Ext.define("app.view.main.MainController", {
     onRouteBackChange: function (id) {
 
     },
-    
+
     //user.:node 登录成功后触发
     onRouteUserChange: function (id) {
         var me, refs, vm, treeStore; me = this; refs = me.getReferences(); vm = me.getViewModel();
         if (!Ext.isEmpty(config.getToken())) {
-            ux.Ajax.request({
-                url: "app/data/main/navigation.json",
-                method: "GET",
-                type: "JSON",
-                success: function (data) {
-                    treeStore = vm.getStore("navigation");
-                    treeStore.setRoot(data.Data);
-                    refs.navigationTreeList.setStore(treeStore);
-                }
-            })
+            treeStore = vm.getStore("navigation");
+            refs.navigationTreeList.setStore(treeStore);
             me.redirectTo("view.home");
         } else {
             me.redirectTo("view.login", true);
@@ -99,7 +91,7 @@ Ext.define("app.view.main.MainController", {
 
     //渲染视图
     setCurrentView: function (maincard, hashTag) {
-        var me = this;
+        var me, vm; me = this; vm = me.getViewModel();
         //散列值转小写
         hashTag = (hashTag || '').toLowerCase();
         //获取容器
@@ -111,7 +103,7 @@ Ext.define("app.view.main.MainController", {
         //从菜单查找routeId
         var node = treeStore == null ? treeStore : treeStore.findNode('routeId', hashTag);
         //如果菜单和白名单没有找到，返回404
-        var view = node || config.pageNode.indexOf(hashTag) !== -1 ? hashTag : null || 'page404';
+        var view = node || vm.getStore("plist").find("xtype", hashTag) > 0 ? hashTag : null || 'page404';
         //当前视图
         var lastView = me.lastView;
         //查找项
@@ -164,6 +156,18 @@ Ext.define("app.view.main.MainController", {
         }
     },
 
+    //切换菜单项
+    onNavigationTreeListChange: function (treelist, record, eOpts) {
+        var selNodes = Ext.dom.Query.select(".x-treelist-row", treelist.el.dom);
+        for (var i = 0; i < selNodes.length; i++) {
+            selNodes[i].style.backgroundColor = "";
+        }
+        if (record.data.children == null && record.data.parentId == "root" || record.data.parentId != "root") {
+            var selNode = Ext.dom.Query.selectNode(".x-treelist-item-selected .x-treelist-row", treelist.el.dom);
+            selNode.style.backgroundColor = "#009688";
+        }
+    },
+
     //折叠
     onMicro: function () {
         var me = this; refs = me.getReferences(); var vm = me.getViewModel();
@@ -182,12 +186,4 @@ Ext.define("app.view.main.MainController", {
             refs.navigationTreeList.setMicro(false);
         }
     }
-
-    //主题切换
-    // onThemeChange: function () {
-    //     var me, profile; me = this; refs = me.getReferences(); viewModel = me.getViewModel();
-    //     profile = arguments[0].theme;
-    //     ux.Cookie.SetCookie("profile", profile);
-    //     window.location = window.location;
-    // },
 })

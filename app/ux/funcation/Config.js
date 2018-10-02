@@ -19,17 +19,18 @@
                     userPwd: userPwd,
                     isFirst:isFirst
                 };
-                ux.Cookie.SetCookie('token', JSON.stringify(me.user));
+                App.Cookie.SetCookie('token', JSON.stringify(me.user));
             }
         },
 
         getToken: function () {
             var me, token; me = this;
-            token = ux.Cookie.GetCookie('token');
+            token = App.Cookie.GetCookie('token');
             if (!Ext.isEmpty(token)&&Ext.isEmpty(me.user)) {
                 me.user =JSON.parse(token);
             }
             return token;
+            //return {"userName":"Admin","userPwd":"123456","isFirst":true};
         }
     }
 })

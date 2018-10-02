@@ -22,7 +22,7 @@
 //home-tab-panel
 @include extjs-tab-panel-ui  (
     $ui:"home-tab-panel",
-    $ui-bar-background-color:#fff,                            //tab背景颜色
+    $ui-bar-background-color:#f6f6f6,                            //tab背景颜色
     $ui-tab-background-color-over:#f6f6f6,                    //tab悬浮背景颜色  
     $ui-tab-background-color-active:#ddd,                     //tab选中背景颜色
     $ui-tab-color:#666,                                       //tab文本颜色
@@ -61,11 +61,11 @@
     $item-text-color:rgba(255,255,255,.7),                      //文本颜色
     $item-text-over-color:#fff,                                 //悬浮文本颜色
     $item-text-font-size:14px,                                    //文本字体大小
-    $row-selected-background-color:$base-color,                   //选中行颜色
+    $row-selected-background-color:transparent,                   //选中行颜色
     $row-over-background-color:transparent,                       //悬浮行颜色
     $item-expander-color:#fff,                                  //箭头颜色
     $item-expander-width :20px,                                   //箭头宽度
-    $item-expanded-child-background-color:rgba(0,0,0,.3),       //展开子节点颜色
+    $item-expanded-child-background-color:rgba(0,0,0,.3),       //展开子节点颜色    
     $item-line-height:40px,                                       //行高
     $item-icon-color:rgba(255,255,255,.7),                      //图标颜色
     $item-icon-over-color:#fff,                                 //图标悬浮颜色
@@ -73,7 +73,7 @@
     $row-indicator-selected-color : transparent,                  //选中某一项伪类
     $row-indicator-selected-over-color :transparent,              //悬浮选中某一项伪类
     $row-indicator-over-color :lighten($base-color, 10%),         //悬浮某一项伪类  
-    $row-indicator-width :6px,                                    //伪类宽 
+    $row-indicator-width :5px,                                    //伪类宽 
     $toolstrip-background-color:#28333E,                        //折叠后背景颜色
     $treelist-tool-indicator-selected-color:red !important
 );
@@ -155,4 +155,4 @@
 
 .x-tab-home-tab-panel-top{
     padding: 0px  15px  0px  15px ;
-}
+};

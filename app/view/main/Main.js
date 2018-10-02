@@ -130,7 +130,10 @@ Ext.define("app.view.main.Main", {
                                     ui: "navigation",
                                     scrollable: true,
                                     singleExpand: true,
-                                    expanderOnly: false
+                                    expanderOnly: false,
+                                    listeners: {
+                                        selectionchange: "onNavigationTreeListChange"
+                                    }
                                 }
                             ]
                         },
@@ -153,47 +156,93 @@ Ext.define("app.view.main.Main", {
                                     iconCls: "x-fa fa-laptop",
                                     xtype: "container",
                                     scrollable: Ext.scroll.Scroller({ y: true, x: false }),
-                                    layout: 'column',
-                                    defaults: {
-                                        margin: "15 0 15 15",
-                                        height: 1500,
-                                        plugins: {
-                                            responsive: true
-                                        },
-                                        responsiveConfig: {
-                                            'width < 768': {
-                                                columnWidth: 1
-                                            },
-                                            'width >= 768': {
-                                                columnWidth: 0.5
-                                            },
-                                            'width >= 1200': {
-                                                columnWidth: 0.25
-                                            }
-                                        }
+                                    layout: {
+                                        type: "vbox",
+                                        align:"stretch"
+
                                     },
                                     items: [
                                         {
-                                            xtype: "panel",
-                                            title: "column1",
-                                            html: "column1"
+                                            xtype: "container",
+                                            layout: 'column',
+                                            defaults: {
+                                                margin: "15 0 15 15",
+                                                height: 300,
+                                                plugins: {
+                                                    responsive: true
+                                                },
+                                                responsiveConfig: {
+                                                    'width < 768': {
+                                                        columnWidth: 1
+                                                    },
+                                                    'width >= 768': {
+                                                        columnWidth: 0.5
+                                                    },
+                                                    'width >= 1200': {
+                                                        columnWidth: 0.25
+                                                    }
+                                                }
+                                            },
+                                            items: [
+                                                {
+                                                    xtype: "panel",
+                                                    title: "column1",
+                                                    html: "column1"
+                                                },
+                                                {
+                                                    xtype: "panel",
+                                                    title: "column2",
+                                                    html: "column2"
+                                                },
+                                                {
+                                                    xtype: "panel",
+                                                    title: "column3",
+                                                    html: "column3"
+                                                },
+                                                {
+                                                    xtype: "panel",
+                                                    margin: "15 10 15 15",
+                                                    title: "column4",
+                                                    html: "column4"
+                                                }
+                                            ]
                                         },
                                         {
-                                            xtype: "panel",
-                                            title: "column2",
-                                            html: "column2"
-                                        },
-                                        {
-                                            xtype: "panel",
-                                            title: "column3",
-                                            html: "column3"
-                                        },
-                                        {
-                                            xtype: "panel",
-                                            title: "column4",
-                                            html: "column4"
+                                            iconCls: "x-fa fa-laptop",
+                                            xtype: "container",
+                                            scrollable: Ext.scroll.Scroller({ y: true, x: false }),
+                                            layout: 'column',
+                                            defaults: {
+                                                margin: "15 0 15 15",
+                                                height: 300,
+                                                plugins: {
+                                                    responsive: true
+                                                },
+                                                responsiveConfig: {
+                                                    'width < 768': {
+                                                        columnWidth: 1
+                                                    },
+                                                    'width >= 768': {
+                                                        columnWidth: 0.5
+                                                    }
+                                                }
+                                            },
+                                            items: [
+                                                {
+                                                    xtype: "panel",
+                                                    title: "column1",
+                                                    html: "column1"
+                                                },
+                                                {
+                                                    xtype: "panel",
+                                                    margin: "15 10 15 15",
+                                                    title: "column2",
+                                                    html: "column2"
+                                                }
+                                            ]
                                         }
                                     ]
+
                                 }
                             ]
                         }
