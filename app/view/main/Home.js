@@ -31,19 +31,20 @@ Ext.define("app.view.main.Home.center", {
             xtype: "tabpanel",
             flex: 1,
             ui: "home-tab-panel",
+            scrollable:true,
             tabBar: {
                 height: 40
+            },
+            defaults:{
+                bodyStyle:{
+                    "background-color":"#eee"
+                }
             },
             autoDestroy: false,
             items: [
                 { title: "首页" },
-                { title: "客运管理", closable: true },
-                { title: "客运管理", closable: true },
-                { title: "客运管理", closable: true },
-                { title: "客运管理", closable: true },
-                { title: "客运管理", closable: true },
-                { title: "客运管理", closable: true },
-                { title: "客运管理", closable: true }
+                { title: "栅格", closable: true,html:"123" },
+                { title: "导航", closable: true }
             ]
         }
     ]
@@ -82,8 +83,9 @@ Ext.define("app.view.main.Home.head", {
             },
             items: [
                 {
-                    iconCls: "x-fa  fa-bars",
+                    
                     ui: "planbutton",
+                    iconCls:"x-fa fa-bars",
                     listeners:{
                         click:"onMicro"
                     }
