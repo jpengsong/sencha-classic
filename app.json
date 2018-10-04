@@ -169,15 +169,7 @@
      */
     "js": [
         {
-            "path": "resources/jquery-1.10.2.js",
-            "includeInBundle": false
-        },
-        {
-            "path": "resources/Mloading/mloading.js",
-            "includeInBundle": false
-        },
-        {
-            "path": "resources/zTree/js/jquery.ztree.all.min.js",
+            "path": "resources/echarts/echarts.min.js",
             "includeInBundle": false
         },
         {
@@ -223,14 +215,6 @@
             "exclude": [
                 "fashion"
             ]
-        },
-        {
-            "path": "resources/zTree/css/zTreeStyle/zTreeStyle.css",
-            "includeInBundle": false
-        },
-        {
-            "path": "resources/Mloading/mloading.css",
-            "includeInBundle": false
         },
         {
             "path": "resources/Site.css",
