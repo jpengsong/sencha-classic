@@ -4,6 +4,7 @@ Ext.define("app.view.main.Main", {
     controller: "main",
     layout: 'fit',
     items: [
-        { xtype: "home" }
+        //{ xtype: "home" }
+        {xtype:"login"}
     ]
 })  
