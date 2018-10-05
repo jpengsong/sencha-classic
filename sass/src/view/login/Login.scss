@@ -1,0 +1,17 @@
+.auth-login{
+    background-image:url(/resources/Image/login/auth-background.jpg);
+    background-repeat:no-repeat; background-size:100% 100%;
+    -moz-background-size:10% 10%
+}
+
+.auth-login .loginpanel{
+    background-color:rgba(18, 61, 64, 0.25)
+};
+
+.auth-login .logo,
+.auth-login .label{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 30px;
+    line-height: 50px;
+}

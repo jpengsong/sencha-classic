@@ -65,7 +65,7 @@ Ext.define("app.view.main.Home.head", {
             xtype: "container",
             reference:"logo",
             width: 220,
-            cls: "logo",
+            cls: "logo ext",
             border: 10,
             html: "sencha"
         },

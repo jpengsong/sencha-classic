@@ -54,11 +54,10 @@
     $ui-bar-scroller-opacity:1
 );
 
-//home-treelist
 @include treelist-ui(
     $ui:"navigation",
     $padding:0px 0px,                                             //TreeList边距
-    $background-color :#28333E,                                 //背景颜色
+    $background-color:#28333E,                                 //背景颜色
     $item-text-color:rgba(255,255,255,.7),                      //文本颜色
     $item-text-over-color:#fff,                                 //悬浮文本颜色
     $item-text-font-size:14px,                                    //文本字体大小
@@ -138,22 +137,15 @@
 //一级菜单箭头图标右浮动
 .x-treelist-expander-first .x-treelist-item-expander {
     left: auto;
-    right:0 ;
+    right:0;
 };
-
 
 //logo 样式
 .logo{
     text-align:center;
     color: rgba(255,255,255,0.8);
-    font-size: 16px;
+    font-size: 22px;
     line-height: 50px;
-};
-
-.logoIcon{
-    line-height: 50px;
-    background-image: url(/resources/Image/main/logo1.png);
-    background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;
 };
 
 //tabPanel

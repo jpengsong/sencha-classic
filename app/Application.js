@@ -5,7 +5,9 @@
  */
 Ext.define('app.Application', {
     extend: 'Ext.app.Application',
-
+    requires: [
+        'Ext.list.TreeItem'
+    ],
     name: 'app',
     quickTips: true
 });

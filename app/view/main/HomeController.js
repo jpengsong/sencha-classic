@@ -46,14 +46,16 @@ Ext.define("app.view.main.HomeController", {
         var me = this; refs = me.getReferences(); var vm = me.getViewModel();
         var isMicro= refs.navmenu.getMicro();
         if(!isMicro){
-            refs.navmenu.up('container').setWidth(50);
             refs.logo.setWidth(50);
-            refs.logo.removeCls ("logo");refs.logo.addCls("logoIcon");refs.logo.setHtml("");
+            refs.logo.addCls("ext-sencha");
+            refs.logo.setHtml("");
+            refs.navmenu.up('container').setWidth(50);
             refs.navmenu.setMicro(true);
         }else{
-            refs.navmenu.up('container').setWidth(220);
             refs.logo.setWidth(220);
-            refs.logo.removeCls("logoIcon");refs.logo.addCls ("logo");refs.logo.setHtml("sencha");
+            refs.logo.removeCls("ext-sencha");
+            refs.logo.setHtml("sencha");
+            refs.navmenu.up('container').setWidth(220);
             refs.navmenu.setMicro(false);
         }
     }
