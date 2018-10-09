@@ -2,6 +2,9 @@ Ext.define("app.view.main.MainController", {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
     lastView: null,
+    init: function () {
+        config.init();
+    },
     routes: {
         //跳转视图
         'view.:node': {
@@ -47,7 +50,7 @@ Ext.define("app.view.main.MainController", {
         maincard.setActiveItem(home);
         me.setCurrentView("mainCard", id);
     },
-    
+
     //back.:node路由触发
     onRouteBackChange: function (id) {
 
@@ -55,30 +58,29 @@ Ext.define("app.view.main.MainController", {
 
     //渲染视图
     setCurrentView: function (maincard, hashTag) {
+        var me = this;
+        //散列值转小写
         hashTag = (hashTag || '').toLowerCase();
-        var me = this,refs=me.getReferences(),
-            mainCard = Ext.getCmp(maincard),
-            //获取容器
-            mainLayout = mainCard.getLayout(),
-            //获取Treelist
-            navigationList = refs.navigationTreeList,
-            //查找菜单节点数据
-            node = navigationList.getStore().findNode('routeId', hashTag),
-            //如果菜单和白名单没有找到，返回404
-            view = node || config.whitelist.contains(hashTag) || 'page404',
-            //当前视图
-            lastView = me.lastView,
-            //查找项
-            existingItem = mainCard.child('component[routeId=' + hashTag + ']'),
-            //新视图
-            newView;
-
-            console.info(refs);
-        //上个视图隐藏事件    
+        //获取容器
+        var mainCard = Ext.getCmp(maincard);
+        //获取容器布局
+        var mainLayout = mainCard.getLayout();
+        //获取Treelist
+        var treeStore = Ext.ComponentQuery.query('treelist[reference="navigationTreeList"]')[0].getStore();
+        //从菜单查找routeId
+        var node = treeStore == null ? treeStore : treeStore.findNode('routeId', hashTag);
+        //如果菜单和白名单没有找到，返回404
+        var view = node || config.pageNode.indexOf(hashTag) !== -1 ? hashTag : null || 'page404';
+        //当前视图
+        var lastView = me.lastView;
+        //查找项
+        var existingItem = mainCard.child('component[routeId=' + hashTag + ']');
+        //新视图
+        var newView;
+        //当前视图隐藏事件    
         if (lastView) {
             me.fireEvent("viewHide", lastView);
         }
-
         //判断如果是Window窗口 销毁
         if (lastView && lastView.isWindow) {
             lastView.destroy();
@@ -90,7 +92,6 @@ Ext.define("app.view.main.MainController", {
                 routeId: hashTag
             });
         }
-
         //新视图不存在或者非窗口
         if (!newView || !newView.isWindow) {
             if (existingItem) {

@@ -2,6 +2,7 @@
 //首页
 Ext.define("app.view.home.Home", {
     xtype: "home",
+    routeId: "home",
     extend: "Ext.container.Container",
     viewModel: "home",
     controller: "home",
@@ -117,7 +118,7 @@ Ext.define("app.view.home.Home", {
                 },
                 {
                     xtype: "tabpanel",
-                    id: "mainCard",
+                    id: "card",
                     flex: 1,
                     ui: "home-tab-panel",
                     scrollable:true,

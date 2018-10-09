@@ -9,7 +9,7 @@ Ext.define('app.store.main.Navigation', {
         type: 'ajax',
         actionMethods: { read: 'get' },
         timeout: 60000,
-        url:'resources/data/main/Navigation.json',
-        reader: Ext.create('ux.framework.Reader', { type: config.ComboStore })
+        url:'app/data/main/Navigation.json',
+        reader: Ext.create('ux.framework.Reader', { type: "ComboStore" })
     }
 });
