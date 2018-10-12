@@ -1,5 +1,5 @@
 Ext.define('app.store.main.Navigation', {
-    autoLoad: true,
+    autoLoad: false,
     fields: ['type', 'text'],
     alias: 'store.main.Navigation',
     extend: 'Ext.data.TreeStore',

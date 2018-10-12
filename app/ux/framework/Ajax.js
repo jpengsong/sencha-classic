@@ -8,7 +8,8 @@ Ext.define("ux.framework.Ajax", {
         * 发起Ajax.request请求
         * @param {Object} option 包含下列属性的对象
         * @param {Object} option.data 传给后台的参数
-        * @param {String} option.url 提交至后台的url地址，缺省为`http://localhost:1841/`
+        * @param {Object} option.baseUrl 提交至后台的url地址，缺省为`http://localhost:1841/`
+        * @param {String} option.url 提交至后台的url接口
         * @param {String} option.method 提交方法，缺省为`POST`
         * @param {String} option.type 返回类型，缺省为`JSON`
         * @param {String} option.params 提交的其他参数
@@ -22,7 +23,7 @@ Ext.define("ux.framework.Ajax", {
         request: function (option) {
             var me = this, config;
             config = {
-                url: "http://localhost:1841/" + option.url || "",
+                url: (option.baseUrl || "http://localhost:1841/") + (option.url || ""),
                 method: option.method || "POST",
                 params: me.getRequestData(option),
                 async: option.async || true, //异步请求数据

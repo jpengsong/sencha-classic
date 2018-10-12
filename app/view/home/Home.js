@@ -1,7 +1,7 @@
 
 //首页
 Ext.define("app.view.home.Home", {
-    xtype: "home",
+    xtype: "home1",
     routeId: "home",
     extend: "Ext.container.Container",
     viewModel: "home",
@@ -109,6 +109,9 @@ Ext.define("app.view.home.Home", {
                         {
                             xtype: 'treelist',
                             reference: "navigationTreeList",
+                            bind:{
+                                store:"{navigation}"
+                            },
                             ui: "navigation",
                             scrollable: true,
                             singleExpand: true,

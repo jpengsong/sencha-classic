@@ -1,6 +1,7 @@
 Ext.define("app.view.login.Login", {
     xtype: "login",
     routeId:"login",
+    controller:"login",
     extend: "Ext.panel.Panel",
     bodyCls:"auth-login",
     layout: {
@@ -14,8 +15,9 @@ Ext.define("app.view.login.Login", {
             html:"<span class='logo ext ext-sencha'></span><span class='label'>Sencha</span>"
         },
         {
-            xtype: 'panel',
+            xtype: 'form',
             bodyCls:"loginpanel", 
+            reference:"form",
             layout: {
                 type: "vbox",
                 align: "stretch"
@@ -28,18 +30,25 @@ Ext.define("app.view.login.Login", {
             items: [
                 {
                     xtype: 'textfield',
-                    name: 'username',
+                    reference: 'userName',
                     margin:"20 30 5 30",
                     emptyText:"用户名",
-                    hideTrigger:true,
-                    allowBlank: false
+                    value:"Admin",
+                    allowBlank: false,
+                    blankText:"用户名不允许为空" ,
+                    maxLength:15,
+                    maxLengthText:"最大长度不超过15位" 
                 },
                 {
                     xtype: 'textfield',
-                    name: 'password',
+                    reference: 'userPwd',
+                    value:"123456",
                     emptyText:"密码",
                     inputType: 'password',
-                    allowBlank: false
+                    allowBlank: false,
+                    blankText:"密码不允许为空",
+                    maxLength:15,
+                    maxLengthText:"最大长度不超过15位" 
                 },
                 {
                     xtype: "button",

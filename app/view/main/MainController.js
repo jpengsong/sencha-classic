@@ -20,16 +20,37 @@ Ext.define("app.view.main.MainController", {
         'back.:node': {
             before: "onBeforeUser",
             action: "onRouteBackChange"
+        },
+        //登录成功跳转
+        'user.:node': {
+            //before: "onBeforeLoginUser",
+            action: "onRouteUserChange"
+        }
+    },
+
+    //用户登录检测
+    onBeforeLoginUser: function (id, action) {
+        if (!Ext.isEmpty(config.token)) {
+            alert(id);
+            if (id == "home") {
+                action.stop();
+                //Ext.util.History.back();
+            } else {
+                action.resume();
+            }
+        } else {
+            action.stop();
+            this.redirectTo('view.login', true);
         }
     },
 
     //登录检测
     onBeforeUser: function (id, action) {
         var me = this;
-        if (id != "login" && Ext.isEmpty(config.token)) {
+        if (Ext.isEmpty(config.token) && id != "login") {
             action.stop();
             this.redirectTo('view.login', true);
-        } else if (id == "login" && !Ext.isEmpty(config.token)) {
+        } else if (!Ext.isEmpty(config.token) && id == "login") {
             action.stop();
             Ext.util.History.back();
         } else {
@@ -54,6 +75,16 @@ Ext.define("app.view.main.MainController", {
     //back.:node路由触发
     onRouteBackChange: function (id) {
 
+    },
+
+    //user.:node 登录成功后触发
+    onRouteUserChange: function (id) {
+        var me, refs, vm, treeStore; me = this; refs = me.getReferences(); vm = me.getViewModel();
+        treeStore=vm.getStore("navigation");
+        refs.navigationTreeList.setStore(treeStore);
+        treeStore.load();
+
+        me.redirectTo("view.home");
     },
 
     //渲染视图
@@ -121,6 +152,25 @@ Ext.define("app.view.main.MainController", {
                 this.redirectTo('view.login', true);
             }
         };
+    },
+
+    //折叠
+    onMicro: function () {
+        var me = this; refs = me.getReferences(); var vm = me.getViewModel();
+        var isMicro = refs.navigationTreeList.getMicro();
+        if (!isMicro) {
+            refs.logo.setWidth(50);
+            refs.logo.addCls("ext-sencha");
+            refs.logo.setHtml("");
+            refs.navigationTreeList.up('container').setWidth(50);
+            refs.navigationTreeList.setMicro(true);
+        } else {
+            refs.logo.setWidth(220);
+            refs.logo.removeCls("ext-sencha");
+            refs.logo.setHtml("sencha");
+            refs.navigationTreeList.up('container').setWidth(220);
+            refs.navigationTreeList.setMicro(false);
+        }
     }
 
     //主题切换
