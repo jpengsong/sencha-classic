@@ -157,7 +157,7 @@ Ext.define("app.view.main.MainController", {
     onMainViewRender: function () {
         var me, hash; me = this,
             hash = window.location.hash.replace('#', '');
-        if (hash != 'view.home') {
+        if (hash != 'view.login') {
             if (Ext.isEmpty(config.token)) {
                 this.redirectTo('view.login', true);
             }

@@ -14,6 +14,7 @@ Ext.define("app.view.main.Main", {
                 type: "vbox",
                 align: "stretch"
             },
+            
             items: [
                 {
                     xtype: "panel",
