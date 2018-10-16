@@ -9,12 +9,13 @@
             me.guid = { Empty: "00000000-0000-0000-0000-000000000000" };
             me.pageNode = ["login", "home"];
         },
-        setToken: function (userName, userPwd) {
+        setToken: function (userName, userPwd,login) {
             if (!Ext.isEmpty(userName) && !Ext.isEmpty(userPwd)) {
                 var me = this;
                 me.token = {
                     userName: userName,
-                    userPwd: userPwd
+                    userPwd: userPwd,
+                    login:login
                 };
             }
         }

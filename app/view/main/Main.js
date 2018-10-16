@@ -114,6 +114,7 @@ Ext.define("app.view.main.Main", {
                                     xtype: 'treelist',
                                     reference: "navigationTreeList",
                                     ui: "navigation",
+                                    //bind:{store:"{navigation}"},
                                     scrollable: true,
                                     singleExpand: true,
                                     expanderOnly: false

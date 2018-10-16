@@ -23,7 +23,7 @@ Ext.define("app.view.main.MainController", {
         },
         //登录成功跳转
         'user.:node': {
-            //before: "onBeforeLoginUser",
+            before: "onBeforeLoginUser",
             action: "onRouteUserChange"
         }
     },
@@ -31,12 +31,12 @@ Ext.define("app.view.main.MainController", {
     //用户登录检测
     onBeforeLoginUser: function (id, action) {
         if (!Ext.isEmpty(config.token)) {
-            alert(id);
-            if (id == "home") {
-                action.stop();
-                //Ext.util.History.back();
-            } else {
+            if (config.token.login) {
+                config.token.login=false;
                 action.resume();
+            } else {
+                action.stop();
+                Ext.History.forward();
             }
         } else {
             action.stop();
@@ -80,11 +80,21 @@ Ext.define("app.view.main.MainController", {
     //user.:node 登录成功后触发
     onRouteUserChange: function (id) {
         var me, refs, vm, treeStore; me = this; refs = me.getReferences(); vm = me.getViewModel();
-        treeStore=vm.getStore("navigation");
-        refs.navigationTreeList.setStore(treeStore);
-        treeStore.load();
-
-        me.redirectTo("view.home");
+        if (!Ext.isEmpty(config.token)) {
+            ux.Ajax.request({
+                url: "app/data/main/navigation.json",
+                method: "GET",
+                type: "JSON",
+                success: function (data) {
+                    treeStore= vm.getStore("navigation");
+                    treeStore.setRoot(data.Data);
+                    refs.navigationTreeList.setStore(treeStore);
+                }
+            })
+            me.redirectTo("view.home");
+        } else {
+            me.redirectTo("view.login", true);
+        }
     },
 
     //渲染视图

@@ -34,7 +34,7 @@ Ext.define("ux.framework.Ajax", {
                         responseData = Ext.decode(responseData);
                     }
                     if (Ext.isFunction(option.success)) {
-                        option.success(responseData.Data);
+                        option.success(responseData);
                     }
                 },
                 failure: function (msg) {
