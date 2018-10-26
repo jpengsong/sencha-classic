@@ -30,9 +30,9 @@ Ext.define("app.view.main.MainController", {
 
     //用户登录检测
     onBeforeLoginUser: function (id, action) {
-        if (!Ext.isEmpty(config.token)) {
-            if (config.token.login) {
-                config.token.login=false;
+        if (!Ext.isEmpty(config.getToken())) {
+            if (config.user.isFirst) {
+                config.user.isFirst=false;
                 action.resume();
             } else {
                 action.stop();
@@ -47,10 +47,10 @@ Ext.define("app.view.main.MainController", {
     //登录检测
     onBeforeUser: function (id, action) {
         var me = this;
-        if (Ext.isEmpty(config.token) && id != "login") {
+        if (Ext.isEmpty(config.getToken()) && id != "login") {
             action.stop();
             this.redirectTo('view.login', true);
-        } else if (!Ext.isEmpty(config.token) && id == "login") {
+        } else if (!Ext.isEmpty(config.getToken()) && id == "login") {
             action.stop();
             Ext.util.History.back();
         } else {
@@ -76,17 +76,17 @@ Ext.define("app.view.main.MainController", {
     onRouteBackChange: function (id) {
 
     },
-
+    
     //user.:node 登录成功后触发
     onRouteUserChange: function (id) {
         var me, refs, vm, treeStore; me = this; refs = me.getReferences(); vm = me.getViewModel();
-        if (!Ext.isEmpty(config.token)) {
+        if (!Ext.isEmpty(config.getToken())) {
             ux.Ajax.request({
                 url: "app/data/main/navigation.json",
                 method: "GET",
                 type: "JSON",
                 success: function (data) {
-                    treeStore= vm.getStore("navigation");
+                    treeStore = vm.getStore("navigation");
                     treeStore.setRoot(data.Data);
                     refs.navigationTreeList.setStore(treeStore);
                 }
@@ -157,11 +157,11 @@ Ext.define("app.view.main.MainController", {
     onMainViewRender: function () {
         var me, hash; me = this,
             hash = window.location.hash.replace('#', '');
-        if (hash != 'view.login') {
-            if (Ext.isEmpty(config.token)) {
-                this.redirectTo('view.login', true);
-            }
-        };
+        if (Ext.isEmpty(config.getToken()) && hash != 'view.login') {
+            this.redirectTo('view.login', true);
+        } else if (!Ext.isEmpty(config.getToken())) {
+            this.redirectTo('user.login', true);
+        }
     },
 
     //折叠
@@ -190,14 +190,4 @@ Ext.define("app.view.main.MainController", {
     //     ux.Cookie.SetCookie("profile", profile);
     //     window.location = window.location;
     // },
-
-    // //菜单位置切换
-    // onNavigationlayoutChange: function () {
-
-    // },
-
-    // //菜单点击事件
-    // onNavigationChange: function () {
-    //     alert();
-    // }
 })

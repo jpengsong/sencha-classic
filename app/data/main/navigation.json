@@ -2,11 +2,6 @@
     "Data": {
         "children": [
             {
-                "text": "主页",
-                "leaf": true,
-                "iconCls": "x-fa fa-frown-o"
-            },
-            {
                 "text": "组件",
                 "iconCls": "x-fa fa-folder",
                 "children": [

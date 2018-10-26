@@ -1,12 +1,15 @@
 Ext.define("app.view.main.Main", {
+    mixin: [
+        'Ext.mixin.Responsive'
+    ],
     id: "main",
     extend: "Ext.container.Viewport",
     controller: "main",
-    viewModel:"main",
+    viewModel: "main",
     layout: 'card',
-    activeItem:0,
+    activeItem: 0,
     items: [
-        { xtype: "login"},
+        { xtype: "login" },
         {
             xtype: "container",
             routeId: "home",
@@ -14,7 +17,6 @@ Ext.define("app.view.main.Main", {
                 type: "vbox",
                 align: "stretch"
             },
-            
             items: [
                 {
                     xtype: "panel",
@@ -27,7 +29,7 @@ Ext.define("app.view.main.Main", {
                     items: [
                         {
                             xtype: "container",
-                            reference:"logo",
+                            reference: "logo",
                             width: 220,
                             cls: "logo ext",
                             border: 10,
@@ -47,11 +49,11 @@ Ext.define("app.view.main.Main", {
                             },
                             items: [
                                 {
-                                    
+
                                     ui: "planbutton",
-                                    iconCls:"x-fa fa-bars",
-                                    listeners:{
-                                        click:"onMicro"
+                                    iconCls: "x-fa fa-bars",
+                                    listeners: {
+                                        click: "onMicro"
                                     }
                                 },
                                 {
@@ -104,8 +106,8 @@ Ext.define("app.view.main.Main", {
                     items: [
                         {
                             xtype: "container",
-                            width:220,
-                            reference:"navcontainer",
+                            width: 220,
+                            reference: "navcontainer",
                             style: {
                                 "background-color": "#28333E"
                             },
@@ -115,7 +117,6 @@ Ext.define("app.view.main.Main", {
                                     xtype: 'treelist',
                                     reference: "navigationTreeList",
                                     ui: "navigation",
-                                    //bind:{store:"{navigation}"},
                                     scrollable: true,
                                     singleExpand: true,
                                     expanderOnly: false
@@ -127,28 +128,52 @@ Ext.define("app.view.main.Main", {
                             id: "card",
                             flex: 1,
                             ui: "home-tab-panel",
-                            scrollable:true,
+                            scrollable: true,
                             tabBar: {
                                 height: 40
                             },
-                            defaults:{
-                                bodyStyle:{
-                                    "background-color":"#eee"
+                            defaults: {
+                                bodyStyle: {
+                                    "background-color": "#eee"
                                 }
                             },
                             autoDestroy: false,
                             items: [
-                                { title: "主页" },
-                                { title: "栅格", closable: true,html:"123" },
-                                { title: "导航", closable: true }
+                                {
+                                    iconCls:"x-fa fa-laptop",
+                                    xtype: "container",
+                                    layout: 'column',
+                                    defaults: {
+                                        margin: "20 20"
+                                    },
+                                    items: [
+                                        {
+                                            html: 'Column 1',
+                                            columnWidth: 1,
+                                            plugins: {
+                                                responsive: true
+                                            },
+                                            responsiveConfig: {
+                                                'width < 1200':{
+                                                    hidden:true 
+                                                }
+                                            }
+                                        },
+                                        {
+                                            html: 'Column 2',
+                                            columnWidth: 0.7
+                                        },
+                                        {
+                                            html: 'Column 3',
+                                            columnWidth: 0.3
+                                        }
+                                    ]
+                                }
                             ]
                         }
                     ]
                 }
-            ],
-            listeners: {
-                //afterrender: "onafterrender"
-            }
+            ]
         }
     ],
     listeners: {
