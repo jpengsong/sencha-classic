@@ -1,6 +1,5 @@
-﻿Ext.define('App.pagingBar.PagingBar', {
+﻿Ext.define('App.ux.pagingBar.PagingBar', {
     extend: 'Ext.toolbar.Paging',
-    alias: 'widget.pagingBar',
     pageSize: null,
     currentPage: 1,
     initComponent: function () {

@@ -2,8 +2,8 @@
 /**
  * 树节点数据 
  */
-Ext.define('ux.utility.TreeNode', {
-    alternateClassName: ['ux.TreeNode'],
+Ext.define('App.ux.utility.TreeNode', {
+    alternateClassName: ['App.TreeNode'],
     statics: {
         /**
         * 递归选择节点

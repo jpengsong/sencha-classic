@@ -2,8 +2,8 @@
 /**
  *  Tab页面
  */
-Ext.define('ux.utility.Tab', {
-    alternateClassName: ['ux.Tab'],
+Ext.define('App.ux.utility.Tab', {
+    alternateClassName: ['App.Tab'],
     statics: {
         openPage: function (url, config) {
             var tabsMain, tab = null;

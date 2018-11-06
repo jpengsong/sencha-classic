@@ -3,7 +3,7 @@ Ext.define("App.view.systemManage.SysUserModel", {
     alias: "viewmodel.sysuser",
     stores: {
         store: {
-            type: "sysuser"
+            type: "systemmanage.sysuser"
         }
     }
 })

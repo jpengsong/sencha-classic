@@ -4,7 +4,7 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
     requires: [
         'Ext.layout.container.Border'
     ],
-    extend: "App.page.Page",
+    extend: "App.ux.page.Page",
     initComponent: function () {
         var me = this;
         me.initQueryPanel();
@@ -14,7 +14,7 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
 
     initQueryPanel: function () {
         var me, querypanel; me = this;
-        querypanel = Ext.create("App.query.QueryPanel", {
+        querypanel = Ext.create("App.ux.query.QueryPanel", {
             configs: {
                 defaults: {
                     margin: "5 5",
@@ -42,7 +42,7 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
 
     initGridPanel: function () {
         var me, gridpanel; me = this;
-        gridpanel = Ext.create("App.grid.GridPanel", {
+        gridpanel = Ext.create("App.ux.grid.GridPanel", {
             bind: {
                 store: '{store}'
             },

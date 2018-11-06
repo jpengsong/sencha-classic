@@ -1,4 +1,4 @@
-﻿Ext.define("App.query.QueryPanel", {
+﻿Ext.define("App.ux.query.QueryPanel", {
     requires: [
         'Ext.layout.container.Column'
     ],

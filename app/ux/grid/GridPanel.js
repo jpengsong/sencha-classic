@@ -1,39 +1,41 @@
-﻿Ext.define("App.grid.GridPanel", {
+﻿Ext.define("App.ux.grid.GridPanel", {
     extend: 'Ext.grid.Panel',
-    require: [
-        'App.pagingBar.PagingBar'
-    ],
-    width: '100%',
-    height: '400',
     pageSize: 10,
     pagination: true,
+    dock:"bottom",
     initComponent: function () {
         var me; me = this;
-        //me.initGridPagination();
         me.callParent();
     },
+    
+    listeners:{
+        afterrender:function(){
+            var me = this;
+            me.initPagination();
+        }, 
+    },
 
-    initGridPagination: function () {
-        var me = this;
+    initPagination: function () {
+        var me,paging;me = this;
         if (me.pagination) {
-            store = me.store;
-            var paging = Ext.create("App.pagingBar.PagingBar", {
+             paging = Ext.create("App.ux.pagingBar.PagingBar", {
                 width: "100%",
+                dock:"bottom",
                 border: 0,
+                store:me.getStore(),
                 pageSize: me.pageSize,
                 sorters: me.sorters,
                 displayInfo: true,
                 scope: me
             })
-            me.bbar = [paging];
-            paging.bindStore(store);
+            me.addDocked(paging);
         };
-
-        store.on("beforeload", function () {
-            me.load(store.currentPage);
-        });
     },
 
+
+        // store.on("beforeload", function () {
+        //     me.load(store.currentPage);
+        // });
     // load: function (pageIndex) {
     //     var scope = this; scope.store.currentPage = pageIndex;
     //     scope.getStore().getProxy().buildRequest = function (operation) {
