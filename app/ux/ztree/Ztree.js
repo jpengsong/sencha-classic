@@ -1,4 +1,4 @@
-﻿Ext.define("ux.ztree.Ztree", {
+﻿Ext.define("App.ux.ztree.Ztree", {
     extend: "Ext.container.Container",
     alias: "widget.ztree",
     ztreeId: "zTree",

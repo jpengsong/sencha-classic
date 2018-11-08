@@ -2,7 +2,7 @@
 /**
  * 树节点数据 
  */
-Ext.define('ux.utility.TreeNode', {
+Ext.define('App.ux.utility.TreeNode', {
     alternateClassName: ['App.TreeNode'],
     statics: {
         /**

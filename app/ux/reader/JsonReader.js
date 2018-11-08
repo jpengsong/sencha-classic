@@ -1,4 +1,4 @@
-﻿Ext.define('ux.reader.JsonReader', {
+﻿Ext.define('App.ux.reader.JsonReader', {
     extend: 'Ext.data.reader.Json',
     alias: "reader.JsonReader",
     raw: null,

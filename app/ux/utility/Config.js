@@ -1,4 +1,4 @@
-﻿Ext.define('ux.utility.Config', {
+﻿Ext.define('App.ux.utility.Config', {
     alternateClassName: ['config'],
     statics: {
         user: null,

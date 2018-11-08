@@ -195,7 +195,7 @@ Ext.define('Ext.field.Text', {
          * The value for the HTML5 `pattern` attribute. You can use this to change which
          * keyboard layout will be used.
          *
-         *     Ext.define('Ux.field.Pattern', {
+         *     Ext.define('App.ux.field.Pattern', {
          *         extend : 'Ext.field.Text',
          *         xtype  : 'patternfield',
          *

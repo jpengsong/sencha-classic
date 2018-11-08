@@ -1,4 +1,4 @@
-﻿Ext.define("ux.page.Page", {
+﻿Ext.define("App.ux.page.Page", {
     extend: "Ext.panel.Panel",
     layout: "border",
     bodyStyle:{
