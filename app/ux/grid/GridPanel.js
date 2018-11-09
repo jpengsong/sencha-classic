@@ -1,6 +1,7 @@
 ﻿Ext.define("App.ux.grid.GridPanel", {
     extend: 'Ext.grid.Panel',
-    pageSize: 10,
+    limit: 10,
+    page: 1,
     pagination: true,
     initComponent: function () {
         var me; me = this;
@@ -8,8 +9,10 @@
         me.initAutoLoad();
         me.callParent();
     },
-    params: function () {
-        return { name: "ded" };
+    getParams: function () {
+        return [
+            { key: "userName", Method: "like", Type: "string", Value: "" }
+        ]
     },
 
     privates: {
@@ -23,7 +26,7 @@
             if (me.pagination) {
                 paging = Ext.create("App.ux.pagingBar.PagingBar", {
                     border: 0,
-                    pageSize: me.pageSize,
+                    limit: me.limit,
                     sorters: me.sorters,
                     displayInfo: true,
                     scope: me
@@ -39,7 +42,7 @@
         *          {key:"field1",Method:"=",Type:"string",Value:"***"},
         *          {key:"field2",Method:"=",Type:"string",Value:"***"}
         *      ],
-        *      PagingInfo:{
+        *      PagingSetting:{
         *          PageCount:10,
         *          PageIndex:0,
         *          SortBy:"ASC"
@@ -55,73 +58,56 @@
             setTimeout(() => {
                 store = me.getStore();
                 if (store != null) {
+                    store.setPageSize(me.limit);
                     proxy = store.getProxy();
-                    store.on("beforeload", function (store, operation, eOpts) {
-                        proxy.buildRequest = function (operation) {
-                            var request,
-                                initialParams, //初始化参数
-                                extraParams,   //额外参数
-                                condition,
-                                queryItem,
-                                pagingInfo
-                            //初始化参数
-                            if (Ext.isFunction(me.params)) {
-                                initialParams = me.params();
-                            }
-                            //额外参数
-                            extraParams = proxy.getExtraParams();
-                            //参数
-                            queryItem = Ext.apply(initialParams,extraParams);
-                            condition["QueryItem"]=queryItem;
-                            //是否启用分页
-                            if (me.pagination) {
-                                console.info(operation);
-                                pagingInfo={};
-                                pageIndex = store.currentPage;
-                                pageSize = (pageIndex == undefined || pageIndex == null) ? me.pageSize : pageIndex * me.pageSize
-                                condition.PagingSetting['PageSize'] = pageSize;
-                                condition.PagingSetting["RowNum"] = pageSize - me.pageSize;
-                            }
-                            // sorters = operation.getSorters();
-                            // if (!Ext.isEmpty(sorters)) {
-                            //     condition.PagingSetting['SortField'] = "";
-                            //     for (var i = 0; i < sorters.length; i++) {
-                            //         condition.PagingSetting['SortField'] += sorters[i]._property + " " + sorters[i]._direction;
-                            //         if ((i + 1) < sorters.length) {
-                            //             condition.PagingSetting['SortField'] += ", ";
-                            //         }
-                            //     }
-                            // }
-                            // if (Ext.isEmpty(params["Data"])) {
-                            //     params["Data"] = Ext.encode(condition);
-                            // } else {
-                            //     var paramData = Ext.decode(params["Data"]);
-                            //     paramData = Ext.apply(paramData, condition);
-                            //     params["Data"] = Ext.encode(paramData);
-                            // }
-                            // operationId = operation.getId();
-                            // idParam = me.getIdParam();
-                            // if (operationId !== undefined && params[idParam] === undefined) {
-                            //     params[idParam] = operationId;
-                            // }
-
-                            request = new Ext.data.Request({
-                                params: params,
-                                action: operation.getAction(),
-                                records: operation.getRecords(),
-                                url: operation.getUrl(),
-                                operation: operation,
-                                proxy: proxy
-                            });
-                            request.setUrl(proxy.buildUrl(request));
-                            operation.setRequest(request);
-                            return request;
+                    proxy.buildRequest = function (operation) {
+                        var request,
+                            condition = {},
+                            queryItem,
+                            pagingSetting = {};
+                        /***************************************QueryItem***************************************/
+                        if (Ext.isFunction(me.getParams)) {
+                            queryItem = me.getParams();
                         }
-                    });
-                    if (autoload) {
-                        store.load({
-                            scope: this
+                        var extraParams = proxy.getExtraParams();
+                        condition["QueryItem"] = Ext.apply(queryItem, extraParams);
+                        /***************************************PagingSetting***************************************/
+                        //是否启用分页
+                        if (me.pagination) {
+                            var limit = operation.getLimit();
+                            var page = operation.getPage();
+                            var sorters = operation.getSorters();
+                            pagingSetting['PageCount'] = limit * page;
+                            pagingSetting["PageIndex"] = limit * page - limit;
+                            if (!Ext.isEmpty(sorters)) {
+                                var sortOrder = [];
+                                var sortBy = [];
+                                for (var i = 0; i < sorters.length; i++) {
+                                    sortOrder[i] = sorters[i].getProperty();
+                                    sortBy[i] = sorters[i].getDirection();
+                                }
+                                pagingSetting['SortOrder'] = sortOrder.join(',');
+                                pagingSetting['SortBy'] = sortBy.join(',');
+                            }
+                            condition["PagingSetting"] = pagingSetting;
+                        }
+                        var params = {
+                            Data: Ext.encode(condition)
+                        };
+                        request = new Ext.data.Request({
+                            params: params,
+                            action: operation.getAction(),
+                            records: operation.getRecords(),
+                            url: operation.getUrl(),
+                            operation: operation,
+                            proxy: proxy
                         });
+                        request.setUrl(proxy.buildUrl(request));
+                        operation.setRequest(request);
+                        return request;
+                    }
+                    if (autoload) {
+                        store.loadPage(me.page);
                     }
                 }
             }, 100);

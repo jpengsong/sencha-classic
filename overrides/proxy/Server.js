@@ -17,7 +17,7 @@ Ext.define("override.proxy.Server", {
         if (operationId !== undefined && params[idParam] === undefined) {
             params[idParam] = operationId;
         }
-        console.info(operation);
+
         request = new Ext.data.Request({
             params: params,
             action: operation.getAction(),

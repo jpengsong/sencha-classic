@@ -49,7 +49,7 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
             autoLoad:true,
             columns: {
                 items: [
-                    { text: '用户名', dataIndex: 'userName',with:100 },
+                    { text: '用户名', dataIndex: 'userName',sortable: true,with:100 },
                     { text: '登录名', dataIndex: 'loginName' ,with:10},
                     { text: '手机号', dataIndex: 'mobile' ,with:50},
                     { text: '邮箱', dataIndex: 'email' }
