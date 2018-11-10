@@ -1,7 +1,7 @@
 Ext.define("App.model.systemManage.SysUser", {
     extend: "Ext.data.Model",
     fields: [
-        { name: 'sysUserId', type: 'string' },
+        { name: 'sysUserId', type: 'int' },
         { name: 'orgId', type: 'string' },
         { name: 'userName', type: 'string' },
         { name: 'loginName', type: 'string' },

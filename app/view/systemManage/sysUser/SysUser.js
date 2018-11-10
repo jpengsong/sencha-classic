@@ -43,15 +43,16 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
     initGridPanel: function () {
         var me, gridpanel; me = this;
         gridpanel = Ext.create("App.ux.grid.GridPanel", {
+            autoLoad: true,
             bind: {
                 store: '{store}'
             },
-            autoLoad:true,
             columns: {
                 items: [
-                    { text: '用户名', dataIndex: 'userName',sortable: true,with:100 },
-                    { text: '登录名', dataIndex: 'loginName' ,with:10},
-                    { text: '手机号', dataIndex: 'mobile' ,with:50},
+                    { text: '主键', dataIndex: 'sysUserId', sortable: true, with: 100 },
+                    { text: '用户名', dataIndex: 'userName',  with: 100 },
+                    { text: '登录名', dataIndex: 'loginName', with: 10 },
+                    { text: '手机号', dataIndex: 'mobile', with: 50 },
                     { text: '邮箱', dataIndex: 'email' }
                 ],
                 defaults: {
@@ -60,10 +61,10 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
             },
             getParams: function () {
                 return [
-                    { key: "userName", Method: config.Method.Like, Type: "string", Value: "de" }
+                    { key: "userName", Method: config.Method.Like, Type: "string", Value: "" }
                 ]
             }
-        })
+        });
         me.addGrid("grid", gridpanel);
     }
 })

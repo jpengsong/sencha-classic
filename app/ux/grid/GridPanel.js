@@ -1,7 +1,7 @@
 ﻿Ext.define("App.ux.grid.GridPanel", {
     extend: 'Ext.grid.Panel',
-    limit: 10,
-    page: 1,
+    pageSize: 10,
+    currentPage: 1,
     pagination: true,
     initComponent: function () {
         var me; me = this;
@@ -17,21 +17,20 @@
         * 
         */
         initPagination: function () {
-            var me, paging; me = this;
+            var me= this;
             if (me.pagination) {
-                paging = Ext.create("App.ux.pagingBar.PagingBar", {
-                    border: 0,
-                    limit: me.limit,
-                    sorters: me.sorters,
+                me.bbar = {
+                    xtype: 'pagingtoolbar',
                     displayInfo: true,
-                    scope: me
-                })
-                me.bbar = paging;
+                    plugins: {
+                        'ux-progressbarpager': true
+                    }
+                }
             };
         },
         /*
         *
-        * 查询接口参数采用统一格式如下
+        * Grid查询接口参数采用统一格式如下
         *  var Data = new {
         *      QueryItem:[
         *          {key:"field1",Method:"=",Type:"string",Value:"***"},
@@ -53,7 +52,7 @@
             setTimeout(() => {
                 store = me.getStore();
                 if (store != null) {
-                    store.setPageSize(me.limit);
+                    store.setPageSize(me.pageSize);
                     proxy = store.getProxy();
                     proxy.buildRequest = function (operation) {
                         var request,
@@ -67,25 +66,22 @@
                         var extraParams = proxy.getExtraParams();
                         condition["QueryItem"] = Ext.apply(queryItem, extraParams);
                         /***************************************PagingSetting***************************************/
-                        //是否启用分页
-                        if (me.pagination) {
-                            var limit = operation.getLimit();
-                            var page = operation.getPage();
-                            var sorters = operation.getSorters();
-                            pagingSetting['PageCount'] = limit * page;
-                            pagingSetting["PageIndex"] = limit * page - limit;
-                            if (!Ext.isEmpty(sorters)) {
-                                var sortOrder = [];
-                                var sortBy = [];
-                                for (var i = 0; i < sorters.length; i++) {
-                                    sortOrder[i] = sorters[i].getProperty();
-                                    sortBy[i] = sorters[i].getDirection();
-                                }
-                                pagingSetting['SortOrder'] = sortOrder.join(',');
-                                pagingSetting['SortBy'] = sortBy.join(',');
+                        var limit = operation.getLimit();
+                        var page = operation.getPage();
+                        var sorters = operation.getSorters();
+                        pagingSetting['PageCount'] = limit * page;
+                        pagingSetting["PageIndex"] = limit * page - limit;
+                        if (!Ext.isEmpty(sorters)) {
+                            var sortOrder = [];
+                            var sortBy = [];
+                            for (var i = 0; i < sorters.length; i++) {
+                                sortOrder[i] = sorters[i].getProperty();
+                                sortBy[i] = sorters[i].getDirection();
                             }
-                            condition["PagingSetting"] = pagingSetting;
+                            pagingSetting['SortOrder'] = sortOrder.join(',');
+                            pagingSetting['SortBy'] = sortBy.join(',');
                         }
+                        condition["PagingSetting"] = pagingSetting;
                         var params = {
                             Data: Ext.encode(condition)
                         };
@@ -102,10 +98,10 @@
                         return request;
                     }
                     if (autoload) {
-                        store.loadPage(me.page);
+                        store.loadPage(me.currentPage);
                     }
                 }
-            }, 100);
+            },0);
         }
     }
 })
