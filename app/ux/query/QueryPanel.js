@@ -4,12 +4,12 @@
     ],
     extend: "Ext.Container",
     layout: 'border',
-    style:{
-        "border-bottom-width":"1px",
-        "border-bottom-style":"solid",
-        "border-bottom-color":"#d1d1d1"
+    style: {
+        "border-bottom-width": "1px",
+        "border-bottom-style": "solid",
+        "border-bottom-color": "#d1d1d1"
     },
-    padding:"5 0 5 0",
+    padding: "5 0 5 0",
     width: '100%',
     layout: {
         type: "vbox",
@@ -21,10 +21,10 @@
             listeners: {
                 el: {
                     click: function () {
-                        var queryregion=  Ext.ComponentQuery.query("container[name='queryregion']")[0];
-                        if(queryregion.isHidden()){
+                        var queryregion = Ext.ComponentQuery.query("container[name='queryregion']")[0];
+                        if (queryregion.isHidden()) {
                             queryregion.show();
-                        }else{
+                        } else {
                             queryregion.hide();
                         }
                     }
@@ -33,7 +33,7 @@
         },
         {
             xtype: "container",
-            name:"queryregion",
+            name: "queryregion",
             width: "100%",
             layout: {
                 type: "hbox",
@@ -45,14 +45,14 @@
     controller: {
         //查询
         onSearch: function () {
-            var me = this;
-            if (Ext.isFunction(me.view.Configs.search)) {
-                Ext.callback(me.view.scope.search, this);
-            } else {
-                var grid = me.view.scope.getGrid(me.view.GridName);
-                ux.Page.setQueryItems(grid.getStore(), me.view.getQueryItems());
-                grid.getStore().loadPage(1);
-            }
+            var me = this,
+                queryItems,
+                view = me.getView(),
+                grid = view.scope.getGrid(view.grid),
+                gridStore = grid.getStore(),
+                refs = me.getReferences();
+                queryItems = App.Page.getQueryItems(refs.searchcondition);
+            alert(gridStore);
         },
 
         //重置
@@ -79,23 +79,31 @@
             }
         },
     },
+
+    setQueryItems: function () {
+        var me = this,
+            scope = me.scope,
+            gridpanel = scope.getGrid(me.grid);
+        gridstore = gridpanel.getStore();
+        alert(gridstore);
+    },
+
     initComponent: function () {
-        var me, queryConfig, buttonsConfig; me = this;
+        var me, queryConfig, buttonConfig; me = this;
         //查询条件
         queryConfig = Ext.apply({
             xtype: "container",
             flex: 1,
             layout: 'column',
-            reference: "querycondition"
-        }, me.configs);
+            reference: "searchcondition"
+        }, me.queryConfig);
         me.items[1].items[0] = queryConfig;
 
-        //查询条件按钮
-        buttonsConfig = Ext.apply({
+        //查询按钮
+        buttonConfig = Ext.apply({
             xtype: 'container',
             width: 160,
             layout: 'hbox',
-            reference:"querybutton",
             defaults: {
                 margin: '0 5 5 5'
             },
@@ -103,6 +111,7 @@
                 {
                     xtype: 'button',
                     text: '查询',
+                    reference: "searchbutton",
                     iconCls: "fa fa-search",
                     listeners: {
                         click: "onSearch"
@@ -111,21 +120,20 @@
                 {
                     xtype: 'button',
                     text: '重置',
+                    reference: "resetbutton",
                     iconCls: "fa fa-undo",
                     listeners: {
                         click: "onReset"
                     }
                 }
             ]
-        }, me.buttons);
+        }, me.buttonConfig);
+        me.items[1].items[1] = buttonConfig;
 
-        //自定义查询
-        if (!Ext.isEmpty(me.buttons)) {
-            if (!Ext.isEmpty(me.buttons.items)) {
-                delete me['controller'];
-            }
+        //查询事件
+        if (!Ext.isEmpty(me.controllerConfig)) {
+            me.controller = Ext.apply(me.controller, me.controllerConfig);
         }
-        me.items[1].items[1] = buttonsConfig;
         me.callParent();
     }
 })

@@ -25,15 +25,6 @@ Ext.define('App.ux.utility.UserInfo', {
         /**
          * 用户名
          */
-        UserName: null,
-
-        setData: function (userId, userName, token, refreshToken, isSuperUser) {
-            var me = this;
-            me.UserID = userId;
-            me.UserName = userName;
-            me.Token = token;
-            me.RefreshToken = refreshToken;
-            me.IsSuperUser = isSuperUser;
-        }
+        UserName: null
     }
 });

@@ -15,7 +15,9 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
     initQueryPanel: function () {
         var me, querypanel; me = this;
         querypanel = Ext.create("App.ux.query.QueryPanel", {
-            configs: {
+            grid:"Grid",
+            scope:me,
+            queryConfig: {
                 defaults: {
                     margin: "5 5",
                     labelWidth: 70,
@@ -26,13 +28,10 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
                 items: [
                     {
                         xtype: 'textfield',
-                        name: 'name',
+                        name: 'userName',
+                        method:config.QueryMethod.Like,
+                        type:"String",
                         fieldLabel: '用户名'
-                    },
-                    {
-                        xtype: 'textfield',
-                        name: 'email',
-                        fieldLabel: '所在部门'
                     }
                 ]
             }
@@ -50,7 +49,7 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
             columns: {
                 items: [
                     { text: '主键', dataIndex: 'sysUserId', sortable: true, with: 100 },
-                    { text: '用户名', dataIndex: 'userName',  with: 100 },
+                    { text: '用户名', dataIndex: 'userName', with: 100 },
                     { text: '登录名', dataIndex: 'loginName', with: 10 },
                     { text: '手机号', dataIndex: 'mobile', with: 50 },
                     { text: '邮箱', dataIndex: 'email' }
@@ -60,11 +59,9 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
                 }
             },
             getParams: function () {
-                return [
-                    { key: "userName", Method: config.Method.Like, Type: "string", Value: "" }
-                ]
+                
             }
         });
-        me.addGrid("grid", gridpanel);
+        me.addGrid("Grid", gridpanel);
     }
 })

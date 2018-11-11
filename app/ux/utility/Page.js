@@ -5,29 +5,28 @@
 Ext.define('App.ux.utility.Page', {
     alternateClassName: ['App.Page'],
     statics: {
-        getQueryItems: function (queryItems) {
-            var me, query = {}; me = this;
-            for (var i = 0; i < queryItems.items.length; i++) {
-                if (!Ext.isEmpty(queryItems.items[i].getValue()) && !Ext.isEmpty(queryItems.items[i].name)) {
-                    query[queryItems.items[i].name] = queryItems.items[i].getValue();
+         /**
+         * 获取组件 QueryItems ,适用于所有请求。
+         * @param {Object} component
+         */
+        getQueryItems: function (component) {
+            var queryItems = [], queryItem, fields = Ext.ComponentQuery.query("field", component);
+            Ext.Array.each(fields, function (field, index) {
+                queryItem = { key: "", Value: "", Method: "", Type: "" };
+                queryItem.key = field.name;
+                queryItem.Value = field.getValue();
+                if (!Ext.isEmpty(field.method)) {
+                    queryItem.Method = field.method;
                 }
-            }
-            return query;
+                if (!Ext.isEmpty(field.type)) {
+                    queryItem.Type = field.type;
+                }
+                if (!Ext.isEmpty(queryItem.key)) {
+                    queryItems.push(queryItem);
+                }
+            })
+            return queryItems;
         },
-
-        setQueryItems: function (store, queryItems) {
-            var queryData, query;
-            var queryData = store.getProxy().extraParams.Data;
-            if (Ext.isEmpty(queryData)) {
-                queryData = {};
-                queryData.QueryItems = {};
-            } else {
-                queryData = Ext.decode(queryData);
-            }
-            queryData.QueryItems = Ext.apply(queryData.QueryItems, queryItems);
-            store.getProxy().setExtraParam("Data", Ext.encode(queryData));
-        },
-
         //选择行数据
         selectionModel: function (grid, isMultSet) {
             var records, rs; rs = false;

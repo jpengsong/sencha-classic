@@ -45,25 +45,6 @@ Ext.define("App.ux.utility.Ajax", {
             };
             Ext.Ajax.request(config);
         },
-        /**
-         * 发起Ajax.proxy请求
-         * @param {String} option.url 提交至后台的url地址，缺省为`http://localhost:1841/`
-         * @param {Number} option.timeout 请求延时，毫秒，缺省为`60000`
-         * @param {Object} option.type 请求类型，缺省为`JSON`
-         * @param {Object} option.Data 传给后台的参数
-         * @param {String} option.method 提交方法，缺省为`POST`
-         * *
-         */
-        proxy: function (option) {
-            var me = this;
-            new Ext.data.proxy.Ajax({
-                timeout: 60000,
-                url: "http://localhost:1841/" + option.url,
-                extraParams: me.getRequestData(option),
-                actionMethods: { read: option.method || "POST" },
-                reader: Ext.create('ux.framework.Reader', { type: option.dataType })
-            })
-        },
 
         /**
         * 获取url参数名称内容
@@ -85,29 +66,86 @@ Ext.define("App.ux.utility.Ajax", {
         * 此方法根据传入参数构造出一个标准json格式的数据，一般不直接调用。
         * 
         * @param {Object} option 包含下列属性的对象
-        * @param {Object} oData 传给后台的参数 
+        * @param {Object} oData 传给后台的参数
         * @static
         * @private
         */
-        getRequestData: function (option) {
+        getRequestData: function (oData) {
             var me = this, data = "";
-            if (option.data !== undefined) {
-                if (Ext.typeOf(option.data) === "object" || Ext.typeOf(option.data) === "array") {
-                    data = Ext.encode(option.data)
-
+            if (Ext.isEmpty(data)) {
+                if (Ext.typeOf(oData) === "object" || Ext.typeOf(oData) === "array") {
+                    data = Ext.encode(oData)
                 } else {
-                    data = option.data;
+                    data = oData;
                 }
             }
             return { TokenGuid: me.getUserToken(), Data: data };
         },
 
         /**
-        * 获取用户token
-        * @return {String} 当前用户token
+        * 设置 Store 请求的参数
+        * @param {Object} store 需要设置参数的store对象
+        * @param {Object} paramData 需要设置的参数
         */
+        setExtraParamData: function (store, paramData) {
+            var me = this, requestData = Ext.decode(store.proxy.extraParams.RequestData), data, objData = {}, arrData = [];
+            if (Ext.isEmpty(requestData.Data)) {
+                requestData.Data = paramData;
+                store.getProxy().setExtraParam("RequestData", me.getRequestData(paramData));
+            } else {
+                data = Ext.decode(requestData.Data);
+                if (Ext.typeOf(data) === "object") {
+                    objData = data;
+                    if (Ext.typeOf(paramData) === "object") {
+                        Ext.apply(objData, paramData);
+                    } else if (Ext.typeOf(paramData) === "array") {
+                        Ext.each(paramData, function (item, index) {
+                            Ext.apply(objData, item);
+                        });
+                    }
+                    store.getProxy().setExtraParam("RequestData", me.getRequestData(objData));
+                } else if (Ext.typeOf(data) === "array") {
+                    Ext.each(data, function (item, index) {
+                        arrData.push(item);
+                    });
+                    if (Ext.typeOf(paramData) === "object") {
+                        arrData.push(paramData);
+                    } else if (Ext.typeOf(paramData) === "array") {
+                        Ext.each(paramData, function (item, index) {
+                            arrData.push(item);
+                        });
+                    }
+                    store.getProxy().setExtraParam("RequestData", me.getRequestData(arrData));
+                }
+            }
+        },
+
+        /**
+        * 设置 QueryItem
+        * @param {Object} store 需要设置参数的store对象
+        * @param {Array} items 需要设置的QueryItems数组
+        */
+        setQueryItems: function (store, items) {
+            var me = this, queryItems = [];
+            if (!Ext.isEmpty(items)) {
+                queryItems = items;
+            }
+            me.setExtraParamData(store, { QueryItems: queryItems });
+        },
+
+        /**
+         * 获取用户token
+         * @return {String} 当前用户token
+         */
         getUserToken: function () {
-            return ux.UserInfo.Token;
+            var token = "";
+            if (App.UserInfo.Token == null || App.UserInfo.Token == undefined) {
+                token = Ext.util.Cookies.get("TokenGuid");
+            }
+            else {
+                token = App.UserInfo.Token;
+            }
+            return token;
         }
     }
 })
