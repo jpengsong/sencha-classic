@@ -1,9 +1,9 @@
 Ext.define("App.view.systemManage.sysUser.SysUser", {
-    xtype: "sysuser",
-    viewModel: "sysuser",
     requires: [
         'Ext.layout.container.Border'
     ],
+    xtype: "sysuser",
+    viewModel: "sysuser",
     extend: "App.ux.page.Page",
     initComponent: function () {
         var me = this;
@@ -15,8 +15,8 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
     initQueryPanel: function () {
         var me, querypanel; me = this;
         querypanel = Ext.create("App.ux.query.QueryPanel", {
-            grid:"Grid",
-            scope:me,
+            grid: "Grid",
+            scope: me,
             queryConfig: {
                 defaults: {
                     margin: "5 5",
@@ -29,8 +29,8 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
                     {
                         xtype: 'textfield',
                         name: 'userName',
-                        method:config.QueryMethod.Like,
-                        type:"String",
+                        method: config.QueryMethod.Like,
+                        type: "String",
                         fieldLabel: '用户名'
                     }
                 ]
@@ -48,10 +48,10 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
             },
             columns: {
                 items: [
-                    { text: '主键', dataIndex: 'sysUserId', sortable: true, with: 100 },
-                    { text: '用户名', dataIndex: 'userName', with: 100 },
-                    { text: '登录名', dataIndex: 'loginName', with: 10 },
-                    { text: '手机号', dataIndex: 'mobile', with: 50 },
+                    { text: '主键', dataIndex: 'sysUserId', sortable: true, width: 100 },
+                    { text: '用户名', dataIndex: 'userName', width: 100 },
+                    { text: '登录名', dataIndex: 'loginName', width: 10 },
+                    { text: '手机号', dataIndex: 'mobile', width: 50 },
                     { text: '邮箱', dataIndex: 'email' }
                 ],
                 defaults: {
@@ -59,7 +59,7 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
                 }
             },
             getParams: function () {
-                
+                return me.getQuery("query").getQueryItems();
             }
         });
         me.addGrid("Grid", gridpanel);

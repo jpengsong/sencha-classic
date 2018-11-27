@@ -7,7 +7,10 @@ Ext.define("App.view.login.LoginController", {
             userName = refs.userName.getValue();
             userPwd = refs.userPwd.getValue();
             if (userName == "Admin" && userPwd == "123456") {
-                config.setToken(userName, userPwd,true);
+                App.UserInfo.userName=userName;
+                App.UserInfo.userPwd=userPwd;
+                App.UserInfo.IsSuperUser=true;
+                App.UserInfo.Token="7e5f5c69-cb23-4bd8-94ad-133c8e5dad2a"; 
                 me.redirectTo('user.login', true);
             }else{
                 alert("用户名或密码不存在");

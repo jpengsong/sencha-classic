@@ -74,12 +74,12 @@ Ext.define("App.ux.utility.Ajax", {
             var me = this, data = "";
             if (Ext.isEmpty(data)) {
                 if (Ext.typeOf(oData) === "object" || Ext.typeOf(oData) === "array") {
-                    data = Ext.encode(oData)
+                    data = Ext.encode(oData);
                 } else {
                     data = oData;
                 }
             }
-            return { TokenGuid: me.getUserToken(), Data: data };
+            return Ext.encode({ TokenGuid: me.getUserToken(), Data: data });
         },
 
         /**
@@ -88,9 +88,8 @@ Ext.define("App.ux.utility.Ajax", {
         * @param {Object} paramData 需要设置的参数
         */
         setExtraParamData: function (store, paramData) {
-            var me = this, requestData = Ext.decode(store.proxy.extraParams.RequestData), data, objData = {}, arrData = [];
+            var me = this, requestData =Ext.decode(store.proxy.extraParams.RequestData), data, objData = {}, arrData = [];
             if (Ext.isEmpty(requestData.Data)) {
-                requestData.Data = paramData;
                 store.getProxy().setExtraParam("RequestData", me.getRequestData(paramData));
             } else {
                 data = Ext.decode(requestData.Data);
@@ -139,7 +138,7 @@ Ext.define("App.ux.utility.Ajax", {
          */
         getUserToken: function () {
             var token = "";
-            if (App.UserInfo.Token == null || App.UserInfo.Token == undefined) {
+            if (Ext.isEmpty(App.UserInfo.Token)) {
                 token = Ext.util.Cookies.get("TokenGuid");
             }
             else {

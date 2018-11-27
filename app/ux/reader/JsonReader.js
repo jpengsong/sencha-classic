@@ -3,20 +3,19 @@
     alias: "reader.JsonReader",
     raw: null,
     total: 0,
-    records:[],
+    records: [],
     message: '',
     success: false,
-    rootProperty:"records",
-    totalProperty:"total",
-    successProperty:"success",
-    messageProperty:"message",
+    rootProperty: "records",
+    totalProperty: "total",
+    successProperty: "success",
+    messageProperty: "message",
     getResponseData: function (response) {
-        var me,data,content,error;me=this;
+        var me, responseData, data, error; me = this;
         try {
-            data = Ext.decode(response.responseText);
-            me.raw = data;
-            content=data.Data;
-            if (Ext.isEmpty(content)) {
+            responseData = Ext.decode(response.responseText);
+            data = responseData.Data;
+            if (Ext.isEmpty(data)) {
                 return new Ext.data.ResultSet({
                     total: 0,
                     records: [],
@@ -24,24 +23,22 @@
                     message: me.message
                 });
             }
-  
-            if (!Ext.isEmpty(content.RecordCount)) {
-                me.total = content.RecordCount;
+            if (data.List != undefined && data.List != null) {
+                me.records = data.List;
+            } else {
+                me.records = [];
+            }
+            if (data.RecordCount != undefined && data.RecordCount != null) {
+                me.total = data.RecordCount;
+            } else {
+                me.total = 0;
             }
 
-            if(content.Success){
-                me.success = content.Success;
-            }
-           
-            if(!Ext.isEmpty(content.List)){
-                me.records = content.List;
+            if (data.Success) {
+                me.success = data.Success;
             }
 
-            if(!Ext.isEmpty(content.Code)){
-                me.message = content.Code;
-            }
-            
-            var resultSet =new Ext.data.ResultSet({
+            var resultSet = new Ext.data.ResultSet({
                 total: me.total,
                 records: me.records,
                 success: me.success,

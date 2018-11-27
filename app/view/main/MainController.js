@@ -3,7 +3,6 @@ Ext.define("App.view.main.MainController", {
     alias: 'controller.main',
     lastView: null,
     init: function () {
-        config.init();
     },
     routes: {
         //跳转视图
@@ -30,14 +29,8 @@ Ext.define("App.view.main.MainController", {
 
     //用户登录检测
     onBeforeLoginUser: function (id, action) {
-        if (!Ext.isEmpty(config.getToken())) {
-            if (config.user.isFirst) {
-                config.user.isFirst = false;
-                action.resume();
-            } else {
-                action.stop();
-                Ext.History.forward();
-            }
+        if (!Ext.isEmpty(App.UserInfo.Token)) {
+            action.resume();
         } else {
             action.stop();
             this.redirectTo('view.login', true);
@@ -47,10 +40,10 @@ Ext.define("App.view.main.MainController", {
     //登录检测
     onBeforeUser: function (id, action) {
         var me = this;
-        if (Ext.isEmpty(config.getToken()) && id != "login") {
+        if (Ext.isEmpty(App.UserInfo.Token) && id != "login") {
             action.stop();
             this.redirectTo('view.login', true);
-        } else if (!Ext.isEmpty(config.getToken()) && id == "login") {
+        } else if (!Ext.isEmpty(App.UserInfo.Token) && id == "login") {
             action.stop();
             Ext.util.History.back();
         } else {
@@ -66,7 +59,7 @@ Ext.define("App.view.main.MainController", {
 
     //box.:node路由触发
     onRouteBoxChange: function (id) {
-        var me;me = this;
+        var me; me = this;
         me.setCurrentView("welcomecontainer", id);
     },
 
@@ -78,12 +71,14 @@ Ext.define("App.view.main.MainController", {
     //user.:node 登录成功后触发
     onRouteUserChange: function (id) {
         var me, refs, vm, treeStore; me = this; refs = me.getReferences(); vm = me.getViewModel();
-        if (!Ext.isEmpty(config.getToken())) {
-            treeStore = vm.getStore("navigation");
-            refs.navigationTreeList.setStore(treeStore);
+        if (!Ext.isEmpty(App.UserInfo.Token)) {
+            if (Ext.isEmpty(refs.navigationTreeList.getStore())) {
+                treeStore = vm.getStore("navigation");
+                refs.navigationTreeList.setStore(treeStore);
+            }
             me.redirectTo("view.welcome");
         } else {
-            me.redirectTo("view.login", true);
+            me.redirectTo("view.login");
         }
     },
 
@@ -120,11 +115,11 @@ Ext.define("App.view.main.MainController", {
         if (!existingItem) {
             newView = Ext.create({
                 xtype: view,
-                closable:true,
+                closable: true,
                 routeId: hashTag
             });
 
-            if(maincard=="welcomecontainer"&&!Ext.isEmpty(node) ){
+            if (maincard == "welcomecontainer" && !Ext.isEmpty(node)) {
                 newView.setIconCls(node.data.iconCls);
                 newView.setTitle(node.data.text);
             }
@@ -153,19 +148,19 @@ Ext.define("App.view.main.MainController", {
     onMainViewRender: function () {
         var me, hash; me = this,
             hash = window.location.hash.replace('#', '');
-        if (Ext.isEmpty(config.getToken()) && hash != 'view.login') {
+        if (Ext.isEmpty(App.UserInfo.Token) && hash != 'view.login') {
             this.redirectTo('view.login', true);
-        } else if (!Ext.isEmpty(config.getToken())) {
+        } else if (!Ext.isEmpty(App.UserInfo.Token)) {
             this.redirectTo('user.login', true);
         }
     },
 
     //切换菜单项
     onNavigationTreeListChange: function (treelist, record, eOpts) {
-        var me,selNodes,data;
-        me=this;
+        var me, selNodes, data;
+        me = this;
         selNodes = Ext.dom.Query.select(".x-treelist-row", treelist.el.dom);
-        data=record.data;
+        data = record.data;
         for (var i = 0; i < selNodes.length; i++) {
             selNodes[i].style.backgroundColor = "";
         }
@@ -173,8 +168,8 @@ Ext.define("App.view.main.MainController", {
             var selNode = Ext.dom.Query.selectNode(".x-treelist-item-selected .x-treelist-row", treelist.el.dom);
             selNode.style.backgroundColor = "#009688";
         }
-        if(!Ext.isEmpty(data.xtype)){
-            me.redirectTo("box."+data.xtype);
+        if (!Ext.isEmpty(data.xtype)) {
+            me.redirectTo("box." + data.xtype);
         }
     },
 

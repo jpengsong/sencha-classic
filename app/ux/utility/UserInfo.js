@@ -25,6 +25,10 @@ Ext.define('App.ux.utility.UserInfo', {
         /**
          * 用户名
          */
-        UserName: null
+        UserName: null,
+        /**
+         * 密码
+         */
+        UserPassWord:null
     }
 });

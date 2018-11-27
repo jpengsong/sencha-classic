@@ -46,46 +46,37 @@
         //查询
         onSearch: function () {
             var me = this,
-                queryItems,
                 view = me.getView(),
                 grid = view.scope.getGrid(view.grid),
                 gridStore = grid.getStore(),
-                refs = me.getReferences();
-                queryItems = App.Page.getQueryItems(refs.searchcondition);
-            alert(gridStore);
+                queryItems = view.getQueryItems();
+            App.Ajax.setQueryItems(gridStore, queryItems);
+            gridStore.loadPage(1);
         },
 
         //重置
         onReset: function () {
-            var me = this, queryItems, refs = me.getReferences();
-            if (Ext.isFunction(me.view.Configs.reset)) {
-                Ext.callback(me.view.Configs.reset, this);
-            } else {
-                queryItems = refs.queryPanel.items.items[0].items.items[0].items;
-                Ext.each(queryItems.items, function (item) {
-                    if (item.xtype === "orgpicker") {
-                        if (item.getRawValue() !== "") {
-                            item.setValue("");
-                            item.setRawValue("");
-                        }
-                    }
-                    else if (item.xtype.indexOf("combo") !== -1) {
+            var me = this, queryItems= Ext.ComponentQuery.query("container[reference='searchcondition']", me.getView())[0];
+            Ext.each(queryItems.items.items, function (item) {
+                if (item.xtype === "orgpicker") {
+                    if (item.getRawValue() !== "") {
                         item.setValue("");
+                        item.setRawValue("");
                     }
-                    else {
-                        item.setValue("");
-                    }
-                });
-            }
-        },
+                }
+                else if (item.xtype.indexOf("combo") !== -1) {
+                    item.setValue("");
+                }
+                else {
+                    item.setValue("");
+                }
+            });
+        }
     },
 
-    setQueryItems: function () {
-        var me = this,
-            scope = me.scope,
-            gridpanel = scope.getGrid(me.grid);
-        gridstore = gridpanel.getStore();
-        alert(gridstore);
+    getQueryItems: function () {
+        var me = this;
+        return App.Page.getQueryItems(Ext.ComponentQuery.query("container[reference='searchcondition']", me)[0]);
     },
 
     initComponent: function () {

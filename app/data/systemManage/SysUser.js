@@ -1,8 +1,10 @@
 Ext.define('App.data.systemManage.SysUser', {
     extend: "App.data.Simulated",
+    dataSource: [],
     init: function () {
         var me = this;
-        list = [
+        //数据来源
+        me.dataSource = [
             { "sysUserId": 1, "orgId": "2", "userName": "张三1", "loginName": "zhangsan", "mobile": "13500000000" },
             { "sysUserId": 2, "orgId": "2", "userName": "张三3", "loginName": "zhangsan", "mobile": "13500000000" },
             { "sysUserId": 3, "orgId": "2", "userName": "张三4", "loginName": "zhangsan", "mobile": "13500000000" },
@@ -23,99 +25,22 @@ Ext.define('App.data.systemManage.SysUser', {
             { "sysUserId": 19, "orgId": "2", "userName": "张三19", "loginName": "zhangsan", "mobile": "13500000000" },
             { "sysUserId": 20, "orgId": "2", "userName": "张三20", "loginName": "zhangsan", "mobile": "13500000000" }
         ],
+        //获取分页数据接口
+        me.GetSysUserPage();
+    },
 
-        response = {
-            Data: {
-                List: [],
-                RecordCount: 0,
-                Success: true,
-                Code: ""
-            }
-        },
-
+    //获取分页数据
+    GetSysUserPage: function () {
+        var me = this;
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
             url: "/api/SystemManage/GetSysUserPage",
             getData: function (ctx) {
-                var content = response.Data,
-                    condition = Ext.decode(ctx.params.Data),
-                    pagingSetting,
-                    queryItem,
-                    fields,
-                    props,
-                    dirs,
-                    sortFn;
-                content.List = [];
-                if (!Ext.isEmpty(condition)) {
-                    //查询条件
-                    if (!Ext.isEmpty(condition.QueryItem)) {
-                        queryItem = condition.QueryItem;
-                        list.filter(function (row, index, array) {
-                            var isbool = true;
-                            for (var queryIndex in queryItem) {
-                                var queryitem = queryItem[queryIndex];
-                                if (queryitem.Method == config.Method.Like) {
-                                    if (row[queryitem.key].indexOf(queryitem.Value) === -1) {
-                                        isbool = false;
-                                        break;
-                                    }
-                                } else if (queryitem.Method == config.Method.Equals) {
-                                    if (row[queryitem.key] == queryitem.Value) {
-                                        isbool = false;
-                                        break;
-                                    }
-                                }
-                            }
-                            if (isbool) {
-                                content.List.push(row);
-                            }
-                        })
-                    }
-                    //排序
-                    if (!Ext.isEmpty(condition.PagingSetting)) {
-                        pagingSetting = condition.PagingSetting;
-                        if (!Ext.isEmpty(pagingSetting.SortOrder) && !Ext.isEmpty(pagingSetting.SortBy)) {
-                            props = pagingSetting.SortOrder.split(',');
-                            dirs = pagingSetting.SortBy.split(',');
-                            if (props.length == dirs.length) {
-                                fields = [];
-                                for (var index in props) {
-                                    fields.push({ direction: dirs[index], property: props[index] });
-                                    console.info(fields);
-                                    sortFn = me.makeSortFns((ctx.sortSpec = fields));
-                                    if (sortFn) {
-                                        Ext.Array.sort(content.List, sortFn);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    content.RecordCount = content.List.length;
-                }
-                return response;
-            },
-
-            getPage: function (ctx, response) {
-                var me = this,
-                    content = response.Data,
-                    list = content.List,
-                    condition = Ext.decode(ctx.params.Data),
-                    pagingSetting,
-                    pageCount,
-                    pageIndex;
-                if (!Ext.isEmpty(condition)) {
-                    if (!Ext.isEmpty(condition.PagingSetting)) {
-                        pagingSetting = condition.PagingSetting;
-                        pageIndex = pagingSetting.PageIndex;
-                        pageCount = pagingSetting.PageCount;
-                        if (!Ext.isEmpty(pageCount) && !Ext.isEmpty(pageIndex)) {
-                            content.List = Ext.Array.slice(list, pageIndex, pageCount);
-                        }
-                    }
-                }
-                return response;
+                var requestData= Ext.decode(ctx.params.RequestData),condition= me.getCondition(requestData),
+                    responseData=me.SqlQuery(condition);
+                return responseData;
             }
-        });
-    }}
-);
+        })
+    }
+})
