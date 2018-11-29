@@ -48,7 +48,6 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
             },
             columns: {
                 items: [
-                    { text: '主键', dataIndex: 'sysUserId', sortable: true, width: 100 },
                     { text: '用户名', dataIndex: 'userName', width: 100 },
                     { text: '登录名', dataIndex: 'loginName', width: 10 },
                     { text: '手机号', dataIndex: 'mobile', width: 50 },

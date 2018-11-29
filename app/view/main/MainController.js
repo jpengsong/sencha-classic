@@ -159,13 +159,16 @@ Ext.define("App.view.main.MainController", {
     onNavigationTreeListChange: function (treelist, record, eOpts) {
         var me, selNodes, data;
         me = this;
-        selNodes = Ext.dom.Query.select(".x-treelist-row", treelist.el.dom);
+        selNodes = Ext.dom.Query.select(".x-treelist-row");
         data = record.data;
         for (var i = 0; i < selNodes.length; i++) {
             selNodes[i].style.backgroundColor = "";
         }
         if (data.children == null && data.parentId == "root" || data.parentId != "root") {
-            var selNode = Ext.dom.Query.selectNode(".x-treelist-item-selected .x-treelist-row", treelist.el.dom);
+            var selNode = Ext.dom.Query.selectNode(".x-treelist-item-selected > .x-treelist-row", treelist.el.dom);
+            if(selNode==null){
+                selNode = Ext.dom.Query.selectNode(".x-treelist-navigation .x-treelist-item-selected>.x-treelist-row");
+            }
             selNode.style.backgroundColor = "#009688";
         }
         if (!Ext.isEmpty(data.xtype)) {
