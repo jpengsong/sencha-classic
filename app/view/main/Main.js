@@ -121,7 +121,7 @@ Ext.define("App.view.main.Main", {
                                     singleExpand: true,
                                     expanderOnly: false,
                                     listeners: {
-                                        selectionchange: "onNavigationTreeListChange"
+                                        itemclick: "onNavigationTreeListChange"
                                     }
                                 }
                             ]

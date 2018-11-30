@@ -35,13 +35,12 @@
             if (isload) {
                 me.autoLoad = false;
             }
-            setTimeout(() => {
+            Ext.defer(function () {
                 if (me.store != null) {
                     if (Ext.isFunction(me.getParams)) {
                         App.Ajax.setQueryItems(me.store, me.getParams());
                         me.store.pagination = me.pagination;
                     }
-
                     if (isload) {
                         me.store.loadPage(1);
                     }
