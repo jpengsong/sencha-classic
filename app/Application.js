@@ -6,7 +6,9 @@
 Ext.define('App.Application', {
     extend: 'Ext.app.Application',
     requires: [
-        'Ext.list.TreeItem'
+        'Ext.list.TreeItem',
+        'Ext.layout.container.Border',
+        'Ext.layout.container.Column'
     ],
     name: 'App',
     init : function() {

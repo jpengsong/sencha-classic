@@ -77,7 +77,8 @@ Ext.define('App.store.main.Navigation', {
                         "iconCls": "x-fa fa-user-o"
                     },
                     {
-                        "text": "按钮",
+                        "text": "组织机构",
+                        "xtype":"sysorg",
                         "leaf": true,
                         "iconCls": "x-fa fa-graduation-cap"
                     },

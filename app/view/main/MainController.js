@@ -135,11 +135,12 @@ Ext.define("App.view.main.MainController", {
                 newView.fireEvent('viewShow', newView);
             }
             else {
-                Ext.suspendLayouts();
+                //Ext.suspendLayouts();
+                //mainCard.add(newView);
                 mainLayout.setActiveItem(mainCard.add(newView));
-                Ext.resumeLayouts(true);
+                //Ext.resumeLayouts(true);
             }
-            mainCard.fireEvent('activeitemchange', mainCard, newView, lastView);
+            //mainCard.fireEvent('activeitemchange', mainCard, newView, lastView);
         }
         me.lastView = newView;
     },
@@ -156,24 +157,6 @@ Ext.define("App.view.main.MainController", {
 
     //切换菜单项
     onNavigationTreeListChange: function (treelist, record, eOpts) {
-        var me= this, selNodes= Ext.dom.Query.select(".x-treelist-row"), data = record.data;
-        for (var i = 0; i < selNodes.length; i++) {
-            selNodes[i].style.backgroundColor = "";
-        }
-        if (data.children == null && data.parentId == "root" || data.parentId != "root") {
-            var selNode = Ext.dom.Query.selectNode(".x-treelist-item-selected > .x-treelist-row", treelist.el.dom);
-            if(selNode==null){
-                selNode = Ext.dom.Query.selectNode(".x-treelist-navigation .x-treelist-item-selected > .x-treelist-row");
-            }
-            selNode.style.backgroundColor = "#009688";
-        }
-        if (!Ext.isEmpty(data.xtype)) {
-            me.redirectTo("box." + data.xtype);
-        }
-    },
-
-    onNavigationTreeListChange11: function (treelist, record, eOpts) {
-        alert();
         var me= this, selNodes= Ext.dom.Query.select(".x-treelist-row"), data = record.data;
         for (var i = 0; i < selNodes.length; i++) {
             selNodes[i].style.backgroundColor = "";

@@ -1,14 +1,13 @@
 Ext.define("App.view.systemManage.sysOrg.SysOrg", {
-    requires: [
-        'Ext.layout.container.Border'
-    ],
-    xtype: "sysOrg",
-    viewModel: "sysOrg",
+    xtype: "sysorg",
+    viewModel: "sysorg",
+
     extend: "App.ux.page.Page",
     initComponent: function () {
         var me = this;
         me.initQueryPanel();
-        me.initGridPanel();
+        //me.initGridPanel();
+        me.initTreePanel();
         me.callParent();
     },
 
@@ -29,6 +28,7 @@ Ext.define("App.view.systemManage.sysOrg.SysOrg", {
                     {
                         xtype: 'textfield',
                         name: 'userName',
+                        value: "123",
                         method: config.QueryMethod.Like,
                         type: "String",
                         fieldLabel: '用户名'
@@ -39,13 +39,36 @@ Ext.define("App.view.systemManage.sysOrg.SysOrg", {
         me.addQuery("query", querypanel);
     },
 
+    initTreePanel: function () {
+        var me, store, treePanel; me = this;
+        store = Ext.create('Ext.data.TreeStore', {
+            root: {
+                expanded: true,
+                children: [
+                    { text: 'detention', leaf: true },
+                    {
+                        text: 'homework', expanded: true, children: [
+                            { text: 'book report', leaf: true },
+                            { text: 'algebra', leaf: true }
+                        ]
+                    },
+                    { text: 'buy lottery tickets', leaf: true }
+                ]
+            }
+        });
+
+        treePanel = Ext.create('Ext.tree.Panel', {
+            flex: 1,
+            store: store,
+            rootVisible: false
+        });
+        me.addTree("treePanel", treePanel);
+    },
+
     initGridPanel: function () {
         var me, gridpanel; me = this;
         gridpanel = Ext.create("App.ux.grid.GridPanel", {
-            autoLoad: true,
-            bind: {
-                store: '{store}'
-            },
+            autoLoad: false,
             columns: {
                 items: [
                     { text: '用户名', dataIndex: 'userName', width: 100 },

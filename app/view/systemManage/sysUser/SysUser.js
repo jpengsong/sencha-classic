@@ -1,7 +1,4 @@
 Ext.define("App.view.systemManage.sysUser.SysUser", {
-    requires: [
-        'Ext.layout.container.Border'
-    ],
     xtype: "sysuser",
     viewModel: "sysuser",
     extend: "App.ux.page.Page",
@@ -36,7 +33,7 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
                 ]
             }
         });
-        me.addQuery("query", querypanel);
+        me.addQuery("queryw", querypanel);
     },
 
     initGridPanel: function () {
@@ -44,7 +41,7 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
         gridpanel = Ext.create("App.ux.grid.GridPanel", {
             autoLoad: true,
             bind: {
-                store: '{store}'
+                store: '{gridstore}'
             },
             columns: {
                 items: [
@@ -58,7 +55,7 @@ Ext.define("App.view.systemManage.sysUser.SysUser", {
                 }
             },
             getParams: function () {
-                return me.getQuery("query").getQueryItems();
+                return me.getQuery("queryw").getQueryItems();
             }
         });
         me.addGrid("Grid", gridpanel);

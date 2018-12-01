@@ -1,7 +1,7 @@
-Ext.define("App.model.systemManage.SysUser", {
+Ext.define("App.model.systemManage.sysUser.SysUser", {
     extend: "App.model.BaseModel",
     fields: [
-        { name: 'sysUserId', type: 'int' },
+        { name: 'sysUserId', type: 'string' },
         { name: 'orgId', type: 'string' },
         { name: 'userName', type: 'string' },
         { name: 'loginName', type: 'string' },
@@ -16,7 +16,7 @@ Ext.define("App.model.systemManage.SysUser", {
         { name: 'createDate', type: 'date' },
         { name: 'modifyUserId', type: 'string' },
         { name: 'modifyUserName', type: 'string' },
-        { name: 'modifyDate', type: 'date' },
+        { name: 'modifyDate', type: 'date' }
     ],
     idProperty: 'sysUserId'
 })
