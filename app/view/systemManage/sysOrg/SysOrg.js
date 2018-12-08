@@ -1,14 +1,41 @@
 Ext.define("App.view.systemManage.sysOrg.SysOrg", {
     xtype: "sysorg",
     viewModel: "sysorg",
-
     extend: "App.ux.page.Page",
     initComponent: function () {
         var me = this;
-        me.initQueryPanel();
-        //me.initGridPanel();
         me.initTreePanel();
+        me.initQueryPanel();
+        me.initGridPanel();
         me.callParent();
+    },
+
+    initTreePanel: function () {
+        var me, treePanel; me = this;
+        treePanel = Ext.create('Ext.tree.Panel', {
+            rootVisible: true,
+            bind: {
+                store: '{treestore}'
+            },
+            style: {
+                "border-right-width": "1px",
+                "border-right-style": "solid",
+                "border-right-color": "#d1d1d1"
+            },
+            plugins: {
+                requestdata: {
+                    autoLoad: true,
+                    rootParams: function () {
+                        return {
+                            text:"组织机构",
+                            expanded: true,
+                            children: []
+                        }
+                    }
+                }
+            }
+        });
+        me.addTree("treePanel", treePanel, "15%");
     },
 
     initQueryPanel: function () {
@@ -28,7 +55,6 @@ Ext.define("App.view.systemManage.sysOrg.SysOrg", {
                     {
                         xtype: 'textfield',
                         name: 'userName',
-                        value: "123",
                         method: config.QueryMethod.Like,
                         type: "String",
                         fieldLabel: '用户名'
@@ -39,49 +65,94 @@ Ext.define("App.view.systemManage.sysOrg.SysOrg", {
         me.addQuery("query", querypanel);
     },
 
-    initTreePanel: function () {
-        var me, store, treePanel; me = this;
-        store = Ext.create('Ext.data.TreeStore', {
-            root: {
-                expanded: true,
-                children: [
-                    { text: 'detention', leaf: true },
-                    {
-                        text: 'homework', expanded: true, children: [
-                            { text: 'book report', leaf: true },
-                            { text: 'algebra', leaf: true }
-                        ]
-                    },
-                    { text: 'buy lottery tickets', leaf: true }
-                ]
-            }
-        });
-
-        treePanel = Ext.create('Ext.tree.Panel', {
-            flex: 1,
-            store: store,
-            rootVisible: false
-        });
-        me.addTree("treePanel", treePanel);
-    },
-
     initGridPanel: function () {
-        var me, gridpanel; me = this;
-        gridpanel = Ext.create("App.ux.grid.GridPanel", {
-            autoLoad: false,
+        var me, gridpanel, toolbar; me = this;
+        toolbar = Ext.create({
+            xtype: "toolbar",
+            layout: "hbox",
+            items: [
+                {
+                    text: '新增',
+                    iconCls: "x-fa fa-plus",
+                    handler: function () {
+                        var window, me = this, window = Ext.create({
+                            xtype: "window",
+                            title: '新增',
+                            height: 500,
+                            width: 700,
+                            layout: 'form',
+                            items: [{
+                                fieldLabel: 'First Name',
+                                name: 'first',
+                                allowBlank: false
+                            }, {
+                                fieldLabel: 'Last Name',
+                                name: 'last'
+                            }, {
+                                fieldLabel: 'Company',
+                                name: 'company'
+                            }, {
+                                fieldLabel: 'Email',
+                                name: 'email',
+                                vtype: 'email'
+                            }, {
+                                fieldLabel: 'DOB',
+                                name: 'dob',
+                                xtype: 'datefield'
+                            }, {
+                                fieldLabel: 'Age',
+                                name: 'age',
+                                xtype: 'numberfield',
+                                minValue: 0,
+                                maxValue: 100
+                            }, {
+                                xtype: 'timefield',
+                                fieldLabel: 'Time',
+                                name: 'time',
+                                minValue: '8:00am',
+                                maxValue: '6:00pm'
+                            }]
+                        })
+                        window.show();
+                    }
+                },
+                {
+                    text: '编辑',
+                    iconCls: "x-fa fa-pencil-square-o"
+                },
+                {
+                    text: '删除',
+                    iconCls: "x-fa fa-trash-o"
+                }
+            ]
+        })
+
+        gridpanel = Ext.create("Ext.grid.Panel", {
+            tbar: toolbar,
+            selType: 'checkboxmodel',
+            bind: {
+                store: '{gridstore}'
+            },
             columns: {
                 items: [
-                    { text: '用户名', dataIndex: 'userName', width: 100 },
-                    { text: '登录名', dataIndex: 'loginName', width: 10 },
-                    { text: '手机号', dataIndex: 'mobile', width: 50 },
-                    { text: '邮箱', dataIndex: 'email' }
-                ],
-                defaults: {
-                    flex: 1
-                }
+                    { text: '用户名', dataIndex: 'userName', flex: 1 },
+                    { text: '登录名', dataIndex: 'loginName', flex: 1 },
+                    { text: '手机号', dataIndex: 'mobile', flex: 2 },
+                    { text: '邮箱', dataIndex: 'email', flex: 2 }
+                ]
             },
-            getParams: function () {
-                return me.getQuery("query").getQueryItems();
+            bbar: {
+                xtype: 'pagingtoolbar',
+                displayInfo: true
+            },
+            plugins: {
+                requestdata: {
+                    autoLoad: false,
+                    pagination: true,
+                    params: function () {
+                        return me.getQuery("query").getQueryItems();
+                    }
+                }
             }
         });
         me.addGrid("Grid", gridpanel);

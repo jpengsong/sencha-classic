@@ -1,13 +1,15 @@
 ﻿Ext.define("App.ux.page.Page", {
     extend: "Ext.panel.Panel",
-    layout: "border",
+    layout: {
+        type: 'hbox',
+        align: 'stretch'
+    },
     bodyStyle: {
         "background-color": "#fff"
     },
-    treeList: null,
+    treeList:null,
     gridList: null,
     queryList: null,
-    treeWidth: null,
     initComponent: function () {
         var me = this;
         me.defaultPageLayout();
@@ -15,50 +17,42 @@
     },
 
     defaultPageLayout: function () {
-        var me = this, gridPanel, queryPanel, leftPanel; me.items = [];
+        var me = this, treePanel, gridPanel, queryPanel, leftItems, rightItems; me.items = [];
+        leftItems = {
+            layout: {
+                type: "vbox",
+                align: 'stretch'
+            },
+            items: []
+        };
+
+        rightItems = {
+            layout: {
+                type: "vbox",
+                align: 'stretch'
+            },
+            flex:1,
+            items: []
+        };
+
+        if (me.treeList.getCount() > 0) {
+            leftItems.width = me.treeWidth;
+            treePanel = me.treeList.first();
+            treePanel.flex =1;
+            leftItems.items[leftItems.items.length] = treePanel;
+        }
+
         if (me.queryList.getCount() > 0) {
             queryPanel = me.queryList.first();
-            queryPanel.region = 'north';
-            me.items[me.items.length] = queryPanel;
+            rightItems.items[rightItems.items.length] = queryPanel;
         }
 
         if (me.gridList.getCount() > 0) {
             gridPanel = me.gridList.first();
-            gridPanel.region = 'center';
-            me.items[me.items.length] = gridPanel;
+            gridPanel.flex =1;
+            rightItems.items[rightItems.items.length] = gridPanel;
         }
-
-        if (me.treeList.getCount() > 0) {
-            leftPanel = me.treeList.first();
-            leftPanel.region = 'west';
-            alert(me.treeWidth);
-            if (!Ext.isEmpty(me.treeWidth)) {
-                leftPanel.width =me.treeWidth;
-            } else {
-                leftPanel.width = '20%'
-            }
-            me.items[me.items.length] = leftPanel;
-        }
-    },
-
-    addTree: function (key, tree, treeWidth) {
-        var me; me = this;
-        me.treeWidth = treeWidth;
-        if (me.treeList.containsKey(key)) {
-            me.treeList.removeAtKey(key);
-        }
-        me.treeList.add(key, tree);
-    },
-
-    getTree: function (key) {
-        var me = this;
-
-        if (!me.treeList.containsKey(key)) {
-            return null;
-        }
-        else {
-            return me.treeList.get(key);
-        }
+        me.items=[leftItems,rightItems];
     },
 
     addQuery: function (key, query) {
@@ -101,12 +95,30 @@
         }
     },
 
+    addTree: function (key, tree, treeWidth) {
+        var me; me = this;
+        me.treeWidth = treeWidth;
+        if (me.treeList.containsKey(key)) {
+            me.treeList.removeAtKey(key);
+        }
+        me.treeList.add(key, tree);
+    },
+
+    getTree: function (key) {
+        var me = this;
+
+        if (!me.treeList.containsKey(key)) {
+            return null;
+        }
+        else {
+            return me.treeList.get(key);
+        }
+    },
+
     constructor: function (config) {
         var me = this;
         me.queryList = new Ext.util.MixedCollection();
         me.gridList = new Ext.util.MixedCollection();
-        me.FormList = new Ext.util.MixedCollection();
-        me.WindowList = new Ext.util.MixedCollection();
         me.treeList = new Ext.util.MixedCollection();
         me.callParent([config]);
     }

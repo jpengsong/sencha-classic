@@ -48,7 +48,8 @@
             var me = this,
                 view = me.getView(),
                 grid = view.scope.getGrid(view.grid),
-                gridStore = grid.getStore(),
+                gridStore = grid.getStore();
+                console.info(gridStore);
                 queryItems = view.getQueryItems();
             App.Ajax.setQueryItems(gridStore, queryItems);
             gridStore.loadPage(1);
