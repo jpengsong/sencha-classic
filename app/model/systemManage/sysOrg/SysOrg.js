@@ -1,4 +1,4 @@
-Ext.define("App.model.systemManage.sysOrg.SysOrg", {
+Ext.define("App.model.systemmanage.sysorg.SysOrg", {
     extend: "App.model.BaseModel",
     fields: [
         { name: 'sysOrgId', type: 'string' },

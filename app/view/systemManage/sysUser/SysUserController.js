@@ -1,4 +1,4 @@
-Ext.define("App.view.systemManage.sysUser.SysUserController", {
+Ext.define("App.view.systemmanage.sysuser.SysUserController", {
     extend: 'Ext.app.ViewController',
     alias: 'controller.sysuser',
 

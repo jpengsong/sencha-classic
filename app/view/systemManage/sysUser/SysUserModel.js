@@ -1,4 +1,4 @@
-Ext.define("App.view.systemManage.SysUserModel", {
+Ext.define("App.view.systemmanage.sysuser.SysUserModel", {
     extend: 'Ext.app.ViewModel',
     alias: "viewmodel.sysuser",
     stores: {

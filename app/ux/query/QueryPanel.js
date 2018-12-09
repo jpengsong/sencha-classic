@@ -46,18 +46,17 @@
         //查询
         onSearch: function () {
             var me = this,
-                view = me.getView(),
-                grid = view.scope.getGrid(view.grid),
-                gridStore = grid.getStore();
-                console.info(gridStore);
-                queryItems = view.getQueryItems();
+            view = me.getView(),
+            grid = view.scope.getGrid(view.grid),
+            gridStore = grid.getStore(),
+            queryItems = view.getQueryItems();
             App.Ajax.setQueryItems(gridStore, queryItems);
             gridStore.loadPage(1);
         },
 
         //重置
         onReset: function () {
-            var me = this, queryItems= Ext.ComponentQuery.query("container[reference='searchcondition']", me.getView())[0];
+            var me = this, queryItems = Ext.ComponentQuery.query("container[reference='searchcondition']", me.getView())[0];
             Ext.each(queryItems.items.items, function (item) {
                 if (item.xtype === "orgpicker") {
                     if (item.getRawValue() !== "") {

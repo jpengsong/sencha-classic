@@ -1,6 +1,7 @@
-Ext.define("App.view.systemManage.sysOrg.SysOrg", {
+Ext.define("App.view.systemmanage.sysorg.SysOrg", {
     xtype: "sysorg",
     viewModel: "sysorg",
+    controller: "sysorg",
     extend: "App.ux.page.Page",
     initComponent: function () {
         var me = this;
@@ -13,33 +14,33 @@ Ext.define("App.view.systemManage.sysOrg.SysOrg", {
     initTreePanel: function () {
         var me, treePanel; me = this;
         treePanel = Ext.create('Ext.tree.Panel', {
-            rootVisible: true,
+            rootVisible: false,
             bind: {
                 store: '{treestore}'
             },
             style: {
-                "border-right-width": "1px",
+                "border-right-width": "2px",
                 "border-right-style": "solid",
                 "border-right-color": "#d1d1d1"
             },
             plugins: {
                 requestdata: {
                     autoLoad: true,
-                    rootParams: function () {
-                        return {
-                            text:"组织机构",
-                            expanded: true,
-                            children: []
-                        }
+                    root: {
+                        expanded: true,
+                        children: []
                     }
                 }
+            },
+            listeners: {
+                select: "onTreeSelect"
             }
         });
         me.addTree("treePanel", treePanel, "15%");
     },
 
     initQueryPanel: function () {
-        var me, querypanel; me = this;
+        var me, querypanel, queryItems; me = this;
         querypanel = Ext.create("App.ux.query.QueryPanel", {
             grid: "Grid",
             scope: me,
@@ -54,12 +55,17 @@ Ext.define("App.view.systemManage.sysOrg.SysOrg", {
                 items: [
                     {
                         xtype: 'textfield',
-                        name: 'userName',
+                        name: 'orgName',
                         method: config.QueryMethod.Like,
                         type: "String",
-                        fieldLabel: '用户名'
+                        fieldLabel: '机构名称'
                     }
                 ]
+            },
+            getQueryItems: function () {
+                queryItems = App.Page.getQueryItems(Ext.ComponentQuery.query("container[reference='searchcondition']", querypanel)[0]);
+                queryItems.push({ key: "parentOrgId", Value: "1", Method: " = ", Type: "String" });
+                return queryItems;
             }
         });
         me.addQuery("query", querypanel);
@@ -75,45 +81,6 @@ Ext.define("App.view.systemManage.sysOrg.SysOrg", {
                     text: '新增',
                     iconCls: "x-fa fa-plus",
                     handler: function () {
-                        var window, me = this, window = Ext.create({
-                            xtype: "window",
-                            title: '新增',
-                            height: 500,
-                            width: 700,
-                            layout: 'form',
-                            items: [{
-                                fieldLabel: 'First Name',
-                                name: 'first',
-                                allowBlank: false
-                            }, {
-                                fieldLabel: 'Last Name',
-                                name: 'last'
-                            }, {
-                                fieldLabel: 'Company',
-                                name: 'company'
-                            }, {
-                                fieldLabel: 'Email',
-                                name: 'email',
-                                vtype: 'email'
-                            }, {
-                                fieldLabel: 'DOB',
-                                name: 'dob',
-                                xtype: 'datefield'
-                            }, {
-                                fieldLabel: 'Age',
-                                name: 'age',
-                                xtype: 'numberfield',
-                                minValue: 0,
-                                maxValue: 100
-                            }, {
-                                xtype: 'timefield',
-                                fieldLabel: 'Time',
-                                name: 'time',
-                                minValue: '8:00am',
-                                maxValue: '6:00pm'
-                            }]
-                        })
-                        window.show();
                     }
                 },
                 {
@@ -135,10 +102,10 @@ Ext.define("App.view.systemManage.sysOrg.SysOrg", {
             },
             columns: {
                 items: [
-                    { text: '用户名', dataIndex: 'userName', flex: 1 },
-                    { text: '登录名', dataIndex: 'loginName', flex: 1 },
-                    { text: '手机号', dataIndex: 'mobile', flex: 2 },
-                    { text: '邮箱', dataIndex: 'email', flex: 2 }
+                    { text: '机构名称', dataIndex: 'orgName', width: 200 },
+                    { text: '是否启用', dataIndex: 'isEnable', width: 100 },
+                    { text: '排序', dataIndex: 'sort', width: 50 },
+                    { text: '描述', dataIndex: 'description', flex: 1 }
                 ]
             },
             bbar: {
@@ -147,9 +114,9 @@ Ext.define("App.view.systemManage.sysOrg.SysOrg", {
             },
             plugins: {
                 requestdata: {
-                    autoLoad: false,
+                    autoLoad: true,
                     pagination: true,
-                    params: function () {
+                    params:function(){
                         return me.getQuery("query").getQueryItems();
                     }
                 }

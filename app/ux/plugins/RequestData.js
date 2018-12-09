@@ -38,7 +38,7 @@ Ext.define("App.ux.plugins.RequestData", {
     /**
     * @param {Object}  参数 
     */
-    rootParams: Ext.emptyFn,
+    root:null,
 
     /**
     * init function
@@ -51,13 +51,13 @@ Ext.define("App.ux.plugins.RequestData", {
                 store.getProxy().setExtraParams({ RequestData: "{}" });
                 if (me.params != Ext.emptyFn) {
                     App.Ajax.setQueryItems(store, me.params());
+                } 
+                if (me.root != null) {
+                    store.setRoot(me.root);
                 }
                 store.pagination = me.pagination;
                 store.on("beforeload", me.onbeforeload);
                 store.setAutoLoad(me.autoLoad);
-                if (me.rootParams != Ext.emptyFn) {
-                    store.setRoot(me.rootParams());
-                }
             }
         }, 200);
     },

@@ -1,7 +1,7 @@
-Ext.define('App.store.systemmanage.sysuser.GridStore', {
+Ext.define('App.store.systemmanage.sysorg.GridStore', {
     extend: 'Ext.data.Store',
-    alias: 'store.systemmanage.sysuser.gridstore',
-    model: 'App.model.systemmanage.sysuser.SysUser',
+    alias: 'store.systemmanage.sysorg.gridstore',
+    model: 'App.model.systemmanage.sysorg.SysOrg',
     pageSize: 10,
     remoteSort:true,
     proxy: {
@@ -9,6 +9,6 @@ Ext.define('App.store.systemmanage.sysuser.GridStore', {
         reader: Ext.create("App.ux.reader.JsonReader",{
             datatype:config.DataType.GridStore
         }),
-        url: '/api/systemmanage/sysuser/GetSysUserPage',
+        url: '/api/systemmanage/sysorg/GetSysOrgPage',
     }
 });

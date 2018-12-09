@@ -1,4 +1,4 @@
-Ext.define('App.data.systemManage.sysOrg.SysOrg', {
+Ext.define('App.data.systemmanage.sysorg.SysOrg', {
     extend: "App.data.Simulated",
     dataSource: [],
     init: function () {
@@ -18,8 +18,8 @@ Ext.define('App.data.systemManage.sysOrg.SysOrg', {
             { "sysOrgId": 10, "parentOrgId": 3, "level": 2, "orgName": "数据采集组", "description": "", "sort": 300, "isEnable": 0 },
             { "sysOrgId": 11, "parentOrgId": 3, "level": 2, "orgName": "运维组", "description": "", "sort": 400, "isEnable": 0 }
         ],
-            //获取分页数据接口
-            me.GetSysOrgPage();
+        //获取分页数据接口
+        me.GetSysOrgPage();
         //获取组织机构数据
         me.GetSysOrgByRule();
     },
@@ -30,10 +30,10 @@ Ext.define('App.data.systemManage.sysOrg.SysOrg', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "/api/SystemManage/SysOrg/GetSysOrgPage",
+            url: "/api/systemmanage/sysorg/GetSysOrgPage",
             getData: function (ctx) {
                 var requestData = Ext.decode(ctx.params.RequestData), condition = me.getCondition(requestData),
-                    responseData = me.SqlQuery(condition);
+                responseData = me.SqlQuery(condition);
                 return responseData;
             }
         })
@@ -44,10 +44,10 @@ Ext.define('App.data.systemManage.sysOrg.SysOrg', {
         var me = this;
         Ext.ux.ajax.SimManager.register({
             type: 'json',
-            url: "/api/SystemManage/SysOrg/GetSysOrgByRule",
+            url: "/api/systemmanage/sysorg/GetSysOrgByRule",
             getData: function (ctx) {
                 var requestData = Ext.decode(ctx.params.RequestData), condition = me.getCondition(requestData),
-                    responseData = me.SqlQuery(condition);
+                responseData = me.SqlQuery(condition);
                 return responseData;
             }
         })

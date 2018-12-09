@@ -1,8 +1,8 @@
-Ext.define('App.store.systemManage.sysOrg.TreeStore', {
+Ext.define('App.store.systemmanage.sysorg.TreeStore', {
     extend: 'Ext.data.TreeStore',
     autoLoad: false,
     alias: 'store.systemmanage.sysorg.treestore',
-    model: 'App.model.systemManage.sysOrg.SysOrg',
+    model: 'App.model.systemmanage.sysorg.SysOrg',
     proxy: {
         type: 'api',
         reader: {
@@ -15,6 +15,6 @@ Ext.define('App.store.systemManage.sysOrg.TreeStore', {
             isExpand: true,
             rootId: "0"
         },
-        url: '/api/SystemManage/SysOrg/GetSysOrgByRule',
+        url: '/api/systemmanage/sysorg/GetSysOrgByRule',
     }
 });

@@ -68,10 +68,10 @@ Ext.define('App.store.main.Navigation', {
                 "iconCls": "x-fa fa-frown-o"
             },{
                 "text": "系统管理",
-                "iconCls": "x-fa fa-folder",
+                "iconCls": "x-fa fa-cog",
                 "children": [
                     {
-                        "text": "用户",
+                        "text": "用户管理",
                         "leaf": true,
                         "xtype":"sysuser",
                         "iconCls": "x-fa fa-user-o"
@@ -80,17 +80,17 @@ Ext.define('App.store.main.Navigation', {
                         "text": "组织机构",
                         "xtype":"sysorg",
                         "leaf": true,
-                        "iconCls": "x-fa fa-graduation-cap"
+                        "iconCls": "x-fa fa-tree"
                     },
                     {
-                        "text": "表单",
+                        "text": "角色管理",
                         "leaf": true,
-                        "iconCls": "x-fa fa-graduation-cap"
+                        "iconCls": "x-fa fa-users"
                     },
                     {
-                        "text": "导航",
+                        "text": "菜单管理",
                         "leaf": true,
-                        "iconCls": "x-fa fa-graduation-cap"
+                        "iconCls": "x-fa fa-th-list"
                     }
                 ]
             }

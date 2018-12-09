@@ -1,4 +1,4 @@
-Ext.define('App.data.systemManage.sysUser.SysUser', {
+Ext.define('App.data.systemmanage.sysuser.SysUser', {
     extend: "App.data.Simulated",
     dataSource: [],
     init: function () {
@@ -35,7 +35,7 @@ Ext.define('App.data.systemManage.sysUser.SysUser', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "/api/SystemManage/sysUser/GetSysUserPage",
+            url: "/api/systemmanage/sysuser/GetSysUserPage",
             getData: function (ctx) {
                 var requestData= Ext.decode(ctx.params.RequestData),condition= me.getCondition(requestData),
                     responseData=me.SqlQuery(condition);

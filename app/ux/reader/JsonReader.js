@@ -20,7 +20,6 @@
     isAllExpand: false,
     getResponseData: function (response) {
         var me, responseData, data, error; me = this;
-
         try {
             responseData = Ext.decode(response.responseText);
             data = responseData.Data;
