@@ -84,11 +84,13 @@ Ext.define('App.store.main.Navigation', {
                     },
                     {
                         "text": "角色管理",
+                        "xtype":"sysrole",
                         "leaf": true,
                         "iconCls": "x-fa fa-users"
                     },
                     {
                         "text": "菜单管理",
+                        "xtype":"sysmenu",
                         "leaf": true,
                         "iconCls": "x-fa fa-th-list"
                     }

@@ -11,7 +11,6 @@ Ext.define('App.store.systemmanage.sysorg.TreeStore', {
             datatype: config.DataType.TreeStore,
             idField: "sysOrgId",
             parentField: "parentOrgId",
-            textField: "orgName",
             isExpand: true,
             rootId: "0"
         },

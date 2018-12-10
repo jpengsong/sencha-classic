@@ -8,7 +8,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
         Ext.override(querypanel, {
             getQueryItems: function () {
                 var queryItems = App.Page.getQueryItems(Ext.ComponentQuery.query("container[reference='searchcondition']", querypanel)[0]);
-                queryItems.push({ key: "parentOrgId", Value: record.data.id, Method: " = ", Type: "String" });
+                queryItems.push({ key: "parentOrgId", Value: record.data.sysOrgId, Method: " = ", Type: "String" });
                 return queryItems;
             }
         });

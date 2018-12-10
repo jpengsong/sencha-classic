@@ -33,29 +33,24 @@ Ext.define('App.ux.utility.TreeNode', {
         * @param {Boolean} isExpand 是否展开各级节点
         * @param {Function} nodeConfig 绑定节点时执行的函数
         */
-        bindTreeData: function (list, idField, parentField, textField, iconClsField, isExpand, isAllExpand, rootId, checkedField) {
+        bindTreeData: function (list, idField, parentField, iconClsField, isExpand, isAllExpand, rootId, checkedField) {
             var me = this, rootNode = [], options = {};
-            if (!Ext.isEmpty(idField) && !Ext.isEmpty(parentField) && !Ext.isEmpty(textField)) {
+            if (!Ext.isEmpty(idField) && !Ext.isEmpty(parentField)) {
                 for (var i = 0; i < list.length; i++) {
                     if (list[i][parentField] == rootId) {
-                        options = (
+                        options =
                             {
-                                id: list[i][idField],
-                                parentid: list[i][parentField],
-                                text: list[i][textField],
-                                iconCls: list[i][iconClsField],
                                 idField: idField,
                                 parentField: parentField,
-                                textField: textField,
                                 isAllExpand: isAllExpand,
                                 checkedField: checkedField,
+                                iconCls: list[i][iconClsField],
                                 expanded: isExpand || isAllExpand,
-                                node: list[i],
                                 leaf: true,
                                 list: list,
                                 children: []
-                            }
-                        );
+                            };
+                        Ext.apply(options, list[i]);
                         rootNode.push(options);
                         me.bindNode(options);
                     }
@@ -70,27 +65,23 @@ Ext.define('App.ux.utility.TreeNode', {
         * @private
         */
         bindNode: function (options) {
-            var me = this, list = options.list, parentid = options.id, node = {};
+            var me = this, list = options.list, parentid = options[options.idField], node = {};
             for (var i = 0; i < list.length; i++) {
                 if (list[i][options.parentField] == parentid) {
                     node = {
-                        id: list[i][options.idField],
-                        parentid: parentid,
-                        text: list[i][options.textField],
                         iconCls: list[i][options.iconClsField],
                         idField: options.idField,
                         parentField: options.parentField,
-                        textField: options.textField,
                         isAllExpand: options.isAllExpand,
                         checkedField: options.checkedField,
                         expanded: options.isAllExpand,
-                        node: list[i],
                         leaf: true,
                         list: list,
                         children: []
                     };
+                    Ext.apply(node, list[i]);
                     options.children.push(node);
-                    options.leaf=false;
+                    options.leaf = false;
                     me.bindNode(node);
                 }
             }

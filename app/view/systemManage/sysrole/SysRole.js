@@ -1,47 +1,17 @@
-Ext.define("App.view.systemmanage.sysorg.SysOrg", {
-    xtype: "sysorg",
-    viewModel: "sysorg",
-    controller: "sysorg",
+Ext.define("App.view.systemmanage.sysrole.SysRole", {
+    xtype: "sysrole",
+    viewModel: "sysrole",
+    controller: "sysrole",
     extend: "App.ux.page.Page",
     initComponent: function () {
         var me = this;
-        me.initTreePanel();
         me.initQueryPanel();
         me.initGridPanel();
         me.callParent();
     },
 
-    initTreePanel: function () {
-        var me, treePanel; me = this;
-        treePanel = Ext.create('Ext.tree.Panel', {
-            displayField: "orgName",
-            rootVisible: false,
-            bind: {
-                store: '{treestore}'
-            },
-            style: {
-                "border-right-width": "2px",
-                "border-right-style": "solid",
-                "border-right-color": "#d1d1d1"
-            },
-            plugins: {
-                requestdata: {
-                    autoLoad: true,
-                    root: {
-                        expanded: true,
-                        children: []
-                    }
-                }
-            },
-            listeners: {
-                select: "onTreeSelect"
-            }
-        });
-        me.addTree("treePanel", treePanel, "15%");
-    },
-
     initQueryPanel: function () {
-        var me, querypanel, queryItems; me = this;
+        var me, querypanel; me = this;
         querypanel = Ext.create("App.ux.query.QueryPanel", {
             grid: "Grid",
             scope: me,
@@ -56,19 +26,16 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
                 items: [
                     {
                         xtype: 'textfield',
-                        name: 'orgName',
+                        name: 'roleName',
                         method: config.QueryMethod.Like,
                         type: "String",
-                        fieldLabel: '机构名称'
+                        fieldLabel: '角色名'
                     }
                 ]
-            },
-            getQueryItems: function () {
-                queryItems = App.Page.getQueryItems(Ext.ComponentQuery.query("container[reference='searchcondition']", querypanel)[0]);
-                queryItems.push({ key: "parentOrgId", Value: "1", Method: " = ", Type: "String" });
-                return queryItems;
             }
         });
+      
+        
         me.addQuery("query", querypanel);
     },
 
@@ -82,6 +49,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
                     text: '新增',
                     iconCls: "x-fa fa-plus",
                     handler: function () {
+
                     }
                 },
                 {
@@ -103,10 +71,9 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
             },
             columns: {
                 items: [
-                    { text: '机构名称', dataIndex: 'orgName', width: 200 },
-                    { text: '是否启用', dataIndex: 'isEnable', width: 100 },
-                    { text: '排序', dataIndex: 'sort', width: 50 },
-                    { text: '描述', dataIndex: 'description', flex: 1 }
+                    { text: '角色编码', dataIndex: 'roleCode',width:100},
+                    { text: '角色名称', dataIndex: 'roleName',width:200 },
+                    { text: '描述', dataIndex: 'RoleDescription', flex:1 }
                 ]
             },
             bbar: {
@@ -116,10 +83,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
             plugins: {
                 requestdata: {
                     autoLoad: true,
-                    pagination: true,
-                    params: function () {
-                        return me.getQuery("query").getQueryItems();
-                    }
+                    pagination: true
                 }
             }
         });

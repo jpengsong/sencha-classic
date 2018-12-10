@@ -23,7 +23,7 @@ Ext.define("App.view.login.LoginController", {
                     alert("用户名或密码不存在");
                 }
                 myMask.hide();
-            }, 1000);
+            }, 50);
             
         }else{
             alert("请检查登录信息");

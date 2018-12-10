@@ -10,7 +10,6 @@
     successProperty: "success",
     messageProperty: "message",
     idField: null,
-    textField: null,
     parentField: null,
     rootId: null,
     rootNode: {},
@@ -39,13 +38,13 @@
                         data.List,
                         me.idField,
                         me.parentField,
-                        me.textField,
                         me.iconClsField,
                         me.isExpand,
                         me.isAllExpand,
                         me.rootId,
                         me.checkedField);
                 }
+                console.info(me.records);
                 return me.records;
             } else {
                 me.records = [];
