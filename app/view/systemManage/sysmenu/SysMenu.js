@@ -76,7 +76,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
                 {
                     text: '图标',
                     dataIndex: 'IconCls',
-                    width: 100,
+                    width: 120,
                     sortable: true,
                     align: 'center'
                 },

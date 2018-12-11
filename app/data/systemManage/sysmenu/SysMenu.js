@@ -20,7 +20,7 @@ Ext.define('App.data.systemmanage.sysmenu.Sysmenu', {
             { "sysMenuId": 13, "parentId": 4, "MenuCode": "",  "xtype":"", "routeId":"", "MenuName": "book report", "MenuOrder": 1, "Description": "", "IconCls": "x-fa fa-folder", "isEnable": 0, "isDel": 0 },
             { "sysMenuId": 14, "parentId": 4, "MenuCode": "",  "xtype":"", "routeId":"", "MenuName": "algebra", "MenuOrder": 2, "Description": "", "IconCls": "x-fa fa-folder", "isEnable": 0, "isDel": 0 },
             { "sysMenuId": 15, "parentId": 8, "MenuCode": "",  "xtype":"sysuser", "routeId":"sysuser", "MenuName": "用户管理", "MenuOrder": 1, "Description": "", "IconCls": "x-fa fa-user-o", "isEnable": 0, "isDel": 0 },
-            { "sysMenuId": 16, "parentId": 8, "MenuCode": "",  "xtype":"sysorg", "routeId":"", "sysorg": "组织机构", "MenuOrder": 2, "Description": "", "IconCls": "x-fa fa-tree", "isEnable": 0, "isDel": 0 },
+            { "sysMenuId": 16, "parentId": 8, "MenuCode": "",  "xtype":"sysorg", "routeId":"","MenuName": "组织机构","MenuOrder": 2, "Description": "", "IconCls": "x-fa fa-tree", "isEnable": 0, "isDel": 0 },
             { "sysMenuId": 17, "parentId": 8, "MenuCode": "",  "xtype":"sysrole", "routeId":"sysrole", "MenuName": "角色管理", "MenuOrder": 3, "Description": "", "IconCls": "x-fa fa-users", "isEnable": 0, "isDel": 0 },
             { "sysMenuId": 18, "parentId": 8, "MenuCode": "",  "xtype":"sysmenu", "routeId":"sysmenu", "MenuName": "菜单管理", "MenuOrder": 4, "Description": "", "IconCls": "x-fa fa-th-list", "isEnable": 0, "isDel": 0 }
         ],

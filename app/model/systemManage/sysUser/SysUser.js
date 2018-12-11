@@ -8,7 +8,6 @@ Ext.define("App.model.systemmanage.sysuser.SysUser", {
         { name: 'loginPassWord', type: 'string' },
         { name: 'mobile', type: 'string' },
         { name: 'email', type: 'string' },
-        { name: 'isEdit', type: 'int' },
         { name: 'isEnable', type: 'int' },
         { name: 'isDel', type: 'int' },
         { name: 'createUserId', type: 'string' },

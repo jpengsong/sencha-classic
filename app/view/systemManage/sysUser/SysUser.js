@@ -34,8 +34,6 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
                 ]
             }
         });
-      
-        
         me.addQuery("query", querypanel);
     },
 
@@ -48,9 +46,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
                 {
                     text: '新增',
                     iconCls: "x-fa fa-plus",
-                    handler: function () {
-
-                    }
+                    handler:"onAdd"
                 },
                 {
                     text: '编辑',
