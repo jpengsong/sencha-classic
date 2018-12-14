@@ -36,6 +36,7 @@ $include-app-ux-plugins-requestdata: dynamic(true);;
 $include-app-ux-proxy-api: dynamic(true);;
 $include-app-ux-query-querypanel: dynamic(true);;
 $include-app-ux-reader-jsonreader: dynamic(true);;
+$include-app-ux-tree-treepicker: dynamic(true);;
 $include-app-ux-utility-ajax: dynamic(true);;
 $include-app-ux-utility-config: dynamic(true);;
 $include-app-ux-utility-cookie: dynamic(true);;

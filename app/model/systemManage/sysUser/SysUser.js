@@ -10,6 +10,7 @@ Ext.define("App.model.systemmanage.sysuser.SysUser", {
         { name: 'email', type: 'string' },
         { name: 'isEnable', type: 'int' },
         { name: 'isDel', type: 'int' },
+        { name: 'Description', type: 'string' },
         { name: 'createUserId', type: 'string' },
         { name: 'createUserName', type: 'string' },
         { name: 'createDate', type: 'date' },

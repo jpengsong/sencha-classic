@@ -4,7 +4,7 @@ Ext.define("App.model.systemmanage.sysrole.SysRole", {
         { name: 'sysRoleId', type: 'string' },
         { name: 'RoleCode', type: 'string' },
         { name: 'RoleName', type: 'string' },
-        { name: 'RoleDescription', type: 'string' },
+        { name: 'Description', type: 'string' },
         { name: 'isEnable', type: 'int' },
         { name: 'isDel', type: 'int' },
         { name: 'createUserId', type: 'string' },
