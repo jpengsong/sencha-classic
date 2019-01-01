@@ -1,3 +1,24 @@
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:5 */
+.x-mask-ui {
+    background-color: transparent !important;
+    z-index: 200000000 !important;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:10 */
+.x-mask-ui > .x-mask-msg {
+    padding: 0px;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:14 */
+.x-mask-ui .x-mask-msg-text {
+    padding: 50px 20px 5px 20px;
+    background-size: 60px;
+    color: white;
+    background-color: #000;
+    background-image: url(images/loadmask/loading_1.gif);
+}
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:24 */
+.x-message-box >.x-window-bodyWrap >.x-window-body {
+    line-height: 40px;
+}
 /* G:/ExtJS/Project/sencha-classic/ext/packages/core/sass/src/util/SizeMonitor.scss:5 */
 .x-size-monitored {
     /**
@@ -16121,31 +16142,4 @@ div.x-border-layout-ct {
     border-style: solid;
     background-image: none;
     background-color: transparent;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:237 */
-.x-tab-default-top-mc {
-    background-image: url(images/tab/tab-default-top-fbg.gif);
-    background-position: 0 top;
-    background-color: transparent;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:264 */
-.x-nbr .x-tab-default-top {
-    padding: 0 !important;
-    border-width: 0 !important;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    -ms-border-radius: 0px;
-    -o-border-radius: 0px;
-    border-radius: 0px;
-    background-color: transparent !important;
-    background-image: none;
-    box-shadow: none !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:281 */
-.x-tab-default-top-frameInfo {
-    font-family: th-0-0-0-0-0-0-0-0-8-10-8-10;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:347 */
-.x-tab-default-top-tl {
-    background-position: 0 0;
 }

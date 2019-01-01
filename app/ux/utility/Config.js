@@ -73,6 +73,11 @@
              * @readonly
              */
             TreeStore:"TreeStore"
+        },
+
+        textTpl:{
+
+            AfterLabelTextRequired:['<span style="color:red;font-weight:bold">*</span>']
         }
     }
 })

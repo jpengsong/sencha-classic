@@ -19,6 +19,7 @@
     defaultPageLayout: function () {
         var me = this, treePanel, gridPanel, queryPanel, leftItems, rightItems; me.items = [];
         leftItems = {
+            xtype:"container",
             layout: {
                 type: "vbox",
                 align: 'stretch'

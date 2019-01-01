@@ -8,7 +8,8 @@ Ext.define('App.Application', {
     requires: [
         'Ext.list.TreeItem',
         'Ext.layout.container.Border',
-        'Ext.layout.container.Column'
+        'Ext.layout.container.Column',
+        'Ext.data.identifier.Uuid'
     ],
     name: 'App',
     init : function() {

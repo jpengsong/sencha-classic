@@ -1,5 +1,6 @@
 Ext.define("App.model.systemmanage.sysrole.SysRole", {
     extend: "App.model.BaseModel",
+    identifier: "uuid",
     fields: [
         { name: 'sysRoleId', type: 'string' },
         { name: 'RoleCode', type: 'string' },

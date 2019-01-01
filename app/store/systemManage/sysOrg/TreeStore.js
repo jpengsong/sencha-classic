@@ -6,7 +6,7 @@ Ext.define('App.store.systemmanage.sysorg.TreeStore', {
     proxy: {
         type: 'api',
         reader: {
-            type: "JsonReader",
+            type:"jsonreader",
             rootProperty: "children",
             datatype: config.DataType.TreeStore,
             idField: "sysOrgId",

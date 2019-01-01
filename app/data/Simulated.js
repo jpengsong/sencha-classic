@@ -28,6 +28,10 @@ Ext.define('App.data.Simulated', {
             return sortFn;
         };
 
+        data.requestData = function (ctx) {
+            return Ext.decode(ctx.xhr.options.params.RequestData);
+        };
+
         data.getCondition = function (requestData) {
             return Ext.decode(requestData.Data);
         };
@@ -68,10 +72,10 @@ Ext.define('App.data.Simulated', {
                                 i -= 1;
                             }
                         }
-                    } catch(err) {
-                        responseData.Data.List=[];
-                        responseData.Data.Message=err.message;
-                    }finally{
+                    } catch (err) {
+                        responseData.Data.List = [];
+                        responseData.Data.Message = err.message;
+                    } finally {
                         responseData.Data.RecordCount = responseData.Data.List.length;
                     }
                 }
@@ -100,6 +104,16 @@ Ext.define('App.data.Simulated', {
                         responseData.Data.List = Ext.Array.slice(responseData.Data.List, 0, pagingSetting.PageCount);
                     }
                 }
+            }
+            return responseData;
+        };
+
+        data.ResponseData = function () {
+            var responseData = {
+                Data: null,
+                Success: true,
+                Message: "",
+                Code: ""
             }
             return responseData;
         };

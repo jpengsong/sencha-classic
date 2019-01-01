@@ -12,7 +12,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
                 return queryItems;
             }
         });
-        App.Ajax.setQueryItems(gridStore, querypanel.getQueryItems());
+        App.Page.setQueryItems(gridStore, querypanel.getQueryItems());
         gridStore.loadPage(1);
     }
 })

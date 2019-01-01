@@ -8,7 +8,7 @@ Ext.define("App.ux.utility.Ajax", {
         * 发起Ajax.request请求
         * @param {Object} option 包含下列属性的对象
         * @param {Object} option.data 传给后台的参数
-        * @param {Object} option.baseUrl 提交至后台的url地址，缺省为`http://localhost:1841/`
+        * @param {Object} option.baseUrl 提交至后台的url地址，缺省为``
         * @param {String} option.url 提交至后台的url接口
         * @param {String} option.method 提交方法，缺省为`POST`
         * @param {String} option.type 返回类型，缺省为`JSON`
@@ -18,17 +18,33 @@ Ext.define("App.ux.utility.Ajax", {
         * @param {Boolean} option.async 是否异步提交数据，缺省为`true`
         * @param {Number} option.timeout 请求延时，毫秒，缺省为`30000`
         * @param {Object} option.scope 作用域，缺省为`this`
+        * @param {Boolean} option.nosim 参数设置 false 请求本地接口,true 请求远程接口 缺省为true
+        * @param {Boolean} option.showmask 参数设置true显示遮罩
+        * @param {String} option.maskmsg 遮罩显示消息 缺省为 '正在请求数据...'
         * @static
         */
         request: function (option) {
-            var me = this, config;
+            var me = this, config, myMask;
+            if (option.showmask) {
+                myMask = Ext.create({
+                    xtype:"loadmask",
+                    msg: option.maskmsg || '正在请求数据...',
+                    componentCls: "x-mask-ui",
+                    target: Ext.getCmp("main")
+                });
+                myMask.show();
+            }
             config = {
-                url: (option.baseUrl || "http://localhost:1841/") + (option.url || ""),
+                url: (option.baseUrl || "") + (option.url || ""),
                 method: option.method || "POST",
-                params: me.getRequestData(option),
+                nosim: Ext.isEmpty(option.nosim) ? true : option.nosim,
+                params: Ext.apply({ RequestData: me.getRequestData(option.params) }),
                 async: option.async || true, //异步请求数据
                 timeout: option.timeout || 30000,
                 success: function (response) {
+                    if (option.showmask) {
+                        myMask.destroy();
+                    }
                     var responseData = response.responseText;
                     if (option.type == "JSON") {
                         responseData = Ext.decode(responseData);
@@ -38,26 +54,15 @@ Ext.define("App.ux.utility.Ajax", {
                     }
                 },
                 failure: function (msg) {
+                    if (option.showmask) {
+                        myMask.destroy();
+                    }
                     if (Ext.isFunction(option.error)) {
                         option.error(msg);
                     }
                 }
             };
             Ext.Ajax.request(config);
-        },
-
-        /**
-        * 获取url参数名称内容
-        * @param {String} url 
-        * @param {String} name 
-        * @return {Object} 没有返回null
-        * @static
-        * 
-        */
-        getQueryString: function (url, name) {
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-            var r = url.substr(1).match(reg);
-            if (r != null) return unescape(r[2]); return null;
         },
 
         /**
@@ -80,56 +85,6 @@ Ext.define("App.ux.utility.Ajax", {
                 }
             }
             return Ext.encode({ TokenGuid: me.getUserToken(), Data: data });
-        },
-
-        /**
-        * 设置 Store 请求的参数
-        * @param {Object} store 需要设置参数的store对象
-        * @param {Object} paramData 需要设置的参数
-        */
-        setExtraParamData: function (store, paramData) {
-            var me = this, requestData =Ext.decode(store.proxy.extraParams.RequestData), data, objData = {}, arrData = [];
-            if (Ext.isEmpty(requestData.Data)) {
-                store.getProxy().setExtraParam("RequestData", me.getRequestData(paramData));
-            } else {
-                data = Ext.decode(requestData.Data);
-                if (Ext.typeOf(data) === "object") {
-                    objData = data;
-                    if (Ext.typeOf(paramData) === "object") {
-                        Ext.apply(objData, paramData);
-                    } else if (Ext.typeOf(paramData) === "array") {
-                        Ext.each(paramData, function (item, index) {
-                            Ext.apply(objData, item);
-                        });
-                    }
-                    store.getProxy().setExtraParam("RequestData", me.getRequestData(objData));
-                } else if (Ext.typeOf(data) === "array") {
-                    Ext.each(data, function (item, index) {
-                        arrData.push(item);
-                    });
-                    if (Ext.typeOf(paramData) === "object") {
-                        arrData.push(paramData);
-                    } else if (Ext.typeOf(paramData) === "array") {
-                        Ext.each(paramData, function (item, index) {
-                            arrData.push(item);
-                        });
-                    }
-                    store.getProxy().setExtraParam("RequestData", me.getRequestData(arrData));
-                }
-            }
-        },
-
-        /**
-        * 设置 QueryItem
-        * @param {Object} store 需要设置参数的store对象
-        * @param {Array} items 需要设置的QueryItems数组
-        */
-        setQueryItems: function (store, items) {
-            var me = this, queryItems = [];
-            if (!Ext.isEmpty(items)) {
-                queryItems = items;
-            }
-            me.setExtraParamData(store, { QueryItems: queryItems });
         },
 
         /**

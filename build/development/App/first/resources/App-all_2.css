@@ -1,3 +1,30 @@
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:237 */
+.x-tab-default-top-mc {
+    background-image: url(images/tab/tab-default-top-fbg.gif);
+    background-position: 0 top;
+    background-color: transparent;
+}
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:264 */
+.x-nbr .x-tab-default-top {
+    padding: 0 !important;
+    border-width: 0 !important;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px;
+    background-color: transparent !important;
+    background-image: none;
+    box-shadow: none !important;
+}
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:281 */
+.x-tab-default-top-frameInfo {
+    font-family: th-0-0-0-0-0-0-0-0-8-10-8-10;
+}
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:347 */
+.x-tab-default-top-tl {
+    background-position: 0 0;
+}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:351 */
 .x-tab-default-top-tr {
     background-position: right 0;

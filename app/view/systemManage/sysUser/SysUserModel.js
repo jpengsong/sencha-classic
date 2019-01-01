@@ -4,6 +4,10 @@ Ext.define("App.view.systemmanage.sysuser.SysUserModel", {
     stores: {
         gridstore: {
             type: "systemmanage.sysuser.gridstore"
+        },
+
+        isenablestore: {
+            type: "comm.isenablestore"
         }
     }
 })

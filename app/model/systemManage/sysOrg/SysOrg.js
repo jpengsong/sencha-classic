@@ -1,5 +1,6 @@
 Ext.define("App.model.systemmanage.sysorg.SysOrg", {
     extend: "App.model.BaseModel",
+    identifier: "uuid",
     fields: [
         { name: 'sysOrgId', type: 'string' },
         { name: 'parentOrgId', type: 'string' },

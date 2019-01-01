@@ -1,0 +1,25 @@
+
+//******************************************************全局样式******************************************************
+
+//****************遮罩样式**************
+.x-mask-ui{
+    background-color:transparent !important;
+    z-index:200000000 !important;
+}
+
+.x-mask-ui > .x-mask-msg{
+    padding:0px;
+}
+
+.x-mask-ui .x-mask-msg-text{
+    padding:50px 20px 5px 20px;
+    background-size:60px;
+    color: white;
+    background-color:#000;
+    background-image: url(images/loadmask/loading_1.gif)
+}
+
+//****************弹框文本居中**************
+.x-message-box >.x-window-bodyWrap >.x-window-body{
+    line-height: 40px;
+}

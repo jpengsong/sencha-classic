@@ -1,73 +1,84 @@
 Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
     alias: "widget.sysuseredit",
     extend: "Ext.window.Window",
-    maximizable :true,
+    maximizable: true,
+    modal: true,
     width: 450,
     height: 550,
-    layout: "form",
-    defaultType: 'textfield',
-    textTpl: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>',
+    layout: "fit",
     items: [
         {
-            xtype: "comboxtree",
-            fieldLabel: '所属机构',
-            name: "orgId",
-            displayField: "orgName",
-            width:"100%",
-            height:200,
-            rootVisible:false,
-            bind:{
-                store:"{treestore}"
-            },
-            allowBlank: false,
-            afterLabelTextTpl: ['<span style="color:red;font-weight:bold" data-qtip="Required">*</span>']
-        },
-        {
-            xtype: "textfield",
-            bind: "{user.userName}",
-            fieldLabel: '用户名'
-        },
-        {
-            xtype: "textfield",
-            fieldLabel: '登录名',
-            allowBlank: false,
-            bind: "{user.loginName}",
-            afterLabelTextTpl: ['<span style="color:red;font-weight:bold" data-qtip="Required">*</span>']
-        },
-        {
-            inputType: 'password',
-            fieldLabel: '密码',
-            bind: "{user.loginPassWord}",
-            allowBlank: false,
-            afterLabelTextTpl: ['<span style="color:red;font-weight:bold" data-qtip="Required">*</span>']
-        },
-        {
-            fieldLabel: '手机号',
-            bind: "{user.mobile}"
-        },
-        {
-            fieldLabel: '邮箱',
-            vtype: 'email',
-            bind: "{user.email}"
-        },
-        {
-            xtype: 'radiogroup',
-            fieldLabel: '是否启用',
-            bind: "{user.isEnable}",
-            layout: {
-                type: 'hbox',
-                align: 'middle',
-                pack: "center"
-            },
+            xtype: "form",
+            reference: "form",
+            layout: "form",
             items: [
-                { xtype: 'radiofield', boxLabel: '启用', name: 'isEnable', inputValue: 1, margin: "0 0 0 70", checked: true },
-                { xtype: 'radiofield', boxLabel: '禁用', name: 'isEnable', inputValue: 0, margin: "0 0 0 30" }
+                {
+                    xtype: "textfield",
+                    bind: "{user.userName}",
+                    allowBlank: false,
+                    reference: "userName",
+                    maxLength: 10,
+                    fieldLabel: '用户名',
+                },
+                {
+                    xtype: "comboxtree",
+                    fieldLabel: '所属机构',
+                    name: "orgId",
+                    reference: "orgId",
+                    displayField: "orgName",
+                    valueField: "sysOrgId",
+                    width: "100%",
+                    height: 200,
+                    rootVisible: false,
+                    bind: {
+                        defautvalue: "{user.orgId}",
+                        store: "{treestore}"
+                    },
+                    allowBlank: false,
+                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                },
+                {
+                    xtype: "textfield",
+                    fieldLabel: '登录名',
+                    allowBlank: false,
+                    bind: "{user.loginName}",
+                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                },
+                {
+                    xtype: "textfield",
+                    inputType: 'password',
+                    fieldLabel: '密码',
+                    bind: "{user.loginPassWord}",
+                    allowBlank: false,
+                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                },
+                {
+                    xtype: "textfield",
+                    fieldLabel: '手机号',
+                    bind: "{user.mobile}"
+                },
+                {
+                    xtype: "textfield",
+                    fieldLabel: '邮箱',
+                    vtype: 'email',
+                    bind: "{user.email}"
+                },
+                {
+                    xtype: 'radiogroup',
+                    fieldLabel: '是否启用',
+                    bind: "{user.isEnable}",
+                    simpleValue: true,
+                    items: [
+                        { boxLabel: '启用', name: 'isEnable', inputValue: 1, margin: "0 0 0 70" },
+                        { boxLabel: '禁用', name: 'isEnable', inputValue: 0, margin: "0 0 0 30", checked: true }
+                    ]
+                },
+                {
+                    fieldLabel: '描述',
+                    bind: "{user.Description}",
+                    xtype: 'textareafield'
+                }
             ]
-        },
-        {
-            fieldLabel: '描述',
-            bind: "{user.Description}",
-            xtype: 'textareafield'
         }
     ],
     dockedItems: [
@@ -84,18 +95,53 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                 {
                     text: '保存',
                     iconCls: "x-fa fa-floppy-o",
-                    handler: function () {
-
-                    }
+                    handler: "onSave"
                 },
                 {
                     text: '重置',
                     iconCls: "x-fa fa-refresh",
-                    handler: function () {
-
-                    }
+                    handler: "onReset"
                 }
             ]
         }
-    ]
+    ],
+    controller: {
+
+        //保存
+        onSave: function () {
+            var me = this,
+                view = me.getView(),
+                record = me.getViewModel().getData().user,
+                refs = me.getReferences(),
+                form = refs.form;
+            if (form.isValid()) {
+                App.Ajax.request({
+                    url: "~/api/systemmanage/sysuser/" + (me.status == "add" ? "AddSysUser" : "EditSysUser"),
+                    method: "POST",
+                    nosim: false,
+                    type: "JSON",
+                    showmask: true,
+                    maskmsg: "正在保存...",
+                    params: record,
+                    success: function (data) {
+                        App.Msg.Info(data.Message);
+                        if (data.Success) {
+                            var gridstore = view.scope.getGrid("Grid").getStore();
+                            gridstore.loadPage(1);
+                            view.close();
+                        }
+                    },
+                    error: function (data) {
+                        App.Msg.Error("保存异常");
+                    }
+                })
+            }
+        },
+
+        //重置
+        onReset: function () {
+            var me = this, refs = me.getReferences(), form = refs.form;
+            form.reset();
+        }
+    }
 })

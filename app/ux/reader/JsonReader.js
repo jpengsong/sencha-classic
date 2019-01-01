@@ -1,6 +1,6 @@
 ﻿Ext.define('App.ux.reader.JsonReader', {
     extend: 'Ext.data.reader.Json',
-    alias: "reader.JsonReader",
+    alias: "reader.jsonreader",
     total: 0,
     records: [],
     message: '',
@@ -43,9 +43,8 @@
                         me.isAllExpand,
                         me.rootId,
                         me.checkedField);
+                        return me.records;
                 }
-                console.info(me.records);
-                return me.records;
             } else {
                 me.records = [];
             }
@@ -64,7 +63,7 @@
                 message: me.message
             });
             return resultSet;
-        } catch (ex) {
+        } catch (ex) { 
             error = new Ext.data.ResultSet({
                 total: 0,
                 records: [],

@@ -1,5 +1,6 @@
 Ext.define("App.model.systemmanage.sysmenu.SysMenu", {
     extend: "App.model.BaseModel",
+    identifier: "uuid",
     fields: [
         { name: 'sysMenuId', type: 'string' },
         { name: 'parentId', type: 'string' },

@@ -4,6 +4,7 @@ $theme-name:  dynamic( 'theme-first' );
 $include-app-ajax: dynamic(true);;
 $include-app-application: dynamic(true);;
 $include-app-cookie: dynamic(true);;
+$include-app-msg: dynamic(true);;
 $include-app-page: dynamic(true);;
 $include-app-tab: dynamic(true);;
 $include-app-treenode: dynamic(true);;
@@ -24,6 +25,8 @@ $include-app-model-systemmanage-sysorg-sysorg: dynamic(true);;
 $include-app-model-systemmanage-sysrole-sysrole: dynamic(true);;
 $include-app-model-systemmanage-sysuser-sysuser: dynamic(true);;
 $include-app-overrides-locale-abstractview: dynamic(true);;
+$include-app-overrides-window-window: dynamic(true);;
+$include-app-store-comm-isenablestore: dynamic(true);;
 $include-app-store-main-navigation: dynamic(true);;
 $include-app-store-main-plist: dynamic(true);;
 $include-app-store-systemmanage-sysmenu-treestore: dynamic(true);;
@@ -31,15 +34,16 @@ $include-app-store-systemmanage-sysorg-gridstore: dynamic(true);;
 $include-app-store-systemmanage-sysorg-treestore: dynamic(true);;
 $include-app-store-systemmanage-sysrole-gridstore: dynamic(true);;
 $include-app-store-systemmanage-sysuser-gridstore: dynamic(true);;
+$include-app-ux-combox-comboxtree: dynamic(true);;
 $include-app-ux-page-page: dynamic(true);;
-$include-app-ux-plugins-requestdata: dynamic(true);;
+$include-app-ux-plugin-requestdata: dynamic(true);;
 $include-app-ux-proxy-api: dynamic(true);;
 $include-app-ux-query-querypanel: dynamic(true);;
 $include-app-ux-reader-jsonreader: dynamic(true);;
-$include-app-ux-tree-treepicker: dynamic(true);;
 $include-app-ux-utility-ajax: dynamic(true);;
 $include-app-ux-utility-config: dynamic(true);;
 $include-app-ux-utility-cookie: dynamic(true);;
+$include-app-ux-utility-messagebox: dynamic(true);;
 $include-app-ux-utility-page: dynamic(true);;
 $include-app-ux-utility-tab: dynamic(true);;
 $include-app-ux-utility-treenode: dynamic(true);;
@@ -1094,7 +1098,6 @@ $include-ext-window-messagebox: dynamic(true);;
 $include-ext-window-toast: dynamic(true);;
 $include-ext-window-window: dynamic(true);;
 $include-config: dynamic(true);;
-$include-override-buton-button: dynamic(true);;
 $include-override-panel-panel: dynamic(true);;
 $include-override-proxy-server: dynamic(true);;
 $include-override-ux-simmanager: dynamic(true);;
@@ -1173,6 +1176,14 @@ $current-package: 'theme-first';
 $current-resource-root: $theme-first-resource-root;
 $relative-image-path-for-uis: $theme-first-resource-path;
 @import '../../../../../ext/classic/theme-first/sass/etc/sencha-themer-defaults';
+
+/* including package App */
+$App-resource-root: '' !default;
+$App-resource-path: 'images' !default;
+$current-package: false;
+$current-resource-root: $App-resource-root;
+$relative-image-path-for-uis: $App-resource-path;
+@import '../../../../../sass/etc/all';
 
 
 /* ======================== VAR ======================== */
@@ -1395,7 +1406,7 @@ $App-resource-path: 'images' !default;
 $current-package: false;
 $current-resource-root: $App-resource-root;
 $relative-image-path-for-uis: $App-resource-path;
-@import '../../../../../sass/var/view/main/Main';
+@import '../../../../../sass/var/all';
 
 
 /* ======================== RULE ======================== */

@@ -1,5 +1,6 @@
 Ext.define("App.model.systemmanage.sysbutton.SysButton", {
     extend: "App.model.BaseModel",
+    identifier: "uuid",
     fields: [
         { name: 'sysButtonId', type: 'string' },
         { name: 'sysMenuId', type: 'string' },

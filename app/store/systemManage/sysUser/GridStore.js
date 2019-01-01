@@ -6,9 +6,10 @@ Ext.define('App.store.systemmanage.sysuser.GridStore', {
     remoteSort:true,
     proxy: {
         type: 'api',
-        reader: Ext.create("App.ux.reader.JsonReader",{
+        reader: {
+            type:"jsonreader",
             datatype:config.DataType.GridStore
-        }),
-        url: '/api/systemmanage/sysuser/GetSysUserPage',
+        },
+        url: '~/api/systemmanage/sysuser/GetSysUserPage',
     }
 });

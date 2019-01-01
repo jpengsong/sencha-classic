@@ -33,11 +33,33 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
                     }
                 }
             },
-            listeners: {
-                select: "onTreeSelect"
-            }
+            dockedItems: [{
+                xtype: 'textfield',
+                reference: 'navtreeFilter',
+                dock: 'top',
+                emptyText: 'Search',
+                triggers: {
+                    clear: {
+                        cls: 'x-form-clear-trigger',
+                        handler: 'onNavFilterClearTriggerClick',
+                        hidden: true,
+                        scope: 'controller'
+                    },
+                    search: {
+                        cls: 'x-form-search-trigger',
+                        weight: 1,
+                        handler: 'onNavFilterSearchTriggerClick',
+                        scope: 'controller'
+                    }
+                },
+        
+                listeners: {
+                    change: 'onNavFilterFieldChange',
+                    buffer: 300
+                }
+            }]
         });
-        me.addTree("treePanel", treePanel, "15%");
+        me.addTree("treePanel", treePanel,250);
     },
 
     initQueryPanel: function () {

@@ -1,5 +1,6 @@
 Ext.define("App.model.systemmanage.sysmenu.SysMenuPermission", {
     extend: "App.model.BaseModel",
+    identifier: "uuid",
     fields: [
         { name: 'sysMenuPermissionId', type: 'string' },
         { name: 'menuId', type: 'string' },
