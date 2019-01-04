@@ -170,7 +170,15 @@
      */
     "js": [
         {
+            "path": "resources/jquery/jquery-1.10.2.min.js",
+            "includeInBundle": false
+        },
+        {
             "path": "resources/echarts/echarts.min.js",
+            "includeInBundle": false
+        },
+        {
+            "path": "resources/webuploader/webuploader.min.js",
             "includeInBundle": false
         },
         {

@@ -59,6 +59,7 @@ $include-app-view-systemmanage-sysmenu-sysmenucontroller: dynamic(true);;
 $include-app-view-systemmanage-sysmenu-sysrolemodel: dynamic(true);;
 $include-app-view-systemmanage-sysorg-sysorg: dynamic(true);;
 $include-app-view-systemmanage-sysorg-sysorgcontroller: dynamic(true);;
+$include-app-view-systemmanage-sysorg-sysorgedit: dynamic(true);;
 $include-app-view-systemmanage-sysorg-sysorgmodel: dynamic(true);;
 $include-app-view-systemmanage-sysrole-sysrole: dynamic(true);;
 $include-app-view-systemmanage-sysrole-sysrolecontroller: dynamic(true);;

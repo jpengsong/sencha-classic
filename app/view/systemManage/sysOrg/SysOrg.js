@@ -14,13 +14,20 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
     initTreePanel: function () {
         var me, treePanel; me = this;
         treePanel = Ext.create('Ext.tree.Panel', {
-            displayField: "orgName",
+            reference: "tree",
             rootVisible: false,
+            controller: "sysorg",
             bind: {
                 store: '{treestore}'
             },
+            columns: [{
+                xtype: 'treecolumn',
+                flex: 1,
+                dataIndex: 'orgName',
+                renderer: 'treeNavNodeRenderer'
+            }],
             style: {
-                "border-right-width": "2px",
+                "border-right-width": "1px",
                 "border-right-style": "solid",
                 "border-right-color": "#d1d1d1"
             },
@@ -33,33 +40,45 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
                     }
                 }
             },
-            dockedItems: [{
-                xtype: 'textfield',
-                reference: 'navtreeFilter',
-                dock: 'top',
-                emptyText: 'Search',
-                triggers: {
-                    clear: {
-                        cls: 'x-form-clear-trigger',
-                        handler: 'onNavFilterClearTriggerClick',
-                        hidden: true,
-                        scope: 'controller'
+            dockedItems: [
+                {
+                    xtype: 'textfield',
+                    reference: 'navtreeFilter',
+                    dock: 'top',
+                    emptyText: '搜索...',
+                    style: {
+                        "border-width": '0px'
                     },
-                    search: {
-                        cls: 'x-form-search-trigger',
-                        weight: 1,
-                        handler: 'onNavFilterSearchTriggerClick',
-                        scope: 'controller'
+                    triggers: {
+                        clear: {
+                            cls: 'x-form-clear-trigger',
+                            handler: 'onFilterClearTriggerClick',
+                            hidden: true,
+                            scope: 'controller'
+                        },
+                        search: {
+                            cls: 'x-form-search-trigger',
+                            weight: 1,
+                            handler: 'onFilterSearchTriggerClick'
+                        }
+                    },
+                    listeners: {
+                        change: 'onFilterFieldChange',
+                        buffer: 300
                     }
-                },
-        
-                listeners: {
-                    change: 'onNavFilterFieldChange',
-                    buffer: 300
                 }
-            }]
+            ],
+            listeners: {
+                select: "onTreeSelect",
+                load: function (store, records, successful, operation, node, eOpts) {
+                    if (successful && records.length>0) {
+                       treePanel.getSelectionModel().select(records[0]);
+                       me.getGrid("Grid").getStore().setAutoLoad(true);
+                    }
+                }
+            }
         });
-        me.addTree("treePanel", treePanel,250);
+        me.addTree("treePanel", treePanel, 250);
     },
 
     initQueryPanel: function () {
@@ -84,11 +103,6 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
                         fieldLabel: '机构名称'
                     }
                 ]
-            },
-            getQueryItems: function () {
-                queryItems = App.Page.getQueryItems(Ext.ComponentQuery.query("container[reference='searchcondition']", querypanel)[0]);
-                queryItems.push({ key: "parentOrgId", Value: "1", Method: " = ", Type: "String" });
-                return queryItems;
             }
         });
         me.addQuery("query", querypanel);
@@ -103,16 +117,17 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
                 {
                     text: '新增',
                     iconCls: "x-fa fa-plus",
-                    handler: function () {
-                    }
+                    handler: "onAdd"
                 },
                 {
                     text: '编辑',
-                    iconCls: "x-fa fa-pencil-square-o"
+                    iconCls: "x-fa fa-pencil-square-o",
+                    handler: "onEdit"
                 },
                 {
                     text: '删除',
-                    iconCls: "x-fa fa-trash-o"
+                    iconCls: "x-fa fa-trash-o",
+                    handler: "onDelete"
                 }
             ]
         })
@@ -126,7 +141,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
             columns: {
                 items: [
                     { text: '机构名称', dataIndex: 'orgName', width: 200 },
-                    { text: '是否启用', dataIndex: 'isEnable', width: 100 },
+                    { text: '机构代码', dataIndex: 'orgCode', width: 200 },
                     { text: '排序', dataIndex: 'sort', width: 50 },
                     { text: '描述', dataIndex: 'description', flex: 1 }
                 ]
@@ -137,7 +152,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
             },
             plugins: {
                 requestdata: {
-                    autoLoad: true,
+                    autoLoad: false,
                     pagination: true,
                     params: function () {
                         return me.getQuery("query").getQueryItems();

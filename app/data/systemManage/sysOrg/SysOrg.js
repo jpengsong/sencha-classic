@@ -6,22 +6,28 @@ Ext.define('App.data.systemmanage.sysorg.SysOrg', {
 
         //数据来源
         me.dataSource = [
-            { "sysOrgId": 1, "parentOrgId": 0, "level": 0, "orgName": "集团公司", "description": "", "sort": 0, "isEnable": 0 },
-            { "sysOrgId": 2, "parentOrgId": 1, "level": 1, "orgName": "金融地产事业部", "description": "", "sort": 100, "isEnable": 0 },
-            { "sysOrgId": 3, "parentOrgId": 1, "level": 1, "orgName": "综合应用部", "description": "", "sort": 200, "isEnable": 0 },
-            { "sysOrgId": 4, "parentOrgId": 1, "level": 1, "orgName": "资产监管事业部", "description": "", "sort": 300, "isEnable": 0 },
-            { "sysOrgId": 5, "parentOrgId": 1, "level": 1, "orgName": "市场部", "description": "", "sort": 400, "isEnable": 0 },
-            { "sysOrgId": 6, "parentOrgId": 1, "level": 1, "orgName": "投资顾问", "description": "", "sort": 500, "isEnable": 0 },
-            { "sysOrgId": 7, "parentOrgId": 1, "level": 1, "orgName": "行政", "description": "", "sort": 700, "isEnable": 0 },
-            { "sysOrgId": 8, "parentOrgId": 1, "level": 1, "orgName": "财务", "description": "", "sort": 100, "isEnable": 0 },
-            { "sysOrgId": 9, "parentOrgId": 3, "level": 2, "orgName": "IT开发组", "description": "", "sort": 200, "isEnable": 0 },
-            { "sysOrgId": 10, "parentOrgId": 3, "level": 2, "orgName": "数据采集组", "description": "", "sort": 300, "isEnable": 0 },
-            { "sysOrgId": 11, "parentOrgId": 3, "level": 2, "orgName": "运维组", "description": "", "sort": 400, "isEnable": 0 }
+            { "sysOrgId": "a9955f8c-cfdd-4f61-97a8-55bd9efe1306", "parentOrgId": "", "level": 1, "orgName": "集团公司", "description": "", "sort": 0},
+            { "sysOrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "parentOrgId": "a9955f8c-cfdd-4f61-97a8-55bd9efe1306", "level": 2, "orgName": "金融地产事业部", "description": "", "sort": 100},
+            { "sysOrgId": "d1b0b243-870d-4c7d-8bff-a1511eb6fef5", "parentOrgId": "a9955f8c-cfdd-4f61-97a8-55bd9efe1306", "level": 2, "orgName": "综合应用部", "description": "", "sort": 200},
+            { "sysOrgId": "2d108446-e44f-4baa-953f-99457152c4cd", "parentOrgId": "a9955f8c-cfdd-4f61-97a8-55bd9efe1306", "level": 2, "orgName": "资产监管事业部", "description": "", "sort": 300},
+            { "sysOrgId": "28aecd9e-4dca-4b10-9999-e7ef3579c0f1", "parentOrgId": "a9955f8c-cfdd-4f61-97a8-55bd9efe1306", "level": 2, "orgName": "市场部", "description": "", "sort": 400},
+            { "sysOrgId": "29810737-abd3-4f62-8892-3bb90b18caac", "parentOrgId": "a9955f8c-cfdd-4f61-97a8-55bd9efe1306", "level": 2, "orgName": "投资顾问", "description": "", "sort": 500},
+            { "sysOrgId": "1e58c1e9-804a-4144-8b9b-31d31f7f54bc", "parentOrgId": "a9955f8c-cfdd-4f61-97a8-55bd9efe1306", "level": 2, "orgName": "行政", "description": "", "sort": 700},
+            { "sysOrgId": "5f449327-6134-473f-b1e6-a2c53da8772f", "parentOrgId": "a9955f8c-cfdd-4f61-97a8-55bd9efe1306", "level": 2, "orgName": "财务", "description": "", "sort": 100},
+            { "sysOrgId": "284ab9fd-6bac-435a-9f80-bf3cc690ff0c", "parentOrgId": "d1b0b243-870d-4c7d-8bff-a1511eb6fef5", "level": 3, "orgName": "IT开发组", "description": "", "sort": 200},
+            { "sysOrgId": "a2c66161-c8b8-4f95-80fc-2142d506f521", "parentOrgId": "d1b0b243-870d-4c7d-8bff-a1511eb6fef5", "level": 3, "orgName": "数据采集组", "description": "", "sort": 300},
+            { "sysOrgId": "a093e4c9-05c1-41b1-a967-fa54a9a04a70", "parentOrgId": "d1b0b243-870d-4c7d-8bff-a1511eb6fef5", "level": 3, "orgName": "运维组", "description": "", "sort": 400}
         ],
         //获取分页数据接口
         me.GetSysOrgPage();
         //获取组织机构数据
         me.GetSysOrgByRule();
+        //添加组织机构
+        me.AddSysOrg();
+        //编辑组织机构
+        me.EditSysOrg();
+        //删除组织机构
+        me.DeleteSysOrg();
     },
 
     //获取分页数据
@@ -30,7 +36,7 @@ Ext.define('App.data.systemmanage.sysorg.SysOrg', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "/api/systemmanage/sysorg/GetSysOrgPage",
+            url: "~/api/systemmanage/sysorg/GetSysOrgPage",
             getData: function (ctx) {
                 var requestData = Ext.decode(ctx.params.RequestData), condition = me.getCondition(requestData),
                 responseData = me.SqlQuery(condition);
@@ -44,10 +50,75 @@ Ext.define('App.data.systemmanage.sysorg.SysOrg', {
         var me = this;
         Ext.ux.ajax.SimManager.register({
             type: 'json',
-            url: "/api/systemmanage/sysorg/GetSysOrgByRule",
+            url: "~/api/systemmanage/sysorg/GetSysOrgByRule",
             getData: function (ctx) {
                 var requestData = Ext.decode(ctx.params.RequestData), condition = me.getCondition(requestData),
                 responseData = me.SqlQuery(condition);
+                return responseData;
+            }
+        })
+    },
+
+    //添加组织机构数据
+    AddSysOrg: function () {
+        var me = this;
+        Ext.ux.ajax.SimManager.register({
+            type: 'json',
+            delay: 0,
+            url: "~/api/systemmanage/sysorg/AddSysOrg",
+            getData: function (ctx) {
+                var requestData = me.requestData(ctx), responseData = me.ResponseData();
+                me.dataSource.unshift(Ext.decode(requestData.Data));
+                responseData.data = requestData.Data;
+                responseData.Message = "保存成功";
+                return responseData;
+            }
+        })
+    },
+
+    //编辑组织机构数据
+    EditSysOrg: function () {
+        var me = this;
+        Ext.ux.ajax.SimManager.register({
+            type: 'json',
+            delay: 0,
+            url: "~/api/systemmanage/sysorg/EditSysOrg",
+            getData: function (ctx) {
+                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
+                data = Ext.decode(requestData.Data);
+                for (var i = 0; i < me.dataSource.length; i++) {
+                    if (me.dataSource[i].sysUserId == data.sysUserId) {
+                        Ext.apply(me.dataSource[i], data);
+                        break;
+                    }
+                }
+                responseData.data = data;
+                responseData.Message = "保存成功";
+                return responseData;
+            }
+        })
+    },
+
+    //删除组织机构数据
+    DeleteSysOrg: function () {
+        var me = this;
+        Ext.ux.ajax.SimManager.register({
+            type: 'json',
+            delay: 0,
+            url: "~/api/systemmanage/sysorg/DeleteSysOrg",
+            getData: function (ctx) {
+                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
+                data = Ext.decode(requestData.Data);
+                
+                for (var i = 0; i < data.length; i++) {
+                    for (var j = 0; j < me.dataSource.length; j++) {
+                        if (me.dataSource[j].sysUserId == data[i]) {
+                            me.dataSource.splice(j,1);
+                            break;
+                        }
+                    }
+                }
+                responseData.Message = "保存成功";
                 return responseData;
             }
         })

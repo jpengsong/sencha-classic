@@ -1,10 +1,10 @@
-Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
-    alias: "widget.sysuseredit",
+Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
+    alias: "widget.sysorgedit",
     extend: "Ext.window.Window",
     maximizable: true,
     modal: true,
     width: 450,
-    height: 550,
+    height: 400,
     layout: "fit",
     items: [
         {
@@ -15,15 +15,15 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                 {
                     xtype: "comboxtree",
                     fieldLabel: '所属机构',
-                    name: "orgId",
-                    reference: "orgId",
+                    editable:false,
+                    hideTrigger:true,
                     displayField: "orgName",
                     valueField: "sysOrgId",
                     width: "100%",
                     height: 200,
                     rootVisible: false,
                     bind: {
-                        defautvalue: "{user.orgId}",
+                        defautvalue: "{org.parentOrgId}",
                         store: "{treestore}"
                     },
                     allowBlank: false,
@@ -31,51 +31,36 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                 },
                 {
                     xtype: "textfield",
-                    fieldLabel: '登录名',
+                    fieldLabel: '级别',
+                    editable:false,
                     allowBlank: false,
-                    bind: "{user.loginName}",
+                    bind: "{org.level}",
                     afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
                 },
                 {
                     xtype: "textfield",
-                    bind: "{user.userName}",
+                    fieldLabel: '机构名称',
                     allowBlank: false,
-                    reference: "userName",
-                    maxLength: 10,
-                    fieldLabel: '用户名',
-                },
-                {
-                    xtype: "textfield",
-                    inputType: 'password',
-                    fieldLabel: '密码',
-                    bind: "{user.loginPassWord}",
-                    allowBlank: false,
+                    bind: "{org.orgName}",
                     afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
                 },
                 {
                     xtype: "textfield",
-                    fieldLabel: '手机号',
-                    bind: "{user.mobile}"
+                    fieldLabel: '机构代码',
+                    allowBlank: false,
+                    bind: "{org.orgCode}",
+                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
                 },
                 {
-                    xtype: "textfield",
-                    fieldLabel: '邮箱',
-                    vtype: 'email',
-                    bind: "{user.email}"
-                },
-                {
-                    xtype: 'radiogroup',
-                    fieldLabel: '是否启用',
-                    bind: "{user.isEnable}",
-                    simpleValue: true,
-                    items: [
-                        { boxLabel: '启用', name: 'isEnable', inputValue: 1, margin: "0 0 0 70" },
-                        { boxLabel: '禁用', name: 'isEnable', inputValue: 0, margin: "0 0 0 30", checked: true }
-                    ]
+                    xtype: "numberfield",
+                    fieldLabel: '排序号',
+                    allowBlank: false,
+                    bind: "{org.sort}",
+                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
                 },
                 {
                     fieldLabel: '描述',
-                    bind: "{user.Description}",
+                    bind: "{org.Description}",
                     xtype: 'textareafield'
                 }
             ]
@@ -111,12 +96,15 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
         onSave: function () {
             var me = this,
                 view = me.getView(),
-                record = me.getViewModel().get("user"),
+                scope = view.scope,
+                gridstore =scope.getGrid("Grid").getStore(),
+                viewModel = me.getViewModel(),
+                record = viewModel.get("org"),
                 refs = me.getReferences(),
                 form = refs.form;
             if (form.isValid()) {
                 App.Ajax.request({
-                    url: "~/api/systemmanage/sysuser/" + (view.status == "add" ? "AddSysUser" : "EditSysUser"),
+                    url: "~/api/systemmanage/sysorg/" + (view.status == "add" ? "AddSysOrg" : "EditSysOrg"),
                     method: "POST",
                     nosim: false,
                     type: "JSON",
@@ -126,8 +114,10 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                     success: function (data) {
                         App.Msg.Info(data.Message);
                         if (data.Success) {
-                            var gridstore = view.scope.getGrid("Grid").getStore();
                             gridstore.loadPage(1);
+                            var selectionTreeModel = viewModel.get("selectionTreeModel");
+                            selectionTreeModel
+                            //console.info(data.data);
                             view.close();
                         }
                     },
