@@ -21,7 +21,7 @@ Ext.define('App.data.systemmanage.sysorg.SysOrg', {
         //获取分页数据接口
         me.GetSysOrgPage();
         //获取组织机构数据
-        me.GetSysOrgByRule();
+        me.GetSysOrgTreeByRule();
         //添加组织机构
         me.AddSysOrg();
         //编辑组织机构
@@ -46,14 +46,15 @@ Ext.define('App.data.systemmanage.sysorg.SysOrg', {
     },
 
     //获取组织机构数据
-    GetSysOrgByRule: function () {
+    GetSysOrgTreeByRule: function () {
         var me = this;
         Ext.ux.ajax.SimManager.register({
             type: 'json',
-            url: "~/api/systemmanage/sysorg/GetSysOrgByRule",
+            url: "~/api/systemmanage/sysorg/GetSysOrgTreeByRule",
             getData: function (ctx) {
-                var requestData = Ext.decode(ctx.params.RequestData), condition = me.getCondition(requestData),
-                responseData = me.SqlQuery(condition);
+                var requestData = Ext.decode(ctx.params.RequestData),
+                data=Ext.decode(requestData.Data);
+                responseData = me.getTreeData(me.dataSource, "sysOrgId", "parentOrgId",data.sysOrgId);
                 return responseData;
             }
         })
@@ -69,7 +70,6 @@ Ext.define('App.data.systemmanage.sysorg.SysOrg', {
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData();
                 me.dataSource.unshift(Ext.decode(requestData.Data));
-                responseData.data = requestData.Data;
                 responseData.Message = "保存成功";
                 return responseData;
             }
@@ -87,13 +87,11 @@ Ext.define('App.data.systemmanage.sysorg.SysOrg', {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
                 data = Ext.decode(requestData.Data);
                 for (var i = 0; i < me.dataSource.length; i++) {
-                    if (me.dataSource[i].sysUserId == data.sysUserId) {
+                    if (me.dataSource[i].sysOrgId == data.sysOrgId) {
                         Ext.apply(me.dataSource[i], data);
                         break;
                     }
                 }
-                responseData.data = data;
-                responseData.Message = "保存成功";
                 return responseData;
             }
         })
@@ -109,16 +107,14 @@ Ext.define('App.data.systemmanage.sysorg.SysOrg', {
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
                 data = Ext.decode(requestData.Data);
-                
                 for (var i = 0; i < data.length; i++) {
                     for (var j = 0; j < me.dataSource.length; j++) {
-                        if (me.dataSource[j].sysUserId == data[i]) {
+                        if (me.dataSource[j].sysOrgId == data[i]) {
                             me.dataSource.splice(j,1);
                             break;
                         }
                     }
                 }
-                responseData.Message = "保存成功";
                 return responseData;
             }
         })

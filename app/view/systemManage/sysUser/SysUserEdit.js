@@ -22,6 +22,9 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                     width: "100%",
                     height: 200,
                     rootVisible: false,
+                    params: function () {
+                        return { sysOrgId: "" };
+                    },
                     bind: {
                         defautvalue: "{user.orgId}",
                         store: "{treestore}"
@@ -124,12 +127,10 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                     maskmsg: "正在保存...",
                     params: record,
                     success: function (data) {
-                        App.Msg.Info(data.Message);
-                        if (data.Success) {
-                            var gridstore = view.scope.getGrid("Grid").getStore();
-                            gridstore.loadPage(1);
-                            view.close();
-                        }
+                        App.Msg.Info("保存成功");
+                        var gridstore = view.scope.getGrid("Grid").getStore();
+                        gridstore.loadPage(1);
+                        view.close();
                     },
                     error: function (data) {
                         App.Msg.Error("保存异常");

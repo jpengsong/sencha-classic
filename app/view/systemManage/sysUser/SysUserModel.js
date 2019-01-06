@@ -5,6 +5,11 @@ Ext.define("App.view.systemmanage.sysuser.SysUserModel", {
         gridstore: {
             type: "systemmanage.sysuser.gridstore"
         },
+        
+        userrole:{
+            type: "systemmanage.sysuserrole.userrolestore"
+            
+        },
 
         isenablestore: {
             type: "comm.isenablestore"

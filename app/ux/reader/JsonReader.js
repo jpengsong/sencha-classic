@@ -20,8 +20,8 @@
     getResponseData: function (response) {
         var me, responseData, data, error; me = this;
         try {
-            responseData = Ext.decode(response.responseText);
-            data = responseData.Data;
+            data = Ext.decode(response.responseText);
+            content = data.Data;
             if (Ext.isEmpty(data)) {
                 return new Ext.data.ResultSet({
                     total: 0,
@@ -30,12 +30,12 @@
                     message: me.message
                 });
             }
-            if (data.List != undefined && data.List != null) {
+            if (content.List != undefined && content.List != null) {
                 if (me.datatype == config.DataType.GridStore) {
-                    me.records = data.List;
+                    me.records = content.List;
                 } else if (me.datatype == config.DataType.TreeStore) {
                     me.records = App.TreeNode.bindTreeData(
-                        data.List,
+                        content.List,
                         me.idField,
                         me.parentField,
                         me.iconClsField,
@@ -48,8 +48,8 @@
             } else {
                 me.records = [];
             }
-            if (data.RecordCount != undefined && data.RecordCount != null) {
-                me.total = data.RecordCount;
+            if (content.RecordCount != undefined && content.RecordCount != null) {
+                me.total = content.RecordCount;
             } else {
                 me.total = 0;
             }

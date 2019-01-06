@@ -15,13 +15,16 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
                 {
                     xtype: "comboxtree",
                     fieldLabel: '所属机构',
-                    editable:false,
-                    hideTrigger:true,
+                    editable: false,
+                    hideTrigger: true,
                     displayField: "orgName",
                     valueField: "sysOrgId",
                     width: "100%",
                     height: 200,
                     rootVisible: false,
+                    params: function () {
+                        return { sysOrgId: "" };
+                    },
                     bind: {
                         defautvalue: "{org.parentOrgId}",
                         store: "{treestore}"
@@ -32,7 +35,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
                 {
                     xtype: "textfield",
                     fieldLabel: '级别',
-                    editable:false,
+                    editable: false,
                     allowBlank: false,
                     bind: "{org.level}",
                     afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
@@ -97,11 +100,12 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
             var me = this,
                 view = me.getView(),
                 scope = view.scope,
-                gridstore =scope.getGrid("Grid").getStore(),
+                gridstore = scope.getGrid("Grid").getStore(),
                 viewModel = me.getViewModel(),
                 record = viewModel.get("org"),
                 refs = me.getReferences(),
                 form = refs.form;
+            treepanel = scope.getTree("treePanel");
             if (form.isValid()) {
                 App.Ajax.request({
                     url: "~/api/systemmanage/sysorg/" + (view.status == "add" ? "AddSysOrg" : "EditSysOrg"),
@@ -112,14 +116,10 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
                     maskmsg: "正在保存...",
                     params: record,
                     success: function (data) {
-                        App.Msg.Info(data.Message);
-                        if (data.Success) {
-                            gridstore.loadPage(1);
-                            var selectionTreeModel = viewModel.get("selectionTreeModel");
-                            selectionTreeModel
-                            //console.info(data.data);
-                            view.close();
-                        }
+                        App.Msg.Info("保存成功");
+                        gridstore.loadPage(1);
+                        treepanel.updateChildNodes(viewModel.get("selTreeRecord"));
+                        view.close();
                     },
                     error: function (data) {
                         App.Msg.Error("保存异常");

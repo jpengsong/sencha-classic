@@ -28,6 +28,7 @@ Ext.define('App.ux.combox.ComboxTree', {
         valueField: "value",
         width: "100%",
         height: 200,
+        params:Ext.emptyFn,
         rootVisible: false,
         treepanel: null,
         querylocal: true,
@@ -54,6 +55,7 @@ Ext.define('App.ux.combox.ComboxTree', {
             plugins: {
                 requestdata: {
                     autoLoad: me.autoLoad,
+                    params:me.params,
                     root: {
                         expanded: true,
                         children: []

@@ -71,9 +71,8 @@ Ext.define("App.view.systemmanage.sysrole.SysRole", {
             },
             columns: {
                 items: [
-                    { text: '角色编码', dataIndex: 'roleCode',width:100},
-                    { text: '角色名称', dataIndex: 'roleName',width:200 },
-                    { text: '描述', dataIndex: 'RoleDescription', flex:1 }
+                    { text: '角色名称', dataIndex: 'RoleName',width:200 },
+                    { text: '描述', dataIndex: 'Description', flex:1 }
                 ]
             },
             bbar: {

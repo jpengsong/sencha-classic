@@ -16,7 +16,6 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
         treePanel = Ext.create('Ext.tree.Panel', {
             reference: "tree",
             rootVisible: false,
-            controller: "sysorg",
             bind: {
                 store: '{treestore}'
             },
@@ -31,14 +30,19 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
                 "border-right-style": "solid",
                 "border-right-color": "#d1d1d1"
             },
-            plugins: {
+            plugins:
+            {
                 requestdata: {
                     autoLoad: true,
+                    params: function () {
+                        return { sysOrgId: ""};
+                    },
                     root: {
                         expanded: true,
                         children: []
                     }
-                }
+                },
+                treepanel: {}
             },
             dockedItems: [
                 {
@@ -71,9 +75,8 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
             listeners: {
                 select: "onTreeSelect",
                 load: function (store, records, successful, operation, node, eOpts) {
-                    if (successful && records.length>0) {
-                       treePanel.getSelectionModel().select(records[0]);
-                       me.getGrid("Grid").getStore().setAutoLoad(true);
+                    if (successful && records.length > 0) {
+                        treePanel.getSelectionModel().select(records[0]);
                     }
                 }
             }
@@ -153,10 +156,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
             plugins: {
                 requestdata: {
                     autoLoad: false,
-                    pagination: true,
-                    params: function () {
-                        return me.getQuery("query").getQueryItems();
-                    }
+                    pagination: true
                 }
             }
         });

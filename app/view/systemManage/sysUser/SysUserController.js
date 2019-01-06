@@ -1,7 +1,7 @@
 Ext.define("App.view.systemmanage.sysuser.SysUserController", {
     extend: 'Ext.app.ViewController',
     alias: 'controller.sysuser',
-    
+
     //新增
     onAdd: function () {
         var me = this, window, record, view = me.getView();
@@ -58,30 +58,44 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
             Ext.each(records, function (record, index) {
                 idArray.push(record.id);
             })
-            Ext.Msg.confirm("提示", "确认删除选中的" + idArray.length + "行数据项吗？", 
-            function (btn) {
-                if(btn=="yes"){
-                    App.Ajax.request({
-                        url: "~/api/systemmanage/sysuser/DeleteSysUser",
-                        method: "POST",
-                        nosim: false,
-                        type: "JSON",
-                        showmask: true,
-                        maskmsg: "正在删除...",
-                        params: idArray,
-                        success: function (data) {
-                            App.Msg.Info(data.Message);
-                            if (data.Success) {
+            Ext.Msg.confirm("提示", "确认删除选中的" + idArray.length + "行数据项吗？",
+                function (btn) {
+                    if (btn == "yes") {
+                        App.Ajax.request({
+                            url: "~/api/systemmanage/sysuser/DeleteSysUser",
+                            method: "POST",
+                            nosim: false,
+                            type: "JSON",
+                            showmask: true,
+                            maskmsg: "正在删除...",
+                            params: idArray,
+                            success: function (data) {
+                                App.Msg.Info("删除成功");
                                 var gridstore = grid.getStore();
                                 gridstore.loadPage(1);
+                            },
+                            error: function (data) {
+                                App.Msg.Error("删除失败");
                             }
-                        },
-                        error: function (data) {
-                            App.Msg.Error("保存异常");
-                        }
-                    })
-                }
-            })
+                        })
+                    }
+                })
         }
+    },
+
+    //分配角色
+    onUserRole:function(){
+         var me=this,userRole=Ext.widget("sysuserrole",
+         {
+            viewModel: {
+                stores: {
+                    userRole:{
+                        type: "systemmanage.sysuserrole.userrolestore"
+                    }
+                }
+            }
+         }
+         );
+         userRole.show();
     }
 })

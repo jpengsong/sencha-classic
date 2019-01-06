@@ -37,7 +37,9 @@ Ext.define('App.data.Simulated', {
         };
 
         data.SqlQuery = function (condition) {
-            var me = this, responseData = { Data: { List: Ext.clone(me.dataSource), RecordCount: Ext.clone(me.dataSource).length, Success: true, Message: "" } };
+            var me = this, responseData = data.ResponseData(); responseData.Data = {};
+            responseData.Data.List = Ext.clone(me.dataSource);
+            responseData.Data.RecordCount = Ext.clone(me.dataSource).length;
             if (!Ext.isEmpty(condition)) {
                 //查询条件
                 if (!Ext.isEmpty(condition.QueryItems)) {
@@ -115,6 +117,28 @@ Ext.define('App.data.Simulated', {
                 Message: "",
                 Code: ""
             }
+            return responseData;
+        };
+
+        data.TreeNode = function (list, array, idField, pidField, parentId) {
+            for (var i = 0; i < list.length; i++) {
+                if (list[i][pidField] == parentId) {
+                    array.push(list[i]);
+                    data.TreeNode(list, array, idField, pidField, list[i][idField]);
+                }
+            }
+        };
+
+        data.getTreeData = function (list, idField, pidField, parentId) {
+            var array = [], responseData = data.ResponseData(); responseData.Data = {};
+            for (var i = 0; i < list.length; i++) {
+                if (list[i][pidField] == parentId) {
+                    array.push(list[i]);
+                    data.TreeNode(list, array, idField, pidField, list[i][idField]);
+                }
+            }
+            responseData.Data.List = array;
+            responseData.Data.RecordCount = array.length;
             return responseData;
         };
 

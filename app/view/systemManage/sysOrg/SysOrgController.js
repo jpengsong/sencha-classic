@@ -75,9 +75,9 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
         var me = this, window, record, view = me.getView(), treepanel = view.getTree("treePanel");
         if (App.Page.selectionModel(treepanel, false)) {
             record = Ext.create("App.model.systemmanage.sysorg.SysOrg");
-            var selRecord = treepanel.getSelectionModel().getSelection()[0];
-            record.data.parentOrgId = selRecord.data.sysOrgId;
-            record.data.level = selRecord.data.level + 1;
+            selTreeRecord = treepanel.getSelectionModel().getSelection()[0];
+            record.data.parentOrgId = selTreeRecord.data.sysOrgId;
+            record.data.level = selTreeRecord.data.level + 1;
             window = Ext.create({
                 title: "新增机构",
                 xtype: "sysorgedit",
@@ -86,7 +86,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
                 viewModel: {
                     data: {
                         org: record.data,
-                        selectionTreeModel:selRecord
+                        selTreeRecord: selTreeRecord
                     },
                     stores: {
                         treestore: {
@@ -101,9 +101,10 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
 
     //编辑
     onEdit: function () {
-        var me = this, view = me.getView(), grid = view.getGrid("Grid"), window, record;
+        var me = this, view = me.getView(), grid = view.getGrid("Grid"), treepanel = view.getTree("treePanel"), window, record;
         if (App.Page.selectionModel(grid, false)) {
             record = grid.getSelectionModel().getSelection()[0];
+            selTreeRecord = treepanel.getSelectionModel().getSelection()[0];
             window = Ext.create({
                 title: "编辑机构",
                 xtype: "sysorgedit",
@@ -111,7 +112,8 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
                 scope: view,
                 viewModel: {
                     data: {
-                        org: record.data
+                        org: record.data,
+                        selTreeRecord: selTreeRecord
                     },
                     stores: {
                         treestore: {
@@ -126,17 +128,17 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
 
     //删除
     onDelete: function () {
-        var me = this, view = me.getView(), grid = view.getGrid("Grid"), records, idArray = [];
+        var me = this, view = me.getView(), grid = view.getGrid("Grid"), treepanel = view.getTree("treePanel"), records, idArray = [];
         if (App.Page.selectionModel(grid, true)) {
             records = grid.getSelectionModel().getSelection();
             Ext.each(records, function (record, index) {
-                idArray.push(record.id);
+                idArray.push(record.get("sysOrgId"));
             })
             Ext.Msg.confirm("提示", "确认删除选中的" + idArray.length + "行数据项吗？",
                 function (btn) {
                     if (btn == "yes") {
                         App.Ajax.request({
-                            url: "~/api/systemmanage/sysuser/DeleteSysUser",
+                            url: "~/api/systemmanage/sysorg/DeleteSysOrg",
                             method: "POST",
                             nosim: false,
                             type: "JSON",
@@ -144,14 +146,13 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
                             maskmsg: "正在删除...",
                             params: idArray,
                             success: function (data) {
-                                App.Msg.Info(data.Message);
-                                if (data.Success) {
-                                    var gridstore = grid.getStore();
-                                    gridstore.loadPage(1);
-                                }
+                                App.Msg.Info("删除成功");
+                                var gridstore = grid.getStore();
+                                gridstore.loadPage(1);
+                                treepanel.updateChildNodes(treepanel.getSelectionModel().getSelection()[0]);
                             },
                             error: function (data) {
-                                App.Msg.Error("保存异常");
+                                App.Msg.Error("删除失败");
                             }
                         })
                     }

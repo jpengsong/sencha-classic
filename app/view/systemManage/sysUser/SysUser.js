@@ -70,6 +70,11 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
                     text: '删除',
                     iconCls: "x-fa fa-trash-o",
                     handler: "onDelete"
+                },
+                {
+                    text: '分配角色',
+                    iconCls: "x-fa fa-group",
+                    handler: "onUserRole"
                 }
             ]
         })

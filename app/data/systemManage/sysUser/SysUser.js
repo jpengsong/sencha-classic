@@ -43,7 +43,6 @@ Ext.define('App.data.systemmanage.sysuser.SysUser', {
             delay: 0,
             url: "~/api/systemmanage/sysuser/GetSysUserPage",
             getData: function (ctx) {
-
                 var requestData = me.requestData(ctx),
                     condition = me.getCondition(requestData);
                 responseData = me.SqlQuery(condition);
@@ -62,7 +61,6 @@ Ext.define('App.data.systemmanage.sysuser.SysUser', {
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData();
                 me.dataSource.unshift(Ext.decode(requestData.Data));
-                responseData.Message = "保存成功";
                 return responseData;
             }
         })
@@ -84,7 +82,6 @@ Ext.define('App.data.systemmanage.sysuser.SysUser', {
                         break;
                     }
                 }
-                responseData.Message = "保存成功";
                 return responseData;
             }
         })
@@ -109,7 +106,6 @@ Ext.define('App.data.systemmanage.sysuser.SysUser', {
                         }
                     }
                 }
-                responseData.Message = "保存成功";
                 return responseData;
             }
         })

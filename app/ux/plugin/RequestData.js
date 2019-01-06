@@ -50,8 +50,10 @@ Ext.define("App.ux.plugin.RequestData", {
             if (store != null) {
                 store.getProxy().setExtraParams({ RequestData: "{}" });
                 if (me.params != Ext.emptyFn) {
-                    App.Page.setQueryItems(store, me.params());
-                } 
+                    App.Page.setExtraParamData(store, me.params());
+                }else{
+                    App.Page.setExtraParamData(store,{});
+                }
                 if (me.root != null) {
                     store.setRoot(me.root);
                 }
