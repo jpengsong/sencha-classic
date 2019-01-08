@@ -84,18 +84,23 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
     },
 
     //分配角色
-    onUserRole:function(){
-         var me=this,userRole=Ext.widget("sysuserrole",
-         {
-            viewModel: {
-                stores: {
-                    userRole:{
-                        type: "systemmanage.sysuserrole.userrolestore"
+    onUserRole: function () {
+        var me = this, grid = me.getView().getGrid("Grid"), sysUserId, userRole;
+        if (App.Page.selectionModel(grid, false)) {
+            sysUserId = grid.getSelection()[0].get("sysUserId");
+            userRole = Ext.widget("sysuserrole", {
+                viewModel: {
+                    data:{
+                        UserId:sysUserId
+                    },
+                    stores: {
+                        roleStore: {
+                            type: "systemmanage.sysuser.comboxrolestore"
+                        }
                     }
                 }
-            }
-         }
-         );
-         userRole.show();
+            })
+            userRole.show();
+        }
     }
 })

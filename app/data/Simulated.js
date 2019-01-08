@@ -112,7 +112,7 @@ Ext.define('App.data.Simulated', {
 
         data.ResponseData = function () {
             var responseData = {
-                Data: null,
+                Data: {},
                 Success: true,
                 Message: "",
                 Code: ""

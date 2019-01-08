@@ -3,9 +3,9 @@ Ext.define("App.model.systemmanage.sysrole.SysRole", {
     identifier: "uuid",
     fields: [
         { name: 'sysRoleId', type: 'string' },
-        { name: 'roleName', type: 'string' },
+        { name: 'RoleName', type: 'string' },
         { name: 'Description', type: 'string' },
-        { name: 'isDel', type: 'int' },
+        { name: 'IsDel', type: 'int' },
         { name: 'createUserId', type: 'string' },
         { name: 'createUserName', type: 'string' },
         { name: 'createDate', type: 'date' },

@@ -13308,65 +13308,123 @@ tr.x-grid-subtable-row {
 .x-treelist-navigation .x-treelist-item-hide-icon > * > * > .x-treelist-item-text {
     margin-left: 3px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:85 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:87 */
 .x-treelist-navigation > .x-treelist-root-container > .x-treelist-item > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-icon,
 .x-treelist-navigation .x-treelist-item-tool {
     left: 0px;
     padding-left: 18px;
     padding-right: 32px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:93 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:95 */
 .x-treelist-navigation > .x-treelist-root-container > .x-treelist-item > .x-treelist-row {
     padding: 5px 0px !important;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:98 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:100 */
 .x-treelist-item-selected > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-text,
 .x-treelist-item-selected > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-icon {
     color: #fff !important;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:105 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:107 */
 .x-treelist-navigation .x-treelist-item-text {
     margin-left: 50px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:110 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:112 */
 .x-treelist-navigation .x-treelist-item-tool {
     line-height: 50px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:115 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:117 */
 .x-treelist-navigation .x-treelist-item-tool:hover {
     background-color: #009688;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:120 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:122 */
 .x-treelist-item-floated > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-text {
     height: 50px;
     line-height: 50px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:127 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:129 */
 .x-treelist-item-floated > .x-treelist-container .x-treelist-item-wrap,
 .x-treelist-item-floated > .x-treelist-row {
     margin-left: 5px !important;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:134 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:136 */
 .x-treelist-item-floated > .x-treelist-container .x-treelist-item-wrap .x-treelist-item-text {
     margin-left: 25px !important;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:139 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:141 */
 .x-treelist-expander-first .x-treelist-item-expander {
     left: auto;
     right: 0;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:145 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:147 */
 .logo {
     text-align: center;
     color: rgba(255, 255, 255, 0.8);
     font-size: 22px;
     line-height: 50px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:153 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:155 */
 .x-tab-bar-welcome-tab-panel-top > .x-tab-bar-body-welcome-tab-panel {
     padding: 0px 0px 0px 0px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:157 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:159 */
 .x-tab-welcome-tab-panel-top {
     padding: 0px 15px 0px 15px;
+}
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/form/Labelable.scss:97 */
+.x-form-item-label-dede {
+    color: white;
+    font: 300 300/50 Helvetica, Helvetica Neue, Arial, sans-serif;
+    min-height: 32px;
+    padding-top: -9px;
+    padding-right: 5px;
+}
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/form/Labelable.scss:106 */
+.x-form-item-label-dede.x-rtl {
+    padding-left: 5px;
+    padding-right: 0;
+}
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/form/Labelable.scss:113 */
+.x-ie8 .x-form-item-label-dede {
+    min-height: 41px;
+}
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/form/Labelable.scss:119 */
+.x-form-item-label-dede.x-form-item-label-top {
+    height: 1px;
+}
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/form/Labelable.scss:121 */
+.x-form-item-label-dede.x-form-item-label-top > .x-form-item-label-inner {
+    padding-top: -9px;
+    padding-bottom: 5px;
+}
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/form/Labelable.scss:127 */
+.x-form-item-label-dede.x-form-item-label-top-side-error:after {
+    width: 26px;
+}
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/form/Labelable.scss:132 */
+.x-form-item-body-dede {
+    min-height: 32px;
+}
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/form/Labelable.scss:136 */
+.x-form-invalid-icon-dede {
+    width: 16px;
+    height: 16px;
+    margin: 0 5px;
+    background: url(images/form/exclamation.png) no-repeat;
+}
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/form/Labelable.scss:143 */
+.x-form-invalid-under-dede {
+    padding: 2px 2px 2px 20px;
+    color: #cf4c35;
+    font: 300 14px/16px Helvetica, Helvetica Neue, Arial, sans-serif;
+    background: no-repeat 0 2px;
+    background-image: url(images/form/exclamation.png);
+}
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/form/Labelable.scss:151 */
+.x-form-error-wrap-dede.x-form-error-wrap-side {
+    width: 26px;
+}
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/form/Labelable.scss:156 */
+.x-form-item-dede.x-item-disabled {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+    opacity: 0.3;
 }

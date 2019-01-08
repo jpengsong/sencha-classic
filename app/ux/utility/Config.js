@@ -72,7 +72,12 @@
              * TreeStore
              * @readonly
              */
-            TreeStore:"TreeStore"
+            TreeStore:"TreeStore",
+            /**
+             * ComboxStore
+             * @readonly
+             */
+            ComboxStore:"ComboxStore"
         },
 
         textTpl:{

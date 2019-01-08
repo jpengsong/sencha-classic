@@ -23,8 +23,8 @@ Ext.define('App.data.systemmanage.sysrole.SysRole', {
             delay: 0,
             url: "~/api/systemmanage/sysrole/GetSysRolePage",
             getData: function (ctx) {
-                var requestData= Ext.decode(ctx.params.RequestData),condition= me.getCondition(requestData),
-                    responseData=me.SqlQuery(condition);
+                var requestData = Ext.decode(ctx.params.RequestData), condition = me.getCondition(requestData),
+                    responseData = me.SqlQuery(condition);
                 return responseData;
             }
         })
@@ -38,8 +38,9 @@ Ext.define('App.data.systemmanage.sysrole.SysRole', {
             delay: 0,
             url: "~/api/systemmanage/sysrole/GetSysRoleAll",
             getData: function (ctx) {
-                var responseData= me.ResponseData();
-                    responseData.Data=me.dataSource;
+                var responseData = me.ResponseData();
+                responseData.Data = {};
+                responseData.Data.List = me.dataSource;
                 return responseData;
             }
         })

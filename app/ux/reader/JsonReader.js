@@ -33,6 +33,11 @@
             if (content.List != undefined && content.List != null) {
                 if (me.datatype == config.DataType.GridStore) {
                     me.records = content.List;
+                    if (content.RecordCount != undefined && content.RecordCount != null) {
+                        me.total = content.RecordCount;
+                    } else {
+                        me.total = 0;
+                    }
                 } else if (me.datatype == config.DataType.TreeStore) {
                     me.records = App.TreeNode.bindTreeData(
                         content.List,
@@ -43,15 +48,12 @@
                         me.isAllExpand,
                         me.rootId,
                         me.checkedField);
-                        return me.records;
+                    return me.records;
+                } else if (me.datatype == config.DataType.ComboxStore) {
+                    me.records = content.List;
                 }
             } else {
                 me.records = [];
-            }
-            if (content.RecordCount != undefined && content.RecordCount != null) {
-                me.total = content.RecordCount;
-            } else {
-                me.total = 0;
             }
             if (data.Success) {
                 me.success = data.Success;
@@ -63,7 +65,7 @@
                 message: me.message
             });
             return resultSet;
-        } catch (ex) { 
+        } catch (ex) {
             error = new Ext.data.ResultSet({
                 total: 0,
                 records: [],
