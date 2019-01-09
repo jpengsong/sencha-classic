@@ -1,4 +1,4 @@
-Ext.define('App.data.systemmanage.sysorg.SysOrg', {
+Ext.define('App.data.systemmanage.SysOrg', {
     extend: "App.data.Simulated",
     dataSource: [],
     init: function () {

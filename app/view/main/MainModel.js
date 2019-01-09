@@ -3,7 +3,7 @@ Ext.define("App.view.main.MainModel", {
     alias: "viewmodel.main",
     stores: {
         navigation: {
-            type: "main.Navigation"
+            type: "systemmanage.sysmain.navigation"
         },
         plist:{
             type:"main.Plist"

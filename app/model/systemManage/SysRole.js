@@ -1,15 +1,11 @@
-Ext.define("App.model.systemmanage.sysbutton.SysButton", {
+Ext.define("App.model.systemmanage.SysRole", {
     extend: "App.model.BaseModel",
     identifier: "uuid",
     fields: [
-        { name: 'sysButtonId', type: 'string' },
-        { name: 'sysMenuId', type: 'string' },
-        { name: 'btnCode', type: 'string' },
-        { name: 'btnName', type: 'string' },
+        { name: 'sysRoleId', type: 'string' },
+        { name: 'RoleName', type: 'string' },
         { name: 'Description', type: 'string' },
-        { name: 'IconCls', type: 'string' },
-        { name: 'isEnable', type: 'int' },
-        { name: 'isDel', type: 'int' },
+        { name: 'IsDel', type: 'int' },
         { name: 'createUserId', type: 'string' },
         { name: 'createUserName', type: 'string' },
         { name: 'createDate', type: 'date' },
@@ -17,5 +13,5 @@ Ext.define("App.model.systemmanage.sysbutton.SysButton", {
         { name: 'modifyUserName', type: 'string' },
         { name: 'modifyDate', type: 'date' }
     ],
-    idProperty: 'sysButtonId'
+    idProperty: 'sysRoleId'
 })

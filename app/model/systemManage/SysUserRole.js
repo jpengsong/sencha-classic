@@ -1,4 +1,4 @@
-Ext.define("App.model.systemmanage.sysuserrole.SysUserRole", {
+Ext.define("App.model.systemmanage.SysUserRole", {
     extend: "App.model.BaseModel",
     identifier: "uuid",
     fields: [

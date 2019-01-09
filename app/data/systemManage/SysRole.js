@@ -1,9 +1,8 @@
-Ext.define('App.data.systemmanage.sysrole.SysRole', {
+Ext.define('App.data.systemmanage.SysRole', {
     extend: "App.data.Simulated",
     dataSource: [],
     init: function () {
         var me = this;
-        //数据来源
         me.dataSource = [
             { "sysRoleId": "5519da9e-ae64-40ad-b676-bbc724872c90", "RoleName": "超级管理员", "Description": "", "isDel": 0 },
             { "sysRoleId": "2d5d5db2-c08e-4ef9-b58f-3ef1d85eadf9", "RoleName": "管理员", "Description": "", "isDel": 0 },

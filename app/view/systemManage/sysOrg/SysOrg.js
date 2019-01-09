@@ -30,8 +30,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
                 "border-right-style": "solid",
                 "border-right-color": "#d1d1d1"
             },
-            plugins:
-            {
+            plugins:{
                 requestdata: {
                     autoLoad: true,
                     params: function () {

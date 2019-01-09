@@ -1,4 +1,4 @@
-Ext.define('App.data.systemmanage.sysuser.SysUser', {
+Ext.define('App.data.systemmanage.SysUser', {
     extend: "App.data.Simulated",
     dataSource:  [],
     init: function () {

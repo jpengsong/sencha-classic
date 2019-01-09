@@ -81,7 +81,7 @@ Ext.define("App.view.main.Main", {
                                     ui: "planbutton"
                                 },
                                 {
-                                    text: "大学霸",
+                                    text: "小靳一郎",
                                     ui: "planbutton",
                                     menu: [
                                         { text: '基本资料' },
@@ -116,6 +116,14 @@ Ext.define("App.view.main.Main", {
                                 {
                                     xtype: 'treelist',
                                     reference: "navigationTreeList",
+                                    bind: {
+                                        store:'{navigation}'
+                                    },
+                                    defaults: {
+                                        xtype: 'treelistitem',
+                                        textProperty:"MenuName",
+                                        iconClsProperty:"IconCls"
+                                    },
                                     ui: "navigation",
                                     scrollable: true,
                                     singleExpand: true,
@@ -139,14 +147,14 @@ Ext.define("App.view.main.Main", {
                                 {
                                     iconCls: "x-fa fa-laptop",
                                     title: "首页",
-                                    html:"abc123",
+                                    html: "abc123",
                                     xtype: "container",
                                     scrollable: Ext.scroll.Scroller({ y: true, x: false }),
                                     layout: {
                                         type: "vbox",
                                         align: "stretch"
                                     },
-                                    items:[]
+                                    items: []
                                 }
                             ]
                         }

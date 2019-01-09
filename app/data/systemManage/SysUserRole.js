@@ -1,4 +1,4 @@
-Ext.define('App.data.systemmanage.sysuser.SysUser', {
+Ext.define('App.data.systemmanage.SysUserRole', {
     extend: "App.data.Simulated",
     init: function () {
         var me = this;

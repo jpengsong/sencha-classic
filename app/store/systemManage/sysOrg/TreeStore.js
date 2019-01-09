@@ -2,7 +2,7 @@ Ext.define('App.store.systemmanage.sysorg.TreeStore', {
     extend: 'Ext.data.TreeStore',
     autoLoad: false,
     alias: 'store.systemmanage.sysorg.treestore',
-    //model: 'App.model.systemmanage.sysorg.SysOrg',
+    //model: 'App.model.systemmanage.SysOrg',
     proxy: {
         type: 'api',
         reader: {

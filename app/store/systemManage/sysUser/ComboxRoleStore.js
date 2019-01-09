@@ -2,7 +2,7 @@ Ext.define('App.store.systemmanage.sysuser.ComboxRoleStore', {
     autoLoad: true,
     extend: 'Ext.data.Store',
     alias: 'store.systemmanage.sysuser.comboxrolestore',
-    model: 'App.model.systemmanage.sysrole.SysRole',
+    model: 'App.model.systemmanage.SysRole',
     proxy: {
         type: 'api',
         reader: {

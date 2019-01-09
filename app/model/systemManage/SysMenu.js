@@ -1,4 +1,4 @@
-Ext.define("App.model.systemmanage.sysmenu.SysMenu", {
+Ext.define("App.model.systemmanage.SysMenu", {
     extend: "App.model.BaseModel",
     identifier: "uuid",
     fields: [

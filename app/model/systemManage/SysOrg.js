@@ -1,4 +1,4 @@
-Ext.define("App.model.systemmanage.sysorg.SysOrg", {
+Ext.define("App.model.systemmanage.SysOrg", {
     extend: "App.model.BaseModel",
     identifier: "uuid",
     fields: [

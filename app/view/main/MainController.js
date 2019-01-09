@@ -70,11 +70,11 @@ Ext.define("App.view.main.MainController", {
 
     //user.:node 登录成功后触发
     onRouteUserChange: function (id) {
-        var me, refs, vm, treeStore; me = this; refs = me.getReferences(); vm = me.getViewModel();
+        var me, refs, vm; me = this; refs = me.getReferences(); vm = me.getViewModel();
         if (!Ext.isEmpty(App.UserInfo.Token)) {
-            if (Ext.isEmpty(refs.navigationTreeList.getStore())) {
-                treeStore = vm.getStore("navigation");
-                refs.navigationTreeList.setStore(treeStore);
+           var store =refs.navigationTreeList.getStore();
+           console.info(store);
+            if (!store.getAutoLoad()) {
             }
             me.redirectTo("view.welcome");
         } else {
@@ -118,10 +118,10 @@ Ext.define("App.view.main.MainController", {
                 closable: true,
                 routeId: hashTag
             });
-
+            
             if (maincard == "welcomecontainer" && !Ext.isEmpty(node)) {
-                newView.setIconCls(node.data.iconCls);
-                newView.setTitle(node.data.text);
+                newView.setIconCls(node.get("IconCls"));
+                newView.setTitle(node.get("MenuName"));
             }
         }
         //新视图不存在或者非窗口
@@ -147,7 +147,7 @@ Ext.define("App.view.main.MainController", {
 
     //初始化主页
     onMainViewRender: function () {
-        var me= this, hash= window.location.hash.replace('#', '');
+        var me = this, hash = window.location.hash.replace('#', '');
         if (Ext.isEmpty(App.UserInfo.Token) && hash != 'view.login') {
             me.redirectTo('view.login', true);
         } else if (!Ext.isEmpty(App.UserInfo.Token)) {
@@ -157,13 +157,13 @@ Ext.define("App.view.main.MainController", {
 
     //切换菜单项
     onNavigationTreeListChange: function (treelist, record, eOpts) {
-        var me= this, selNodes= Ext.dom.Query.select(".x-treelist-row"), data = record.data;
+        var me = this, selNodes = Ext.dom.Query.select(".x-treelist-row"), data = record.data;
         for (var i = 0; i < selNodes.length; i++) {
             selNodes[i].style.backgroundColor = "";
         }
         if (data.children == null && data.parentId == "root" || data.parentId != "root") {
             var selNode = Ext.dom.Query.selectNode(".x-treelist-item-selected > .x-treelist-row", treelist.el.dom);
-            if(selNode==null){
+            if (selNode == null) {
                 selNode = Ext.dom.Query.selectNode(".x-treelist-navigation .x-treelist-item-selected > .x-treelist-row");
             }
             selNode.style.backgroundColor = "#009688";
@@ -175,7 +175,7 @@ Ext.define("App.view.main.MainController", {
 
     //折叠
     onMicro: function () {
-        var me = this, refs = me.getReferences(), vm = me.getViewModel(),isMicro = refs.navigationTreeList.getMicro();
+        var me = this, refs = me.getReferences(), vm = me.getViewModel(), isMicro = refs.navigationTreeList.getMicro();
         if (!isMicro) {
             refs.logo.setWidth(50);
             refs.logo.addCls("ext-sencha");
