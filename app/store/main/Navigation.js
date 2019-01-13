@@ -1,22 +1,22 @@
-Ext.define('App.store.systemmanage.sysmain.Navigation', {
+Ext.define('App.store.main.Navigation', {
     extend: 'Ext.data.TreeStore',
-    alias: 'store.systemmanage.sysmain.navigation',
+    alias: 'store.main.navigation',
     model: 'App.model.systemmanage.SysMenu',
     proxy: {
         type: 'api',
-        url: '~/api/systemmanage/sysmenu/GetSysMenuByRule',
+        url: '~/api/SystemManage/SysMenu/GetSysMenuByRule',
         reader: {
             type:"jsonreader",
             rootProperty: "children",
             datatype: config.DataType.TreeStore,
-            idField: "sysMenuId",
-            parentField: "parentId",
+            idField: "SysMenuId",
+            parentField: "ParentId",
             iconClsField:"IconCls",
-            isExpand: true,
+            isExpand: false,
             rootId: ""
         }
     },
     root: {
-        expanded: true
+        expanded: false
     }
 });

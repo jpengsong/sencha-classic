@@ -1,6 +1,5 @@
 Ext.define('App.data.systemmanage.SysRole', {
     extend: "App.data.Simulated",
-    dataSource: [],
     init: function () {
         var me = this;
         me.dataSource = [
@@ -20,7 +19,7 @@ Ext.define('App.data.systemmanage.SysRole', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/systemmanage/sysrole/GetSysRolePage",
+            url: "~/api/SystemManage/SysRole/GetSysRolePage",
             getData: function (ctx) {
                 var requestData = Ext.decode(ctx.params.RequestData), condition = me.getCondition(requestData),
                     responseData = me.SqlQuery(condition);
@@ -35,7 +34,7 @@ Ext.define('App.data.systemmanage.SysRole', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/systemmanage/sysrole/GetSysRoleAll",
+            url: "~/api/SystemManage/SysRole/GetSysRoleAll",
             getData: function (ctx) {
                 var responseData = me.ResponseData();
                 responseData.Data = {};

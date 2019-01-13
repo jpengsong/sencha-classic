@@ -41,7 +41,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
                         },
                         displayField: "name",
                         valueField: "value",
-                        width:200,
+                        width: 200,
                         fieldLabel: '是否启用'
                     }
                 ]
@@ -87,19 +87,11 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
             },
             columns: {
                 items: [
-                    { text: '用户名', dataIndex: 'userName', width: 100 },
-                    { text: '登录名', dataIndex: 'loginName', width: 150 },
-                    { text: '手机号', dataIndex: 'mobile', width: 120 },
-                    { text: '邮箱', dataIndex: 'email', width: 200 },
-                    {
-                        text: '是否启用', dataIndex: 'isEnable', width: 80,
-                        renderer: function (value) {
-                            var strText = "", strColor = "";
-                            strText = (value == 1 ? "是" : "否");
-                            strColor = (value == 1 ? "green" : "red");
-                            return "<span style='color:" + strColor + "'>" + strText + "</span>";
-                        }
-                    },
+                    { text: '用户名', dataIndex: 'UserName', width: 100 },
+                    { text: '登录名', dataIndex: 'LoginName', width: 150 },
+                    { text: '手机号', dataIndex: 'Mobile', width: 120 },
+                    { text: '邮箱', dataIndex: 'Email', width: 200 },
+                    { text: '是否启用', dataIndex: 'IsEnable', width: 80, renderer: function (value) { return "<span style='color:" + (value == 1 ? "green" : "red") + "'>" + (value == 1 ? "是" : "否") + "</span>"; } },
                     { text: '备注', dataIndex: 'Description', flex: 1 }
                 ]
             },

@@ -48,7 +48,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
         var me = this, viewModel = me.getViewModel();
         me.items[0].store = viewModel.get("roleStore");
         App.Ajax.request({
-            url: "~/api/systemmanage/sysuserrole/GetSysUserRoleByRule",
+            url: "~/api/SystemManage/SysUser/GetSysUserRoleByRule",
             method: "GET",
             async: true,
             nosim: false,
@@ -70,7 +70,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
             var me = this,
                 view = me.getView();
                 App.Ajax.request({
-                    url: "~/api/systemmanage/sysuserrole/AddSysUserRole",
+                    url: "~/api/SystemManage/SysUser/AddSysUserRole",
                     method: "POST",
                     nosim: false,
                     type: "JSON",

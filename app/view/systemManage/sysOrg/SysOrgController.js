@@ -8,7 +8,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
         Ext.override(querypanel, {
             getQueryItems: function () {
                 var queryItems = App.Page.getQueryItems(Ext.ComponentQuery.query("container[reference='searchcondition']", querypanel)[0]);
-                queryItems.push({ key: "parentOrgId", Value: record.data.sysOrgId, Method: " = ", Type: "String" });
+                queryItems.push({ key: "ParentOrgId", Value: record.data.SysOrgId, Method: " = ", Type: "String" });
                 return queryItems;
             }
         });
@@ -34,14 +34,14 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
                 //正则过滤数据
                 store.filterBy(function (record, id) {
                     if (record.childNodes.length > 0) {
-                        collection.add(record.data.sysOrgId, regExp.test(record.data.orgName));
+                        collection.add(record.data.SysOrgId, regExp.test(record.data.orgName));
                         return true;
                     } else {
-                        var sysOrgId = record.parentNode.data.sysOrgId;
-                        if (collection.containsKey(sysOrgId) && collection.get(sysOrgId)) {
+                        var SysOrgId = record.parentNode.data.SysOrgId;
+                        if (collection.containsKey(SysOrgId) && collection.get(SysOrgId)) {
                             return true;
                         } else {
-                            collection.add(record.data.sysOrgId, regExp.test(record.data.orgName));
+                            collection.add(record.data.SysOrgId, regExp.test(record.data.orgName));
                             return regExp.test(record.data.orgName);
                         }
                     }
@@ -74,9 +74,9 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
     onAdd: function () {
         var me = this, window, record, view = me.getView(), treepanel = view.getTree("treePanel");
         if (App.Page.selectionModel(treepanel, false)) {
-            record = Ext.create("App.model.systemmanage.sysorg.SysOrg");
+            record = Ext.create("App.model.systemmanage.SysOrg");
             selTreeRecord = treepanel.getSelectionModel().getSelection()[0];
-            record.data.parentOrgId = selTreeRecord.data.sysOrgId;
+            record.data.ParentOrgId = selTreeRecord.data.SysOrgId;
             record.data.level = selTreeRecord.data.level + 1;
             window = Ext.create({
                 title: "新增机构",
@@ -132,13 +132,13 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
         if (App.Page.selectionModel(grid, true)) {
             records = grid.getSelectionModel().getSelection();
             Ext.each(records, function (record, index) {
-                idArray.push(record.get("sysOrgId"));
+                idArray.push(record.get("SysOrgId"));
             })
             Ext.Msg.confirm("提示", "确认删除选中的" + idArray.length + "行数据项吗？",
                 function (btn) {
                     if (btn == "yes") {
                         App.Ajax.request({
-                            url: "~/api/systemmanage/sysorg/DeleteSysOrg",
+                            url: "~/api/SystemManage/SysOrg/DeleteSysOrg",
                             method: "POST",
                             nosim: false,
                             type: "JSON",

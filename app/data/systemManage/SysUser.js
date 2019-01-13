@@ -1,38 +1,35 @@
 Ext.define('App.data.systemmanage.SysUser', {
     extend: "App.data.Simulated",
-    dataSource:  [],
     init: function () {
         var me = this;
         //数据源
         me.dataSource = [
-            { "sysUserId": "d0a70e97-06dc-4a39-a3fc-a6ce347635eb", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "徐承平", "loginName": "xuchengping", "loginPassWord": "123456", "mobile": "18701540234", "email": "xuchengping@163.com", "isEnable": 1 },
-            { "sysUserId": "50a3a764-bf5e-4704-aa47-8354633325b6", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "段阳焱", "loginName": "duanyangyan", "loginPassWord": "123456", "mobile": "18701540414", "email": "duanyangyan@163.com", "isEnable": 1 },
-            { "sysUserId": "e415d214-2159-42b3-a50a-f8f407b061ef", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "郑承恩", "loginName": "zhengchengen", "loginPassWord": "123456", "mobile": "13021023376", "email": "zhengchengen@163.com", "isEnable": 0 },
-            { "sysUserId": "407508b8-53ea-470f-b63f-6c043d7b2aee", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "芮敏学", "loginName": "ruiminxue", "loginPassWord": "123456", "mobile": "13021023852", "email": "ruiminxue@163.com", "isEnable": 1 },
-            { "sysUserId": "048dd72e-c851-49eb-8c94-8f220a98a14b", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "东承德", "loginName": "dongchengde", "loginPassWord": "123456", "mobile": "13021025016", "email": "dongchengde@163.com", "isEnable": 0 },
-            { "sysUserId": "54e69310-c148-46aa-91bb-1ec789c6d714", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "胡成天", "loginName": "huchengtian", "loginPassWord": "123456", "mobile": "13021025191", "email": "huchengtian@163.com", "isEnable": 1 },
-            { "sysUserId": "69b6cebd-97a0-4653-91db-0ca264d37612", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "谢欣然", "loginName": "xiexinran", "loginPassWord": "123456", "mobile": "13331155934", "email": "xiexinran@163.com", "isEnable": 1 },
-            { "sysUserId": "4beaf596-9da2-4260-b17b-6c055feb5e39", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "惠鸿信", "loginName": "huihongxin", "loginPassWord": "123456", "mobile": "13371633671", "email": "huihongxin@163.com", "isEnable": 1 },
-            { "sysUserId": "ad26ade0-e73d-4004-8dc3-6ad1f48d0789", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "晁意蕴", "loginName": "chaoyiwen", "loginPassWord": "123456", "mobile": "13331176769", "email": "chaoyiwen@163.com", "isEnable": 1 },
-            { "sysUserId": "fcc7ca4c-65c8-49dd-bc98-227a5fb15e88", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "陆文宣", "loginName": "luwenxuan", "loginPassWord": "123456", "mobile": "13021025126", "email": "luwenxuan@163.com", "isEnable": 1 },
-            { "sysUserId": "5a67ebbf-ef38-4aa8-a0b1-d8befeb00e88", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "赵星洲", "loginName": "zhaoxingzhou", "loginPassWord": "123456", "mobile": "13021023836", "email": "zhaoxingzhou@163.com", "isEnable": 1 },
-            { "sysUserId": "f7a6567a-feab-4ade-80ad-101a70feab2c", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "芮承允", "loginName": "ruichengyun", "loginPassWord": "123456", "mobile": "13021023852", "email": "ruichengyun@163.com", "isEnable": 1 },
-            { "sysUserId": "4447e3f4-70dd-440c-8449-430e1cd16584", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "聂学林", "loginName": "niexuelin", "loginPassWord": "123456", "mobile": "13021025016", "email": "niexuelin@163.com", "isEnable": 1 },
-            { "sysUserId": "3f5f4488-79cb-450a-8d20-19f54a04f4ba", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "薄茂学", "loginName": "bomaoxue", "loginPassWord": "123456", "mobile": "15311139513", "email": "bomaoxue@163.com", "isEnable": 1 },
-            { "sysUserId": "49a6803d-7758-41bd-9c03-bebc52aafca0", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "盛兴学", "loginName": "shengxingxue", "loginPassWord": "123456", "mobile": "18911977995", "email": "shengxingxue@163.com", "isEnable": 1 },
-            { "sysUserId": "87fa02b3-6c94-43fc-9b6c-988c49ba457a", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "鄂鸿哲", "loginName": "ehongzhe", "loginPassWord": "123456", "mobile": "18911977759", "email": "ehongzhe@163.com", "isEnable": 1 },
-            { "sysUserId": "73ca9d58-c687-45fe-8d07-3eb067431eb9", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "曾苑博", "loginName": "zengyuanbo", "loginPassWord": "123456", "mobile": "18911973344", "email": "zengyuanbo@163.com", "isEnable": 1 },
-            { "sysUserId": "b1ec37ba-4523-427f-820c-0f37b0d02d1d", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "寿成周", "loginName": "shouchengzhou", "loginPassWord": "123456", "mobile": "18911973344", "email": "shouchengzhou@163.com", "isEnable": 1 },
-            { "sysUserId": "daa1703e-f951-4c66-8641-9948592bce47", "orgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "userName": "闻安福", "loginName": "wenanfu", "loginPassWord": "123456", "mobile": "18911919391", "email": "wenanfu@163.com", "isEnable": 1 }
+            { "SysUserId": "d0a70e97-06dc-4a39-a3fc-a6ce347635eb", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "徐承平", "LoginName": "xuchengping", "LoginPassWord": "123456", "Mobile": "18701540234", "Email": "xuchengping@163.com", "IsEnable": 1 },
+            { "SysUserId": "50a3a764-bf5e-4704-aa47-8354633325b6", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "段阳焱", "LoginName": "duanyangyan", "LoginPassWord": "123456", "Mobile": "18701540414", "Email": "duanyangyan@163.com", "IsEnable": 1 },
+            { "SysUserId": "e415d214-2159-42b3-a50a-f8f407b061ef", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "郑承恩", "LoginName": "zhengchengen", "LoginPassWord": "123456", "Mobile": "13021023376", "Email": "zhengchengen@163.com", "IsEnable": 0 },
+            { "SysUserId": "407508b8-53ea-470f-b63f-6c043d7b2aee", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "芮敏学", "LoginName": "ruiminxue", "LoginPassWord": "123456", "Mobile": "13021023852", "Email": "ruiminxue@163.com", "IsEnable": 1 },
+            { "SysUserId": "048dd72e-c851-49eb-8c94-8f220a98a14b", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "东承德", "LoginName": "dongchengde", "LoginPassWord": "123456", "Mobile": "13021025016", "Email": "dongchengde@163.com", "IsEnable": 0 },
+            { "SysUserId": "54e69310-c148-46aa-91bb-1ec789c6d714", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "胡成天", "LoginName": "huchengtian", "LoginPassWord": "123456", "Mobile": "13021025191", "Email": "huchengtian@163.com", "IsEnable": 1 },
+            { "SysUserId": "69b6cebd-97a0-4653-91db-0ca264d37612", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "谢欣然", "LoginName": "xiexinran", "LoginPassWord": "123456", "Mobile": "13331155934", "Email": "xiexinran@163.com", "IsEnable": 1 },
+            { "SysUserId": "4beaf596-9da2-4260-b17b-6c055feb5e39", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "惠鸿信", "LoginName": "huihongxin", "LoginPassWord": "123456", "Mobile": "13371633671", "Email": "huihongxin@163.com", "IsEnable": 1 },
+            { "SysUserId": "ad26ade0-e73d-4004-8dc3-6ad1f48d0789", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "晁意蕴", "LoginName": "chaoyiwen", "LoginPassWord": "123456", "Mobile": "13331176769", "Email": "chaoyiwen@163.com", "IsEnable": 1 },
+            { "SysUserId": "fcc7ca4c-65c8-49dd-bc98-227a5fb15e88", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "陆文宣", "LoginName": "luwenxuan", "LoginPassWord": "123456", "Mobile": "13021025126", "Email": "luwenxuan@163.com", "IsEnable": 1 },
+            { "SysUserId": "5a67ebbf-ef38-4aa8-a0b1-d8befeb00e88", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "赵星洲", "LoginName": "zhaoxingzhou", "LoginPassWord": "123456", "Mobile": "13021023836", "Email": "zhaoxingzhou@163.com", "IsEnable": 1 },
+            { "SysUserId": "f7a6567a-feab-4ade-80ad-101a70feab2c", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "芮承允", "LoginName": "ruichengyun", "LoginPassWord": "123456", "Mobile": "13021023852", "Email": "ruichengyun@163.com", "IsEnable": 1 },
+            { "SysUserId": "4447e3f4-70dd-440c-8449-430e1cd16584", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "聂学林", "LoginName": "niexuelin", "LoginPassWord": "123456", "Mobile": "13021025016", "Email": "niexuelin@163.com", "IsEnable": 1 },
+            { "SysUserId": "3f5f4488-79cb-450a-8d20-19f54a04f4ba", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "薄茂学", "LoginName": "bomaoxue", "LoginPassWord": "123456", "Mobile": "15311139513", "Email": "bomaoxue@163.com", "IsEnable": 1 },
+            { "SysUserId": "49a6803d-7758-41bd-9c03-bebc52aafca0", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "盛兴学", "LoginName": "shengxingxue", "LoginPassWord": "123456", "Mobile": "18911977995", "Email": "shengxingxue@163.com", "IsEnable": 1 },
+            { "SysUserId": "87fa02b3-6c94-43fc-9b6c-988c49ba457a", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "鄂鸿哲", "LoginName": "ehongzhe", "LoginPassWord": "123456", "Mobile": "18911977759", "Email": "ehongzhe@163.com", "IsEnable": 1 },
+            { "SysUserId": "73ca9d58-c687-45fe-8d07-3eb067431eb9", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "曾苑博", "LoginName": "zengyuanbo", "LoginPassWord": "123456", "Mobile": "18911973344", "Email": "zengyuanbo@163.com", "IsEnable": 1 },
+            { "SysUserId": "b1ec37ba-4523-427f-820c-0f37b0d02d1d", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "寿成周", "LoginName": "shouchengzhou", "LoginPassWord": "123456", "Mobile": "18911973344", "Email": "shouchengzhou@163.com", "IsEnable": 1 },
+            { "SysUserId": "daa1703e-f951-4c66-8641-9948592bce47", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "闻安福", "LoginName": "wenanfu", "LoginPassWord": "123456", "Mobile": "18911919391", "Email": "wenanfu@163.com", "IsEnable": 1 }
         ];
-        //获取分页数据接口
         me.GetSysUserPage();
-        //添加用户
         me.AddSysUser();
-        //编辑用户
         me.EditSysUser();
-        //删除用户
         me.DeleteSysUser();
+        me.GetSysUserRoleByRule();
+        me.AddSysUserRole();
     },
 
     //获取分页数据
@@ -41,7 +38,7 @@ Ext.define('App.data.systemmanage.SysUser', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/systemmanage/sysuser/GetSysUserPage",
+            url: "~/api/SystemManage/SysUser/GetSysUserPage",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx),
                     condition = me.getCondition(requestData);
@@ -57,7 +54,7 @@ Ext.define('App.data.systemmanage.SysUser', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/systemmanage/sysuser/AddSysUser",
+            url: "~/api/SystemManage/SysUser/AddSysUser",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData();
                 me.dataSource.unshift(Ext.decode(requestData.Data));
@@ -72,12 +69,12 @@ Ext.define('App.data.systemmanage.SysUser', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/systemmanage/sysuser/EditSysUser",
+            url: "~/api/SystemManage/SysUser/EditSysUser",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
                 data = Ext.decode(requestData.Data);
                 for (var i = 0; i < me.dataSource.length; i++) {
-                    if (me.dataSource[i].sysUserId == data.sysUserId) {
+                    if (me.dataSource[i].SysUserId == data.SysUserId) {
                         Ext.apply(me.dataSource[i], data);
                         break;
                     }
@@ -93,16 +90,73 @@ Ext.define('App.data.systemmanage.SysUser', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/systemmanage/sysuser/DeleteSysUser",
+            url: "~/api/SystemManage/SysUser/DeleteSysUser",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
                 data = Ext.decode(requestData.Data);
-                
                 for (var i = 0; i < data.length; i++) {
                     for (var j = 0; j < me.dataSource.length; j++) {
-                        if (me.dataSource[j].sysUserId == data[i]) {
-                            me.dataSource.splice(j,1);
+                        if (me.dataSource[j].SysUserId == data[i]) {
+                            me.dataSource.splice(j, 1);
                             break;
+                        }
+                    }
+                }
+                return responseData;
+            }
+        })
+    },
+
+    //获取某个用户下的所有角色
+    GetSysUserRoleByRule: function () {
+        var me = this;
+        Ext.ux.ajax.SimManager.register({
+            type: 'json',
+            delay: 0,
+            url: "~/api/SystemManage/SysUser/GetSysUserRoleByRule",
+            getData: function (ctx) {
+                var requestData = Ext.decode(ctx.params.RequestData),
+                    sysUserRole= App.SimulateDB.Get("SysUserRole"),
+                    data = Ext.decode(requestData.Data);
+                responseData = me.ResponseData();
+                responseData.Data.List = [];
+                for (var i = 0; i < sysUserRole.length; i++) {
+                    if (data.UserId == sysUserRole[i].UserId) {
+                        responseData.Data.List.push(sysUserRole[i]);
+                    }
+                }
+                return responseData;
+            }
+        })
+    },
+
+    //添加用户的角色
+    AddSysUserRole: function () {
+        var me = this;
+        Ext.ux.ajax.SimManager.register({
+            type: 'json',
+            delay: 0,
+            url: "~/api/SystemManage/SysUser/AddSysUserRole",
+            getData: function (ctx) {
+                var requestData = me.requestData(ctx), 
+                sysUserRole= App.SimulateDB.Get("SysUserRole"),
+                responseData = me.ResponseData();
+                var data = Ext.decode(requestData.Data);
+                if (!Ext.isEmpty(data.UserId)) {
+                    for (var i = 0; i < sysUserRole.length; i++) {
+                        if (sysUserRole[i].UserId == data.UserId) {
+                            sysUserRole.splice(i, 1);
+                            i -= 1;
+                        }
+                    }
+                    if (!Ext.isEmpty(data.RoleId)) {
+                        var roleIds = data.RoleId.split(",");
+                        for (var i = 0; i < roleIds.length; i++) {
+                            sysUserRole.push({
+                                SysUserRoleId: Ext.data.identifier.Uuid.create().generate(),
+                                UserId: data.UserId,
+                                RoleId: roleIds[i]
+                            });
                         }
                     }
                 }

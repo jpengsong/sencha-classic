@@ -22,26 +22,21 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
             columns: [{
                 xtype: 'treecolumn',
                 flex: 1,
-                dataIndex: 'orgName',
+                dataIndex: 'OrgName',
                 renderer: 'treeNavNodeRenderer'
             }],
-            style: {
-                "border-right-width": "1px",
-                "border-right-style": "solid",
-                "border-right-color": "#d1d1d1"
-            },
-            plugins:{
+            style: { "border-right": "1px solid #d1d1d1" },
+            plugins: {
                 requestdata: {
                     autoLoad: true,
                     params: function () {
-                        return { sysOrgId: ""};
+                        return { SysOrgId: "" };
                     },
                     root: {
                         expanded: true,
                         children: []
                     }
-                },
-                treepanel: {}
+                }
             },
             dockedItems: [
                 {
@@ -99,7 +94,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
                 items: [
                     {
                         xtype: 'textfield',
-                        name: 'orgName',
+                        name: 'OrgName',
                         method: config.QueryMethod.Like,
                         type: "String",
                         fieldLabel: '机构名称'
@@ -142,10 +137,10 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
             },
             columns: {
                 items: [
-                    { text: '机构名称', dataIndex: 'orgName', width: 200 },
-                    { text: '机构代码', dataIndex: 'orgCode', width: 200 },
-                    { text: '排序', dataIndex: 'sort', width: 50 },
-                    { text: '描述', dataIndex: 'description', flex: 1 }
+                    { text: '机构名称', dataIndex: 'OrgName', width: 200 },
+                    { text: '机构代码', dataIndex: 'OrgCode', width: 200 },
+                    { text: '排序', dataIndex: 'Sort', width: 50 },
+                    { text: '描述', dataIndex: 'Description', flex: 1 }
                 ]
             },
             bbar: {

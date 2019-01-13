@@ -1,6 +1,5 @@
 Ext.define('App.data.systemmanage.SysMenuRole', {
     extend: "App.data.Simulated",
-    dataSource: [],
     init: function () {
         var me = this;
         me.dataSource = [
@@ -10,23 +9,7 @@ Ext.define('App.data.systemmanage.SysMenuRole', {
             { "SysMenRoleId": "bedc1237-d4f5-4216-b7a4-e07697606319", "MenuId": "457063da-0b14-4c7f-bb12-a0a8e20d90ee", "RoleId": "5519da9e-ae64-40ad-b676-bbc724872c90",  "CreateUserId":"", "CreateUserName":"", "createDate": ""},
             { "SysMenRoleId": "9591eda7-5454-4519-a961-f21b2e9cf69f", "MenuId": "4aeab063-da5e-408f-b467-b060e6a6dbf6", "RoleId": "5519da9e-ae64-40ad-b676-bbc724872c90",  "CreateUserId":"", "CreateUserName":"", "createDate": ""}
         ];
-        me.GetSysMenuRolePage();
         me.GetSysMenuRoleByRule();
-    },
-
-    //获取分页数据
-    GetSysMenuRolePage: function () {
-        var me = this;
-        Ext.ux.ajax.SimManager.register({
-            type: 'json',
-            delay: 0,
-            url: "/api/systemmanage/SysMenuRole/GetSysMenuRolePage",
-            getData: function (ctx) {
-                var requestData = Ext.decode(ctx.params.RequestData), condition = me.getCondition(requestData),
-                    responseData = me.SqlQuery(condition);
-                return responseData;
-            }
-        })
     },
 
     //获取数据
@@ -34,7 +17,7 @@ Ext.define('App.data.systemmanage.SysMenuRole', {
         var me = this;
         Ext.ux.ajax.SimManager.register({
             type: 'json',
-            url: "/api/systemmanage/SysMenuRole/GetSysMenuRoleByRule",
+            url: "~/api/SystemManage/SysMenuRole/GetSysMenuRoleByRule",
             getData: function (ctx) {
                 var requestData = Ext.decode(ctx.params.RequestData), condition = me.getCondition(requestData),
                     responseData = me.SqlQuery(condition);

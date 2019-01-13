@@ -9,11 +9,11 @@ Ext.define('App.store.systemmanage.sysorg.TreeStore', {
             type:"jsonreader",
             rootProperty: "children",
             datatype: config.DataType.TreeStore,
-            idField: "sysOrgId",
-            parentField: "parentOrgId",
+            idField: "SysOrgId",
+            parentField: "ParentOrgId",
             isExpand: true,
             rootId: ""
         },
-        url: '~/api/systemmanage/sysorg/GetSysOrgTreeByRule',
+        url: '~/api/SystemManage/SysOrg/GetSysOrgTreeByRule',
     }
 });

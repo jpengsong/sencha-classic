@@ -14,7 +14,7 @@
     rootId: null,
     rootNode: {},
     iconClsField: null,
-    checkedField: false,
+    checked: null,
     isExpand: false,
     isAllExpand: false,
     getResponseData: function (response) {
@@ -47,7 +47,7 @@
                         me.isExpand,
                         me.isAllExpand,
                         me.rootId,
-                        me.checkedField);
+                        me.checked);
                     return me.records;
                 } else if (me.datatype == config.DataType.ComboxStore) {
                     me.records = content.List;

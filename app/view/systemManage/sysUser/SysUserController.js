@@ -5,7 +5,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
     //新增
     onAdd: function () {
         var me = this, window, record, view = me.getView();
-        record = Ext.create("App.model.systemmanage.sysuser.SysUser");
+        record = Ext.create("App.model.systemmanage.SysUser");
         window = Ext.create({
             title: "新增用户",
             xtype: "sysuseredit",
@@ -62,7 +62,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                 function (btn) {
                     if (btn == "yes") {
                         App.Ajax.request({
-                            url: "~/api/systemmanage/sysuser/DeleteSysUser",
+                            url: "~/api/SystemManage/SysUser/DeleteSysUser",
                             method: "POST",
                             nosim: false,
                             type: "JSON",

@@ -17,16 +17,16 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
                     fieldLabel: '所属机构',
                     editable: false,
                     hideTrigger: true,
-                    displayField: "orgName",
-                    valueField: "sysOrgId",
+                    displayField: "OrgName",
+                    valueField: "SysOrgId",
                     width: "100%",
                     height: 200,
                     rootVisible: false,
                     params: function () {
-                        return { sysOrgId: "" };
+                        return { SysOrgId: "" };
                     },
                     bind: {
-                        defautvalue: "{org.parentOrgId}",
+                        defautvalue: "{org.ParentOrgId}",
                         store: "{treestore}"
                     },
                     allowBlank: false,
@@ -37,28 +37,28 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
                     fieldLabel: '级别',
                     editable: false,
                     allowBlank: false,
-                    bind: "{org.level}",
+                    bind: "{org.Level}",
                     afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
                 },
                 {
                     xtype: "textfield",
                     fieldLabel: '机构名称',
                     allowBlank: false,
-                    bind: "{org.orgName}",
+                    bind: "{org.OrgName}",
                     afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
                 },
                 {
                     xtype: "textfield",
                     fieldLabel: '机构代码',
                     allowBlank: false,
-                    bind: "{org.orgCode}",
+                    bind: "{org.OrgCode}",
                     afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
                 },
                 {
                     xtype: "numberfield",
-                    fieldLabel: '排序号',
+                    fieldLabel: '排序',
                     allowBlank: false,
-                    bind: "{org.sort}",
+                    bind: "{org.Sort}",
                     afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
                 },
                 {
@@ -108,7 +108,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
             treepanel = scope.getTree("treePanel");
             if (form.isValid()) {
                 App.Ajax.request({
-                    url: "~/api/systemmanage/sysorg/" + (view.status == "add" ? "AddSysOrg" : "EditSysOrg"),
+                    url: "~/api/SystemManage/SysOrg/" + (view.status == "add" ? "AddSysOrg" : "EditSysOrg"),
                     method: "POST",
                     nosim: false,
                     type: "JSON",
@@ -118,7 +118,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
                     success: function (data) {
                         App.Msg.Info("保存成功");
                         gridstore.loadPage(1);
-                        treepanel.updateChildNodes(viewModel.get("selTreeRecord"));
+                        App.TreeNode.updateChildNodes(viewModel.get("selTreeRecord"));
                         view.close();
                     },
                     error: function (data) {

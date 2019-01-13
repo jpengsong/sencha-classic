@@ -2,23 +2,23 @@ Ext.define("App.model.systemmanage.SysMenu", {
     extend: "App.model.BaseModel",
     identifier: "uuid",
     fields: [
-        { name: 'sysMenuId', type: 'string' },
-        { name: 'parentId', type: 'string' },
-        { name: 'MenuCode', type: 'string' },
+        { name: 'SysMenuId', type: 'string' },
+        { name: 'ParentId', type: 'string' },
+        { name: 'ParentName', type: 'string' },
         { name: 'MenuName', type: 'string' },
-        { name: 'MenuOrder', type: 'int' },
+        { name: 'Order', type: 'int' },
         { name: 'Description', type: 'string' },
         { name: 'IconCls', type: 'string' },
-        { name: 'xtype', type: 'string' },
-        { name: 'routeId', type: 'string' },
-        { name: 'isEnable', type: 'int' },
-        { name: 'isDel', type: 'int' },
-        { name: 'createUserId', type: 'string' },
-        { name: 'createUserName', type: 'string' },
-        { name: 'createDate', type: 'date' },
-        { name: 'modifyUserId', type: 'string' },
-        { name: 'modifyUserName', type: 'string' },
-        { name: 'modifyDate', type: 'date' }
+        { name: 'Xtype', type: 'string' },
+        { name: 'RouteId', type: 'string' },
+        { name: 'IsEnable', type: 'int' },
+        { name: 'IsDel', type: 'int' },
+        { name: 'CreateUserId', type: 'string' },
+        { name: 'CreateUserName', type: 'string' },
+        { name: 'CreateDate', type: 'date' },
+        { name: 'ModifyUserId', type: 'string' },
+        { name: 'ModifyUserName', type: 'string' },
+        { name: 'ModifyDate', type: 'date' }
     ],
-    idProperty: 'sysMenuId'
+    idProperty: 'SysMenuId'
 })

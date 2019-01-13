@@ -60,7 +60,7 @@
 @include treelist-ui(
     $ui:"navigation",
     $padding:0px 0px,                                             //TreeList边距
-    $background-color:#28333E,                                 //背景颜色
+    $background-color:#28333E,                                  //背景颜色
     $item-text-color:rgba(255,255,255,.7),                      //文本颜色
     $item-text-over-color:#fff,                                 //悬浮文本颜色
     $item-text-font-size:14px,                                    //文本字体大小
@@ -81,7 +81,7 @@
     $treelist-tool-indicator-selected-color:red !important
 );
 
-//******************************************************公共样式******************************************************
+//******************************************************TreeList公共样式******************************************************
 
 //一级菜单项目图标
 .x-treelist-navigation > .x-treelist-root-container > .x-treelist-item > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-icon,

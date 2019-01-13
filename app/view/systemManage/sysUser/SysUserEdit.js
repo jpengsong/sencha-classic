@@ -15,18 +15,16 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                 {
                     xtype: "comboxtree",
                     fieldLabel: '所属机构',
-                    name: "orgId",
-                    reference: "orgId",
-                    displayField: "orgName",
-                    valueField: "sysOrgId",
+                    displayField: "OrgName",
+                    valueField: "SysOrgId",
                     width: "100%",
                     height: 200,
                     rootVisible: false,
                     params: function () {
-                        return { sysOrgId: "" };
+                        return { SysOrgId: "" };
                     },
                     bind: {
-                        defautvalue: "{user.orgId}",
+                        defautvalue: "{user.OrgId}",
                         store: "{treestore}"
                     },
                     allowBlank: false,
@@ -36,14 +34,13 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                     xtype: "textfield",
                     fieldLabel: '登录名',
                     allowBlank: false,
-                    bind: "{user.loginName}",
+                    bind: "{user.LoginName}",
                     afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
                 },
                 {
                     xtype: "textfield",
-                    bind: "{user.userName}",
+                    bind: "{user.UserName}",
                     allowBlank: false,
-                    reference: "userName",
                     maxLength: 10,
                     fieldLabel: '用户名',
                 },
@@ -51,29 +48,29 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                     xtype: "textfield",
                     inputType: 'password',
                     fieldLabel: '密码',
-                    bind: "{user.loginPassWord}",
+                    bind: "{user.LoginPassWord}",
                     allowBlank: false,
                     afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
                 },
                 {
                     xtype: "textfield",
                     fieldLabel: '手机号',
-                    bind: "{user.mobile}"
+                    bind: "{user.Mobile}"
                 },
                 {
                     xtype: "textfield",
                     fieldLabel: '邮箱',
                     vtype: 'email',
-                    bind: "{user.email}"
+                    bind: "{user.Email}"
                 },
                 {
                     xtype: 'radiogroup',
                     fieldLabel: '是否启用',
-                    bind: "{user.isEnable}",
+                    bind: "{user.IsEnable}",
                     simpleValue: true,
                     items: [
-                        { boxLabel: '启用', name: 'isEnable', inputValue: 1, margin: "0 0 0 70" },
-                        { boxLabel: '禁用', name: 'isEnable', inputValue: 0, margin: "0 0 0 30", checked: true }
+                        { boxLabel: '启用', name: 'IsEnable', inputValue: 1, margin: "0 0 0 70" },
+                        { boxLabel: '禁用', name: 'IsEnable', inputValue: 0, margin: "0 0 0 30", checked: true }
                     ]
                 },
                 {
@@ -119,7 +116,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                 form = refs.form;
             if (form.isValid()) {
                 App.Ajax.request({
-                    url: "~/api/systemmanage/sysuser/" + (view.status == "add" ? "AddSysUser" : "EditSysUser"),
+                    url: "~/api/SystemManage/SysUser/" + (view.status == "add" ? "AddSysUser" : "EditSysUser"),
                     method: "POST",
                     nosim: false,
                     type: "JSON",

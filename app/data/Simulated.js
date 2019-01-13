@@ -3,6 +3,7 @@ Ext.define('App.data.Simulated', {
         'Ext.ux.ajax.JsonSimlet',
         'Ext.ux.ajax.SimManager'
     ],
+    dataSource: [],
     onClassExtended: function (cls, data) {
         data.makeSortFn = function (def, cmp) {
             var order = def.direction,
@@ -143,5 +144,10 @@ Ext.define('App.data.Simulated', {
         };
 
         data.init();
+       
+        //存储到模拟数据集合中
+        Ext.defer(function () {
+            App.SimulateDB.Add(data.$className.substring(data.$className.lastIndexOf(".") + 1, data.$className.length),data.dataSource);
+        },1);
     }
 });

@@ -2,22 +2,22 @@ Ext.define("App.model.systemmanage.SysUser", {
     extend: "App.model.BaseModel",
     identifier: "uuid",
     fields: [
-        { name: 'sysUserId', type: 'string' },
-        { name: 'orgId', type: 'string' },
-        { name: 'userName', type: 'string' },
-        { name: 'loginName', type: 'string' },
-        { name: 'loginPassWord', type: 'string' },
-        { name: 'mobile', type: 'string' },
-        { name: 'email', type: 'string' },
-        { name: 'isEnable', type: 'int', defaultValue: 0 },
-        { name: 'isDel', type: 'int' },
+        { name: 'SysUserId', type: 'string' },
+        { name: 'OrgId', type: 'string' },
+        { name: 'UserName', type: 'string' },
+        { name: 'LoginName', type: 'string' },
+        { name: 'LoginPassWord', type: 'string' },
+        { name: 'Mobile', type: 'string' },
+        { name: 'Email', type: 'string' },
+        { name: 'IsEnable', type: 'int', defaultValue: 0 },
+        { name: 'IsDel', type: 'int' },
         { name: 'Description', type: 'string' },
-        { name: 'createUserId', type: 'string' },
-        { name: 'createUserName', type: 'string' },
-        { name: 'createDate', type: 'date' },
-        { name: 'modifyUserId', type: 'string' },
-        { name: 'modifyUserName', type: 'string' },
-        { name: 'modifyDate', type: 'date' }
+        { name: 'CreateUserId', type: 'string' },
+        { name: 'CreateUserName', type: 'string' },
+        { name: 'CreateDate', type: 'date' },
+        { name: 'ModifyUserId', type: 'string' },
+        { name: 'ModifyUserName', type: 'string' },
+        { name: 'ModifyDate', type: 'date' }
     ],
-    idProperty: 'sysUserId'
+    idProperty: 'SysUserId'
 })

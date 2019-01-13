@@ -9,6 +9,6 @@ Ext.define('App.store.systemmanage.sysuser.ComboxRoleStore', {
             type: "jsonreader",
             datatype: config.DataType.ComboxStore
         },
-        url: '~/api/systemmanage/sysrole/GetSysRoleAll',
+        url: '~/api/SystemManage/SysRole/GetSysRoleAll',
     }
 });

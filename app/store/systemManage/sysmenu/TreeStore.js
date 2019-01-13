@@ -2,19 +2,18 @@ Ext.define('App.store.systemmanage.sysmenu.TreeStore', {
     extend: 'Ext.data.TreeStore',
     autoLoad: false,
     alias: 'store.systemmanage.sysmenu.treestore',
-    model: 'App.model.systemmanage.SysMenu',
+    model: 'App.model.systemmanage.SysMenuButtonDetail',
     proxy: {
         type: 'api',
         reader: {
             type:"jsonreader",
             rootProperty: "children",
             datatype: config.DataType.TreeStore,
-            idField: "sysMenuId",
-            parentField: "parentId",
-            textField: "MenuName",
+            idField: "Id",
+            parentField: "ParentId",
             isExpand: true,
-            rootId: "0"
+            rootId: ""
         },
-        url: '/api/systemmanage/sysmenu/GetSysMenuByRule',
+        url: '~/api/SystemManage/SysMenu/GetSysMenuButtonTreeDetail',
     }
 });

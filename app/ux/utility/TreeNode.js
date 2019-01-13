@@ -33,7 +33,7 @@ Ext.define('App.ux.utility.TreeNode', {
         * @param {Boolean} isExpand 是否展开各级节点
         * @param {Function} nodeConfig 绑定节点时执行的函数
         */
-        bindTreeData: function (list, idField, parentField, iconClsField, isExpand, isAllExpand, rootId, checkedField) {
+        bindTreeData: function (list, idField, parentField, iconClsField, isExpand, isAllExpand, rootId, checked) {
             var me = this, rootNode = [], options = {};
             if (!Ext.isEmpty(idField) && !Ext.isEmpty(parentField)) {
                 for (var i = 0; i < list.length; i++) {
@@ -43,7 +43,7 @@ Ext.define('App.ux.utility.TreeNode', {
                                 idField: idField,
                                 parentField: parentField,
                                 isAllExpand: isAllExpand,
-                                checkedField: checkedField,
+                                checked: checked,
                                 iconCls: list[i][iconClsField],
                                 expanded: isExpand || isAllExpand,
                                 leaf: true,
@@ -73,7 +73,7 @@ Ext.define('App.ux.utility.TreeNode', {
                         idField: options.idField,
                         parentField: options.parentField,
                         isAllExpand: options.isAllExpand,
-                        checkedField: options.checkedField,
+                        checked: options.checked,
                         expanded: options.isAllExpand,
                         leaf: true,
                         list: list,
@@ -110,6 +110,40 @@ Ext.define('App.ux.utility.TreeNode', {
                 rootParentValue = ux.UserInfo.BelongToOrgID;
             }
             return rootParentValue;
+        },
+
+        //更新当前节点的所有子节点
+        updateChildNodes: function (node) {
+            if (node != null) {
+                var treeStore = node.getTreeStore(), reader = treeStore.getProxy().getReader();
+                params = {}; params[reader.idField] = node.get(reader.idField);
+                App.Ajax.request({
+                    url: treeStore.getProxy().getUrl(),
+                    method: "GET",
+                    nosim: false,
+                    type: "JSON",
+                    params: params,
+                    success: function (data) {
+                        data = data.Data;
+                        node.removeAll();
+                        records = App.TreeNode.bindTreeData(data.List, reader.idField, reader.parentField, reader.iconClsField, false, false, node.get(reader.idField), reader.checked);
+                        for (var i = 0; i < records.length; i++) {
+                            node.appendChild(records[i]);
+                        }
+                    }
+                })
+            }
+        },
+
+        //更新节点
+        refreshNodeData: function (oldNode, data) {
+            var fileds = oldNode.getFields();
+            for (var i = 0; i < fileds.length; i++) {
+                if (data[fileds[i].name] !=undefined) {
+                    oldNode.set(fileds[i].name, data[fileds[i].name]);
+                }
+            }
+            oldNode.parentNode.replaceChild(oldNode, oldNode);
         }
     }
 });

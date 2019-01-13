@@ -2,6 +2,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
     xtype: "sysmenu",
     viewModel: "sysmenu",
     controller: "sysmenu",
+    style: { "border-top": "1px solid #d1d1d1" },
     extend: "Ext.panel.Panel",
     layout: {
         type: 'fit'
@@ -20,24 +21,44 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
             items: [
                 {
                     text: '新增',
+                    reference: "addbtn",
                     iconCls: "x-fa fa-plus",
-                    handler: function () {
-                    }
+                    handler: "onAdd"
                 },
                 {
                     text: '编辑',
-                    iconCls: "x-fa fa-pencil-square-o"
+                    reference: "editbtn",
+                    iconCls: "x-fa fa-pencil-square-o",
+                    handler: "onEdit"
                 },
                 {
                     text: '删除',
-                    iconCls: "x-fa fa-trash-o"
+                    reference: "delbtn",
+                    iconCls: "x-fa fa-trash-o",
+                    handler: "onDel"
+                },
+                {
+                    text: '启用',
+                    reference: "enablebtn",
+                    iconCls: "x-fa fa-unlock",
+                    handler: "onIsEnable"
+                },
+                {
+                    text: '禁用',
+                    reference: "disabledbtn",
+                    iconCls: "x-fa fa-unlock-alt",
+                    handler: "onIsEnable"
                 }
             ]
         });
 
-        treePanel = Ext.create('Ext.tree.Panel', {
+        treePanel = Ext.create({
+            xtype: "treepanel",
+            reference: "treepanel",
             tbar: toolbar,
             rootVisible: false,
+            checkPropagation: 'both',
+            animate: true,
             flex: 1,
             bind: {
                 store: '{treestore}'
@@ -54,21 +75,21 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
             columns: [
                 {
                     xtype: 'treecolumn',
-                    text: '名称',
-                    dataIndex: 'MenuName',
-                    width: 300,
+                    text: '菜单名称',
+                    dataIndex: 'Name',
+                    width: 250,
                     sortable: true
                 },
                 {
-                    text: '菜单编码',
-                    dataIndex: 'MenuCode',
+                    text: '编码',
+                    dataIndex: 'Code',
                     width: 150,
                     sortable: true,
                     align: 'center'
                 },
                 {
                     text: '排序',
-                    dataIndex: 'MenuOrder',
+                    dataIndex: 'Order',
                     width: 80,
                     sortable: true,
                     align: 'center'
@@ -76,30 +97,34 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
                 {
                     text: '图标',
                     dataIndex: 'IconCls',
-                    width: 120,
+                    width: 80,
                     sortable: true,
-                    align: 'center'
+                    align: 'center',
+                    renderer: function (value) {
+                        return "<i class='" + value + "'></i>";
+                    }
                 },
                 {
-                    text: '页面别名',
-                    dataIndex: 'xtype',
+                    text: '页面类型',
+                    dataIndex: 'XType',
                     width: 150,
                     sortable: true,
                     align: 'center'
                 },
                 {
-                    text: '路由标识',
-                    dataIndex: 'routeId',
+                    text: '路由',
+                    dataIndex: 'RouteId',
                     width: 150,
                     sortable: true,
                     align: 'center'
                 },
                 {
                     text: '是否启用',
-                    dataIndex: 'isEnable',
+                    dataIndex: 'IsEnable',
                     width: 100,
                     sortable: true,
-                    align: 'center'
+                    align: 'center',
+                    renderer: function (value) { return "<span style='color:" + (value == 1 ? "green" : "red") + "'>" + (value == 1 ? "是" : "否") + "</span>"; }
                 },
                 {
                     text: '描述',
@@ -108,8 +133,11 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
                     sortable: true,
                     align: 'center'
                 }
-            ]
+            ],
+            listeners: {
+                rowclick: "onRowclick"
+            }
         });
         me.items = [treePanel];
-    },
+    }
 })

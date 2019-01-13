@@ -73,8 +73,8 @@ Ext.define("App.view.main.MainController", {
         var me, refs, vm; me = this; refs = me.getReferences(); vm = me.getViewModel();
         if (!Ext.isEmpty(App.UserInfo.Token)) {
            var store =refs.navigationTreeList.getStore();
-           console.info(store);
             if (!store.getAutoLoad()) {
+                store.setAutoLoad(true);
             }
             me.redirectTo("view.welcome");
         } else {
@@ -94,9 +94,9 @@ Ext.define("App.view.main.MainController", {
         //获取Treelist
         var treeStore = Ext.ComponentQuery.query('treelist[reference="navigationTreeList"]')[0].getStore();
         //从菜单查找routeId
-        var node = treeStore == null ? treeStore : treeStore.findNode('xtype', hashTag);
+        var node = treeStore == null ? treeStore : treeStore.findNode('XType', hashTag);
         //如果菜单和白名单没有找到，返回404
-        var view = node || vm.getStore("plist").find("xtype", hashTag) > 0 ? hashTag : null || 'page404';
+        var view = node || vm.getStore("plist").find("XType", hashTag) > 0 ? hashTag : null || 'page404';
         //当前视图
         var lastView = me.lastView;
         //查找项
@@ -168,8 +168,8 @@ Ext.define("App.view.main.MainController", {
             }
             selNode.style.backgroundColor = "#009688";
         }
-        if (!Ext.isEmpty(data.xtype)) {
-            me.redirectTo("box." + data.xtype);
+        if (!Ext.isEmpty(data.XType)) {
+            me.redirectTo("box." + data.XType);
         }
     },
 
