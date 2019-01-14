@@ -136,11 +136,11 @@ Ext.define('App.ux.utility.TreeNode', {
         },
 
         //更新节点
-        refreshNodeData: function (oldNode, data) {
+        refreshNode: function (oldNode, newNode) {
             var fileds = oldNode.getFields();
             for (var i = 0; i < fileds.length; i++) {
-                if (data[fileds[i].name] !=undefined) {
-                    oldNode.set(fileds[i].name, data[fileds[i].name]);
+                if (newNode.data.hasOwnProperty(fileds[i].name)) {
+                    oldNode.set(fileds[i].name, newNode[fileds[i].name]);
                 }
             }
             oldNode.parentNode.replaceChild(oldNode, oldNode);

@@ -4,9 +4,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
     controller: "sysmenu",
     style: { "border-top": "1px solid #d1d1d1" },
     extend: "Ext.panel.Panel",
-    layout: {
-        type: 'fit'
-    },
+    layout: "fit",
     initComponent: function () {
         var me = this;
         me.initTreePanel();
@@ -36,18 +34,6 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
                     reference: "delbtn",
                     iconCls: "x-fa fa-trash-o",
                     handler: "onDel"
-                },
-                {
-                    text: '启用',
-                    reference: "enablebtn",
-                    iconCls: "x-fa fa-unlock",
-                    handler: "onIsEnable"
-                },
-                {
-                    text: '禁用',
-                    reference: "disabledbtn",
-                    iconCls: "x-fa fa-unlock-alt",
-                    handler: "onIsEnable"
                 }
             ]
         });

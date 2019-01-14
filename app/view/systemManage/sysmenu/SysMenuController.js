@@ -68,17 +68,16 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuController", {
 
     //删除
     onDel: function () {
-        var me = this, view = me.getView(), grid = view.getGrid("Grid"), records, idArray = [];
-        if (App.Page.selectionModel(grid, true)) {
-            records = grid.getSelectionModel().getSelection();
-            Ext.each(records, function (record, index) {
-                idArray.push(record.id);
-            })
-            Ext.Msg.confirm("提示", "确认删除选中的" + idArray.length + "行数据项吗？",
+        var me = this,refs = me.getReferences(), tree = refs.treepanel, selRecords, idArray = [], url;
+        if (App.Page.selectionModel(tree, true)) {
+            selRecords = tree.getSelectionModel().getSelection();
+            idArray.push(selRecords[0].get("Id"));
+            url = selRecords[0].get("Type") == "0" ? "~/api/SystemManage/SysMenu/DeleteSysMenu" : "~/api/SystemManage/SysMenuButton/DeleteSysMenuButton";
+            Ext.Msg.confirm("提示", "确认删除选中的" + idArray.length + "项数据项吗？",
                 function (btn) {
                     if (btn == "yes") {
                         App.Ajax.request({
-                            url: "~/api/SystemManage/SysUser/DeleteSysUser",
+                            url: url,
                             method: "POST",
                             nosim: false,
                             type: "JSON",
@@ -87,8 +86,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuController", {
                             params: idArray,
                             success: function (data) {
                                 App.Msg.Info("删除成功");
-                                var gridstore = grid.getStore();
-                                gridstore.loadPage(1);
+                                selRecords[0].remove();
                             },
                             error: function (data) {
                                 App.Msg.Error("删除失败");
@@ -106,13 +104,6 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuController", {
             refs.addbtn.enable();
         } else {
             refs.addbtn.disable();
-        }
-        if (record.get("IsEnable") == 1) {
-            refs.enablebtn.disable();
-            refs.disabledbtn.enable();
-        } else {
-            refs.enablebtn.enable();
-            refs.disabledbtn.disable();
         }
     }
 })

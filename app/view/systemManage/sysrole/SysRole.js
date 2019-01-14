@@ -34,8 +34,6 @@ Ext.define("App.view.systemmanage.sysrole.SysRole", {
                 ]
             }
         });
-      
-        
         me.addQuery("query", querypanel);
     },
 
@@ -48,23 +46,29 @@ Ext.define("App.view.systemmanage.sysrole.SysRole", {
                 {
                     text: '新增',
                     iconCls: "x-fa fa-plus",
-                    handler: function () {
-
-                    }
+                    handler:"onAdd"
                 },
                 {
                     text: '编辑',
-                    iconCls: "x-fa fa-pencil-square-o"
+                    iconCls: "x-fa fa-pencil-square-o",
+                    handler:"onEdit"
                 },
                 {
                     text: '删除',
-                    iconCls: "x-fa fa-trash-o"
+                    iconCls: "x-fa fa-trash-o",
+                    handler:"onDel"
+                },
+                {
+                    text: '分配权限',
+                    iconCls: "x-fa fa-group",
+                    handler:"onMenuRole"
                 }
             ]
         })
 
         gridpanel = Ext.create("Ext.grid.Panel", {
             tbar: toolbar,
+            reference:"grid",
             selType: 'checkboxmodel',
             bind: {
                 store: '{gridstore}'

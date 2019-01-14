@@ -19,6 +19,7 @@ Ext.define('App.data.systemmanage.SysMenuButton', {
         ];
         me.AddSysMenuButton();
         me.EditSysMenuButton();
+        me.DeleteSysMenuButton();
     },
 
     //添加按钮
@@ -80,6 +81,29 @@ Ext.define('App.data.systemmanage.SysMenuButton', {
                     Type: "1"
                 }
                 responseData.Data = Ext.encode(model);
+                return responseData;
+            }
+        })
+    },
+
+    //删除功能
+    DeleteSysMenuButton: function () {
+        var me = this;
+        Ext.ux.ajax.SimManager.register({
+            type: 'json',
+            delay: 0,
+            url: "~/api/SystemManage/SysMenuButton/DeleteSysMenuButton",
+            getData: function (ctx) {
+                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
+                data = Ext.decode(requestData.Data);
+                for (var i = 0; i < data.length; i++) {
+                    for (var j = 0; j < me.dataSource.length; j++) {
+                        if (me.dataSource[j].SysMenuButtonId == data[i]) {
+                            me.dataSource.splice(j, 1);
+                            break;
+                        }
+                    }
+                }
                 return responseData;
             }
         })

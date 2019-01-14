@@ -28,6 +28,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
         me.GetSysMenuButtonTreeDetail();
         me.AddSysMenu();
         me.EditSysMenu();
+        me.DeleteSysMenu();
 
     },
 
@@ -162,6 +163,29 @@ Ext.define('App.data.systemmanage.SysMenu', {
                     Type:"0"
                 }
                 responseData.Data =Ext.encode(model);
+                return responseData;
+            }
+        })
+    },
+
+    //删除菜单
+    DeleteSysMenu: function () {
+        var me = this;
+        Ext.ux.ajax.SimManager.register({
+            type: 'json',
+            delay: 0,
+            url: "~/api/SystemManage/SysMenu/DeleteSysMenu",
+            getData: function (ctx) {
+                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
+                data = Ext.decode(requestData.Data);
+                for (var i = 0; i < data.length; i++) {
+                    for (var j = 0; j < me.dataSource.length; j++) {
+                        if (me.dataSource[j].SysMenuId == data[i]) {
+                            me.dataSource.splice(j, 1);
+                            break;
+                        }
+                    }
+                }
                 return responseData;
             }
         })

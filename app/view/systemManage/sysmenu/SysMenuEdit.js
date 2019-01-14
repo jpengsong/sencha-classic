@@ -190,7 +190,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                             selNode.appendChild(newNode);
                             selNode.expand();
                         } else {
-                            App.TreeNode.refreshNodeData(selNode,Ext.decode(data.Data));
+                            App.TreeNode.refreshNode(selNode,newNode);
                         }
                         App.Msg.Info("保存成功");
                         view.close();

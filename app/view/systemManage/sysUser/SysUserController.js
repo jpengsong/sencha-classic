@@ -6,7 +6,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
     onAdd: function () {
         var me = this, window, record, view = me.getView();
         record = Ext.create("App.model.systemmanage.SysUser");
-        window = Ext.create({
+        window = Ext.widget({
             title: "新增用户",
             xtype: "sysuseredit",
             status: "add",
@@ -30,7 +30,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
         var me = this, view = me.getView(), grid = view.getGrid("Grid"), window, record;
         if (App.Page.selectionModel(grid, false)) {
             record = grid.getSelectionModel().getSelection()[0];
-            window = Ext.create({
+            window = Ext.widget({
                 title: "编辑用户",
                 xtype: "sysuseredit",
                 status: "edit",
