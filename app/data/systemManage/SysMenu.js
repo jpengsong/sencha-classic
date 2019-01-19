@@ -89,7 +89,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
                         ParentId:menuBtnList[i]["MenuId"],
                         Code:menuBtnList[i]["btnCode"],
                         Name:menuBtnList[i]["btnName"],
-                        Description:me.dataSource[i]["Description"],
+                        Description:menuBtnList[i]["Description"],
                         Order:menuBtnList[i]["Order"],
                         XType:"",
                         RouteId:"",

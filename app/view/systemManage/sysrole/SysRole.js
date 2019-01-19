@@ -26,7 +26,7 @@ Ext.define("App.view.systemmanage.sysrole.SysRole", {
                 items: [
                     {
                         xtype: 'textfield',
-                        name: 'roleName',
+                        name: 'RoleName',
                         method: config.QueryMethod.Like,
                         type: "String",
                         fieldLabel: '角色名'

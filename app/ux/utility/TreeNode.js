@@ -5,25 +5,6 @@
 Ext.define('App.ux.utility.TreeNode', {
     alternateClassName: ['App.TreeNode'],
     statics: {
-        /**
-        * 递归选择节点
-        * @param {Object} node
-        * @param {Object} checked
-        */
-        changeChecked: function (node, checked) {
-            if (Ext.isArray(node)) {
-                for (var i = node.length - 1; i >= 0; i--) {
-                    this.changeChecked(node[i], checked);
-                }
-            } else {
-                if (node.data.checked != null) {
-                    node.set("checked", checked);
-                }
-                if (node.childNodes.length > 0) {
-                    this.changeChecked(node.childNodes, checked);
-                }
-            }
-        },
 
         /**
         * 绑定数据树控件数据

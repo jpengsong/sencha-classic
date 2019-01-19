@@ -87,7 +87,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
     onUserRole: function () {
         var me = this, grid = me.getView().getGrid("Grid"), sysUserId, userRole;
         if (App.Page.selectionModel(grid, false)) {
-            sysUserId = grid.getSelection()[0].get("sysUserId");
+            sysUserId = grid.getSelection()[0].get("SysUserId");
             userRole = Ext.widget("sysuserrole", {
                 viewModel: {
                     data:{

@@ -48,7 +48,6 @@ Ext.define("App.ux.plugin.RequestData", {
         Ext.defer(function () {
             store = scope.store;
             if (store != null) {
-                store.getProxy().setExtraParams({ RequestData: "{}" });
                 if (me.params != Ext.emptyFn) {
                     App.Page.setExtraParamData(store, me.params());
                 }else{

@@ -34,15 +34,15 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
                 //正则过滤数据
                 store.filterBy(function (record, id) {
                     if (record.childNodes.length > 0) {
-                        collection.add(record.data.SysOrgId, regExp.test(record.data.orgName));
+                        collection.add(record.data.SysOrgId, regExp.test(record.data.OrgName));
                         return true;
                     } else {
                         var SysOrgId = record.parentNode.data.SysOrgId;
                         if (collection.containsKey(SysOrgId) && collection.get(SysOrgId)) {
                             return true;
                         } else {
-                            collection.add(record.data.SysOrgId, regExp.test(record.data.orgName));
-                            return regExp.test(record.data.orgName);
+                            collection.add(record.data.SysOrgId, regExp.test(record.data.OrgName));
+                            return regExp.test(record.data.OrgName);
                         }
                     }
                 })

@@ -11,7 +11,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
         {
             xtype: 'itemselector',
             reference: "itemselector",
-            valueField: 'sysRoleId',
+            valueField: 'SysRoleId',
             displayField: 'RoleName',
             buttons: ['add', 'remove'],
             buttonsText: {
@@ -50,11 +50,11 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
         App.Ajax.request({
             url: "~/api/SystemManage/SysUser/GetSysUserRoleByRule",
             method: "GET",
-            async: true,
             nosim: false,
             type: "JSON",
             params: { UserId: viewModel.get("UserId") },
             success: function (data) {
+                console.info(data);
                 var value = [];
                 for (var i = 0; i < data.Data.List.length; i++) {
                     value.push(data.Data.List[i]["RoleId"]);

@@ -5,6 +5,7 @@ Ext.define("App.model.systemmanage.SysMenuRole", {
         { name: 'SysMenuRoleId', type: 'string' },
         { name: 'MenuId', type: 'string' },
         { name: 'RoleId', type: 'string' },
+        { name: 'Type', type: 'int' },
         { name: 'CreateUserId', type: 'string' },
         { name: 'CreateUserName', type: 'string' },
         { name: 'CreateDate', type: 'date' }

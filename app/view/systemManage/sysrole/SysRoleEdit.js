@@ -68,10 +68,10 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleEdit", {
                     type: "JSON",
                     showmask: true,
                     maskmsg: "正在保存...",
-                    params: record,
+                    params: record.getData(),
                     success: function (data) {
                         App.Msg.Info("保存成功");
-                        var gridstore = view.scope.getGrid("Grid").getStore();
+                        var gridstore = view.references.grid.getStore();
                         gridstore.loadPage(1);
                         view.close();
                     },

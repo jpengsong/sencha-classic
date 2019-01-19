@@ -115,11 +115,12 @@ Ext.define('App.data.systemmanage.SysUser', {
             delay: 0,
             url: "~/api/SystemManage/SysUser/GetSysUserRoleByRule",
             getData: function (ctx) {
+                debugger;
                 var requestData = Ext.decode(ctx.params.RequestData),
-                    sysUserRole= App.SimulateDB.Get("SysUserRole"),
-                    data = Ext.decode(requestData.Data);
-                responseData = me.ResponseData();
-                responseData.Data.List = [];
+                    sysUserRole = App.SimulateDB.Get("SysUserRole"),
+                    data = Ext.decode(requestData.Data),
+                    responseData = me.ResponseData();
+                    responseData.Data.List = [];
                 for (var i = 0; i < sysUserRole.length; i++) {
                     if (data.UserId == sysUserRole[i].UserId) {
                         responseData.Data.List.push(sysUserRole[i]);
@@ -138,9 +139,9 @@ Ext.define('App.data.systemmanage.SysUser', {
             delay: 0,
             url: "~/api/SystemManage/SysUser/AddSysUserRole",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), 
-                sysUserRole= App.SimulateDB.Get("SysUserRole"),
-                responseData = me.ResponseData();
+                var requestData = me.requestData(ctx),
+                    sysUserRole = App.SimulateDB.Get("SysUserRole"),
+                    responseData = me.ResponseData();
                 var data = Ext.decode(requestData.Data);
                 if (!Ext.isEmpty(data.UserId)) {
                     for (var i = 0; i < sysUserRole.length; i++) {

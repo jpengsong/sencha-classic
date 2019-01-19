@@ -81,7 +81,9 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
 
         gridpanel = Ext.create("Ext.grid.Panel", {
             tbar: toolbar,
-            selType: 'checkboxmodel',
+            selModel : {
+                type:"checkboxmodel"
+            },
             bind: {
                 store: '{gridstore}'
             },

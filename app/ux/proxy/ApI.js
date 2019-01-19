@@ -14,5 +14,8 @@ Ext.define('App.ux.proxy.API', {
         request.setUrl(me.buildUrl(request));
         operation.setRequest(request);
         return request;
+    },
+    extraParams:{
+        RequestData:"{}"
     }
 });
