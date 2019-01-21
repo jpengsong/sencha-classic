@@ -84,7 +84,7 @@ Ext.define("App.view.main.MainController", {
 
     //渲染视图
     setCurrentView: function (maincard, hashTag) {
-        var me, vm; me = this; vm = me.getViewModel();
+        var me, vm; me = this; vm = me.getViewModel(),refs = me.getReferences();
         //散列值转小写
         hashTag = (hashTag || '').toLowerCase();
         //获取容器
@@ -92,7 +92,7 @@ Ext.define("App.view.main.MainController", {
         //获取容器布局
         var mainLayout = mainCard.getLayout();
         //获取Treelist
-        var treeStore = Ext.ComponentQuery.query('treelist[reference="navigationTreeList"]')[0].getStore();
+        var treeStore = refs.navigationTreeList.getStore();    // Ext.ComponentQuery.query('treelist[reference="navigationTreeList"]')[0].getStore();
         //从菜单查找routeId
         var node = treeStore == null ? treeStore : treeStore.findNode('XType', hashTag);
         //如果菜单和白名单没有找到，返回404
@@ -132,17 +132,22 @@ Ext.define("App.view.main.MainController", {
                     mainLayout.setActiveItem(existingItem);
                 }
                 newView = existingItem;
-                newView.fireEvent('viewShow', newView);
             }
             else {
-                //Ext.suspendLayouts();
-                //mainCard.add(newView);
                 mainLayout.setActiveItem(mainCard.add(newView));
-                //Ext.resumeLayouts(true);
             }
-            //mainCard.fireEvent('activeitemchange', mainCard, newView, lastView);
         }
+
+        //将当前视图保存到lastView中
         me.lastView = newView;
+    },
+
+    //activeItem change
+    onTabChange:function(tabPanel, newCard, oldCard, eOpts){
+        var me= this, vm=me.getViewModel(),refs = me.getReferences(),treeStore = refs.navigationTreeList.getStore(),node =  treeStore.findNode('XType', newCard.xtype);
+        if (node) {
+            refs.navigationTreeList.setSelection(node);
+        }
     },
 
     //初始化主页
@@ -171,6 +176,12 @@ Ext.define("App.view.main.MainController", {
         if (!Ext.isEmpty(data.XType)) {
             me.redirectTo("box." + data.XType);
         }
+    },
+
+    //切换Tab
+    onTabActivate:function(){
+        var me =this,  tab = tabs.getActiveTab();
+        alert(tab.title);
     },
 
     //折叠

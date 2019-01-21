@@ -1,8 +1,5 @@
 /**
- * 下拉树 使用例子如下 
- * 
- * 作者：小靳一郎  时间：2018-12-31
- * 
+ * 下拉树 使用例子如下
  * {
  *   xtype: "comboxtree",
  *   fieldLabel: 'fieldText',

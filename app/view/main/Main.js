@@ -156,7 +156,10 @@ Ext.define("App.view.main.Main", {
                                     },
                                     items: []
                                 }
-                            ]
+                            ],
+                            listeners:{
+                                tabchange :"onTabChange"
+                            }
                         }
                     ]
                 }
