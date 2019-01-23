@@ -6,7 +6,7 @@ Ext.define("App.view.login.LoginController", {
         var myMask = new Ext.LoadMask({
             msg: '登录中...',
             componentCls: "x-mask-ui",
-            target: Ext.getCmp("main")
+            target: Ext.getCmp("mainCardPanel")
         });
         myMask.show();
         if (form.isValid()) {

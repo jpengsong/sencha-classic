@@ -7,7 +7,7 @@
     bodyStyle: {
         "background-color": "#fff"
     },
-    treeList:null,
+    treeList: null,
     gridList: null,
     queryList: null,
     initComponent: function () {
@@ -19,7 +19,7 @@
     defaultPageLayout: function () {
         var me = this, treePanel, gridPanel, queryPanel, leftItems, rightItems; me.items = [];
         leftItems = {
-            xtype:"container",
+            xtype: "container",
             layout: {
                 type: "vbox",
                 align: 'stretch'
@@ -32,14 +32,14 @@
                 type: "vbox",
                 align: 'stretch'
             },
-            flex:1,
+            flex: 1,
             items: []
         };
 
         if (me.treeList.getCount() > 0) {
             leftItems.width = me.treeWidth;
             treePanel = me.treeList.first();
-            treePanel.flex =1;
+            treePanel.flex = 1;
             leftItems.items[leftItems.items.length] = treePanel;
         }
 
@@ -50,10 +50,10 @@
 
         if (me.gridList.getCount() > 0) {
             gridPanel = me.gridList.first();
-            gridPanel.flex =1;
+            gridPanel.flex = 1;
             rightItems.items[rightItems.items.length] = gridPanel;
         }
-        me.items=[leftItems,rightItems];
+        me.items = [leftItems, rightItems];
     },
 
     addQuery: function (key, query) {
@@ -73,6 +73,24 @@
         }
         else {
             return me.queryList.get(key);
+        }
+    },
+
+    addWindow: function (key, window) {
+        var me = this;
+        if (me.windowList.containsKey(key)) {
+            me.windowList.removeAtKey(key);
+        }
+        me.windowList.add(key, window);
+    },
+
+    getWindow: function (key) {
+        var me = this;
+        if (!me.windowList.containsKey(key)) {
+            return null;
+        }
+        else {
+            return me.windowList.get(key);
         }
     },
 
@@ -118,6 +136,7 @@
 
     constructor: function (config) {
         var me = this;
+        me.windowList = new Ext.util.MixedCollection();
         me.queryList = new Ext.util.MixedCollection();
         me.gridList = new Ext.util.MixedCollection();
         me.treeList = new Ext.util.MixedCollection();

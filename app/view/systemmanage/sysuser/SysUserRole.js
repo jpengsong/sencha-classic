@@ -2,6 +2,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
     alias: "widget.sysuserrole",
     extend: "Ext.window.Window",
     maximizable: true,
+    autoShow:true,
     title: "分配角色",
     modal: true,
     width: 450,
@@ -14,6 +15,9 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
             valueField: 'SysRoleId',
             displayField: 'RoleName',
             buttons: ['add', 'remove'],
+            bind:{
+                value:"{value}"
+            },
             buttonsText: {
                 add: "添加",
                 remove: "移除"
@@ -47,21 +51,6 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
     initComponent: function () {
         var me = this, viewModel = me.getViewModel();
         me.items[0].store = viewModel.get("roleStore");
-        App.Ajax.request({
-            url: "~/api/SystemManage/SysUser/GetSysUserRoleByRule",
-            method: "GET",
-            nosim: false,
-            type: "JSON",
-            params: { UserId: viewModel.get("UserId") },
-            success: function (data) {
-                console.info(data);
-                var value = [];
-                for (var i = 0; i < data.Data.List.length; i++) {
-                    value.push(data.Data.List[i]["RoleId"]);
-                }
-                Ext.ComponentQuery.query("component[xtype='itemselector']", me)[0].setValue(value);
-            }
-        })
         me.callParent();
     },
     controller: {

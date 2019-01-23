@@ -30,7 +30,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
                         store: "{treestore}"
                     },
                     allowBlank: false,
-                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                    afterLabelTextTpl: config.AfterLabelTextRequired
                 },
                 {
                     xtype: "textfield",
@@ -38,28 +38,28 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
                     editable: false,
                     allowBlank: false,
                     bind: "{org.Level}",
-                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                    afterLabelTextTpl: config.AfterLabelTextRequired
                 },
                 {
                     xtype: "textfield",
                     fieldLabel: '机构名称',
                     allowBlank: false,
                     bind: "{org.OrgName}",
-                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                    afterLabelTextTpl: config.AfterLabelTextRequired
                 },
                 {
                     xtype: "textfield",
                     fieldLabel: '机构代码',
                     allowBlank: false,
                     bind: "{org.OrgCode}",
-                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                    afterLabelTextTpl: config.AfterLabelTextRequired
                 },
                 {
                     xtype: "numberfield",
                     fieldLabel: '排序',
                     allowBlank: false,
                     bind: "{org.Sort}",
-                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                    afterLabelTextTpl: config.AfterLabelTextRequired
                 },
                 {
                     fieldLabel: '描述',

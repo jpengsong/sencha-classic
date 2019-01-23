@@ -115,7 +115,6 @@ Ext.define('App.data.systemmanage.SysUser', {
             delay: 0,
             url: "~/api/SystemManage/SysUser/GetSysUserRoleByRule",
             getData: function (ctx) {
-                debugger;
                 var requestData = Ext.decode(ctx.params.RequestData),
                     sysUserRole = App.SimulateDB.Get("SysUserRole"),
                     data = Ext.decode(requestData.Data),

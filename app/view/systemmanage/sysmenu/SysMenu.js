@@ -3,8 +3,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
     viewModel: "sysmenu",
     controller: "sysmenu",
     style: { "border-top": "1px solid #d1d1d1" },
-    extend: "Ext.panel.Panel",
-    layout: "fit",
+    extend: "App.ux.page.Page",
     initComponent: function () {
         var me = this;
         me.initTreePanel();
@@ -92,14 +91,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
                 },
                 {
                     text: '页面类型',
-                    dataIndex: 'XType',
-                    width: 150,
-                    sortable: true,
-                    align: 'center'
-                },
-                {
-                    text: '路由',
-                    dataIndex: 'RouteId',
+                    dataIndex: 'ViewType',
                     width: 150,
                     sortable: true,
                     align: 'center'
@@ -124,6 +116,6 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
                 rowclick: "onRowclick"
             }
         });
-        me.items = [treePanel];
+        me.addTree("treePanel",treePanel,"100%");
     }
 })

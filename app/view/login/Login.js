@@ -35,7 +35,7 @@ Ext.define("App.view.login.Login", {
                     emptyText:"用户名",
                     value:"Admin",
                     allowBlank: false,
-                    blankText:"用户名不允许为空" ,
+                    blankText:"用户名不允许为空",
                     maxLength:15,
                     maxLengthText:"最大长度不超过15位" 
                 },

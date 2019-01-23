@@ -44,7 +44,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                     reference: "Code",
                     bind: "{model.Code}",
                     allowBlank: false,
-                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                    afterLabelTextTpl: config.AfterLabelTextRequired
                 },
                 {
                     xtype: "textfield",
@@ -60,15 +60,15 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                         fieldLabel: '{fieldlabelName}'
                     },
                     allowBlank: false,
-                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                    afterLabelTextTpl: config.AfterLabelTextRequired
                 },
                 {
                     xtype: "textfield",
                     fieldLabel: '页面类型',
                     allowBlank: false,
-                    reference: "XType",
-                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired,
-                    bind: "{model.XType}"
+                    reference: "ViewType",
+                    afterLabelTextTpl: config.AfterLabelTextRequired,
+                    bind: "{model.ViewType}"
                 },
                 {
                     xtype: "textfield",
@@ -82,7 +82,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                     allowBlank: false,
                     reference: "Order",
                     bind: "{model.Order}",
-                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                    afterLabelTextTpl: config.AfterLabelTextRequired
                 },
                 {
                     xtype: 'radiogroup',
@@ -149,7 +149,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                 model.set("MenuName", selection.get("Name"));
                 model.set("IconCls", selection.get("IconCls"));
                 model.set("Order", selection.get("Order"));
-                model.set("XType", selection.get("XType"));
+                model.set("ViewType", selection.get("ViewType"));
                 model.set("RouteId", selection.get("RouteId"));
                 model.set("IsEnable", selection.get("IsEnable"));
                 model.set("Description", selection.get("Description"));
@@ -173,7 +173,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                     url = "~/api/SystemManage/SysMenuButton/EditSysMenuButton";
                 }
             }
-            if (refs.comboType.getValue() == 0 && refs.Name.validate() && refs.Order.validate() && refs.XType.validate() && refs.RouteId.validate() ||
+            if (refs.comboType.getValue() == 0 && refs.Name.validate() && refs.Order.validate() && refs.ViewType.validate() && refs.RouteId.validate() ||
                 refs.comboType.getValue() == 1 && refs.Name.validate() && refs.Code.validate() && refs.Order.validate()) {
                 App.Ajax.request({
                     url: url,
@@ -213,13 +213,13 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
             var me = this, refs = me.getReferences(), vm = me.getViewModel();
             if (refs.comboType.getValue() == 0) {
                 refs.Code.hide();
-                refs.XType.show();
+                refs.ViewType.show();
                 refs.RouteId.show();
                 refs.IconCls.show();
                 vm.set("fieldlabelName", "菜单名称");
             } else {
                 refs.Code.show();
-                refs.XType.hide();
+                refs.ViewType.hide();
                 refs.RouteId.hide();
                 refs.IconCls.hide();
                 vm.set("fieldlabelName", "按钮名称");

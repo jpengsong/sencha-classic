@@ -17,7 +17,7 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleEdit", {
                     fieldLabel: '角色名',
                     allowBlank: false,
                     bind: "{role.RoleName}",
-                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                    afterLabelTextTpl: config.AfterLabelTextRequired
                 },
                 {
                     fieldLabel: '描述',

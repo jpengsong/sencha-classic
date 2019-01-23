@@ -4,6 +4,8 @@ Ext.define('App.store.main.Plist', {
     fields: ["xtype"],
     data: [
         { xtype: "login" },
-        { xtype: "home" }
+        { xtype: "home" },
+        { xtype: "page404" },
+        { xtype: "page500" }
     ]
 });

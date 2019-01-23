@@ -5,6 +5,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
     modal: true,
     width: 450,
     height: 550,
+    autoShow:true,
     layout: "fit",
     items: [
         {
@@ -28,14 +29,14 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                         store: "{treestore}"
                     },
                     allowBlank: false,
-                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                    afterLabelTextTpl: config.AfterLabelTextRequired
                 },
                 {
                     xtype: "textfield",
                     fieldLabel: '登录名',
                     allowBlank: false,
                     bind: "{user.LoginName}",
-                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                    afterLabelTextTpl: config.AfterLabelTextRequired
                 },
                 {
                     xtype: "textfield",
@@ -50,7 +51,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                     fieldLabel: '密码',
                     bind: "{user.LoginPassWord}",
                     allowBlank: false,
-                    afterLabelTextTpl: config.textTpl.AfterLabelTextRequired
+                    afterLabelTextTpl: config.AfterLabelTextRequired
                 },
                 {
                     xtype: "textfield",
@@ -111,7 +112,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
         onSave: function () {
             var me = this,
                 view = me.getView(),
-                record = me.getViewModel().get("user"),
+                data = me.getViewModel().get("user").getData(),
                 refs = me.getReferences(),
                 form = refs.form;
             if (form.isValid()) {
@@ -122,11 +123,10 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                     type: "JSON",
                     showmask: true,
                     maskmsg: "正在保存...",
-                    params: record,
+                    params: data,
                     success: function (data) {
                         App.Msg.Info("保存成功");
-                        var gridstore = view.scope.getGrid("Grid").getStore();
-                        gridstore.loadPage(1);
+                        view.grid.getStore().loadPage(1);
                         view.close();
                     },
                     error: function (data) {
@@ -138,8 +138,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
 
         //重置
         onReset: function () {
-            var me = this, refs = me.getReferences(), form = refs.form;
-            form.reset();
+            var me = this; me.getReferences().form.reset();
         }
     }
 })

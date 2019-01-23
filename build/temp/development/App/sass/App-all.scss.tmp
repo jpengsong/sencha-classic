@@ -42,6 +42,7 @@ $include-app-store-systemmanage-sysrole-menutreestore: dynamic(true);;
 $include-app-store-systemmanage-sysuser-comboxrolestore: dynamic(true);;
 $include-app-store-systemmanage-sysuser-gridstore: dynamic(true);;
 $include-app-store-systemmanage-sysuser-userrole: dynamic(true);;
+$include-app-ux-app-viewcontroller: dynamic(true);;
 $include-app-ux-combox-comboxtree: dynamic(true);;
 $include-app-ux-page-page: dynamic(true);;
 $include-app-ux-plugin-requestdata: dynamic(true);;
@@ -63,6 +64,10 @@ $include-app-view-login-logincontroller: dynamic(true);;
 $include-app-view-main-main: dynamic(true);;
 $include-app-view-main-maincontroller: dynamic(true);;
 $include-app-view-main-mainmodel: dynamic(true);;
+$include-app-view-pages-base: dynamic(true);;
+$include-app-view-pages-blank: dynamic(true);;
+$include-app-view-pages-error404: dynamic(true);;
+$include-app-view-pages-error500: dynamic(true);;
 $include-app-view-systemmanage-sysmenu-sysmenu: dynamic(true);;
 $include-app-view-systemmanage-sysmenu-sysmenucontroller: dynamic(true);;
 $include-app-view-systemmanage-sysmenu-sysmenuedit: dynamic(true);;
@@ -1422,6 +1427,14 @@ $current-resource-root: $App-resource-root;
 $relative-image-path-for-uis: $App-resource-path;
 @import '../../../../../sass/var/all';
 
+/* including package App */
+$App-resource-root: '' !default;
+$App-resource-path: 'images' !default;
+$current-package: false;
+$current-resource-root: $App-resource-root;
+$relative-image-path-for-uis: $App-resource-path;
+@import '../../../../../sass/var/view/pages/Blank';
+
 
 /* ======================== RULE ======================== */
 
@@ -1678,5 +1691,6 @@ $current-package: false;
 $current-resource-root: $App-resource-root;
 $relative-image-path-for-uis: $App-resource-path;
 @import '../../../../../sass/src/view/login/Login';
+@import '../../../../../sass/src/view/pages/Base';
 @import '../../../../../sass/src/view/main/Main';
-@import '../../../../../sass/src/view/systemmanage/sysuser/SysUserRole';
+@import '../../../../../sass/src/view/pages/Blank';

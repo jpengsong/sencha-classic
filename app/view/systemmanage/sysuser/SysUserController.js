@@ -4,16 +4,15 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
 
     //新增
     onAdd: function () {
-        var me = this, window, record, view = me.getView();
-        record = Ext.create("App.model.systemmanage.SysUser");
+        var me = this, window, record = Ext.create("App.model.systemmanage.SysUser");
         window = Ext.widget({
             title: "新增用户",
             xtype: "sysuseredit",
             status: "add",
-            scope: view,
+            grid: me.getReferences().grid,
             viewModel: {
                 data: {
-                    user: record.data
+                    user: record
                 },
                 stores: {
                     treestore: {
@@ -21,23 +20,21 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                     }
                 }
             }
-        });
-        window.show();
+        })
     },
 
     //编辑
     onEdit: function () {
-        var me = this, view = me.getView(), grid = view.getGrid("Grid"), window, record;
-        if (App.Page.selectionModel(grid, false)) {
-            record = grid.getSelectionModel().getSelection()[0];
+        var me = this, refs = me.getReferences(), window, record = refs.grid.getSelectionModel().getSelection()[0].clone();
+        if (App.Page.selectionModel(refs.grid, false)) {
             window = Ext.widget({
                 title: "编辑用户",
                 xtype: "sysuseredit",
                 status: "edit",
-                scope: view,
+                grid: refs.grid,
                 viewModel: {
                     data: {
-                        user: record.data
+                        user: record
                     },
                     stores: {
                         treestore: {
@@ -45,9 +42,8 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                         }
                     }
                 }
-            });
-            window.show();
-        };
+            })
+        }
     },
 
     //删除
@@ -90,17 +86,36 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
             sysUserId = grid.getSelection()[0].get("SysUserId");
             userRole = Ext.widget("sysuserrole", {
                 viewModel: {
-                    data:{
-                        UserId:sysUserId
+                    data: {
+                        UserId: sysUserId
                     },
                     stores: {
                         roleStore: {
                             type: "systemmanage.sysuser.comboxrolestore"
                         }
+                    },
+                    formulas: {
+                        value: {
+                            get: function () {
+                                var value = [], vm = this;
+                                App.Ajax.request({
+                                    url: "~/api/SystemManage/SysUser/GetSysUserRoleByRule",
+                                    method: "GET",
+                                    nosim: false,
+                                    type: "JSON",
+                                    params: { UserId: sysUserId },
+                                    success: function (data) {
+                                        for (var i = 0; i < data.Data.List.length; i++) {
+                                            value.push(data.Data.List[i]["RoleId"]);
+                                        }
+                                        vm.set("value", value);
+                                    }
+                                })
+                            }
+                        }
                     }
                 }
             })
-            userRole.show();
         }
     }
 })

@@ -2,7 +2,7 @@ Ext.define("App.view.main.Main", {
     mixin: [
         'Ext.mixin.Responsive'
     ],
-    id: "main",
+    id: "mainCardPanel",
     extend: "Ext.container.Viewport",
     controller: "main",
     viewModel: "main",
@@ -136,7 +136,7 @@ Ext.define("App.view.main.Main", {
                         },
                         {
                             xtype: "tabpanel",
-                            id: "welcomecontainer",
+                            id: "mainTabPanel",
                             flex: 1,
                             ui: "welcome-tab-panel",
                             tabBar: {

@@ -80,9 +80,8 @@
             ComboxStore:"ComboxStore"
         },
 
-        textTpl:{
+        AfterLabelTextRequired:['<span style="color:red;font-weight:bold">*</span>'],
 
-            AfterLabelTextRequired:['<span style="color:red;font-weight:bold">*</span>']
-        }
+        wins:[]
     }
 })

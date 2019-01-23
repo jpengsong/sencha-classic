@@ -5,9 +5,9 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuController", {
     //新增
     onAdd: function () {
         var me = this, window, view = me.getView(), refs = me.getReferences(), model = model = Ext.create("App.model.systemmanage.SysMenuButtonDetail"), selRecords = refs.treepanel.getSelectionModel().getSelection();
-        model.set("ParentId", selRecords[0].get("Id"));
-        model.set("ParentName", selRecords[0].get("Name"));
         if (selRecords.length == 1) {
+            model.set("ParentId", selRecords[0].get("Id"));
+            model.set("ParentName", selRecords[0].get("Name"));
             window = Ext.widget({
                 title: "新增菜单",
                 xtype: "sysmenuedit",
@@ -68,7 +68,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuController", {
 
     //删除
     onDel: function () {
-        var me = this,refs = me.getReferences(), tree = refs.treepanel, selRecords, idArray = [], url;
+        var me = this, refs = me.getReferences(), tree = refs.treepanel, selRecords, idArray = [], url;
         if (App.Page.selectionModel(tree, true)) {
             selRecords = tree.getSelectionModel().getSelection();
             idArray.push(selRecords[0].get("Id"));
