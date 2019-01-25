@@ -9408,24 +9408,62 @@ tr.x-grid-subtable-row {
     margin: 0 20px 20px 0;
     float: left;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/login/Login.scss:1 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/authentication/Login.scss:1 */
 .auth-login {
     background-image: url(images/login/auth-background.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     -moz-background-size: 10% 10%;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/login/Login.scss:7 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/authentication/Login.scss:7 */
 .auth-login .loginpanel {
     background-color: rgba(18, 61, 64, 0.25);
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/login/Login.scss:11 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/authentication/Login.scss:11 */
 .auth-login .logo,
 .auth-login .label {
     text-align: center;
     color: rgba(255, 255, 255, 0.8);
     font-size: 30px;
     line-height: 50px;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Base.scss:2 */
+.base-page-container .base-page-inner-container {
+    margin-top: -50px;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Base.scss:6 */
+.base-page-container .x-window-body-default {
+    background-image: url('images/pages/error-page-background.jpg');
+    background-size: cover;
+    color: #fff;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Base.scss:12 */
+.base-page-container.x-window-default {
+    border: none;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Base.scss:16 */
+.base-page-container .base-page-top-text {
+    font-size: 150px;
+    line-height: 150px;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Base.scss:21 */
+.base-page-container .base-page-bottom-text {
+    font-size: 18px;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Base.scss:25 */
+.base-page-container .base-page-desc {
+    line-height: 24px;
+    text-align: center;
+    font-size: 18px;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Base.scss:30 */
+.base-page-container .base-page-desc a {
+    color: #009688;
+    text-decoration: none;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Base.scss:34 */
+.base-page-container .base-page-desc a:hover {
+    text-decoration: underline;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/panel/Panel.scss:799 */
 .x-panel-welcome-head {
@@ -12367,4 +12405,29 @@ tr.x-grid-subtable-row {
 /* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:159 */
 .x-tab-welcome-tab-panel-top {
     padding: 0px 15px 0px 15px;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Blank.scss:1 */
+.blank-page-container {
+    text-align: center;
+    color: #000;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Blank.scss:5 */
+.blank-page-container .fa-outer-class {
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    background-color: #ebebeb;
+    text-align: center;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Blank.scss:13 */
+.blank-page-container .fa-outer-class .x-fa:before {
+    line-height: 150px;
+    font-size: 80px;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Blank.scss:19 */
+.blank-page-container h1 {
+    margin: 5px;
+    line-height: 30px;
+    font-weight: normal;
 }

@@ -4,15 +4,15 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuController", {
 
     //新增
     onAdd: function () {
-        var me = this, window, view = me.getView(), refs = me.getReferences(), model = model = Ext.create("App.model.systemmanage.SysMenuButtonDetail"), selRecords = refs.treepanel.getSelectionModel().getSelection();
+        var me = this, refs = me.getReferences(), model = Ext.create("App.model.systemmanage.SysMenuButtonDetail"), selRecords = refs.treepanel.getSelectionModel().getSelection();
         if (selRecords.length == 1) {
             model.set("ParentId", selRecords[0].get("Id"));
             model.set("ParentName", selRecords[0].get("Name"));
-            window = Ext.widget({
+            Ext.widget({
                 title: "新增菜单",
                 xtype: "sysmenuedit",
                 status: "add",
-                scope: view,
+                scope: refs,
                 viewModel: {
                     data: {
                         fieldlabelName: "菜单名称",
@@ -25,11 +25,17 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuController", {
                                 { "id": "0", "name": "菜单" },
                                 { "id": "1", "name": "功能" }
                             ]
+                        }),
+                        pageTypeStore: Ext.create("Ext.data.Store", {
+                            fields: ['id', 'name'],
+                            data: [
+                                { "id": "tab", "name": "页签" },
+                                { "id": "view", "name": "视图" }
+                            ]
                         })
                     }
                 }
             });
-            window.show();
         } else {
             App.Msg.Warning("请选择数据");
         }
@@ -37,17 +43,17 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuController", {
 
     //编辑
     onEdit: function () {
-        var me = this, window, view = me.getView(), refs = me.getReferences(), selRecords = refs.treepanel.getSelectionModel().getSelection();
+        var me = this,refs = me.getReferences(), selRecords = refs.treepanel.getSelectionModel().getSelection();
         if (selRecords.length == 1) {
-            window = Ext.widget({
+            Ext.widget({
                 title: "编辑菜单",
                 xtype: "sysmenuedit",
                 status: "edit",
-                scope: view,
+                scope: refs,
                 viewModel: {
                     data: {
                         fieldlabelName: "菜单名称",
-                        model: Ext.create("App.model.systemmanage.SysMenuButtonDetail", selRecords[0].data),
+                        model: selRecords[0].clone(),
                         selNode: selRecords[0],
                         typeValue: selRecords[0].get("Type"),
                         typeStore: Ext.create("Ext.data.Store", {
@@ -56,11 +62,17 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuController", {
                                 { "id": "0", "name": "菜单" },
                                 { "id": "1", "name": "功能" }
                             ]
+                        }),
+                        pageTypeStore: Ext.create("Ext.data.Store", {
+                            fields: ['id', 'name'],
+                            data: [
+                                { "id": "tab", "name": "页签" },
+                                { "id": "view", "name": "视图" }
+                            ]
                         })
                     }
                 }
             });
-            window.show();
         } else {
             App.Msg.Warning("请选择数据");
         }

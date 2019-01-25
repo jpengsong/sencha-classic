@@ -4,9 +4,9 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleController", {
 
     //新增
     onAdd: function () {
-        var me = this, window;
-        window = Ext.widget({
-            references: me.getReferences(),
+        var me = this,refs =me.getReferences();
+        Ext.widget({
+            scope: refs,
             xtype: "sysroleedit",
             status: "add",
             title: '新增角色',
@@ -16,16 +16,15 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleController", {
                 }
             }
         })
-        window.show();
     },
 
     //编辑
     onEdit: function () {
-        var me = this, window, refs = me.getReferences();
+        var me = this, refs = me.getReferences();
         if (App.Page.selectionModel(refs.grid, false)) {
             record = refs.grid.getSelectionModel().getSelection()[0];
-            window = Ext.widget({
-                references: refs,
+            Ext.widget({
+                scope: refs,
                 xtype: "sysroleedit",
                 status: "edit",
                 title: '编辑角色',
@@ -36,7 +35,6 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleController", {
                 }
             })
         }
-        window.show();
     },
 
     //删除

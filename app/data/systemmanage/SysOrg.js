@@ -62,9 +62,18 @@ Ext.define('App.data.systemmanage.SysOrg', {
             delay: 0,
             url: "~/api/SystemManage/SysOrg/AddSysOrg",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData();
-                me.dataSource.unshift(Ext.decode(requestData.Data));
-                responseData.Message = "保存成功";
+                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data = Ext.decode(requestData.Data);
+                var obj = {
+                    SysOrgId: data.SysOrgId,
+                    ParentOrgId: data.ParentOrgId,
+                    ParentOrgName: data.ParentOrgName,
+                    OrgName: data.OrgName,
+                    OrgCode: data.OrgCode,
+                    Level: data.Level,
+                    Description: data.Description
+                }
+                me.dataSource.unshift(obj);
+                responseData.Data = obj;
                 return responseData;
             }
         })
@@ -78,14 +87,23 @@ Ext.define('App.data.systemmanage.SysOrg', {
             delay: 0,
             url: "~/api/SystemManage/SysOrg/EditSysOrg",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
-                data = Ext.decode(requestData.Data);
+                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data = Ext.decode(requestData.Data);
+                var obj = {
+                    SysOrgId: data.SysOrgId,
+                    ParentOrgId: data.ParentOrgId,
+                    ParentOrgName: data.ParentOrgName,
+                    OrgName: data.OrgName,
+                    OrgCode: data.OrgCode,
+                    Level: data.Level,
+                    Description: data.Description
+                };
                 for (var i = 0; i < me.dataSource.length; i++) {
-                    if (me.dataSource[i].SysOrgId == data.SysOrgId) {
-                        Ext.apply(me.dataSource[i], data);
+                    if (me.dataSource[i].SysOrgId == obj.SysOrgId) {
+                        Ext.apply(me.dataSource[i], obj);
                         break;
                     }
                 }
+                responseData.Data = obj;
                 return responseData;
             }
         })

@@ -10,6 +10,7 @@ Ext.define("App.model.systemmanage.SysMenu", {
         { name: 'Description', type: 'string' },
         { name: 'IconCls', type: 'string' },
         { name: 'ViewType', type: 'string' },
+        { name: 'PageType', type: 'string' },
         { name: 'IsEnable', type: 'int' },
         { name: 'IsDel', type: 'int' },
         { name: 'CreateUserId', type: 'string' },

@@ -2,7 +2,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
     alias: "widget.sysuserrole",
     extend: "Ext.window.Window",
     maximizable: true,
-    autoShow:true,
+    autoShow: true,
     title: "分配角色",
     modal: true,
     width: 450,
@@ -15,8 +15,8 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
             valueField: 'SysRoleId',
             displayField: 'RoleName',
             buttons: ['add', 'remove'],
-            bind:{
-                value:"{value}"
+            bind: {
+                value: "{value}"
             },
             buttonsText: {
                 add: "添加",
@@ -41,9 +41,9 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
                     handler: "onSave"
                 },
                 {
-                    text: '重置',
-                    iconCls: "x-fa fa-refresh",
-                    handler: "onReset"
+                    text: '关闭',
+                    iconCls: "x-fa fa-close",
+                    handler: "onClose"
                 }
             ]
         }
@@ -58,31 +58,30 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
         onSave: function () {
             var me = this,
                 view = me.getView();
-                App.Ajax.request({
-                    url: "~/api/SystemManage/SysUser/AddSysUserRole",
-                    method: "POST",
-                    nosim: false,
-                    type: "JSON",
-                    showmask: true,
-                    maskmsg: "正在保存...",
-                    params: {
-                        UserId:me.getViewModel().get("UserId"),
-                        RoleId:me.getReferences().itemselector.getValue().join(",")
-                    },
-                    success: function (data) {
-                        App.Msg.Info("保存成功");
-                        view.close();
-                    },
-                    error: function (data) {
-                        App.Msg.Error("保存异常");
-                    }
-                })
+            App.Ajax.request({
+                url: "~/api/SystemManage/SysUser/AddSysUserRole",
+                method: "POST",
+                nosim: false,
+                type: "JSON",
+                showmask: true,
+                maskmsg: "正在保存...",
+                params: {
+                    UserId: me.getViewModel().get("UserId"),
+                    RoleId: me.getReferences().itemselector.getValue().join(",")
+                },
+                success: function (data) {
+                    App.Msg.Info("保存成功");
+                    view.close();
+                },
+                error: function (data) {
+                    App.Msg.Error("保存异常");
+                }
+            })
         },
 
-        //重置
-        onReset: function () {
-            var me = this, refs = me.getReferences(), form = refs.form;
-            form.reset();
+        //关闭
+        onClose: function () {
+            this.getView().close();
         }
     }
 })

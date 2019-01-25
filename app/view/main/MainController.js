@@ -15,11 +15,6 @@ Ext.define("App.view.main.MainController", {
             before: "onBeforeUser",
             action: "onRouteTabChange"
         },
-        //不在树节点和白名单视图
-        'back.:node': {
-            before: "onBeforeUser",
-            action: "onRouteBackChange"
-        },
         //登录成功跳转
         'user.:node': {
             before: "onBeforeLoginUser",
@@ -63,14 +58,9 @@ Ext.define("App.view.main.MainController", {
         me.setCurrentView("mainTabPanel", id);
     },
 
-    //back.:node路由触发
-    onRouteBackChange: function (id) {
-
-    },
-
     //user.:node 登录成功后触发
     onRouteUserChange: function (id) {
-        var me, refs, vm; me = this; refs = me.getReferences(); vm = me.getViewModel();
+        var me = this, refs = me.getReferences(), vm = me.getViewModel();
         if (!Ext.isEmpty(App.UserInfo.Token)) {
             var store = refs.navigationTreeList.getStore();
             if (!store.getAutoLoad()) {
@@ -146,13 +136,16 @@ Ext.define("App.view.main.MainController", {
         }
         //将当前视图保存到lastView中
         me.lastView = newView;
-    },
-
-    //Tab项显示
-    onTabChange: function (tabPanel, newCard, oldCard, eOpts) {
-        var me = this, refs = me.getReferences(), node = refs.navigationTreeList.getStore().findNode('ViewType', newCard.xtype);
+        //导航菜单选中对应的节点
         if (node) {
             refs.navigationTreeList.setSelection(node);
+        }
+    },
+
+    onTabChange: function (tabPanel, newCard, oldCard, eOpts) {
+        var me = this, hash = window.location.hash.replace('#', '');
+        if (hash != "tab." + newCard.xtype) {
+            me.redirectTo('tab.' + newCard.xtype);
         }
     },
 
@@ -179,8 +172,8 @@ Ext.define("App.view.main.MainController", {
             }
             selNode.style.backgroundColor = "#009688";
         }
-        if (!Ext.isEmpty(data.ViewType)) {
-            me.redirectTo('tab.' + data.ViewType);
+        if (!Ext.isEmpty(data.ViewType) && !Ext.isEmpty(data.PageType)) {
+            me.redirectTo(data.PageType + "." + data.ViewType);
         }
     },
 

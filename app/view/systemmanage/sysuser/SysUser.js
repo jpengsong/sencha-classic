@@ -26,14 +26,14 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
                 items: [
                     {
                         xtype: 'textfield',
-                        name: 'userName',
+                        name: 'UserName',
                         method: config.QueryMethod.Like,
                         type: "String",
                         fieldLabel: '用户名'
                     },
                     {
                         xtype: 'combobox',
-                        name: 'isEnable',
+                        name: 'IsEnable',
                         method: config.QueryMethod.Equal,
                         type: "String",
                         bind: {

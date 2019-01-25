@@ -2,7 +2,6 @@
 Ext.define('App.view.pages.Error404', {
     extend: 'App.view.pages.Base',
     xtype: 'page404',
-    cls: 'base-page-container',
     items: [{
         xtype: 'container',
         width: 400,

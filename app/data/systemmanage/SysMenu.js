@@ -3,25 +3,25 @@ Ext.define('App.data.systemmanage.SysMenu', {
     init: function () {
         var me = this;
         me.dataSource = [
-            { "SysMenuId": "2ee4b173-4e09-44db-8550-23d54392077e", "ParentId": "", "ViewType": "",  "MenuName": "页面", "Order": 0, "Description": "", "IconCls": "x-fa fa-tags", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "4fd54f9d-34fd-46a7-81a5-bdf0cbb69339", "ParentId": "", "ViewType": "",  "MenuName": "授权费用", "Order": 6, "Description": "", "IconCls": "x-fa fa-usd", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "a562d8b2-2990-4595-a9eb-04d0c8665710", "ParentId": "", "ViewType": "",  "MenuName": "集成插件", "Order": 1, "Description": "", "IconCls": "x-fa fa-cogs", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "55291f54-5ff6-4521-836c-492e099cf426", "ParentId": "", "ViewType": "",  "MenuName": "封装详情", "Order": 2, "Description": "", "IconCls": "x-fa fa-paper-plane-o", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "186ffc34-1bc1-408c-a8d2-01f5a4499315", "ParentId": "", "ViewType": "",  "MenuName": "主题", "Order": 3, "Description": "", "IconCls": "x-fa fa-tv", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "7bb5e251-e105-4538-9979-eb79cbbc35de", "ParentId": "", "ViewType": "",  "MenuName": "Sencha Cmd", "Order": 5, "Description": "", "IconCls": "x-fa fa-plug", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "84a758b5-179b-4893-8706-483167a2f250", "ParentId": "", "ViewType": "",  "MenuName": "版本迭代", "Order": 0, "Description": "", "IconCls": "x-fa fa-envira", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "b729e75c-518d-446e-b34b-d7b2f811fc1d", "ParentId": "", "ViewType": "",  "MenuName": "开发注意事项", "Order": 0, "Description": "", "IconCls": "x-fa fa-warning", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "f34dd1b5-b570-4d63-8485-ac6ec3602c8f", "ParentId": "b729e75c-518d-446e-b34b-d7b2f811fc1d", "ViewType": "",  "MenuName": "ExtJS学习路线", "Order": 0, "Description": "", "IconCls": "x-fa fa-line-chart", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "33167e29-8f7c-464b-a1d8-ff7e26d9d25f", "ParentId": "b729e75c-518d-446e-b34b-d7b2f811fc1d", "ViewType": "",  "MenuName": "命名规范", "Order": 0, "Description": "", "IconCls": "x-fa fa-tag", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "3ea653dd-6eec-46ae-a12b-1c7cd42e7c4a", "ParentId": "b729e75c-518d-446e-b34b-d7b2f811fc1d", "ViewType": "",  "MenuName": "性能优化", "Order": 0, "Description": "", "IconCls": "x-fa fa-tag", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "2ee4b173-4e09-44db-8550-23d54392077e", "ParentId": "", "ViewType": "", "PageType": "", "MenuName": "页面", "Order": 0, "Description": "", "IconCls": "x-fa fa-tags", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "4fd54f9d-34fd-46a7-81a5-bdf0cbb69339", "ParentId": "", "ViewType": "", "PageType": "", "MenuName": "授权费用", "Order": 6, "Description": "", "IconCls": "x-fa fa-usd", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "a562d8b2-2990-4595-a9eb-04d0c8665710", "ParentId": "", "ViewType": "", "PageType": "", "MenuName": "集成插件", "Order": 1, "Description": "", "IconCls": "x-fa fa-cogs", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "55291f54-5ff6-4521-836c-492e099cf426", "ParentId": "", "ViewType": "", "PageType": "", "MenuName": "封装详情", "Order": 2, "Description": "", "IconCls": "x-fa fa-paper-plane-o", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "186ffc34-1bc1-408c-a8d2-01f5a4499315", "ParentId": "", "ViewType": "", "PageType": "", "MenuName": "主题", "Order": 3, "Description": "", "IconCls": "x-fa fa-tv", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "7bb5e251-e105-4538-9979-eb79cbbc35de", "ParentId": "", "ViewType": "", "PageType": "", "MenuName": "Sencha Cmd", "Order": 5, "Description": "", "IconCls": "x-fa fa-plug", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "84a758b5-179b-4893-8706-483167a2f250", "ParentId": "", "ViewType": "", "PageType": "", "MenuName": "版本迭代", "Order": 0, "Description": "", "IconCls": "x-fa fa-envira", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "b729e75c-518d-446e-b34b-d7b2f811fc1d", "ParentId": "", "ViewType": "", "PageType": "", "MenuName": "开发注意事项", "Order": 0, "Description": "", "IconCls": "x-fa fa-warning", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "f34dd1b5-b570-4d63-8485-ac6ec3602c8f", "ParentId": "b729e75c-518d-446e-b34b-d7b2f811fc1d", "ViewType": "", "PageType": "", "MenuName": "ExtJS学习路线", "Order": 0, "Description": "", "IconCls": "x-fa fa-line-chart", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "33167e29-8f7c-464b-a1d8-ff7e26d9d25f", "ParentId": "b729e75c-518d-446e-b34b-d7b2f811fc1d", "ViewType": "", "PageType": "", "MenuName": "命名规范", "Order": 0, "Description": "", "IconCls": "x-fa fa-tag", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "3ea653dd-6eec-46ae-a12b-1c7cd42e7c4a", "ParentId": "b729e75c-518d-446e-b34b-d7b2f811fc1d", "ViewType": "", "PageType": "", "MenuName": "性能优化", "Order": 0, "Description": "", "IconCls": "x-fa fa-tag", "IsEnable": 1, "isDel": 0 },
             { "SysMenuId": "f0474f1f-5cf7-413d-9aec-d4c91ae55b9f", "ParentId": "", "MenuCode": "SystemManage", "MenuName": "系统管理", "Order": 7, "Description": "", "IconCls": "x-fa fa-cog", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "699d11e4-d4c4-4cdf-b1bc-8d92ddf70344", "ParentId": "2ee4b173-4e09-44db-8550-23d54392077e", "ViewType": "",  "MenuName": "空白页", "Order": 1, "Description": "", "IconCls": "x-fa fa-tag", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "b0e23827-a633-4edc-95cd-971fdfeed847", "ParentId": "2ee4b173-4e09-44db-8550-23d54392077e", "ViewType": "",  "MenuName": "page404","ViewType": "page404", "Order": 2, "Description": "", "IconCls": "x-fa fa-tag", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "457063da-0b14-4c7f-bb12-a0a8e20d90ee", "ParentId": "2ee4b173-4e09-44db-8550-23d54392077e", "ViewType": "",  "MenuName": "page500", "ViewType": "page500","Order": 3, "Description": "", "IconCls": "x-fa fa-tag", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "a7d00cf0-741b-44af-b90b-395698d64bc9", "ParentId": "f0474f1f-5cf7-413d-9aec-d4c91ae55b9f", "ViewType": "sysuser",  "MenuName": "用户管理", "Order": 1, "Description": "", "IconCls": "x-fa fa-user-o", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "a176b70f-4ba9-45b5-b021-c44b4215be93", "ParentId": "f0474f1f-5cf7-413d-9aec-d4c91ae55b9f", "ViewType": "sysorg",  "MenuName": "组织机构", "Order": 2, "Description": "", "IconCls": "x-fa fa-tree", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "577d5ee5-3375-4795-a41e-037e52c0f4a3", "ParentId": "f0474f1f-5cf7-413d-9aec-d4c91ae55b9f", "ViewType": "sysrole",  "MenuName": "角色管理", "Order": 3, "Description": "", "IconCls": "x-fa fa-users", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "04b631a8-3e41-4382-9e43-f5aeaddb338d", "ParentId": "f0474f1f-5cf7-413d-9aec-d4c91ae55b9f", "ViewType": "sysmenu",  "MenuName": "菜单管理", "Order": 4, "Description": "", "IconCls": "x-fa fa-th-list", "IsEnable": 1, "isDel": 0 }
+            { "SysMenuId": "699d11e4-d4c4-4cdf-b1bc-8d92ddf70344", "ParentId": "2ee4b173-4e09-44db-8550-23d54392077e", "ViewType": "pageblank", "PageType": "tab", "MenuName": "空白页", "Order": 1, "Description": "", "IconCls": "x-fa fa-tag", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "b0e23827-a633-4edc-95cd-971fdfeed847", "ParentId": "2ee4b173-4e09-44db-8550-23d54392077e", "ViewType": "", "PageType": "view", "MenuName": "page404", "ViewType": "page404", "Order": 2, "Description": "", "IconCls": "x-fa fa-tag", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "457063da-0b14-4c7f-bb12-a0a8e20d90ee", "ParentId": "2ee4b173-4e09-44db-8550-23d54392077e", "ViewType": "", "PageType": "view", "MenuName": "page500", "ViewType": "page500", "Order": 3, "Description": "", "IconCls": "x-fa fa-tag", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "a7d00cf0-741b-44af-b90b-395698d64bc9", "ParentId": "f0474f1f-5cf7-413d-9aec-d4c91ae55b9f", "ViewType": "sysuser", "PageType": "tab", "MenuName": "用户管理", "Order": 1, "Description": "", "IconCls": "x-fa fa-user-o", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "a176b70f-4ba9-45b5-b021-c44b4215be93", "ParentId": "f0474f1f-5cf7-413d-9aec-d4c91ae55b9f", "ViewType": "sysorg", "PageType": "tab", "MenuName": "组织机构", "Order": 2, "Description": "", "IconCls": "x-fa fa-tree", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "577d5ee5-3375-4795-a41e-037e52c0f4a3", "ParentId": "f0474f1f-5cf7-413d-9aec-d4c91ae55b9f", "ViewType": "sysrole", "PageType": "tab", "MenuName": "角色管理", "Order": 3, "Description": "", "IconCls": "x-fa fa-users", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "04b631a8-3e41-4382-9e43-f5aeaddb338d", "ParentId": "f0474f1f-5cf7-413d-9aec-d4c91ae55b9f", "ViewType": "sysmenu", "PageType": "tab", "MenuName": "菜单管理", "Order": 4, "Description": "", "IconCls": "x-fa fa-th-list", "IsEnable": 1, "isDel": 0 }
         ];
         me.GetSysMenuPage();
         me.GetSysMenuByRule();
@@ -66,33 +66,35 @@ Ext.define('App.data.systemmanage.SysMenu', {
             type: 'json',
             url: "~/api/SystemManage/SysMenu/GetSysMenuButtonTreeDetail",
             getData: function (ctx) {
-                var menuBtnList = App.SimulateDB.Get("SysMenuButton"),list=[],responseData =  me.ResponseData();
-                for(var i =0;i<me.dataSource.length;i++){
+                var menuBtnList = App.SimulateDB.Get("SysMenuButton"), list = [], responseData = me.ResponseData();
+                for (var i = 0; i < me.dataSource.length; i++) {
                     list.push({
-                        Id:me.dataSource[i]["SysMenuId"],
-                        ParentId:me.dataSource[i]["ParentId"],
-                        Code:"",
-                        Name:me.dataSource[i]["MenuName"],
-                        ViewType:me.dataSource[i]["ViewType"],
-                        Description:me.dataSource[i]["Description"],
-                        Order:me.dataSource[i]["Order"],
-                        IsEnable:me.dataSource[i]["IsEnable"],
-                        IconCls:me.dataSource[i]["IconCls"],
-                        Type:"0"
+                        Id: me.dataSource[i]["SysMenuId"],
+                        ParentId: me.dataSource[i]["ParentId"],
+                        Code: "",
+                        Name: me.dataSource[i]["MenuName"],
+                        ViewType: me.dataSource[i]["ViewType"],
+                        PageType: me.dataSource[i]["PageType"],
+                        Description: me.dataSource[i]["Description"],
+                        Order: me.dataSource[i]["Order"],
+                        IsEnable: me.dataSource[i]["IsEnable"],
+                        IconCls: me.dataSource[i]["IconCls"],
+                        Type: "0"
                     })
                 }
-                for(var i =0;i<menuBtnList.length;i++){
+                for (var i = 0; i < menuBtnList.length; i++) {
                     list.push({
-                        Id:menuBtnList[i]["SysMenuButtonId"],
-                        ParentId:menuBtnList[i]["MenuId"],
-                        Code:menuBtnList[i]["btnCode"],
-                        Name:menuBtnList[i]["btnName"],
-                        Description:menuBtnList[i]["Description"],
-                        Order:menuBtnList[i]["Order"],
-                        ViewType:"",
-                        IsEnable:menuBtnList[i]["IsEnable"],
-                        IconCls:"",
-                        Type:"1"
+                        Id: menuBtnList[i]["SysMenuButtonId"],
+                        ParentId: menuBtnList[i]["MenuId"],
+                        Code: menuBtnList[i]["btnCode"],
+                        Name: menuBtnList[i]["btnName"],
+                        Description: menuBtnList[i]["Description"],
+                        Order: menuBtnList[i]["Order"],
+                        ViewType: "",
+                        PageType: "",
+                        IsEnable: menuBtnList[i]["IsEnable"],
+                        IconCls: "",
+                        Type: "1"
                     })
                 }
                 responseData.Data.List = list;
@@ -109,22 +111,22 @@ Ext.define('App.data.systemmanage.SysMenu', {
             delay: 0,
             url: "~/api/SystemManage/SysMenu/AddSysMenu",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData(),data=Ext.decode(requestData.Data);
+                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data = Ext.decode(requestData.Data);
                 me.dataSource.unshift(data);
-                var model={
-                    Id:data["SysMenuId"],
-                    ParentId:data["ParentId"],
-                    Code:data["MenuCode"],
-                    Name:data["MenuName"],
-                    ViewType:data["ViewType"],
-                    PageType:data["PageType"],
-                    Description:data["Description"],
-                    Order:data["Order"],
-                    IsEnable:data["IsEnable"],
-                    IconCls:data["IconCls"],
-                    Type:"0"
+                var model = {
+                    Id: data["SysMenuId"],
+                    ParentId: data["ParentId"],
+                    Code: data["MenuCode"],
+                    Name: data["MenuName"],
+                    ViewType: data["ViewType"],
+                    PageType: data["PageType"],
+                    Description: data["Description"],
+                    Order: data["Order"],
+                    IsEnable: data["IsEnable"],
+                    IconCls: data["IconCls"],
+                    Type: "0"
                 }
-                responseData.Data =Ext.encode(model);
+                responseData.Data = Ext.encode(model);
                 return responseData;
             }
         })
@@ -146,20 +148,20 @@ Ext.define('App.data.systemmanage.SysMenu', {
                         break;
                     }
                 }
-                var model={
-                    Id:data["SysMenuId"],
-                    ParentId:data["ParentId"],
-                    Code:data["MenuCode"],
-                    Name:data["MenuName"],
-                    ViewType:data["ViewType"],
-                    PageType:data["PageType"],
-                    Description:data["Description"],
-                    Order:data["Order"],
-                    IsEnable:data["IsEnable"],
-                    IconCls:data["IconCls"],
-                    Type:"0"
+                var model = {
+                    Id: data["SysMenuId"],
+                    ParentId: data["ParentId"],
+                    Code: data["MenuCode"],
+                    Name: data["MenuName"],
+                    ViewType: data["ViewType"],
+                    PageType: data["PageType"],
+                    Description: data["Description"],
+                    Order: data["Order"],
+                    IsEnable: data["IsEnable"],
+                    IconCls: data["IconCls"],
+                    Type: "0"
                 }
-                responseData.Data =Ext.encode(model);
+                responseData.Data = Ext.encode(model);
                 return responseData;
             }
         })

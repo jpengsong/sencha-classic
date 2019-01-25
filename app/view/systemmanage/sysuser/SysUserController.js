@@ -4,12 +4,12 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
 
     //新增
     onAdd: function () {
-        var me = this, window, record = Ext.create("App.model.systemmanage.SysUser");
-        window = Ext.widget({
+        var me = this, record = Ext.create("App.model.systemmanage.SysUser");
+        Ext.widget({
             title: "新增用户",
             xtype: "sysuseredit",
             status: "add",
-            grid: me.getReferences().grid,
+            scope: me.getReferences(),
             viewModel: {
                 data: {
                     user: record
@@ -25,13 +25,14 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
 
     //编辑
     onEdit: function () {
-        var me = this, refs = me.getReferences(), window, record = refs.grid.getSelectionModel().getSelection()[0].clone();
+        var me = this, refs = me.getReferences(), record;
         if (App.Page.selectionModel(refs.grid, false)) {
-            window = Ext.widget({
+            record = refs.grid.getSelectionModel().getSelection()[0].clone();
+            Ext.widget({
                 title: "编辑用户",
                 xtype: "sysuseredit",
                 status: "edit",
-                grid: refs.grid,
+                scope: me.getReferences(),
                 viewModel: {
                     data: {
                         user: record

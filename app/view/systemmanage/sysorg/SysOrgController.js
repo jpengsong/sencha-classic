@@ -4,7 +4,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
 
     //左侧组织机构选中某一项
     onTreeSelect: function (store, record, index, eOpts) {
-        var me = this, querypanel = me.getView().getQuery("query"), gridStore = me.getViewModel().getStore("gridstore");
+        var me = this, vm = me.getViewModel(), refs = me.getReferences(), querypanel = refs.query, gridStore = vm.getStore("gridstore");
         Ext.override(querypanel, {
             getQueryItems: function () {
                 var queryItems = App.Page.getQueryItems(Ext.ComponentQuery.query("container[reference='searchcondition']", querypanel)[0]);
@@ -70,23 +70,23 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
         this.onFilterFieldChange(field, field.getValue());
     },
 
-    //添加组织机构
+    //添加
     onAdd: function () {
-        var me = this, window, record, view = me.getView(), treepanel = view.getTree("treePanel");
-        if (App.Page.selectionModel(treepanel, false)) {
+        var me = this, record, refs = me.getReferences();
+        if (App.Page.selectionModel(refs.tree, false)) {
+            selRecord = refs.tree.getSelectionModel().getSelection()[0];
             record = Ext.create("App.model.systemmanage.SysOrg");
-            selTreeRecord = treepanel.getSelectionModel().getSelection()[0];
-            record.data.ParentOrgId = selTreeRecord.data.SysOrgId;
-            record.data.level = selTreeRecord.data.level + 1;
-            window = Ext.create({
+            record.set("ParentOrgId", selRecord.get("SysOrgId"));
+            record.set("level", selRecord.get("level") + 1);
+            Ext.widget({
                 title: "新增机构",
                 xtype: "sysorgedit",
                 status: "add",
-                scope: view,
+                scope: refs,
                 viewModel: {
                     data: {
-                        org: record.data,
-                        selTreeRecord: selTreeRecord
+                        org: record,
+                        selRecord: selRecord
                     },
                     stores: {
                         treestore: {
@@ -95,25 +95,24 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
                     }
                 }
             });
-            window.show();
         }
     },
 
     //编辑
     onEdit: function () {
-        var me = this, view = me.getView(), grid = view.getGrid("Grid"), treepanel = view.getTree("treePanel"), window, record;
-        if (App.Page.selectionModel(grid, false)) {
-            record = grid.getSelectionModel().getSelection()[0];
-            selTreeRecord = treepanel.getSelectionModel().getSelection()[0];
-            window = Ext.create({
+        var me = this, record, refs = me.getReferences();
+        if (App.Page.selectionModel(refs.grid, false)) {
+            record = refs.grid.getSelectionModel().getSelection()[0];
+            selRecord = refs.tree.getSelectionModel().getSelection()[0];
+            Ext.widget({
                 title: "编辑机构",
                 xtype: "sysorgedit",
                 status: "edit",
-                scope: view,
+                scope: refs,
                 viewModel: {
                     data: {
-                        org: record.data,
-                        selTreeRecord: selTreeRecord
+                        org: record.clone(),
+                        selRecord: selRecord
                     },
                     stores: {
                         treestore: {
@@ -122,15 +121,14 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
                     }
                 }
             });
-            window.show();
         };
     },
 
     //删除
     onDelete: function () {
-        var me = this, view = me.getView(), grid = view.getGrid("Grid"), treepanel = view.getTree("treePanel"), records, idArray = [];
-        if (App.Page.selectionModel(grid, true)) {
-            records = grid.getSelectionModel().getSelection();
+        var me = this, refs = me.getReferences(), records, idArray = [];
+        if (App.Page.selectionModel(refs.grid, true)) {
+            records = refs.grid.getSelectionModel().getSelection();
             Ext.each(records, function (record, index) {
                 idArray.push(record.get("SysOrgId"));
             })
@@ -147,9 +145,8 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
                             params: idArray,
                             success: function (data) {
                                 App.Msg.Info("删除成功");
-                                var gridstore = grid.getStore();
-                                gridstore.loadPage(1);
-                                treepanel.updateChildNodes(treepanel.getSelectionModel().getSelection()[0]);
+                                refs.grid.getStore().loadPage(1);
+                                App.TreeNode.updateChildNodes(refs.tree.getSelectionModel().getSelection()[0]);
                             },
                             error: function (data) {
                                 App.Msg.Error("删除失败");

@@ -112,6 +112,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
         onSave: function () {
             var me = this,
                 view = me.getView(),
+                scope =view.scope,
                 data = me.getViewModel().get("user").getData(),
                 refs = me.getReferences(),
                 form = refs.form;
@@ -126,7 +127,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                     params: data,
                     success: function (data) {
                         App.Msg.Info("保存成功");
-                        view.grid.getStore().loadPage(1);
+                        scope.grid.getStore().loadPage(1);
                         view.close();
                     },
                     error: function (data) {
@@ -138,7 +139,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
 
         //重置
         onReset: function () {
-            var me = this; me.getReferences().form.reset();
+            var me = this; me.getViewModel().get("user").reject();
         }
     }
 })

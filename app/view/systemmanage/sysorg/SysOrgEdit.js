@@ -1,6 +1,7 @@
 Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
     alias: "widget.sysorgedit",
     extend: "Ext.window.Window",
+    autoShow:true,
     maximizable: true,
     modal: true,
     width: 450,
@@ -99,13 +100,9 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
         onSave: function () {
             var me = this,
                 view = me.getView(),
-                scope = view.scope,
-                gridstore = scope.getGrid("Grid").getStore(),
-                viewModel = me.getViewModel(),
-                record = viewModel.get("org"),
-                refs = me.getReferences(),
-                form = refs.form;
-            treepanel = scope.getTree("treePanel");
+                vm = me.getViewModel(),
+                scope=view.scope,
+                form = me.getReferences().form;
             if (form.isValid()) {
                 App.Ajax.request({
                     url: "~/api/SystemManage/SysOrg/" + (view.status == "add" ? "AddSysOrg" : "EditSysOrg"),
@@ -114,11 +111,15 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
                     type: "JSON",
                     showmask: true,
                     maskmsg: "正在保存...",
-                    params: record,
+                    params: vm.get("org").getData(),
                     success: function (data) {
+                        if (view.status == "add") {
+                            App.TreeNode.appendNode(vm.get("selRecord"), Ext.create("App.model.systemmanage.SysOrg", data.Data));
+                        } else {
+                            App.TreeNode.updateNode(scope.tree.getStore().findNode("SysOrgId", data.Data.SysOrgId), data.Data);
+                        }
+                        scope.grid.getStore().loadPage(1);
                         App.Msg.Info("保存成功");
-                        gridstore.loadPage(1);
-                        App.TreeNode.updateChildNodes(viewModel.get("selTreeRecord"));
                         view.close();
                     },
                     error: function (data) {
@@ -130,8 +131,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
 
         //重置
         onReset: function () {
-            var me = this, refs = me.getReferences(), form = refs.form;
-            form.reset();
+            var me = this; me.getViewModel().get("org").reject();
         }
     }
 })

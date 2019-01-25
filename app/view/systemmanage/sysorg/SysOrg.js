@@ -83,6 +83,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
         querypanel = Ext.create("App.ux.query.QueryPanel", {
             grid: "Grid",
             scope: me,
+            reference:"query",
             queryConfig: {
                 defaults: {
                     margin: "5 5",
@@ -132,6 +133,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
         gridpanel = Ext.create("Ext.grid.Panel", {
             tbar: toolbar,
             selType: 'checkboxmodel',
+            reference:"grid",
             bind: {
                 store: '{gridstore}'
             },

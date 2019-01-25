@@ -2,6 +2,7 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleEdit", {
     alias: "widget.sysroleedit",
     extend: "Ext.window.Window",
     maximizable: true,
+    autoShow:true,
     modal: true,
     width: 400,
     height: 300,
@@ -57,6 +58,7 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleEdit", {
         onSave: function () {
             var me = this,
                 view = me.getView(),
+                scope =view.scope,
                 record = me.getViewModel().get("role"),
                 refs = me.getReferences(),
                 form = refs.form;
@@ -70,10 +72,9 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleEdit", {
                     maskmsg: "正在保存...",
                     params: record.getData(),
                     success: function (data) {
-                        App.Msg.Info("保存成功");
-                        var gridstore = view.references.grid.getStore();
-                        gridstore.loadPage(1);
+                        scope.grid.getStore().loadPage(1);
                         view.close();
+                        App.Msg.Info("保存成功");
                     },
                     error: function (data) {
                         App.Msg.Error("保存异常");
@@ -84,8 +85,7 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleEdit", {
 
         //重置
         onReset: function () {
-            var me = this, refs = me.getReferences(), form = refs.form;
-            form.reset();
+            var me = this; me.getViewModel().get("role").reject();
         }
     }
 })

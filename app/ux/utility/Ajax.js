@@ -30,7 +30,7 @@ Ext.define("App.ux.utility.Ajax", {
                     xtype:"loadmask",
                     msg: option.maskmsg || '正在请求数据...',
                     componentCls: "x-mask-ui",
-                    target: Ext.getCmp("main")
+                    target: Ext.getCmp("mainCardPanel")
                 });
                 myMask.show();
             }

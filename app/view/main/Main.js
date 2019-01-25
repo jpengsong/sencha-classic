@@ -140,7 +140,8 @@ Ext.define("App.view.main.Main", {
                             flex: 1,
                             ui: "welcome-tab-panel",
                             tabBar: {
-                                height: 40
+                                height: 40,
+                                
                             },
                             autoDestroy: false,
                             items: [

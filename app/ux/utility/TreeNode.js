@@ -116,15 +116,22 @@ Ext.define('App.ux.utility.TreeNode', {
             }
         },
 
-        //更新节点
-        refreshNode: function (oldNode, newNode) {
+        //更新当前节点
+        updateNode: function (oldNode, data) {
             var fileds = oldNode.getFields();
             for (var i = 0; i < fileds.length; i++) {
-                if (newNode.data.hasOwnProperty(fileds[i].name)) {
-                    oldNode.set(fileds[i].name, newNode[fileds[i].name]);
+                if (data.hasOwnProperty(fileds[i].name)) {
+                    oldNode.set(fileds[i].name, data[fileds[i].name]);
                 }
             }
             oldNode.parentNode.replaceChild(oldNode, oldNode);
+        },
+
+        //添加子节点
+        appendNode:function(parentNode,childNode){
+            childNode.set("leaf", true);
+            parentNode.appendChild(childNode);
+            parentNode.expand();
         }
     }
 });

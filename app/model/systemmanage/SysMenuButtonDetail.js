@@ -9,8 +9,8 @@ Ext.define("App.model.systemmanage.SysMenuButtonDetail", {
         { name: 'Name', type: 'string' },
         { name: 'Description', type: 'string' },
         { name: 'Order', type: 'string' },
-        { name: 'XType', type: 'string' },
-        { name: 'RouteId', type: 'string' },
+        { name: 'ViewType', type: 'string' },
+        { name: 'PageType', type: 'string'},
         { name: 'IsEnable', type: 'int' },
         { name: 'IconCls', type: 'string' },
         { name: 'Type', type: 'int' }
