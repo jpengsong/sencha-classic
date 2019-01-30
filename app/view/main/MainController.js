@@ -2,8 +2,6 @@ Ext.define("App.view.main.MainController", {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
     lastView: null,
-    init: function () {
-    },
     routes: {
         //跳转视图
         'view.:node': {
@@ -66,7 +64,7 @@ Ext.define("App.view.main.MainController", {
             if (!store.getAutoLoad()) {
                 store.setAutoLoad(true);
             }
-            me.redirectTo("view.welcome");
+            me.redirectTo("view.main");
         } else {
             me.redirectTo("view.login");
         }

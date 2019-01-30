@@ -63,7 +63,7 @@ Ext.define("App.view.authentication.Login", {
     ],
     controller: {
         onLoginClick: function () {
-            var me, refs, form, userName, userPwd; me = this; refs = me.getReferences(); form = refs.form;
+            var me = this, refs = me.getReferences(), form= refs.form, userName = refs.userName.getValue(), userPwd = refs.userPwd.getValue() ;
             var myMask = new Ext.LoadMask({
                 msg: '登录中...',
                 componentCls: "x-mask-ui",
@@ -71,12 +71,10 @@ Ext.define("App.view.authentication.Login", {
             });
             myMask.show();
             if (form.isValid()) {
-                userName = refs.userName.getValue();
-                userPwd = refs.userPwd.getValue();
                 if (userName == "Admin" && userPwd == "123456") {
                     App.UserInfo.userName = userName;
                     App.UserInfo.userPwd = userPwd;
-                    App.UserInfo.IsSuperUser = true;
+                    App.UserInfo.IsSuperUser = true; //默认超级管理员
                     App.UserInfo.Token = "7e5f5c69-cb23-4bd8-94ad-133c8e5dad2a";
                     me.redirectTo('user.login', true);
                 } else {

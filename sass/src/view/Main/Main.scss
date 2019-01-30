@@ -2,14 +2,14 @@
 
 //head
 @include extjs-panel-ui  (
-    $ui:"welcome-head",
+    $ui:"main-head",
     $border-width : 0,
     $ui-body-background-color :$base-color
 );
 
 //head-toolbar
 @include extjs-toolbar-ui  (
-    $ui:"welcome-head-toolbar",
+    $ui:"main-head-toolbar",
     $background-color : $base-color
 );
 
@@ -21,9 +21,9 @@
     $background-color:transparent
 );
 
-//welcome-tab-panel
+//main-tab-panel
 @include extjs-tab-panel-ui  (
-    $ui:"welcome-tab-panel",
+    $ui:"main-tab-panel",
     $ui-bar-background-color:#f6f6f6,                         //tab背景颜色
     $ui-tab-background-color-over:#f6f6f6,                    //tab悬浮背景颜色  
     $ui-tab-background-color-active:#ddd,                     //tab选中背景颜色
@@ -152,10 +152,10 @@
 };
 
 //tabPanel
-.x-tab-bar-welcome-tab-panel-top > .x-tab-bar-body-welcome-tab-panel{
+.x-tab-bar-main-tab-panel-top > .x-tab-bar-body-main-tab-panel{
     padding: 0px 0px 0px 0px;
 };
 
-.x-tab-welcome-tab-panel-top{
+.x-tab-main-tab-panel-top{
     padding: 0px  15px  0px  15px ;
 };

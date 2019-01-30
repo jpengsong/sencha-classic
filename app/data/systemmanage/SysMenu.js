@@ -86,8 +86,8 @@ Ext.define('App.data.systemmanage.SysMenu', {
                     list.push({
                         Id: menuBtnList[i]["SysMenuButtonId"],
                         ParentId: menuBtnList[i]["MenuId"],
-                        Code: menuBtnList[i]["btnCode"],
-                        Name: menuBtnList[i]["btnName"],
+                        Code: menuBtnList[i]["BtnCode"],
+                        Name: menuBtnList[i]["BtnName"],
                         Description: menuBtnList[i]["Description"],
                         Order: menuBtnList[i]["Order"],
                         ViewType: "",

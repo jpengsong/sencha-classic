@@ -12,7 +12,7 @@ Ext.define("App.view.main.Main", {
         { xtype: "login" },
         {
             xtype: "container",
-            routeId: "welcome",
+            routeId: "main",
             layout: {
                 type: "vbox",
                 align: "stretch"
@@ -20,7 +20,7 @@ Ext.define("App.view.main.Main", {
             items: [
                 {
                     xtype: "panel",
-                    ui: "welcome-head",
+                    ui: "main-head",
                     height: 50,
                     layout: {
                         type: "hbox",
@@ -42,7 +42,7 @@ Ext.define("App.view.main.Main", {
                             style: {
                                 "box-shadow": "0px 0px 0px 0.1px black"
                             },
-                            ui: "welcome-head-toolbar",
+                            ui: "main-head-toolbar",
                             reference: "headerToolbar",
                             defaults: {
                                 margin: '0 15'
@@ -117,12 +117,12 @@ Ext.define("App.view.main.Main", {
                                     xtype: 'treelist',
                                     reference: "navigationTreeList",
                                     bind: {
-                                        store:'{navigation}'
+                                        store: '{navigation}'
                                     },
                                     defaults: {
                                         xtype: 'treelistitem',
-                                        textProperty:"MenuName",
-                                        iconClsProperty:"IconCls"
+                                        textProperty: "MenuName",
+                                        iconClsProperty: "IconCls"
                                     },
                                     ui: "navigation",
                                     scrollable: true,
@@ -138,28 +138,16 @@ Ext.define("App.view.main.Main", {
                             xtype: "tabpanel",
                             id: "mainTabPanel",
                             flex: 1,
-                            ui: "welcome-tab-panel",
+                            ui: "main-tab-panel",
                             tabBar: {
                                 height: 40,
-                                
                             },
                             autoDestroy: false,
                             items: [
-                                {
-                                    iconCls: "x-fa fa-laptop",
-                                    title: "首页",
-                                    html: "abc123",
-                                    xtype: "container",
-                                    scrollable: Ext.scroll.Scroller({ y: true, x: false }),
-                                    layout: {
-                                        type: "vbox",
-                                        align: "stretch"
-                                    },
-                                    items: []
-                                }
+                                { xtype: "home" }
                             ],
-                            listeners:{
-                                tabchange :"onTabChange"
+                            listeners: {
+                                tabchange: "onTabChange"
                             }
                         }
                     ]
