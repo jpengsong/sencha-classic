@@ -1,341 +1,3 @@
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:44 */
-.x-resizable-handle-northeast {
-    cursor: ne-resize;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:47 */
-.x-resizable-handle-northeast:before {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:54 */
-.x-resizable-handle-southwest {
-    cursor: sw-resize;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:57 */
-.x-resizable-handle-southwest:before {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:68 */
-.x-resizable-handle-east:before,
-.x-resizable-handle-west:before {
-    display: block;
-    position: absolute;
-    top: 50%;
-    margin-top: -0.5em;
-    width: 100%;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:78 */
-.x-resizable-handle-east {
-    cursor: e-resize;
-    width: 10px;
-    right: 0;
-    top: 0;
-    bottom: 0;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:86 */
-.x-resizable-handle-south {
-    cursor: s-resize;
-    height: 10px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:94 */
-.x-resizable-handle-west {
-    cursor: w-resize;
-    width: 10px;
-    left: 0;
-    top: 0;
-    bottom: 0;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:102 */
-.x-resizable-handle-north {
-    cursor: n-resize;
-    height: 10px;
-    left: 0;
-    right: 0;
-    top: 0;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:110 */
-.x-resizable-handle-southeast {
-    width: 10px;
-    height: 10px;
-    right: 0;
-    bottom: 0;
-    z-index: 101;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:118 */
-.x-resizable-handle-northwest {
-    width: 10px;
-    height: 10px;
-    left: 0;
-    top: 0;
-    z-index: 101;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:126 */
-.x-resizable-handle-northeast {
-    width: 10px;
-    height: 10px;
-    right: 0;
-    top: 0;
-    z-index: 101;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:134 */
-.x-resizable-handle-southwest {
-    width: 10px;
-    height: 10px;
-    left: 0;
-    bottom: 0;
-    z-index: 101;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:145 */
-.x-tablet .x-resizable-handle-north,
-.x-tablet .x-resizable-handle-south {
-    height: 20px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:149 */
-.x-tablet .x-resizable-handle-east,
-.x-tablet .x-resizable-handle-west {
-    width: 20px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:153 */
-.x-tablet .x-resizable-handle-northwest,
-.x-tablet .x-resizable-handle-northeast,
-.x-tablet .x-resizable-handle-southwest,
-.x-tablet .x-resizable-handle-southeast {
-    width: 20px;
-    height: 20px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:163 */
-.x-window .x-window-handle {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    opacity: 0;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:167 */
-.x-window-collapsed .x-window-handle {
-    display: none;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:172 */
-.x-resizable-proxy {
-    border: 1px dashed #3b5a82;
-    position: absolute;
-    overflow: hidden;
-    z-index: 50000;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:180 */
-.x-resizable-handle-over,
-.x-resizable-pinned .x-resizable-handle {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    opacity: 1;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:186 */
-.x-resizable-handle-east-over,
-.x-resizable-handle-west-over,
-.x-resizable-pinned > .x-resizable-handle-east,
-.x-resizable-pinned > .x-resizable-handle-west {
-    font: 16px/1 FontAwesome;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
-.x-resizable-handle-east-over:before,
-.x-resizable-handle-west-over:before,
-.x-resizable-pinned > .x-resizable-handle-east:before,
-.x-resizable-pinned > .x-resizable-handle-west:before {
-    content: "\f142";
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:198 */
-.x-resizable-handle-south-over,
-.x-resizable-handle-north-over,
-.x-resizable-pinned > .x-resizable-handle-south,
-.x-resizable-pinned > .x-resizable-handle-north {
-    font: 16px/10px FontAwesome;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
-.x-resizable-handle-south-over:before,
-.x-resizable-handle-north-over:before,
-.x-resizable-pinned > .x-resizable-handle-south:before,
-.x-resizable-pinned > .x-resizable-handle-north:before {
-    content: "\f141";
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:210 */
-.x-resizable-handle-southeast-over,
-.x-resizable-pinned > .x-resizable-handle-southeast {
-    font: 16px/1 ExtJS;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
-.x-resizable-handle-southeast-over:before,
-.x-resizable-pinned > .x-resizable-handle-southeast:before {
-    content: "\e60c";
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:220 */
-.x-resizable-handle-northwest-over,
-.x-resizable-pinned > .x-resizable-handle-northwest {
-    font: 16px/1 ExtJS;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
-.x-resizable-handle-northwest-over:before,
-.x-resizable-pinned > .x-resizable-handle-northwest:before {
-    content: "\e609";
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:230 */
-.x-resizable-handle-northeast-over,
-.x-resizable-pinned > .x-resizable-handle-northeast {
-    font: 16px/1 ExtJS;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
-.x-resizable-handle-northeast-over:before,
-.x-resizable-pinned > .x-resizable-handle-northeast:before {
-    content: "\e60a";
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:240 */
-.x-resizable-handle-southwest-over,
-.x-resizable-pinned > .x-resizable-handle-southwest {
-    font: 16px/1 ExtJS;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
-.x-resizable-handle-southwest-over:before,
-.x-resizable-pinned > .x-resizable-handle-southwest:before {
-    content: "\e60b";
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:2 */
-.x-slider:before {
-    border: 1px solid #d1d1d1;
-    content: '';
-    position: absolute;
-    border-radius: 2px;
-    background-color: #eee;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:20 */
-.x-slider-thumb {
-    background-color: #f6f6f6;
-    border: 1px solid #d1d1d1;
-    border-radius: 2px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:28 */
-.x-slider-thumb:before {
-    color: #d1d1d1;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:33 */
-.x-slider-thumb-over {
-    background-color: #fcfcfc;
-    border-color: #c1cdcc;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:36 */
-.x-slider-thumb-over:before {
-    color: #d1d1d1;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:42 */
-.x-keyboard-mode .x-slider-focus .x-slider-thumb {
-    background-color: #f6f6f6;
-    border-color: #009688;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:45 */
-.x-keyboard-mode .x-slider-focus .x-slider-thumb:before {
-    color: #76c1ba;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:52 */
-.x-keyboard-mode .x-slider-focus .x-slider-thumb-over {
-    background-color: #fcfcfc;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:57 */
-.x-slider-thumb-drag {
-    background-color: #f1f1f1;
-    border-color: #b6c7c6;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:60 */
-.x-slider-thumb-drag:before {
-    color: #d1d1d1;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:66 */
-.x-keyboard-mode .x-slider-focus .x-slider-thumb-drag {
-    background-color: #f1f1f1;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:79 */
-.x-slider-horz {
-    padding-left: 10px;
-    background: no-repeat 0 -20px;
-    margin: 6px 0 6px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:86 */
-.x-slider-horz .x-slider-end {
-    padding-right: 10px;
-    background: no-repeat right -40px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:91 */
-.x-slider-horz .x-slider-inner {
-    height: 20px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:96 */
-.x-slider-horz:before {
-    height: 10px;
-    width: 100%;
-    top: 50%;
-    left: 0;
-    margin-top: -5px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:106 */
-.x-slider-horz .x-slider-thumb {
-    width: 20px;
-    height: 20px;
-    margin-left: -10px;
-    font: 12px/1 ExtJS;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
-.x-slider-horz .x-slider-thumb:before {
-    content: "\e612";
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:148 */
-.x-rtl.x-slider-horz {
-    padding-left: 0;
-    padding-right: 10px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:155 */
-.x-rtl.x-slider-horz .x-slider-end {
-    padding-right: 0;
-    padding-left: 10px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:163 */
-.x-rtl.x-slider-horz .x-slider-thumb {
-    margin-right: -10px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:170 */
-.x-slider-ct-vert {
-    /* Vertical styles */
-    height: 100%;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:174 */
-.x-slider-vert {
-    padding-top: 10px;
-    height: 100%;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:181 */
-.x-slider-vert > .x-slider-end {
-    height: 100%;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:183 */
-.x-slider-vert > .x-slider-end > .x-slider-inner {
-    height: 100%;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:189 */
-.x-slider-vert:before {
-    width: 10px;
-    height: 100%;
-    left: 10px;
-    top: 0;
-    margin-left: -5px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:199 */
-.x-slider-vert .x-slider-end {
-    padding-bottom: 10px;
-    background: no-repeat -20px bottom;
-    width: 20px;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/slider/Multi.scss:205 */
 .x-slider-vert .x-slider-inner {
     width: 20px;
@@ -449,12 +111,6 @@
 .x-tab-default-top-mc {
     padding: 8px 10px 8px 10px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-default-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:0 0 0 0, frame-bg:url(images/tab/tab-default-top-fbg.gif)" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-tab-default-bottom {
     -moz-border-radius-topleft: 0;
@@ -553,12 +209,6 @@
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
 .x-tab-default-bottom-mc {
     padding: 8px 10px 8px 10px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-default-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:top, frame:0 0 0 0, frame-bg:url(images/tab/tab-default-bottom-fbg.gif)" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-tab-default-left {
@@ -659,12 +309,6 @@
 .x-tab-default-left-mc {
     padding: 8px 10px 8px 10px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-default-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:0 0 0 0, frame-bg:url(images/tab/tab-default-left-fbg.gif)" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-tab-default-right {
     -moz-border-radius-topleft: 0;
@@ -763,12 +407,6 @@
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
 .x-tab-default-right-mc {
     padding: 8px 10px 8px 10px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-default-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:0 0 0 0, frame-bg:url(images/tab/tab-default-right-fbg.gif)" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Tab.scss:2672 */
 .x-tab-default {
@@ -1687,150 +1325,6 @@
     padding-right: 0px;
     padding-left: 16px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-default-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-top-focus-corners.gif), sides:url(images/tab/tab-default-top-focus-sides.gif), frame-bg:url(images/tab/tab-default-top-focus-fbg.gif), frame:0 0 0 0, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-default-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-right-focus-corners.gif), sides:url(images/tab/tab-default-right-focus-sides.gif), frame-bg:url(images/tab/tab-default-right-focus-fbg.gif), frame:0 0 0 0, stretch:left" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-default-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-bottom-focus-corners.gif), sides:url(images/tab/tab-default-bottom-focus-sides.gif), frame-bg:url(images/tab/tab-default-bottom-focus-fbg.gif), frame:0 0 0 0, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-default-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-left-focus-corners.gif), sides:url(images/tab/tab-default-left-focus-sides.gif), frame-bg:url(images/tab/tab-default-left-focus-fbg.gif), frame:0 0 0 0, stretch:right" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-over.x-tab-default-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-top-over-corners.gif), sides:url(images/tab/tab-default-top-over-sides.gif), frame-bg:url(images/tab/tab-default-top-over-fbg.gif), frame:0 0 0 0, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-over.x-tab-default-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-right-over-corners.gif), sides:url(images/tab/tab-default-right-over-sides.gif), frame-bg:url(images/tab/tab-default-right-over-fbg.gif), frame:0 0 0 0, stretch:left" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-over.x-tab-default-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-bottom-over-corners.gif), sides:url(images/tab/tab-default-bottom-over-sides.gif), frame-bg:url(images/tab/tab-default-bottom-over-fbg.gif), frame:0 0 0 0, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-over.x-tab-default-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-left-over-corners.gif), sides:url(images/tab/tab-default-left-over-sides.gif), frame-bg:url(images/tab/tab-default-left-over-fbg.gif), frame:0 0 0 0, stretch:right" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-active.x-tab-default-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-top-active-corners.gif), sides:url(images/tab/tab-default-top-active-sides.gif), frame-bg:url(images/tab/tab-default-top-active-fbg.gif), frame:0 0 0 0, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-active.x-tab-default-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-right-active-corners.gif), sides:url(images/tab/tab-default-right-active-sides.gif), frame-bg:url(images/tab/tab-default-right-active-fbg.gif), frame:0 0 0 0, stretch:left" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-active.x-tab-default-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-bottom-active-corners.gif), sides:url(images/tab/tab-default-bottom-active-sides.gif), frame-bg:url(images/tab/tab-default-bottom-active-fbg.gif), frame:0 0 0 0, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-active.x-tab-default-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-left-active-corners.gif), sides:url(images/tab/tab-default-left-active-sides.gif), frame-bg:url(images/tab/tab-default-left-active-fbg.gif), frame:0 0 0 0, stretch:right" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-over.x-tab-default-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-top-focus-over-corners.gif), sides:url(images/tab/tab-default-top-focus-over-sides.gif), frame-bg:url(images/tab/tab-default-top-focus-over-fbg.gif), frame:0 0 0 0, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-over.x-tab-default-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-right-focus-over-corners.gif), sides:url(images/tab/tab-default-right-focus-over-sides.gif), frame-bg:url(images/tab/tab-default-right-focus-over-fbg.gif), frame:0 0 0 0, stretch:left" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-over.x-tab-default-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-bottom-focus-over-corners.gif), sides:url(images/tab/tab-default-bottom-focus-over-sides.gif), frame-bg:url(images/tab/tab-default-bottom-focus-over-fbg.gif), frame:0 0 0 0, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-over.x-tab-default-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-left-focus-over-corners.gif), sides:url(images/tab/tab-default-left-focus-over-sides.gif), frame-bg:url(images/tab/tab-default-left-focus-over-fbg.gif), frame:0 0 0 0, stretch:right" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-active.x-tab-default-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-top-focus-active-corners.gif), sides:url(images/tab/tab-default-top-focus-active-sides.gif), frame-bg:url(images/tab/tab-default-top-focus-active-fbg.gif), frame:0 0 0 0, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-active.x-tab-default-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-right-focus-active-corners.gif), sides:url(images/tab/tab-default-right-focus-active-sides.gif), frame-bg:url(images/tab/tab-default-right-focus-active-fbg.gif), frame:0 0 0 0, stretch:left" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-active.x-tab-default-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-bottom-focus-active-corners.gif), sides:url(images/tab/tab-default-bottom-focus-active-sides.gif), frame-bg:url(images/tab/tab-default-bottom-focus-active-fbg.gif), frame:0 0 0 0, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-active.x-tab-default-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-left-focus-active-corners.gif), sides:url(images/tab/tab-default-left-focus-active-sides.gif), frame-bg:url(images/tab/tab-default-left-focus-active-fbg.gif), frame:0 0 0 0, stretch:right" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-disabled.x-tab-default-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-top-disabled-corners.gif), sides:url(images/tab/tab-default-top-disabled-sides.gif), frame-bg:url(images/tab/tab-default-top-disabled-fbg.gif), frame:0 0 0 0, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-disabled.x-tab-default-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-right-disabled-corners.gif), sides:url(images/tab/tab-default-right-disabled-sides.gif), frame-bg:url(images/tab/tab-default-right-disabled-fbg.gif), frame:0 0 0 0, stretch:left" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-disabled.x-tab-default-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-bottom-disabled-corners.gif), sides:url(images/tab/tab-default-bottom-disabled-sides.gif), frame-bg:url(images/tab/tab-default-bottom-disabled-fbg.gif), frame:0 0 0 0, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-disabled.x-tab-default-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-default-left-disabled-corners.gif), sides:url(images/tab/tab-default-left-disabled-sides.gif), frame-bg:url(images/tab/tab-default-left-disabled-fbg.gif), frame:0 0 0 0, stretch:right" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:389 */
 .x-tab-bar-default {
     background-color: #009688;
@@ -2065,30 +1559,6 @@
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:792 */
 .x-tab-bar-default-left .x-box-scroller-tab-bar-default {
     margin-left: -8px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-bar-default-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-bar-default-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-bar-default-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:right" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-bar-default-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:left" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/toolbar/Breadcrumb.scss:406 */
 .x-breadcrumb-btn-default {
@@ -2667,30 +2137,6 @@
 .x-panel .x-panel-header-light-collapsed-border-left {
     border-right-width: 1px !important;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-light-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-light-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-light-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:right" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-light-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:left" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/panel/Panel.scss:1336 */
 .x-panel-header-light-horizontal .x-tool-after-title {
     margin: 0 0 0 6px;
@@ -3150,12 +2596,6 @@
 .x-panel-light-framed-mc {
     padding: 0px 0px 0px 0px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-light-framed:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, frame:2px 2px 2px 2px, corners:url(images/panel/panel-light-framed-corners.gif), sides:url(images/panel/panel-light-framed-sides.gif)" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-panel-header-light-framed-top {
     -moz-border-radius-topleft: 0;
@@ -3270,12 +2710,6 @@
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
 .x-panel-header-light-framed-top-mc {
     padding: 10px 14px 10px 14px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-light-framed-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:2px 2px 0 2px, frame-bg:url(images/panel-header/panel-header-light-framed-top-fbg.gif), corners:url(images/panel-header/panel-header-light-framed-top-corners.gif), sides:url(images/panel-header/panel-header-light-framed-top-sides.gif)" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-panel-header-light-framed-right {
@@ -3426,12 +2860,6 @@
 .x-panel-header-light-framed-right-mc {
     padding: 14px 10px 14px 10px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-light-framed-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:left, frame:2px 2px 2px 0, frame-bg:url(images/panel-header/panel-header-light-framed-right-fbg.gif), frame-bg-rtl:url(images/panel-header/panel-header-light-framed-right-fbg-rtl.gif), corners:url(images/panel-header/panel-header-light-framed-right-corners.gif), corners-rtl:url(images/panel-header/panel-header-light-framed-right-corners-rtl.gif), sides:url(images/panel-header/panel-header-light-framed-right-sides.gif), sides-rtl:url(images/panel-header/panel-header-light-framed-right-sides-rtl.gif)" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-panel-header-light-framed-bottom {
     -moz-border-radius-topleft: 0;
@@ -3546,12 +2974,6 @@
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
 .x-panel-header-light-framed-bottom-mc {
     padding: 10px 14px 10px 14px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-light-framed-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:top, frame:0 2px 2px 2px, frame-bg:url(images/panel-header/panel-header-light-framed-bottom-fbg.gif), corners:url(images/panel-header/panel-header-light-framed-bottom-corners.gif), sides:url(images/panel-header/panel-header-light-framed-bottom-sides.gif)" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-panel-header-light-framed-left {
@@ -3702,12 +3124,6 @@
 .x-panel-header-light-framed-left-mc {
     padding: 14px 10px 14px 10px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-light-framed-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:right, frame:2px 0 2px 2px, frame-bg:url(images/panel-header/panel-header-light-framed-left-fbg.gif), frame-bg-rtl:url(images/panel-header/panel-header-light-framed-left-fbg-rtl.gif), corners:url(images/panel-header/panel-header-light-framed-left-corners.gif), corners-rtl:url(images/panel-header/panel-header-light-framed-left-corners-rtl.gif), sides:url(images/panel-header/panel-header-light-framed-left-sides.gif), sides-rtl:url(images/panel-header/panel-header-light-framed-left-sides-rtl.gif)" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-panel-header-light-framed-collapsed-top {
     -moz-border-radius-topleft: 0;
@@ -3822,12 +3238,6 @@
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
 .x-panel-header-light-framed-collapsed-top-mc {
     padding: 10px 14px 10px 14px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-light-framed-collapsed-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:2px 2px 2px 2px, frame-bg:url(images/panel-header/panel-header-light-framed-collapsed-top-fbg.gif), corners:url(images/panel-header/panel-header-light-framed-collapsed-top-corners.gif), sides:url(images/panel-header/panel-header-light-framed-collapsed-top-sides.gif)" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-panel-header-light-framed-collapsed-right {
@@ -3978,12 +3388,6 @@
 .x-panel-header-light-framed-collapsed-right-mc {
     padding: 14px 10px 14px 10px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-light-framed-collapsed-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:left, frame:2px 2px 2px 2px, frame-bg:url(images/panel-header/panel-header-light-framed-collapsed-right-fbg.gif), frame-bg-rtl:url(images/panel-header/panel-header-light-framed-collapsed-right-fbg-rtl.gif), corners:url(images/panel-header/panel-header-light-framed-collapsed-right-corners.gif), corners-rtl:url(images/panel-header/panel-header-light-framed-collapsed-right-corners-rtl.gif), sides:url(images/panel-header/panel-header-light-framed-collapsed-right-sides.gif), sides-rtl:url(images/panel-header/panel-header-light-framed-collapsed-right-sides-rtl.gif)" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-panel-header-light-framed-collapsed-bottom {
     -moz-border-radius-topleft: 0;
@@ -4098,12 +3502,6 @@
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
 .x-panel-header-light-framed-collapsed-bottom-mc {
     padding: 10px 14px 10px 14px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-light-framed-collapsed-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:top, frame:2px 2px 2px 2px, frame-bg:url(images/panel-header/panel-header-light-framed-collapsed-bottom-fbg.gif), corners:url(images/panel-header/panel-header-light-framed-collapsed-bottom-corners.gif), sides:url(images/panel-header/panel-header-light-framed-collapsed-bottom-sides.gif)" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-panel-header-light-framed-collapsed-left {
@@ -4253,12 +3651,6 @@
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
 .x-panel-header-light-framed-collapsed-left-mc {
     padding: 14px 10px 14px 10px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-light-framed-collapsed-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:right, frame:2px 2px 2px 2px, frame-bg:url(images/panel-header/panel-header-light-framed-collapsed-left-fbg.gif), frame-bg-rtl:url(images/panel-header/panel-header-light-framed-collapsed-left-fbg-rtl.gif), corners:url(images/panel-header/panel-header-light-framed-collapsed-left-corners.gif), corners-rtl:url(images/panel-header/panel-header-light-framed-collapsed-left-corners-rtl.gif), sides:url(images/panel-header/panel-header-light-framed-collapsed-left-sides.gif), sides-rtl:url(images/panel-header/panel-header-light-framed-collapsed-left-sides-rtl.gif)" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/panel/Panel.scss:1188 */
 .x-panel .x-panel-header-light-framed-top {
@@ -4555,12 +3947,6 @@
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
 .x-btn-plain-toolbar-small-mc {
     padding: 7px 7px 7px 7px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-plain-toolbar-small:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:0px 0px 0px 0px, frame-bg:url(images/btn/btn-plain-toolbar-small-fbg.gif)" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/button/Button.scss:2463 */
 .x-btn-plain-toolbar-small {
@@ -5012,42 +4398,6 @@
     border-width: 1px;
     border-color: #009688;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-focus.x-btn-plain-toolbar-small:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-plain-toolbar-small-focus-corners.gif), sides:url(images/btn/btn-plain-toolbar-small-focus-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-small-focus-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-over.x-btn-plain-toolbar-small:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-plain-toolbar-small-over-corners.gif), sides:url(images/btn/btn-plain-toolbar-small-over-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-small-over-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-focus.x-btn-over.x-btn-plain-toolbar-small:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-plain-toolbar-small-focus-over-corners.gif), sides:url(images/btn/btn-plain-toolbar-small-focus-over-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-small-focus-over-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-pressed.x-btn-plain-toolbar-small:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-plain-toolbar-small-pressed-corners.gif), sides:url(images/btn/btn-plain-toolbar-small-pressed-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-small-pressed-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-focus.x-btn-pressed.x-btn-plain-toolbar-small:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-plain-toolbar-small-focus-pressed-corners.gif), sides:url(images/btn/btn-plain-toolbar-small-focus-pressed-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-small-focus-pressed-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-disabled.x-btn-plain-toolbar-small:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-plain-toolbar-small-disabled-corners.gif), sides:url(images/btn/btn-plain-toolbar-small-disabled-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-small-disabled-fbg.gif)" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/button/Button.scss:3294 */
 .x-button-plain-toolbar-small-cell > .x-grid-cell-inner {
     padding-top: 2px;
@@ -5148,12 +4498,6 @@
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
 .x-btn-plain-toolbar-medium-mc {
     padding: 8px 8px 8px 8px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-plain-toolbar-medium:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:0px 0px 0px 0px, frame-bg:url(images/btn/btn-plain-toolbar-medium-fbg.gif)" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/button/Button.scss:2463 */
 .x-btn-plain-toolbar-medium {
@@ -5605,42 +4949,6 @@
     border-width: 1px;
     border-color: #009688;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-focus.x-btn-plain-toolbar-medium:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-plain-toolbar-medium-focus-corners.gif), sides:url(images/btn/btn-plain-toolbar-medium-focus-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-medium-focus-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-over.x-btn-plain-toolbar-medium:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-plain-toolbar-medium-over-corners.gif), sides:url(images/btn/btn-plain-toolbar-medium-over-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-medium-over-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-focus.x-btn-over.x-btn-plain-toolbar-medium:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-plain-toolbar-medium-focus-over-corners.gif), sides:url(images/btn/btn-plain-toolbar-medium-focus-over-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-medium-focus-over-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-pressed.x-btn-plain-toolbar-medium:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-plain-toolbar-medium-pressed-corners.gif), sides:url(images/btn/btn-plain-toolbar-medium-pressed-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-medium-pressed-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-focus.x-btn-pressed.x-btn-plain-toolbar-medium:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-plain-toolbar-medium-focus-pressed-corners.gif), sides:url(images/btn/btn-plain-toolbar-medium-focus-pressed-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-medium-focus-pressed-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-disabled.x-btn-plain-toolbar-medium:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-plain-toolbar-medium-disabled-corners.gif), sides:url(images/btn/btn-plain-toolbar-medium-disabled-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-medium-disabled-fbg.gif)" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/button/Button.scss:3294 */
 .x-button-plain-toolbar-medium-cell > .x-grid-cell-inner {
     padding-top: 0;
@@ -5741,12 +5049,6 @@
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
 .x-btn-plain-toolbar-large-mc {
     padding: 9px 9px 9px 9px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-plain-toolbar-large:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, frame-bg:url(images/btn/btn-plain-toolbar-large-fbg.gif)" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/button/Button.scss:2463 */
 .x-btn-plain-toolbar-large {
@@ -6197,42 +5499,6 @@
 .x-keyboard-mode .x-nbr .x-segmented-button-item.x-btn-focus.x-btn-pressed.x-btn-plain-toolbar-large:after {
     border-width: 1px;
     border-color: #009688;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-focus.x-btn-plain-toolbar-large:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:2px 2px 2px 2px, corners:url(images/btn/btn-plain-toolbar-large-focus-corners.gif), sides:url(images/btn/btn-plain-toolbar-large-focus-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-large-focus-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-over.x-btn-plain-toolbar-large:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:2px 2px 2px 2px, corners:url(images/btn/btn-plain-toolbar-large-over-corners.gif), sides:url(images/btn/btn-plain-toolbar-large-over-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-large-over-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-focus.x-btn-over.x-btn-plain-toolbar-large:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:2px 2px 2px 2px, corners:url(images/btn/btn-plain-toolbar-large-focus-over-corners.gif), sides:url(images/btn/btn-plain-toolbar-large-focus-over-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-large-focus-over-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-pressed.x-btn-plain-toolbar-large:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:2px 2px 2px 2px, corners:url(images/btn/btn-plain-toolbar-large-pressed-corners.gif), sides:url(images/btn/btn-plain-toolbar-large-pressed-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-large-pressed-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-focus.x-btn-pressed.x-btn-plain-toolbar-large:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:2px 2px 2px 2px, corners:url(images/btn/btn-plain-toolbar-large-focus-pressed-corners.gif), sides:url(images/btn/btn-plain-toolbar-large-focus-pressed-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-large-focus-pressed-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-disabled.x-btn-plain-toolbar-large:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:2px 2px 2px 2px, corners:url(images/btn/btn-plain-toolbar-large-disabled-corners.gif), sides:url(images/btn/btn-plain-toolbar-large-disabled-sides.gif), frame-bg:url(images/btn/btn-plain-toolbar-large-disabled-fbg.gif)" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/button/Button.scss:3294 */
 .x-button-plain-toolbar-large-cell > .x-grid-cell-inner {
@@ -10405,30 +9671,6 @@ tr.x-grid-subtable-row {
 .x-panel .x-panel-header-main-head-collapsed-border-left {
     border-right-width: 1px !important;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-main-head-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-main-head-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-main-head-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:right" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-panel-header-main-head-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:left" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/panel/Panel.scss:1336 */
 .x-panel-header-main-head-horizontal .x-tool-after-title {
     margin: 0 0 0 6px;
@@ -10791,12 +10033,6 @@ tr.x-grid-subtable-row {
 .x-toolbar-more-icon:before {
     content: "\f0c9";
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-toolbar-main-head-toolbar:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, bg:url(images/toolbar/toolbar-main-head-toolbar-bg.gif), stretch:bottom" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-btn-planbutton-small {
     -webkit-border-radius: 0;
@@ -10888,12 +10124,6 @@ tr.x-grid-subtable-row {
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
 .x-btn-planbutton-small-mc {
     padding: 7px 7px 7px 7px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-planbutton-small:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:0 0 0 0, frame-bg:url(images/btn/btn-planbutton-small-fbg.gif)" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/button/Button.scss:2463 */
 .x-btn-planbutton-small {
@@ -11345,42 +10575,6 @@ tr.x-grid-subtable-row {
     border-width: 1px;
     border-color: #c0d7d4;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-focus.x-btn-planbutton-small:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-planbutton-small-focus-corners.gif), sides:url(images/btn/btn-planbutton-small-focus-sides.gif), frame-bg:url(images/btn/btn-planbutton-small-focus-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-over.x-btn-planbutton-small:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-planbutton-small-over-corners.gif), sides:url(images/btn/btn-planbutton-small-over-sides.gif), frame-bg:url(images/btn/btn-planbutton-small-over-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-focus.x-btn-over.x-btn-planbutton-small:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-planbutton-small-focus-over-corners.gif), sides:url(images/btn/btn-planbutton-small-focus-over-sides.gif), frame-bg:url(images/btn/btn-planbutton-small-focus-over-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-pressed.x-btn-planbutton-small:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-planbutton-small-pressed-corners.gif), sides:url(images/btn/btn-planbutton-small-pressed-sides.gif), frame-bg:url(images/btn/btn-planbutton-small-pressed-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-focus.x-btn-pressed.x-btn-planbutton-small:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-planbutton-small-focus-pressed-corners.gif), sides:url(images/btn/btn-planbutton-small-focus-pressed-sides.gif), frame-bg:url(images/btn/btn-planbutton-small-focus-pressed-fbg.gif)" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-btn-disabled.x-btn-planbutton-small:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:1px 1px 1px 1px, corners:url(images/btn/btn-planbutton-small-disabled-corners.gif), sides:url(images/btn/btn-planbutton-small-disabled-sides.gif), frame-bg:url(images/btn/btn-planbutton-small-disabled-fbg.gif)" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/button/Button.scss:3294 */
 .x-button-planbutton-small-cell > .x-grid-cell-inner {
     padding-top: 2px;
@@ -11482,12 +10676,6 @@ tr.x-grid-subtable-row {
 .x-tab-main-tab-panel-top-mc {
     padding: 8px 10px 8px 10px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-main-tab-panel-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:0 0 0 0, frame-bg:url(images/tab/tab-main-tab-panel-top-fbg.gif)" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-tab-main-tab-panel-bottom {
     -moz-border-radius-topleft: 0;
@@ -11586,12 +10774,6 @@ tr.x-grid-subtable-row {
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
 .x-tab-main-tab-panel-bottom-mc {
     padding: 8px 10px 8px 10px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-main-tab-panel-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:top, frame:0 0 0 0, frame-bg:url(images/tab/tab-main-tab-panel-bottom-fbg.gif)" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-tab-main-tab-panel-left {
@@ -11692,12 +10874,6 @@ tr.x-grid-subtable-row {
 .x-tab-main-tab-panel-left-mc {
     padding: 8px 10px 8px 10px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-main-tab-panel-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:0 0 0 0, frame-bg:url(images/tab/tab-main-tab-panel-left-fbg.gif)" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:187 */
 .x-tab-main-tab-panel-right {
     -moz-border-radius-topleft: 0;
@@ -11796,12 +10972,6 @@ tr.x-grid-subtable-row {
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/frame.scss:464 */
 .x-tab-main-tab-panel-right-mc {
     padding: 8px 10px 8px 10px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-main-tab-panel-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom, frame:0 0 0 0, frame-bg:url(images/tab/tab-main-tab-panel-right-fbg.gif)" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Tab.scss:2672 */
 .x-tab-main-tab-panel {
@@ -12778,150 +11948,6 @@ tr.x-grid-subtable-row {
     padding-right: 0px;
     padding-left: 16px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-main-tab-panel-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-top-focus-corners.gif), sides:url(images/tab/tab-main-tab-panel-top-focus-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-top-focus-fbg.gif), frame:0 0 0 0, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-main-tab-panel-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-right-focus-corners.gif), sides:url(images/tab/tab-main-tab-panel-right-focus-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-right-focus-fbg.gif), frame:0 0 0 0, stretch:left" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-main-tab-panel-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-bottom-focus-corners.gif), sides:url(images/tab/tab-main-tab-panel-bottom-focus-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-bottom-focus-fbg.gif), frame:0 0 0 0, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-main-tab-panel-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-left-focus-corners.gif), sides:url(images/tab/tab-main-tab-panel-left-focus-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-left-focus-fbg.gif), frame:0 0 0 0, stretch:right" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-over.x-tab-main-tab-panel-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-top-over-corners.gif), sides:url(images/tab/tab-main-tab-panel-top-over-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-top-over-fbg.gif), frame:0 0 0 0, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-over.x-tab-main-tab-panel-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-right-over-corners.gif), sides:url(images/tab/tab-main-tab-panel-right-over-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-right-over-fbg.gif), frame:0 0 0 0, stretch:left" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-over.x-tab-main-tab-panel-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-bottom-over-corners.gif), sides:url(images/tab/tab-main-tab-panel-bottom-over-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-bottom-over-fbg.gif), frame:0 0 0 0, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-over.x-tab-main-tab-panel-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-left-over-corners.gif), sides:url(images/tab/tab-main-tab-panel-left-over-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-left-over-fbg.gif), frame:0 0 0 0, stretch:right" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-active.x-tab-main-tab-panel-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-top-active-corners.gif), sides:url(images/tab/tab-main-tab-panel-top-active-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-top-active-fbg.gif), frame:0 0 0 0, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-active.x-tab-main-tab-panel-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-right-active-corners.gif), sides:url(images/tab/tab-main-tab-panel-right-active-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-right-active-fbg.gif), frame:0 0 0 0, stretch:left" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-active.x-tab-main-tab-panel-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-bottom-active-corners.gif), sides:url(images/tab/tab-main-tab-panel-bottom-active-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-bottom-active-fbg.gif), frame:0 0 0 0, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-active.x-tab-main-tab-panel-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-left-active-corners.gif), sides:url(images/tab/tab-main-tab-panel-left-active-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-left-active-fbg.gif), frame:0 0 0 0, stretch:right" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-over.x-tab-main-tab-panel-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-top-focus-over-corners.gif), sides:url(images/tab/tab-main-tab-panel-top-focus-over-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-top-focus-over-fbg.gif), frame:0 0 0 0, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-over.x-tab-main-tab-panel-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-right-focus-over-corners.gif), sides:url(images/tab/tab-main-tab-panel-right-focus-over-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-right-focus-over-fbg.gif), frame:0 0 0 0, stretch:left" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-over.x-tab-main-tab-panel-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-bottom-focus-over-corners.gif), sides:url(images/tab/tab-main-tab-panel-bottom-focus-over-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-bottom-focus-over-fbg.gif), frame:0 0 0 0, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-over.x-tab-main-tab-panel-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-left-focus-over-corners.gif), sides:url(images/tab/tab-main-tab-panel-left-focus-over-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-left-focus-over-fbg.gif), frame:0 0 0 0, stretch:right" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-active.x-tab-main-tab-panel-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-top-focus-active-corners.gif), sides:url(images/tab/tab-main-tab-panel-top-focus-active-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-top-focus-active-fbg.gif), frame:0 0 0 0, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-active.x-tab-main-tab-panel-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-right-focus-active-corners.gif), sides:url(images/tab/tab-main-tab-panel-right-focus-active-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-right-focus-active-fbg.gif), frame:0 0 0 0, stretch:left" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-active.x-tab-main-tab-panel-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-bottom-focus-active-corners.gif), sides:url(images/tab/tab-main-tab-panel-bottom-focus-active-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-bottom-focus-active-fbg.gif), frame:0 0 0 0, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-focus.x-tab-active.x-tab-main-tab-panel-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-left-focus-active-corners.gif), sides:url(images/tab/tab-main-tab-panel-left-focus-active-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-left-focus-active-fbg.gif), frame:0 0 0 0, stretch:right" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-disabled.x-tab-main-tab-panel-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-top-disabled-corners.gif), sides:url(images/tab/tab-main-tab-panel-top-disabled-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-top-disabled-fbg.gif), frame:0 0 0 0, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-disabled.x-tab-main-tab-panel-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-right-disabled-corners.gif), sides:url(images/tab/tab-main-tab-panel-right-disabled-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-right-disabled-fbg.gif), frame:0 0 0 0, stretch:left" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-disabled.x-tab-main-tab-panel-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-bottom-disabled-corners.gif), sides:url(images/tab/tab-main-tab-panel-bottom-disabled-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-bottom-disabled-fbg.gif), frame:0 0 0 0, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-disabled.x-tab-main-tab-panel-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, corners:url(images/tab/tab-main-tab-panel-left-disabled-corners.gif), sides:url(images/tab/tab-main-tab-panel-left-disabled-sides.gif), frame-bg:url(images/tab/tab-main-tab-panel-left-disabled-fbg.gif), frame:0 0 0 0, stretch:right" !important;
-}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:389 */
 .x-tab-bar-main-tab-panel {
     background-color: #f6f6f6;
@@ -13154,30 +12180,6 @@ tr.x-grid-subtable-row {
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:792 */
 .x-tab-bar-main-tab-panel-left .x-box-scroller-tab-bar-main-tab-panel {
     margin-left: -8px;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-bar-main-tab-panel-top:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:bottom" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-bar-main-tab-panel-bottom:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:top" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-bar-main-tab-panel-left:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:right" !important;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-base/sass/etc/mixins/slicer.scss:83 */
-.x-cmd-slicer.x-tab-bar-main-tab-panel-right:before {
-    /*<if slicer>*/
-    display: none;
-    content: "x-slicer:, stretch:left" !important;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/packages/core/sass/src/list/TreeItem.scss:495 */
 .x-treelist-navigation {

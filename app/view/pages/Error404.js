@@ -19,7 +19,7 @@ Ext.define('App.view.pages.Error404', {
         {
             xtype: 'label',
             cls: 'base-page-desc',
-            html: '<div>找不到该页面!</div><div>返回 <a href="#view.home"> 首页 </a></div>'
+            html: '<div>找不到该页面!</div><div>返回 <a href="#view.main"> 首页 </a></div>'
         },
         {
             xtype: 'tbspacer',

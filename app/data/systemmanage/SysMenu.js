@@ -4,7 +4,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
         var me = this;
         me.dataSource = [
             { "SysMenuId": "2ee4b173-4e09-44db-8550-23d54392077e", "ParentId": "", "ViewType": "", "PageType": "", "MenuName": "页面", "Order": 0, "Description": "", "IconCls": "x-fa fa-tags", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "4fd54f9d-34fd-46a7-81a5-bdf0cbb69339", "ParentId": "", "ViewType": "", "PageType": "", "MenuName": "授权费用", "Order": 6, "Description": "", "IconCls": "x-fa fa-usd", "IsEnable": 1, "isDel": 0 },
+            { "SysMenuId": "4fd54f9d-34fd-46a7-81a5-bdf0cbb69339", "ParentId": "", "ViewType": "cost", "PageType": "tab", "MenuName": "授权费用", "Order": 6, "Description": "", "IconCls": "x-fa fa-usd", "IsEnable": 1, "isDel": 0 },
             { "SysMenuId": "a562d8b2-2990-4595-a9eb-04d0c8665710", "ParentId": "", "ViewType": "", "PageType": "", "MenuName": "集成插件", "Order": 1, "Description": "", "IconCls": "x-fa fa-cogs", "IsEnable": 1, "isDel": 0 },
             { "SysMenuId": "55291f54-5ff6-4521-836c-492e099cf426", "ParentId": "", "ViewType": "", "PageType": "", "MenuName": "封装详情", "Order": 2, "Description": "", "IconCls": "x-fa fa-paper-plane-o", "IsEnable": 1, "isDel": 0 },
             { "SysMenuId": "186ffc34-1bc1-408c-a8d2-01f5a4499315", "ParentId": "", "ViewType": "", "PageType": "", "MenuName": "主题", "Order": 3, "Description": "", "IconCls": "x-fa fa-tv", "IsEnable": 1, "isDel": 0 },
