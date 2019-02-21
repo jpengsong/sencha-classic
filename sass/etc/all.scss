@@ -1,6 +1,10 @@
 
 //******************************************************全局样式******************************************************
 
+.base-backgroundcolor{
+    background-color: #009688 !important;
+}
+
 //****************遮罩样式**************
 .x-mask-ui{
     background-color:transparent !important;
@@ -52,7 +56,6 @@
 	opacity: 0.6;
 	pointer-events:none;
 }
-
 
 p.sncStoreNavP {
     padding: 0px;

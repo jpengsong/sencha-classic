@@ -1,13 +1,17 @@
-/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:5 */
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:4 */
+.base-backgroundcolor {
+    background-color: #009688 !important;
+}
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:9 */
 .x-mask-ui {
     background-color: transparent !important;
     z-index: 200000000 !important;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:10 */
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:14 */
 .x-mask-ui > .x-mask-msg {
     padding: 0px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:14 */
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:18 */
 .x-mask-ui .x-mask-msg-text {
     padding: 50px 20px 5px 20px;
     background-size: 60px;
@@ -15,22 +19,22 @@
     background-color: #000;
     background-image: url(images/loadmask/loading_1.gif);
 }
-/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:24 */
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:28 */
 .x-message-box >.x-window-bodyWrap >.x-window-body {
     line-height: 40px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:29 */
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:33 */
 .webuploader-container {
     position: relative;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:32 */
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:36 */
 .webuploader-element-invisible {
     position: absolute !important;
     clip: rect(1px 1px 1px 1px);
     /* IE6, IE7 */
     clip: rect(1px, 1px, 1px, 1px);
 }
-/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:37 */
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:41 */
 .webuploader-pick {
     position: relative;
     display: inline-block;
@@ -42,16 +46,16 @@
     border-radius: 3px;
     overflow: hidden;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:48 */
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:52 */
 .webuploader-pick-hover {
     background: #00a2d4;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:52 */
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:56 */
 .webuploader-pick-disable {
     opacity: 0.6;
     pointer-events: none;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:58 */
+/* G:/ExtJS/Project/sencha-classic/sass/etc/all.scss:61 */
 p.sncStoreNavP {
     padding: 0px;
     margin: 0px;
@@ -16317,8 +16321,4 @@ div.x-border-layout-ct {
     position: absolute;
     bottom: 0;
     right: 0;
-}
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:34 */
-.x-resizable-handle-northwest {
-    cursor: nw-resize;
 }

@@ -159,21 +159,12 @@ Ext.define("App.view.main.MainController", {
 
     //切换菜单项
     onNavigationTreeListChange: function (treelist, record, eOpts) {
-        var me = this, selNodes = Ext.dom.Query.select(".x-treelist-row"), data = record.data;
-        for (var i = 0; i < selNodes.length; i++) {
-            selNodes[i].style.backgroundColor = "";
-        }
-        if (data.children == null && data.parentId == "root" || data.parentId != "root") {
-            var selNode = Ext.dom.Query.selectNode(".x-treelist-item-selected > .x-treelist-row", treelist.el.dom);
-            if (selNode == null) {
-                selNode = Ext.dom.Query.selectNode(".x-treelist-navigation .x-treelist-item-selected > .x-treelist-row");
-            }
-            selNode.style.backgroundColor = "#009688";
-        }
+        var me = this, data = record.data;
         if (!Ext.isEmpty(data.ViewType) && !Ext.isEmpty(data.PageType)) {
             me.redirectTo(data.PageType + "." + data.ViewType);
         }
     },
+
 
     //折叠
     onMicro: function () {

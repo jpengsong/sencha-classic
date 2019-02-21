@@ -1,16 +1,17 @@
 # app
 
-This folder is primarily a container for the top-level pieces of the application.
-While you can remove some files and folders that this application does not use,
-be sure to read below before deciding what can be deleted and what needs to be
-kept in source control.
+此文件夹主要是应用程序顶级部分的容器。
 
-The following files are all needed to build and load the application.
+虽然可以删除此应用程序不使用的某些文件和文件夹，
 
- - `"app.json"` - The application descriptor which controls how the application is
-   built and loaded.
- - `"app.js"` - The file that launches the application. This is primarily used to
-   launch an instance of the `MyApp.Application` class.
+在决定删除什么和需要删除什么之前，请务必阅读下面的内容
+
+保存在源代码管理中。
+
+生成和加载应用程序都需要以下文件。
+
+ - `"app.json"` - 控制应用程序方式的应用程序描述符建造和装载。
+ - `"app.js"` - 启动应用程序的文件。主要用于启动'myapp.application'类的实例。
  - `"index.html"` - The default web page for this application. This can be customized
    in `"app.json"`.
  - `"build.xml"` - The entry point for Sencha Cmd to access the generated build

@@ -45,6 +45,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
             checkPropagation: 'both',
             animate: true,
             flex: 1,
+            useArrows :true,
             bind: {
                 store: '{treestore}'
             },

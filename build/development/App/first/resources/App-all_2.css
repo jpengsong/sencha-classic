@@ -1,3 +1,7 @@
+/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:34 */
+.x-resizable-handle-northwest {
+    cursor: nw-resize;
+}
 /* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/src/resizer/Resizer.scss:37 */
 .x-resizable-handle-northwest:before {
     position: absolute;
@@ -13195,9 +13199,19 @@ tr.x-grid-subtable-row {
 .x-treelist-navigation .x-treelist-toolstrip {
     background-color: #28333e;
 }
+/* G:/ExtJS/Project/sencha-classic/ext/packages/core/sass/src/list/TreeItem.scss:117 */
+.x-treelist-navigation .x-treelist-item-selected.x-treelist-item-tool:after {
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: " ";
+    width: 5px;
+    background-color: #00c9b6;
+}
 /* G:/ExtJS/Project/sencha-classic/ext/packages/core/sass/src/list/TreeItem.scss:134 */
 .x-treelist-navigation .x-treelist-item-selected > .x-treelist-row {
-    background-color: transparent;
+    background-color: #00aa9a;
 }
 /* G:/ExtJS/Project/sencha-classic/ext/packages/core/sass/src/list/TreeItem.scss:143 */
 .x-treelist-navigation .x-treelist-item-tool {
@@ -13352,65 +13366,60 @@ tr.x-grid-subtable-row {
 .x-treelist-navigation .x-treelist-item-hide-icon > * > * > .x-treelist-item-text {
     margin-left: 3px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:87 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:89 */
 .x-treelist-navigation > .x-treelist-root-container > .x-treelist-item > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-icon,
 .x-treelist-navigation .x-treelist-item-tool {
     left: 0px;
     padding-left: 18px;
     padding-right: 32px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:95 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:97 */
 .x-treelist-navigation > .x-treelist-root-container > .x-treelist-item > .x-treelist-row {
     padding: 5px 0px !important;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:100 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:102 */
 .x-treelist-item-selected > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-text,
 .x-treelist-item-selected > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-icon {
     color: #fff !important;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:107 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:109 */
 .x-treelist-navigation .x-treelist-item-text {
     margin-left: 50px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:112 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:114 */
 .x-treelist-navigation .x-treelist-item-tool {
     line-height: 50px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:117 */
-.x-treelist-navigation .x-treelist-item-tool:hover {
-    background-color: #009688;
-}
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:122 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:119 */
 .x-treelist-item-floated > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-text {
     height: 50px;
     line-height: 50px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:129 */
-.x-treelist-item-floated > .x-treelist-container .x-treelist-item-wrap,
-.x-treelist-item-floated > .x-treelist-row {
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:126 */
+.x-treelist-item-floated > .x-treelist-container .x-treelist-item-wrap {
     margin-left: 5px !important;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:136 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:132 */
 .x-treelist-item-floated > .x-treelist-container .x-treelist-item-wrap .x-treelist-item-text {
     margin-left: 25px !important;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:141 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:137 */
 .x-treelist-expander-first .x-treelist-item-expander {
     left: auto;
     right: 0;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:147 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:143 */
 .logo {
     text-align: center;
     color: rgba(255, 255, 255, 0.8);
     font-size: 22px;
     line-height: 50px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:155 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:151 */
 .x-tab-bar-main-tab-panel-top > .x-tab-bar-body-main-tab-panel {
     padding: 0px 0px 0px 0px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:159 */
+/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:155 */
 .x-tab-main-tab-panel-top {
     padding: 0px 15px 0px 15px;
 }

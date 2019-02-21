@@ -78,7 +78,9 @@
     $row-indicator-over-color :lighten($base-color, 10%),         //悬浮某一项伪类  
     $row-indicator-width :5px,                                    //伪类宽 
     $toolstrip-background-color:#28333E,                        //折叠后背景颜色
-    $treelist-tool-indicator-selected-color:red !important
+    $tool-indicator-selected-color : lighten($base-color, 10%),   //折叠选中某一项伪类颜色
+    $tool-indicator-selected-width :5px,                           //折叠选中某一项伪类宽度
+    $row-selected-background-color  :lighten($base-color, 4%),
 );
 
 //******************************************************TreeList公共样式******************************************************
@@ -113,11 +115,6 @@
     line-height: 50px;
 };
 
-//折叠一级菜单项悬浮样式
-.x-treelist-navigation .x-treelist-item-tool:hover{
-    background-color:$base-color;
-};
-
 //折叠一级菜单文本高度
 .x-treelist-item-floated > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-text
 {
@@ -126,8 +123,7 @@
 };
 
 //折叠菜单项外边距
-.x-treelist-item-floated > .x-treelist-container  .x-treelist-item-wrap,
-.x-treelist-item-floated > .x-treelist-row
+.x-treelist-item-floated > .x-treelist-container  .x-treelist-item-wrap
 {
     margin-left: 5px !important;
 };
