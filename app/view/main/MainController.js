@@ -165,7 +165,6 @@ Ext.define("App.view.main.MainController", {
         }
     },
 
-
     //折叠
     onMicro: function () {
         var me = this, refs = me.getReferences(), vm = me.getViewModel(), isMicro = refs.navigationTreeList.getMicro();
