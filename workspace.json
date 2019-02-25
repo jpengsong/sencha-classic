@@ -1,5 +1,13 @@
 {
     /**
+     *  An array of the paths to all the applications present in this workspace
+     */
+    "apps": [
+        "packages/local/theme-first/.sencha/temp/Themer",
+        "packages/local/theme-green/.sencha/temp/Themer"
+    ],
+
+    /**
      * An object containing key value pair framework descriptors.
      *
      * The value should be an object containing "path" the path inside the workspace where the framework

@@ -1,6 +1,6 @@
 $app-name:  dynamic( 'App' );
-$image-search-path: 'G:/ExtJS/Project/sencha-classic/build/production/App/first/resources';
-$theme-name:  dynamic( 'theme-first' );
+$image-search-path: '../classic/App/green/resources';
+$theme-name:  dynamic( 'theme-green' );
 $include-app-ajax: dynamic(true);;
 $include-app-application: dynamic(true);;
 $include-app-cookie: dynamic(true);;
@@ -1123,7 +1123,7 @@ $include-config: dynamic(true);;
 $include-override-panel-panel: dynamic(true);;
 $include-override-proxy-server: dynamic(true);;
 $include-override-ux-simmanager: dynamic(true);;
-$output-paths: ("path": "../../first/resources", "shared": "../../resources");
+$output-paths: ("path": "../../green/resources", "shared": "../../resources");
 
 /* ======================== ETC ======================== */
 
@@ -1183,21 +1183,21 @@ $current-resource-root: $theme-triton-resource-root;
 $relative-image-path-for-uis: $theme-triton-resource-path;
 @import '../../../../../ext/classic/theme-triton/sass/etc/all';
 
-/* including package theme-first */
-$theme-first-resource-root: '' !default;
-$theme-first-resource-path: 'images' !default;
-$current-package: 'theme-first';
-$current-resource-root: $theme-first-resource-root;
-$relative-image-path-for-uis: $theme-first-resource-path;
-@import '../../../../../ext/classic/theme-first/sass/etc/all';
+/* including package theme-green */
+$theme-green-resource-root: '' !default;
+$theme-green-resource-path: 'images' !default;
+$current-package: 'theme-green';
+$current-resource-root: $theme-green-resource-root;
+$relative-image-path-for-uis: $theme-green-resource-path;
+@import '../../../../../ext/classic/theme-green/sass/etc/all';
 
-/* including package theme-first */
-$theme-first-resource-root: '' !default;
-$theme-first-resource-path: 'images' !default;
-$current-package: 'theme-first';
-$current-resource-root: $theme-first-resource-root;
-$relative-image-path-for-uis: $theme-first-resource-path;
-@import '../../../../../ext/classic/theme-first/sass/etc/sencha-themer-defaults';
+/* including package theme-green */
+$theme-green-resource-root: '' !default;
+$theme-green-resource-path: 'images' !default;
+$current-package: 'theme-green';
+$current-resource-root: $theme-green-resource-root;
+$relative-image-path-for-uis: $theme-green-resource-path;
+@import '../../../../../ext/classic/theme-green/sass/etc/sencha-themer-defaults';
 
 /* including package App */
 $App-resource-root: '' !default;
@@ -1388,21 +1388,21 @@ $relative-image-path-for-uis: $theme-triton-resource-path;
 @import '../../../../../ext/classic/theme-triton/sass/var/tab/Bar';
 @import '../../../../../ext/classic/theme-triton/sass/var/tree/View';
 
-/* including package theme-first */
-$theme-first-resource-root: '' !default;
-$theme-first-resource-path: 'images' !default;
-$current-package: 'theme-first';
-$current-resource-root: $theme-first-resource-root;
-$relative-image-path-for-uis: $theme-first-resource-path;
-@import '../../../../../ext/classic/theme-first/sass/var/sencha-themer-defaults';
+/* including package theme-green */
+$theme-green-resource-root: '' !default;
+$theme-green-resource-path: 'images' !default;
+$current-package: 'theme-green';
+$current-resource-root: $theme-green-resource-root;
+$relative-image-path-for-uis: $theme-green-resource-path;
+@import '../../../../../ext/classic/theme-green/sass/var/sencha-themer-defaults';
 
-/* including package theme-first */
-$theme-first-resource-root: '' !default;
-$theme-first-resource-path: 'images' !default;
-$current-package: 'theme-first';
-$current-resource-root: $theme-first-resource-root;
-$relative-image-path-for-uis: $theme-first-resource-path;
-@import '../../../../../ext/classic/theme-first/sass/save';
+/* including package theme-green */
+$theme-green-resource-root: '' !default;
+$theme-green-resource-path: 'images' !default;
+$current-package: 'theme-green';
+$current-resource-root: $theme-green-resource-root;
+$relative-image-path-for-uis: $theme-green-resource-path;
+@import '../../../../../ext/classic/theme-green/sass/save';
 
 /* including package ux */
 $ux-resource-root: 'ux' !default;
@@ -1592,13 +1592,13 @@ $relative-image-path-for-uis: $theme-triton-resource-path;
 @import '../../../../../ext/classic/theme-triton/sass/src/menu/Menu';
 @import '../../../../../ext/classic/theme-triton/sass/src/tab/Tab';
 
-/* including package theme-first */
-$theme-first-resource-root: '' !default;
-$theme-first-resource-path: 'images' !default;
-$current-package: 'theme-first';
-$current-resource-root: $theme-first-resource-root;
-$relative-image-path-for-uis: $theme-first-resource-path;
-@import '../../../../../ext/classic/theme-first/sass/src/sencha-themer-defaults';
+/* including package theme-green */
+$theme-green-resource-root: '' !default;
+$theme-green-resource-path: 'images' !default;
+$current-package: 'theme-green';
+$current-resource-root: $theme-green-resource-root;
+$relative-image-path-for-uis: $theme-green-resource-path;
+@import '../../../../../ext/classic/theme-green/sass/src/sencha-themer-defaults';
 
 /* including package ux */
 $ux-resource-root: 'ux' !default;

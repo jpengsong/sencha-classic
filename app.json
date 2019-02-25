@@ -4,7 +4,7 @@
     "version": "1.0.0.0",
     "framework": "ext",
     "toolkit": "classic",
-    "theme": "theme-fifth",
+    "theme": "theme-green",
     "requires": [
         "font-awesome",
         "ux",
@@ -359,9 +359,9 @@
      *
      */
     "builds": {
-        "first": {
-            "first": "classic",
-            "theme": "theme-first"
+        "green": {
+            "green": "classic",
+            "theme": "theme-green"
         }
         // ,
         // "third": {
