@@ -6,7 +6,9 @@
 Ext.define('App.Application', {
     extend: 'Ext.app.Application',
     requires: [
+        'Ext.Img',
         'Ext.list.TreeItem',
+        'Ext.layout.container.Table',
         'Ext.layout.container.Border',
         'Ext.layout.container.Column',
         'Ext.data.identifier.Uuid'

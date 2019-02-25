@@ -1,5 +1,5 @@
 $app-name:  dynamic( 'App' );
-$image-search-path: '../classic/App/green/resources';
+$image-search-path: 'G:/ExtJS/Project/sencha-classic/build/production/App/green/resources';
 $theme-name:  dynamic( 'theme-green' );
 $include-app-ajax: dynamic(true);;
 $include-app-application: dynamic(true);;
