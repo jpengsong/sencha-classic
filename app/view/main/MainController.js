@@ -3,16 +3,19 @@ Ext.define("App.view.main.MainController", {
     alias: 'controller.main',
     lastView: null,
     routes: {
+
         //跳转视图
         'view.:node': {
             before: "onBeforeUser",
             action: "onRouteChange"
         },
-        //跳转页面
+
+        //页签页面
         'tab.:node': {
             before: "onBeforeUser",
             action: "onRouteTabChange"
         },
+
         //登录成功跳转
         'user.:node': {
             before: "onBeforeLoginUser",
@@ -33,12 +36,10 @@ Ext.define("App.view.main.MainController", {
     //登录检测
     onBeforeUser: function (id, action) {
         var me = this;
+        //未登陆并且不是登录页
         if (Ext.isEmpty(App.UserInfo.Token) && id != "login") {
             action.stop();
             me.redirectTo('view.login', true);
-        } else if (!Ext.isEmpty(App.UserInfo.Token) && id == "login") {
-            action.stop();
-            Ext.util.History.back();
         } else {
             action.resume();
         }
@@ -140,13 +141,6 @@ Ext.define("App.view.main.MainController", {
         }
     },
 
-    onTabChange: function (tabPanel, newCard, oldCard, eOpts) {
-        var me = this, hash = window.location.hash.replace('#', '');
-        if (hash != "tab." + newCard.xtype) {
-            me.redirectTo('tab.' + newCard.xtype);
-        }
-    },
-
     //初始化主页
     onMainViewRender: function () {
         var me = this, hash = window.location.hash.replace('#', '');
@@ -157,7 +151,7 @@ Ext.define("App.view.main.MainController", {
         }
     },
 
-    //切换菜单项
+    //点击菜单项
     onNavigationTreeListChange: function (treelist, record, eOpts) {
         var me = this, data = record.data;
         if (!Ext.isEmpty(data.ViewType) && !Ext.isEmpty(data.PageType)) {
@@ -165,7 +159,15 @@ Ext.define("App.view.main.MainController", {
         }
     },
 
-    //折叠
+    //页签切换
+    onTabChange: function (tabPanel, newCard, oldCard, eOpts) {
+        var me = this, hash = window.location.hash.replace('#', '');
+        if (hash != "tab." + newCard.xtype) {
+            me.redirectTo('tab.' + newCard.xtype);
+        }
+    },
+
+    //菜单折叠
     onMicro: function () {
         var me = this, refs = me.getReferences(), vm = me.getViewModel(), isMicro = refs.navigationTreeList.getMicro();
         if (!isMicro) {
@@ -181,5 +183,66 @@ Ext.define("App.view.main.MainController", {
             refs.navigationTreeList.up('container').setWidth(220);
             refs.navigationTreeList.setMicro(false);
         }
+    },
+
+    //退出登录
+    onLogout: function () {
+        var me = this;
+        App.UserInfo.Token = null;
+        App.Cookie.DeleteCookie("user");
+        window.location.reload();
+    },
+
+    //右侧弹出窗
+    onRpopWindow: function () {
+        var me = this,
+            mainCardPanel = Ext.getCmp("mainCardPanel"),
+            refs = me.getReferences(),
+            width = 300,
+            height = (mainCardPanel.getHeight() - refs.header.getHeight()),
+            y = mainCardPanel.getHeight() - height,
+            x = mainCardPanel.getWidth();
+
+        Ext.widget({
+            xtype: "rwindow",
+            width: width,
+            height: height,
+            y: y,
+            x: x
+        });
+    },
+
+    //开启全屏
+    onFullScreen: function () {
+        var element = Ext.getBody().dom;
+        if (document.isFullScreen != undefined) {
+            if (document.isFullScreen) {
+                document.cancelFullScreen();
+            } else {
+                element.requestFullScreen();
+            }
+        }
+        if (document.mozIsFullScreen != undefined) {
+            if (document.mozIsFullScreen) {
+                document.mozCancelFullScreen();
+            } else {
+                element.mozRequestFullScreen();
+            }
+        }
+        if (document.webkitIsFullScreen != undefined) {
+            if (document.webkitIsFullScreen) {
+                document.webkitCancelFullScreen();
+            } else {
+                element.webkitRequestFullscreen();
+            }
+        }
+    },
+
+    //基本资料
+    onBasicInfo: function (obj) {
+        Ext.widget({
+            xtype: "basicinfo",
+            animateTarget: obj
+        })
     }
 })

@@ -74,7 +74,7 @@ Ext.define('App.ux.utility.Cookie', {
             cookieval = me.GetCookie(name);
 
             if (cookieval !== null) {
-                document.cookie = name + "=" + cookieval;
+                document.cookie = name + "=;  expires=Thu, 01 Jan 1970 00:00:01 GMT";
             }
         }
     }

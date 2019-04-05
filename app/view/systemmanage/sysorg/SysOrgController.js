@@ -4,7 +4,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
 
     //左侧组织机构选中某一项
     onTreeSelect: function (store, record, index, eOpts) {
-        var me = this, vm = me.getViewModel(), refs = me.getReferences(), querypanel = refs.query, gridStore = vm.getStore("gridstore");
+        var me = this, refs = me.getReferences(), vm = me.getViewModel(), querypanel = refs.query, gridStore = vm.getStore("gridstore");
         Ext.override(querypanel, {
             getQueryItems: function () {
                 var queryItems = App.Page.getQueryItems(Ext.ComponentQuery.query("container[reference='searchcondition']", querypanel)[0]);
@@ -126,7 +126,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
 
     //删除
     onDelete: function () {
-        var me = this, refs = me.getReferences(), records, idArray = [];
+        var me = this, refs = me.getView().scope.getReferences(), records, idArray = [];
         if (App.Page.selectionModel(refs.grid, true)) {
             records = refs.grid.getSelectionModel().getSelection();
             Ext.each(records, function (record, index) {

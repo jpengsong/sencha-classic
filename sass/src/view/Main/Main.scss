@@ -24,7 +24,7 @@
 //main-tab-panel
 @include extjs-tab-panel-ui  (
     $ui:"main-tab-panel",
-    $ui-bar-background-color:#f6f6f6,                         //tab背景颜色
+    $ui-bar-background-color:#fff,                         //tab背景颜色
     $ui-tab-background-color-over:#f6f6f6,                    //tab悬浮背景颜色  
     $ui-tab-background-color-active:#ddd,                     //tab选中背景颜色
     $ui-tab-color:#666,                                       //tab文本颜色

@@ -8,7 +8,8 @@
     "requires": [
         "font-awesome",
         "ux",
-        "locale"
+        "locale",
+        "charts"
     ],
     "locale": "zh_CN",
     "indexHtmlPath": "index.html",
@@ -182,7 +183,7 @@
             "includeInBundle": false
         },
         {
-            "path": "${framework.dir}/build/ext-all-rtl-debug.js"
+            "path": "${framework.dir}/build/ext-all-debug.js"
         },
         {
             "path": "app.js",

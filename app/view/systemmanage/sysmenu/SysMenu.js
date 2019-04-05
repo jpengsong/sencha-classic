@@ -2,8 +2,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
     xtype: "sysmenu",
     viewModel: "sysmenu",
     controller: "sysmenu",
-    style: { "border-top": "1px solid #d1d1d1" },
-    extend: "App.ux.page.Page",
+    extend: "App.ux.page.TreePage",
     initComponent: function () {
         var me = this;
         me.initTreePanel();

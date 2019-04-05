@@ -1,8 +1,6 @@
-Ext.define("App.view.systemmanage.sysrole.SysRole", {
-    xtype: "sysrole",
-    viewModel: "sysrole",
-    controller: "sysrole",
+Ext.define("App.view.systemmanage.sysorg.SysOrgPage", {
     extend: "App.ux.page.Page",
+    xtype: "sysorgpage",
     initComponent: function () {
         var me = this;
         me.initQueryPanel();
@@ -15,6 +13,7 @@ Ext.define("App.view.systemmanage.sysrole.SysRole", {
         querypanel = Ext.create("App.ux.query.QueryPanel", {
             grid: "Grid",
             scope: me,
+            reference:"query",
             queryConfig: {
                 defaults: {
                     margin: "5 5",
@@ -26,10 +25,10 @@ Ext.define("App.view.systemmanage.sysrole.SysRole", {
                 items: [
                     {
                         xtype: 'textfield',
-                        name: 'RoleName',
+                        name: 'OrgName',
                         method: config.QueryMethod.Like,
                         type: "String",
-                        fieldLabel: '角色名'
+                        fieldLabel: '机构名称'
                     }
                 ]
             }
@@ -46,22 +45,17 @@ Ext.define("App.view.systemmanage.sysrole.SysRole", {
                 {
                     text: '新增',
                     iconCls: "x-fa fa-plus",
-                    handler:"onAdd"
+                    handler: "onAdd"
                 },
                 {
                     text: '编辑',
                     iconCls: "x-fa fa-pencil-square-o",
-                    handler:"onEdit"
+                    handler: "onEdit"
                 },
                 {
                     text: '删除',
                     iconCls: "x-fa fa-trash-o",
-                    handler:"onDel"
-                },
-                {
-                    text: '分配权限',
-                    iconCls: "x-fa fa-group",
-                    handler:"onMenuRole"
+                    handler: "onDelete"
                 }
             ]
         })
@@ -69,15 +63,17 @@ Ext.define("App.view.systemmanage.sysrole.SysRole", {
         gridpanel = Ext.create("Ext.grid.Panel", {
             tbar: toolbar,
             columnLines: true,
-            reference:"grid",
             selType: 'checkboxmodel',
+            reference:"grid",
             bind: {
                 store: '{gridstore}'
             },
             columns: {
                 items: [
-                    { text: '角色名称', dataIndex: 'RoleName',width:200 },
-                    { text: '描述', dataIndex: 'Description', flex:1 }
+                    { text: '机构名称', dataIndex: 'OrgName', width: 200 },
+                    { text: '机构代码', dataIndex: 'OrgCode', width: 200 },
+                    { text: '排序', dataIndex: 'Sort', width: 50 },
+                    { text: '描述', dataIndex: 'Description', flex: 1 }
                 ]
             },
             bbar: {
@@ -86,7 +82,7 @@ Ext.define("App.view.systemmanage.sysrole.SysRole", {
             },
             plugins: {
                 requestdata: {
-                    autoLoad: true,
+                    autoLoad: false,
                     pagination: true
                 }
             }

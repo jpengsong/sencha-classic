@@ -23,6 +23,11 @@
     background-image: url(images/loadmask/loading_1.gif)
 }
 
+//****************遮罩样式**************
+.x-column-header-checkbox{
+    border-color: #d1d1d1 !important;
+}
+
 //****************弹框文本居中**************
 .x-message-box >.x-window-bodyWrap >.x-window-body{
     line-height: 40px;

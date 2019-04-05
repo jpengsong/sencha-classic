@@ -16,6 +16,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
             grid: "Grid",
             scope: me,
             queryConfig: {
+                padding:"5 30",
                 defaults: {
                     margin: "5 5",
                     labelWidth: 70,
@@ -82,6 +83,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
         gridpanel = Ext.create("Ext.grid.Panel", {
             tbar: toolbar,
             reference:"grid",
+            columnLines: true,
             selModel : {
                 type:"checkboxmodel"
             },
@@ -100,7 +102,8 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
             },
             bbar: {
                 xtype: 'pagingtoolbar',
-                displayInfo: true
+                displayInfo: true,
+                border:false
             },
             plugins: {
                 requestdata: {

@@ -61,5 +61,8 @@ Ext.define("App.view.authentication.Login", {
                 }
             ]
         }
-    ]
+    ],
+    listeners:{
+        afterrender:"onloginAfterrender"
+    }
 })

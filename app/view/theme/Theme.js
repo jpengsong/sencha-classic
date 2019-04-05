@@ -19,13 +19,14 @@ Ext.define("App.view.theme.Theme", {
             defaults: {
                 flex: 1,
                 style: {
-                    border: "outset"
+                    border:"1px #ddd solid"
                 }
             },
             defaultType: "panel",
             items: [
                 {
                     layout: "fit",
+                    margin:"20px 10px 10px 20px",
                     tbar: [
                         {
                             xtype: 'container',
@@ -39,11 +40,8 @@ Ext.define("App.view.theme.Theme", {
                     items: [{ xtype: "image", src: "resources/images/theme/Theme1.bmp" }]
                 },
                 {
-                    layout: {
-                        type: "hbox",
-                        align: "middle",
-                        pack: "center"
-                    },
+                    layout: 'fit',
+                    margin:"20px 10px 10px 10px",
                     tbar: [
                         {
                             xtype: 'container', html: "主题二",
@@ -56,11 +54,8 @@ Ext.define("App.view.theme.Theme", {
                     items: [{ xtype: "image", src: "resources/images/theme/ing.png", height: "60%", width: "60%" }]
                 },
                 {
-                    layout: {
-                        type: "hbox",
-                        align: "middle",
-                        pack: "center"
-                    },
+                    layout: 'fit',
+                    margin:"20px 20px 10px 10px",
                     tbar: [
                         {
                             xtype: 'container', html: "主题三",
@@ -84,17 +79,14 @@ Ext.define("App.view.theme.Theme", {
             defaults: {
                 flex: 1,
                 style: {
-                    border: "outset"
+                    border:"1px #ddd solid"
                 }
             },
             defaultType: "panel",
             items: [
                 {
-                    layout: {
-                        type: "hbox",
-                        align: "middle",
-                        pack: "center"
-                    },
+                    layout: "fit",
+                    margin:"10px 10px 20px 20px",
                     tbar: [
                         {
                             xtype: 'container', html: "主题四",
@@ -107,11 +99,8 @@ Ext.define("App.view.theme.Theme", {
                     items: [{ xtype: "image", src: "resources/images/theme/ing.png", height: "60%", width: "60%" }]
                 },
                 {
-                    layout: {
-                        type: "hbox",
-                        align: "middle",
-                        pack: "center"
-                    },
+                    layout: 'fit',
+                    margin:"10px 10px 20px 10px",
                     tbar: [
                         {
                             xtype: 'container', html: "主题五",
@@ -124,11 +113,8 @@ Ext.define("App.view.theme.Theme", {
                     items: [{ xtype: "image", src: "resources/images/theme/ing.png", height: "60%", width: "60%" }]
                 },
                 {
-                    layout: {
-                        type: "hbox",
-                        align: "middle",
-                        pack: "center"
-                    },
+                    layout: 'fit',
+                    margin:"10px 20px 20px 10px",
                     tbar: [
                         {
                             xtype: 'container', html: "主题六",

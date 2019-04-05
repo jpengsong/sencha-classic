@@ -5,9 +5,7 @@
     extend: "Ext.Container",
     layout: 'border',
     style: {
-        "border-bottom-width": "1px",
-        "border-bottom-style": "solid",
-        "border-bottom-color": "#d1d1d1"
+        "border-bottom": "1px solid #ddd"
     },
     padding: "5 0 5 0",
     width: '100%',

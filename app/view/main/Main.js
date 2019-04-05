@@ -3,6 +3,7 @@ Ext.define("App.view.main.Main", {
         'Ext.mixin.Responsive'
     ],
     id: "mainCardPanel",
+    reference: "mainCardPanel",
     extend: "Ext.container.Viewport",
     controller: "main",
     viewModel: "main",
@@ -21,6 +22,7 @@ Ext.define("App.view.main.Main", {
                 {
                     xtype: "panel",
                     ui: "main-head",
+                    reference: "header",
                     height: 50,
                     layout: {
                         type: "hbox",
@@ -45,12 +47,11 @@ Ext.define("App.view.main.Main", {
                             ui: "main-head-toolbar",
                             reference: "headerToolbar",
                             defaults: {
-                                margin: '0 15'
+                                margin: '0 15',
+                                ui: "planbutton"
                             },
                             items: [
                                 {
-
-                                    ui: "planbutton",
                                     iconCls: "x-fa fa-bars",
                                     listeners: {
                                         click: "onMicro"
@@ -58,40 +59,39 @@ Ext.define("App.view.main.Main", {
                                 },
                                 {
                                     iconCls: "x-fa  fa-cog",
-                                    ui: "planbutton"
                                 },
                                 {
                                     iconCls: "x-fa  fa-refresh",
-                                    ui: "planbutton"
                                 },
                                 {
-                                    xtype: "textfield", emptyText: "搜索..."
+                                    xtype: "textfield",
+                                    emptyText: "搜索...",
+                                    ui: "default"
                                 },
                                 '->',
                                 {
                                     iconCls: "x-fa  fa-bell-o",
-                                    ui: "planbutton"
                                 },
                                 {
-                                    iconCls: "x-fa  fa-tags",
-                                    ui: "planbutton"
+                                    iconCls: "x-fa  x-fa fa-tachometer",
+                                    handler:"onRpopWindow"
                                 },
                                 {
                                     iconCls: "x-fa  fa-arrows-alt",
-                                    ui: "planbutton"
+                                    handler:"onFullScreen"
                                 },
                                 {
                                     text: "小靳一郎",
-                                    ui: "planbutton",
                                     menu: [
-                                        { text: '基本资料' },
-                                        { text: '修改密码' },
-                                        { text: '退出' }
+                                        { text: '基本资料', iconCls: "x-fa fa-address-card-o", handler: "onBasicInfo" },
+                                        { text: '修改密码', iconCls: "x-fa fa-cc" },
+                                        { text: '锁定', iconCls: "x-fa fa-lock" },
+                                        { text: '退出', iconCls: "x-fa fa-power-off", handler: "onLogout" }
                                     ]
                                 },
                                 {
                                     iconCls: "x-fa  fa-ellipsis-v",
-                                    ui: "planbutton"
+                                    handler: "onRpopWindow"
                                 }
                             ]
                         }]
@@ -143,6 +143,12 @@ Ext.define("App.view.main.Main", {
                                 height: 40,
                             },
                             autoDestroy: false,
+                            defaults: {
+                                style: {
+                                    background: '#f6f6f6',
+                                    padding: '20px 20px'
+                                }
+                            },
                             items: [
                                 { xtype: "home" }
                             ],
