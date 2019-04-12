@@ -1,6 +1,6 @@
 Ext.define("App.view.main.Rpanel", {
     extend: "Ext.window.Window",
-    xtype: "widget.rwindow",
+    xtype: "rwindow",
     draggable: false,
     header: false,
     resizable: false,
