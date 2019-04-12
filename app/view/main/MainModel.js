@@ -6,7 +6,7 @@ Ext.define("App.view.main.MainModel", {
             type: "main.navigation"
         },
         plist:{
-            type:"main.Plist"
+            type:"main.plist"
         }
     }
 })

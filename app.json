@@ -4,7 +4,7 @@
     "version": "1.0.0.0",
     "framework": "ext",
     "toolkit": "classic",
-    "theme": "theme-green",
+    "theme": "skyblue",
     "requires": [
         "font-awesome",
         "ux",
@@ -227,7 +227,7 @@
             ]
         },
         {
-           // "path": "resources/Site.css",
+            // "path": "resources/Site.css",
             "includeInBundle": false
         }
     ],
@@ -364,28 +364,28 @@
             "green": "classic",
             "theme": "theme-green"
         }
-        // ,
-        // "third": {
-        //    "toolkit": "classic",
-        //    "theme": "theme-third"
-        // },
-        // "fourth": {
-        //     "toolkit": "classic",
-        //     "theme": "theme-fourth"
-        // },
-        // "second": {
-        //     "toolkit": "classic",
-        //     "theme": "theme-second"
-        // },
-        // "fifth": {
-        //     "toolkit": "classic",
-        //     "theme": "theme-fifth"
-        // },
-        // "sixth": {
-        //     "toolkit": "classic",
-        //     "theme": "theme-sixth"
-        // }
     },
+    // ,
+    // "third": {
+    //    "toolkit": "classic",
+    //    "theme": "theme-third"
+    // },
+    // "fourth": {
+    //     "toolkit": "classic",
+    //     "theme": "theme-fourth"
+    // },
+    // "second": {
+    //     "toolkit": "classic",
+    //     "theme": "theme-second"
+    // },
+    // "fifth": {
+    //     "toolkit": "classic",
+    //     "theme": "theme-fifth"
+    // },
+    // "sixth": {
+    //     "toolkit": "classic",
+    //     "theme": "theme-sixth"
+    // }
     "output": {
         "base": "${workspace.build.dir}/${build.environment}/${app.name}",
         "appCache": {

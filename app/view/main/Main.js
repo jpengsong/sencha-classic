@@ -85,7 +85,7 @@ Ext.define("App.view.main.Main", {
                                     menu: [
                                         { text: '基本资料', iconCls: "x-fa fa-address-card-o", handler: "onBasicInfo" },
                                         { text: '修改密码', iconCls: "x-fa fa-cc" },
-                                        { text: '锁定', iconCls: "x-fa fa-lock" },
+                                        { text: '锁定', iconCls: "x-fa fa-lock",handler:"onLock" },
                                         { text: '退出', iconCls: "x-fa fa-power-off", handler: "onLogout" }
                                     ]
                                 },

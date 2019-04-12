@@ -24,12 +24,35 @@ Ext.define('App.data.systemmanage.SysUser', {
             { "SysUserId": "b1ec37ba-4523-427f-820c-0f37b0d02d1d", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "寿成周", "LoginName": "shouchengzhou", "LoginPassWord": "123456", "Mobile": "18911973344", "Email": "shouchengzhou@163.com", "IsEnable": 1 },
             { "SysUserId": "daa1703e-f951-4c66-8641-9948592bce47", "OrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "UserName": "闻安福", "LoginName": "wenanfu", "LoginPassWord": "123456", "Mobile": "18911919391", "Email": "wenanfu@163.com", "IsEnable": 1 }
         ];
+        me.GetSysUserById();
         me.GetSysUserPage();
         me.AddSysUser();
         me.EditSysUser();
         me.DeleteSysUser();
         me.GetSysUserRoleByRule();
         me.AddSysUserRole();
+    },
+
+
+    //获取用户
+    GetSysUserById:function(){
+        var me = this;
+        Ext.ux.ajax.SimManager.register({
+            type: 'json',
+            delay: 0,
+            url: "~/api/SystemManage/SysUser/GetSysUserById",
+            getData: function (ctx) {
+                var requestData = me.requestData(ctx),responseData = me.ResponseData(),
+                    data = Ext.decode(requestData.Data);
+                for (var j = 0; j < me.dataSource.length; j++) {
+                    if (me.dataSource[j].SysUserId == data.userId) {
+                        responseData.Data = me.dataSource[j];
+                        break;
+                    }
+                }
+                return responseData;
+            }
+        })
     },
 
     //获取分页数据

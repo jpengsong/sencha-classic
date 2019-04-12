@@ -1,11 +1,12 @@
 Ext.define('App.store.main.Plist', {
     extend: 'Ext.data.Store',
-    alias: 'store.main.Plist',
-    fields: ["xtype"],
+    alias: 'store.main.plist',
+    fields: ["ViewType"],
     data: [
-        { xtype: "login" },
-        { xtype: "home" },
-        { xtype: "page404" },
-        { xtype: "page500" }
+        { ViewType: "login" },
+        { ViewType: "home" },
+        { ViewType: "page404" },
+        { ViewType: "page500" },
+        { ViewType: "lockscreen" }
     ]
 });

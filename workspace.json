@@ -4,7 +4,9 @@
      */
     "apps": [
         "packages/local/theme-first/.sencha/temp/Themer",
-        "packages/local/theme-green/.sencha/temp/Themer"
+        "packages/local/theme-green/.sencha/temp/Themer",
+        "packages/local/skyblue/.sencha/temp/Themer",
+        "packages/local/theme-skyblue/.sencha/temp/Themer"
     ],
 
     /**

@@ -20,5 +20,12 @@ Ext.define('App.view.pages.Base', {
         type: 'vbox',
         align: 'center',
         pack: 'center'
+    },
+    listeners: {
+        show: function (obj, eOpts) {
+            for (var i = 0; i < obj.tools.length; i++) {
+                obj.tools[i].setHidden(true);
+            }
+        }
     }
 });

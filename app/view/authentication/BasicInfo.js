@@ -2,13 +2,31 @@ Ext.define("App.view.authentication.BasicInfo", {
     extend: "Ext.Window",
     modal: true,
     xtype: "basicinfo",
+    viewModel: {
+        formulas: {
+            user: function () {
+                var me = this;
+                App.Ajax.request({
+                    url: "~/api/SystemManage/SysUser/GetSysUserById",
+                    method: "GET",
+                    nosim: false,
+                    type: "JSON",
+                    async: false,
+                    params: { userId: App.UserInfo.UserID },
+                    success: function (data) {
+                        me.set("user",data.Data);
+                    }
+                })
+            }
+        }
+    },
     iconCls: "x-fa fa-user-circle",
     title: "个人资料",
     autoShow: true,
     width: 900,
-    height: 400, 
-    style:{
-        "border-width":"0px"
+    height: 400,
+    style: {
+        "border-width": "0px"
     },
     layout: {
         type: 'table',
@@ -19,7 +37,7 @@ Ext.define("App.view.authentication.BasicInfo", {
                 "table-layout": "fixed",
                 "word-wrap": "break-word",
                 "text-align": "center",
-                "padding":"2px 2px"
+                "padding": "2px 2px"
             },
             border: "1"
         }
@@ -33,13 +51,17 @@ Ext.define("App.view.authentication.BasicInfo", {
             html: "<b>姓名</b>"
         },
         {
-            html: ''
+            bind: {
+                html: "{user.UserName}"
+            }
         },
         {
             html: '<b>性别</b>'
         },
         {
-            html: ''
+            bind: {
+                html: ""
+            }
         },
         {
             html: '<b>出生年月</b>'
@@ -85,7 +107,9 @@ Ext.define("App.view.authentication.BasicInfo", {
             html: '<b>联系方式</b>'
         },
         {
-            html: ''
+            bind: {
+                html: "{user.Mobile}"
+            }
         },
         {
             html: '<b>入职时间</b>'

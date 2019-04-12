@@ -185,6 +185,12 @@ Ext.define("App.view.main.MainController", {
         }
     },
 
+    //锁定
+    onLock:function(){
+        var me =this;
+        me.redirectTo('view.lockscreen');
+    },
+
     //退出登录
     onLogout: function () {
         var me = this;

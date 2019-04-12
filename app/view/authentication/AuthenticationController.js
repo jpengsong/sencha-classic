@@ -17,6 +17,7 @@ Ext.define("App.view.authentication.AuthenticationController", {
                 App.UserInfo.userPwd = userPwd;
                 App.UserInfo.IsSuperUser = true; //默认超级管理员
                 App.UserInfo.Token = "7e5f5c69-cb23-4bd8-94ad-133c8e5dad2a";
+                App.UserInfo.UserID = "e415d214-2159-42b3-a50a-f8f407b061ef";
                 App.Cookie.SetCookie("user", Ext.encode({ userName: userName, userPwd: userPwd, IsSuperUser: true }));
                 me.redirectTo('user.login', true);
             } else {
