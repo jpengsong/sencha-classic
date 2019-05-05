@@ -31,13 +31,29 @@ Ext.define("App.view.main.Version", {
                             "<li>开启全屏</li>" +
                             "<li>个人资料</li>" +
                             "<li>修改密码</li>" +
-                            "<li>密码框显示隐藏</li>" +
                             "<li>锁定" +
                             "<li>退出</li>" +
+                            "<li>公共封装"+
+                                "<ol>"+
+                                    "<li>组件封装"+
+                                        "<ul>"+
+                                            "<li>密码框显示隐藏组件</li>"+
+                                            "<li>封装下拉Grid</li>"+
+                                            "<li>封装上传插件</li>"+
+                                        "</ul>"+
+                                    "</li>" +
+                                "</ol>"+
+                            "</li>" +  
+                            "<li>多主题切换"+
+                            "<ul>"+
+                                "<li>theme-xxx</li>"+
+                                "<li>theme-xxx</li>"+
+                                "<li>theme-xxx</li>"+
+                                "<li>theme-xxx</li>"+
+                                "<li>theme-xxx</li>"+
+                            "</ul>"+
+                        "</li>" +
                             "<li>调整首页布局</li>" +
-                            "<li>封装上传插件</li>" +
-                            "<li>封装下拉Grid</li>" +
-                            "<li>多主题切换</li>" +
                             "<li>菜单可切换成横向和左侧</li>" +
                             "<li>添加ExtJS命名编写规范页面</li>" +
                         "</ol>"
