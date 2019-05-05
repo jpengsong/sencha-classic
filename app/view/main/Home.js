@@ -19,7 +19,7 @@ Ext.define("App.view.main.Home", {
             },
             items: [
                 {
-                    xtype: "econtainer",
+                    xtype: "echart",
                     flex: 1,
                     uuid: Ext.data.identifier.Uuid.create().generate(),
                     listeners: {
@@ -124,7 +124,7 @@ Ext.define("App.view.main.Home", {
             },
             items: [
                 {
-                    xtype: "econtainer",
+                    xtype: "echart",
                     flex: 1,
                     uuid: Ext.data.identifier.Uuid.create().generate(),
                     listeners: {
@@ -159,7 +159,7 @@ Ext.define("App.view.main.Home", {
                     }
                 },
                 {
-                    xtype: "econtainer",
+                    xtype: "echart",
                     flex: 1,
                     uuid: Ext.data.identifier.Uuid.create().generate(),
                     listeners: {

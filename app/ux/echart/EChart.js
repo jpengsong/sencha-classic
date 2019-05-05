@@ -1,5 +1,5 @@
 Ext.define("App.echart.EContainer", {
-    xtype: "econtainer",
+    xtype: "echart",
     extend: "Ext.container.Container",
     listeners: {
         resize: function (me) {

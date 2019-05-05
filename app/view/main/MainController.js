@@ -200,21 +200,43 @@ Ext.define("App.view.main.MainController", {
     },
 
     //右侧弹出窗
-    onRpopWindow: function () {
+    onVersionWindow: function () {
         var me = this,
             mainCardPanel = Ext.getCmp("mainCardPanel"),
             refs = me.getReferences(),
-            width = 300,
+            width = 400,
             height = (mainCardPanel.getHeight() - refs.header.getHeight()),
             y = mainCardPanel.getHeight() - height,
             x = mainCardPanel.getWidth();
-
         Ext.widget({
             xtype: "rwindow",
             width: width,
             height: height,
             y: y,
-            x: x
+            x: x,
+            items:[
+                {xtype:"version"}
+            ]
+        });
+    },
+
+    //选择配色
+    onThemeWindow:function(){
+        var me = this,
+            mainCardPanel = Ext.getCmp("mainCardPanel"),
+            refs = me.getReferences(),
+            width = 400,
+            height = (mainCardPanel.getHeight() - refs.header.getHeight()),
+            y = mainCardPanel.getHeight() - height,
+            x = mainCardPanel.getWidth();
+        Ext.widget({
+            xtype: "rwindow",
+            width: width,
+            height: height,
+            y: y,
+            x: x,
+            items:[
+            ]
         });
     },
 
@@ -248,6 +270,14 @@ Ext.define("App.view.main.MainController", {
     onBasicInfo: function (obj) {
         Ext.widget({
             xtype: "basicinfo",
+            animateTarget: obj
+        })
+    },
+
+    //修改密码
+    onUpdatePassWord:function(obj){
+        Ext.widget({
+            xtype: "updatepassword",
             animateTarget: obj
         })
     }

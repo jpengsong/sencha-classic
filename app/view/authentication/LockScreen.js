@@ -12,22 +12,27 @@ Ext.define('App.view.authentication.LockScreen', {
         align: "center",
         pack: "center"
     },
-    defaults:{
-        width:450
+    defaults: {
+        width: 450
     },
     items: [
         {
-            xtype:"container",
-            height:120,
-            cls:"base-backgroundcolor",
+            xtype: "container",
+            height: 120,
+            cls: "base-backgroundcolor",
             layout: {
                 type: "hbox",
-                align:"center",
-                pack:"center"
+                align: "center"
             },
-            items:[
-                {xtype:"container"},
-                {xtype:"container"}
+            items: [
+                {
+                    xtype: "image",
+                    margin:"0 10px",
+                    src: "resources/images/updatepassword/q0.jpg",
+                    width:80,
+                    height:80
+                },
+                { xtype: "container",html:"Admin" }
             ]
         },
         {
@@ -48,7 +53,7 @@ Ext.define('App.view.authentication.LockScreen', {
                     inputType: 'password',
                     allowBlank: false,
                     blankText: "密码不允许为空",
-                    height:50,
+                    height: 50,
                     maxLength: 15,
                     maxLengthText: "最大长度不超过15位",
                     triggers: {
@@ -61,11 +66,11 @@ Ext.define('App.view.authentication.LockScreen', {
                     margin: "20 30 10 30",
                     xtype: "button",
                     text: '登录',
-                    scale:"large",
-                    height:50,
+                    scale: "large",
+                    height: 50,
                     formBind: true,
-                    iconAlign :"right",
-                    iconCls:"x-fa fa-chevron-right",
+                    iconAlign: "right",
+                    iconCls: "x-fa fa-chevron-right",
                     listeners: {
                         click: 'onLoginClick'
                     }
@@ -73,7 +78,7 @@ Ext.define('App.view.authentication.LockScreen', {
                 {
                     margin: "0 30 10 30",
                     xtype: "component",
-                    html :'<div style="text-align:right"><a href="#view.login" class="link-forgot-password">或者, 使用其他登录凭据</a></div>'
+                    html: '<div style="text-align:right"><a href="#view.login" class="link-forgot-password">或者, 使用其他登录凭据</a></div>'
                 }
             ]
         }

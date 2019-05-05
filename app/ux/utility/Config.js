@@ -80,6 +80,8 @@
             ComboxStore:"ComboxStore"
         },
 
+        url:"",
+        
         AfterLabelTextRequired:['<span style="color:red;font-weight:bold">*</span>'],
 
         wins:[]
