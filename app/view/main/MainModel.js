@@ -5,8 +5,12 @@ Ext.define("App.view.main.MainModel", {
         navigation: {
             type: "main.navigation"
         },
-        plist:{
-            type:"main.plist"
+        plist: {
+            type: "main.plist"
         }
+    },
+
+    data: {
+        theme: "purple"
     }
 })

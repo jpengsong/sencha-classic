@@ -11,19 +11,27 @@
     <script type="text/javascript">
         var Ext = Ext || {};
         Ext.beforeLoad = function (tag) {
-            var arr = document.cookie.match(new RegExp("(^| )profile=([^;]*)(;|$)")); var profile = null;
-            if (arr !== null) {
-                profile = unescape(arr[2]);
-            } else {
-                profile = "first";
-                document.cookie = "profile=" + escape(profile);
+            if (Ext.manifest != "bootstrap.json") {
+                var themeName = GetCookie("manifest");
+                if (themeName != null) {
+                    Ext.manifest = themeName + '.json';
+                } else {
+                    Ext.manifest = 'green.json';
+                }
             }
-            
-            //Ext.manifest = 'bootstrap.json';
-            //Ext.manifest = profile + '.json';
         };
+
+        function GetCookie(name) {
+            var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+            if (arr !== null) {
+                return unescape(arr[2]);
+            }
+            return null;
+        }
+
     </script>
-    <script id="microloader" data-app="6a3da2d1-1004-4a55-ab28-e516eab2415b" type="text/javascript" src="bootstrap.js"></script>
+    <script id="microloader" data-app="6a3da2d1-1004-4a55-ab28-e516eab2415b" type="text/javascript"
+        src="bootstrap.js"></script>
 
 </head>
 

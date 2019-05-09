@@ -1,2 +1,0 @@
-# theme-third - Read Me
-

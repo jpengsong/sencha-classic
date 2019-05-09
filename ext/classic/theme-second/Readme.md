@@ -1,2 +1,0 @@
-# theme-second - Read Me
-

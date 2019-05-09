@@ -7,11 +7,13 @@ Ext.define('App.Application', {
     extend: 'Ext.app.Application',
     requires: [
         'Ext.Img',
+        'Ext.form.Label',
         'Ext.list.TreeItem',
         'Ext.layout.container.Table',
         'Ext.layout.container.Border',
         'Ext.layout.container.Column',
-        'Ext.data.identifier.Uuid'
+        'Ext.data.identifier.Uuid',
+        'Ext.dom.Query'
     ],
     name: 'App',
     init : function() {

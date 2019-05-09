@@ -1,2 +1,0 @@
-# theme-sixth - Read Me
-

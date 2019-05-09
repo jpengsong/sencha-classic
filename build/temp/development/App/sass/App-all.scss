@@ -68,6 +68,7 @@ $include-app-view-authentication-lockscreen: dynamic(true);;
 $include-app-view-authentication-login: dynamic(true);;
 $include-app-view-authentication-updatepassword: dynamic(true);;
 $include-app-view-cost-cost: dynamic(true);;
+$include-app-view-main-chooseskin: dynamic(true);;
 $include-app-view-main-home: dynamic(true);;
 $include-app-view-main-main: dynamic(true);;
 $include-app-view-main-maincontroller: dynamic(true);;
@@ -1378,7 +1379,7 @@ $theme-green-resource-path: 'images' !default;
 $current-package: 'theme-green';
 $current-resource-root: $theme-green-resource-root;
 $relative-image-path-for-uis: $theme-green-resource-path;
-@import '../../../../../ext/classic/theme-green/sass/etc/all';
+@import '../../../../../packages/local/theme-green/sass/etc/all';
 
 /* including package theme-green */
 $theme-green-resource-root: '' !default;
@@ -1386,7 +1387,7 @@ $theme-green-resource-path: 'images' !default;
 $current-package: 'theme-green';
 $current-resource-root: $theme-green-resource-root;
 $relative-image-path-for-uis: $theme-green-resource-path;
-@import '../../../../../ext/classic/theme-green/sass/etc/sencha-themer-defaults';
+@import '../../../../../packages/local/theme-green/sass/etc/sencha-themer-defaults';
 
 /* including package charts */
 $charts-resource-root: 'charts' !default;
@@ -1591,7 +1592,7 @@ $theme-green-resource-path: 'images' !default;
 $current-package: 'theme-green';
 $current-resource-root: $theme-green-resource-root;
 $relative-image-path-for-uis: $theme-green-resource-path;
-@import '../../../../../ext/classic/theme-green/sass/var/sencha-themer-defaults';
+@import '../../../../../packages/local/theme-green/sass/var/sencha-themer-defaults';
 
 /* including package theme-green */
 $theme-green-resource-root: '' !default;
@@ -1599,7 +1600,7 @@ $theme-green-resource-path: 'images' !default;
 $current-package: 'theme-green';
 $current-resource-root: $theme-green-resource-root;
 $relative-image-path-for-uis: $theme-green-resource-path;
-@import '../../../../../ext/classic/theme-green/sass/save';
+@import '../../../../../packages/local/theme-green/sass/save';
 
 /* including package ux */
 $ux-resource-root: 'ux' !default;
@@ -1864,7 +1865,7 @@ $theme-green-resource-path: 'images' !default;
 $current-package: 'theme-green';
 $current-resource-root: $theme-green-resource-root;
 $relative-image-path-for-uis: $theme-green-resource-path;
-@import '../../../../../ext/classic/theme-green/sass/src/sencha-themer-defaults';
+@import '../../../../../packages/local/theme-green/sass/src/sencha-themer-defaults';
 
 /* including package ux */
 $ux-resource-root: 'ux' !default;
@@ -1929,6 +1930,7 @@ $current-resource-root: $App-resource-root;
 $relative-image-path-for-uis: $App-resource-path;
 @import '../../../../../sass/src/view/authentication/LockScreen';
 @import '../../../../../sass/src/view/authentication/Login';
+@import '../../../../../sass/src/view/main/ChooseSkin';
 @import '../../../../../sass/src/view/main/Main';
 @import '../../../../../sass/src/view/pages/Base';
 @import '../../../../../sass/src/view/pages/Blank';

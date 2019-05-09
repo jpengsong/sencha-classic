@@ -32,13 +32,12 @@ Ext.define('App.ux.utility.Cookie', {
          */
         SetExpiresCookie: function (name, value, expires) {
             var Days, exp;
-
             Days = 30; //cookie 将被保存 30 天
             exp = new Date();
             if (Ext.isEmpty(expires)) {
                 exp.setTime(exp.getTime() + Days * 24 * 60 * 60);
             } else {
-                exp = expires;
+                exp.setTime(exp.getTime() + expires);
             }
             document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
         },

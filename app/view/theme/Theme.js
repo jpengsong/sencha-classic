@@ -37,7 +37,7 @@ Ext.define("App.view.theme.Theme", {
                             }
                         }
                     ],
-                    items: [{ xtype: "image", src: "resources/images/theme/Theme1.bmp" }]
+                    items: [{ xtype: "image", src: "resources/images/theme/ing.bmp" }]
                 },
                 {
                     layout: 'fit',

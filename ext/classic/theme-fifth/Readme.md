@@ -1,2 +1,0 @@
-# theme-fifth - Read Me
-

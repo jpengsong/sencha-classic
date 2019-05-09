@@ -149,6 +149,7 @@ Ext.define("App.view.main.MainController", {
         } else if (!Ext.isEmpty(App.UserInfo.Token)) {
             me.redirectTo('user.login', true);
         }
+        me.getViewModel().set("theme", Ext.manifest.profile);
     },
 
     //点击菜单项
@@ -186,8 +187,8 @@ Ext.define("App.view.main.MainController", {
     },
 
     //锁定
-    onLock:function(){
-        var me =this;
+    onLock: function () {
+        var me = this;
         me.redirectTo('view.lockscreen');
     },
 
@@ -214,18 +215,18 @@ Ext.define("App.view.main.MainController", {
             height: height,
             y: y,
             x: x,
-            items:[
-                {xtype:"version"}
+            items: [
+                { xtype: "version" }
             ]
         });
     },
 
     //选择配色
-    onThemeWindow:function(){
+    onThemeWindow: function () {
         var me = this,
             mainCardPanel = Ext.getCmp("mainCardPanel"),
             refs = me.getReferences(),
-            width = 400,
+            width = 300,
             height = (mainCardPanel.getHeight() - refs.header.getHeight()),
             y = mainCardPanel.getHeight() - height,
             x = mainCardPanel.getWidth();
@@ -235,7 +236,8 @@ Ext.define("App.view.main.MainController", {
             height: height,
             y: y,
             x: x,
-            items:[
+            items: [
+                { xtype: "chooseskin" }
             ]
         });
     },
@@ -266,7 +268,7 @@ Ext.define("App.view.main.MainController", {
         }
     },
 
-    //基本资料
+    //个人资料
     onBasicInfo: function (obj) {
         Ext.widget({
             xtype: "basicinfo",
@@ -275,7 +277,7 @@ Ext.define("App.view.main.MainController", {
     },
 
     //修改密码
-    onUpdatePassWord:function(obj){
+    onUpdatePassWord: function (obj) {
         Ext.widget({
             xtype: "updatepassword",
             animateTarget: obj

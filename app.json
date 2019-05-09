@@ -4,7 +4,7 @@
     "version": "1.0.0.0",
     "framework": "ext",
     "toolkit": "classic",
-    "theme": "theme-green",
+    "theme": "theme-purple",
     "requires": [
         "font-awesome",
         "ux",
@@ -363,29 +363,20 @@
         "green": {
             "green": "classic",
             "theme": "theme-green"
+        },
+        "purple": {
+            "purple": "classic",
+            "theme": "theme-purple"
+        },
+        "skyblue": {
+            "skyblue": "classic",
+            "theme": "theme-skyblue"
+        },
+        "crimson": {
+            "crimson": "classic",
+            "theme": "theme-crimson"
         }
     },
-    // ,
-    // "third": {
-    //    "toolkit": "classic",
-    //    "theme": "theme-third"
-    // },
-    // "fourth": {
-    //     "toolkit": "classic",
-    //     "theme": "theme-fourth"
-    // },
-    // "second": {
-    //     "toolkit": "classic",
-    //     "theme": "theme-second"
-    // },
-    // "fifth": {
-    //     "toolkit": "classic",
-    //     "theme": "theme-fifth"
-    // },
-    // "sixth": {
-    //     "toolkit": "classic",
-    //     "theme": "theme-sixth"
-    // }
     "output": {
         "base": "${workspace.build.dir}/${build.environment}/${app.name}",
         "appCache": {

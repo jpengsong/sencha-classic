@@ -7,7 +7,11 @@
         "packages/local/theme-green/.sencha/temp/Themer",
         "packages/local/skyblue/.sencha/temp/Themer",
         "packages/local/theme-skyblue/.sencha/temp/Themer",
-        "packages/local/deee/.sencha/temp/Themer"
+        "packages/local/deee/.sencha/temp/Themer",
+        "packages/local/theme-crimson/.sencha/temp/Themer",
+        "packages/local/crimson/.sencha/temp/Themer",
+        "packages/local/thme-skyblue/.sencha/temp/Themer",
+        "packages/local/theme-purple/.sencha/temp/Themer"
     ],
 
     /**

@@ -130,8 +130,5 @@ Ext.define("App.view.main.Version", {
                 }
             ]
         }
-    ],
-    listeners: {
-        //render: "afterrender"
-    }
+    ]
 })

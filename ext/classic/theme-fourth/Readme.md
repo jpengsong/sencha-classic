@@ -1,2 +1,0 @@
-# theme-fourth - Read Me
-

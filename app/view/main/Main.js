@@ -20,8 +20,7 @@ Ext.define("App.view.main.Main", {
             },
             items: [
                 {
-                    xtype: "panel",
-                    ui: "main-head",
+                    xtype: "container",
                     reference: "header",
                     height: 50,
                     layout: {
@@ -33,22 +32,27 @@ Ext.define("App.view.main.Main", {
                             xtype: "container",
                             reference: "logo",
                             width: 220,
-                            cls: "logo ext",
+                            cls: "ext",
                             border: 10,
-                            html: "sencha"
+                            html: "sencha",
+                            bind: {
+                                UI: "head-logo-{theme}"
+                            },
                         },
                         {
                             xtype: "toolbar",
+                            reference: "headerToolbar",
                             padding: "0 0",
                             flex: 1,
-                            style: {
-                                "box-shadow": "0px 0px 0px 0.1px black"
+                            style: { "box-shadow": "0px 0px 0px 0.1px black" },
+                            bind:{
+                                UI:"head-toolbar-{theme}"
                             },
-                            ui: "main-head-toolbar",
-                            reference: "headerToolbar",
                             defaults: {
                                 margin: '0 15',
-                                ui: "planbutton"
+                                bind:{
+                                    UI:"head-toolbar-button-{theme}"
+                                }
                             },
                             items: [
                                 {
@@ -74,18 +78,18 @@ Ext.define("App.view.main.Main", {
                                 },
                                 {
                                     iconCls: "x-fa  x-fa fa-tachometer",
-                                    handler:"onThemeWindow"
+                                    handler: "onThemeWindow"
                                 },
                                 {
                                     iconCls: "x-fa  fa-arrows-alt",
-                                    handler:"onFullScreen"
+                                    handler: "onFullScreen"
                                 },
                                 {
                                     text: "小靳一郎",
                                     menu: [
-                                        { text: '基本资料', iconCls: "x-fa fa-address-card-o", handler: "onBasicInfo" },
-                                        { text: '修改密码', iconCls: "x-fa fa-cc",handler:"onUpdatePassWord" },
-                                        { text: '锁定', iconCls: "x-fa fa-lock",handler:"onLock" },
+                                        { text: '个人资料', iconCls: "x-fa fa-address-card-o", handler: "onBasicInfo" },
+                                        { text: '修改密码', iconCls: "x-fa fa-cc", handler: "onUpdatePassWord" },
+                                        { text: '锁定', iconCls: "x-fa fa-lock", handler: "onLock" },
                                         { text: '退出', iconCls: "x-fa fa-power-off", handler: "onLogout" }
                                     ]
                                 },
@@ -108,15 +112,17 @@ Ext.define("App.view.main.Main", {
                             xtype: "container",
                             width: 220,
                             reference: "navcontainer",
-                            style: {
-                                "background-color": "#28333E"
+                            bind: {
+                                UI: "{theme}"
                             },
                             scrollable: Ext.scroll.Scroller({ y: true, x: false, scrollbars: false }),
                             items: [
                                 {
                                     xtype: 'treelist',
                                     reference: "navigationTreeList",
+                                    id: "navigationTreeList",
                                     bind: {
+                                        ui: "navigation-{theme}",
                                         store: '{navigation}'
                                     },
                                     defaults: {
@@ -124,7 +130,6 @@ Ext.define("App.view.main.Main", {
                                         textProperty: "MenuName",
                                         iconClsProperty: "IconCls"
                                     },
-                                    ui: "navigation",
                                     scrollable: true,
                                     singleExpand: true,
                                     expanderOnly: false,
@@ -137,15 +142,13 @@ Ext.define("App.view.main.Main", {
                         {
                             xtype: "tabpanel",
                             id: "mainTabPanel",
+                            reference: "mainTabPanel",
+                            ui: "tabpanel-default",
                             flex: 1,
-                            ui: "main-tab-panel",
-                            tabBar: {
-                                height: 40,
-                            },
                             autoDestroy: false,
                             defaults: {
                                 style: {
-                                    background: '#f6f6f6',
+                                    background: '#fff',
                                     padding: '20px 20px'
                                 }
                             },
