@@ -16,6 +16,6 @@ Ext.define("override.layout.component.Dock",{
         Ext.baseCSSPrefix + 'noborder-tr',      // 1100 = 12
         Ext.baseCSSPrefix + 'noborder-trl',     // 1101 = 13
         Ext.baseCSSPrefix + 'noborder-trb',     // 1110 = 14
-        Ext.baseCSSPrefix + 'noborder-trbl'     // 1111 = 15
+        //Ext.baseCSSPrefix + 'noborder-trbl'     // 1111 = 15
     ],
 })

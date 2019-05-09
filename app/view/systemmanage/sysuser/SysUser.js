@@ -18,7 +18,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
             queryConfig: {
                 padding:"5 30",
                 defaults: {
-                    margin: "5 5",
+                    margin: "15 15",
                     labelWidth: 70,
                     style: {
                         "text-align": "center"
@@ -42,7 +42,6 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
                         },
                         displayField: "name",
                         valueField: "value",
-                        width: 200,
                         fieldLabel: '是否启用'
                     }
                 ]
@@ -56,6 +55,9 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
         toolbar = Ext.create({
             xtype: "toolbar",
             layout: "hbox",
+            defaults:{
+                scale:"medium"
+            },
             items: [
                 {
                     text: '新增',

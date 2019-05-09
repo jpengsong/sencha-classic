@@ -14,6 +14,9 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
         toolbar = Ext.create({
             xtype: "toolbar",
             layout: "hbox",
+            defaults:{
+                scale:"medium"
+            },
             items: [
                 {
                     text: '新增',

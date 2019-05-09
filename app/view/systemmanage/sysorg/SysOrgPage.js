@@ -41,6 +41,9 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgPage", {
         toolbar = Ext.create({
             xtype: "toolbar",
             layout: "hbox",
+            defaults:{
+                scale:"medium"
+            },
             items: [
                 {
                     text: '新增',

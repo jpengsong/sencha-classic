@@ -148,8 +148,8 @@ Ext.define("App.view.main.Main", {
                             autoDestroy: false,
                             defaults: {
                                 style: {
-                                    background: '#fff',
-                                    padding: '20px 20px'
+                                    background: '#f2f2f2',
+                                    padding: '15px 15px'
                                 }
                             },
                             items: [

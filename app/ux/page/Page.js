@@ -4,11 +4,9 @@
         type: 'vbox',
         align: 'stretch'
     },
-
     gridList: null,
 
     queryList: null,
-
     initComponent: function () {
         var me = this;
         me.defaultPageLayout();

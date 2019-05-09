@@ -91,10 +91,11 @@
         //查询按钮
         buttonConfig = Ext.apply({
             xtype: 'container',
-            width: 160,
+            width: 190,
             layout: 'hbox',
             defaults: {
-                margin: '0 5 5 5'
+                 margin: '0 5 5 5',
+                 scale:"medium"
             },
             items: [
                 {
