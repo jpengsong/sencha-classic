@@ -1,6 +1,8 @@
 ﻿Ext.define('App.ux.utility.Config', {
     alternateClassName: ['config'],
     statics: {
+
+        //查询条件
         QueryMethod : {
             /**
              * 等于
@@ -54,6 +56,7 @@
             In: " In "
         },
 
+        //空值
         Guid :{
             /**
              * 提供空Guid字符串
@@ -62,6 +65,7 @@
             Empty: "00000000-0000-0000-0000-000000000000"
         },
 
+        //代理数据类型
         DataType:{
             /**
              * GridStore
@@ -80,10 +84,11 @@
             ComboxStore:"ComboxStore"
         },
 
-        url:"",
+        //远程请求数据地址
+        Url:"http://127.0.0.1:8045",
         
-        AfterLabelTextRequired:['<span style="color:red;font-weight:bold">*</span>'],
+        //字段必填项
+        AfterLabelTextRequired:['<span style="color:red;font-weight:bold">*</span>']
 
-        wins:[]
     }
 })

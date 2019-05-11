@@ -49,6 +49,7 @@
                         me.rootId,
                         me.checked);
                     return me.records;
+                    alert(me.records);
                 } else if (me.datatype == config.DataType.ComboxStore) {
                     me.records = content.List;
                 }

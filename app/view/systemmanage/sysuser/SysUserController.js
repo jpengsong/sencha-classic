@@ -118,5 +118,18 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                 }
             })
         }
+    },
+
+    //导入
+    onImport: function () {
+        Ext.create({
+            xtype: "window",
+            height: 200,
+            width: 400,
+            layout: 'fit',
+            items: [
+                { xtype: "fileupload" }
+            ]
+        })
     }
 })

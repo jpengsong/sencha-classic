@@ -1,6 +1,6 @@
-Ext.define('App.ux.proxy.API', {
+Ext.define('App.ux.proxy.Server', {
     extend: 'Ext.data.proxy.Ajax',
-    alias: 'proxy.api',
+    alias: 'proxy.server',
     buildRequest: function (operation) {
         var me = this, request;
         request = new Ext.data.Request({
@@ -11,18 +11,17 @@ Ext.define('App.ux.proxy.API', {
             operation: operation,
             proxy: me
         });
-        request.setUrl(me.buildUrl(request));
+        request.setUrl(config.Url + request.getProxy().getUrl().replace("~", ""));
         operation.setRequest(request);
         return request;
     },
-    sendRequest: function(request) {
-        var currentConfig = request.getCurrentConfig();
-        currentConfig.nosim = false;
+    sendRequest: function (request) {
+        var currentConfig = request.getCurrentConfig();currentConfig.nosim = true;
         request.setRawRequest(Ext.Ajax.request(currentConfig));
         this.lastRequest = request;
         return request;
     },
-    extraParams:{
-        RequestData:"{}"
+    extraParams: {
+        RequestData: "{}"
     }
 });

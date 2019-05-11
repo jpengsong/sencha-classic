@@ -148,9 +148,9 @@ Ext.define("App.view.main.Main", {
                             autoDestroy: false,
                             defaults: {
                                 style: {
-                                    background: '#f2f2f2',
-                                    padding: '15px 15px'
-                                }
+                                    background: '#f2f2f2'
+                                },
+                                padding: '15px 15px'
                             },
                             items: [
                                 { xtype: "home" }

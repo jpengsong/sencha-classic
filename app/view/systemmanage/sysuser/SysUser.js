@@ -78,6 +78,11 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
                     text: '分配角色',
                     iconCls: "x-fa fa-group",
                     handler: "onUserRole"
+                },
+                {
+                    text: '导入',
+                    iconCls: "x-fa fa-upload",
+                    handler: "onImport"
                 }
             ]
         })
