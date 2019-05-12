@@ -196,7 +196,9 @@ Ext.define("App.view.main.MainController", {
     onLogout: function () {
         var me = this;
         App.UserInfo.Token = null;
-        App.Cookie.DeleteCookie("user");
+        App.Cookie.DeleteCookie("TokenGuid");
+        App.Cookie.DeleteCookie("LoginName");
+        App.Cookie.DeleteCookie("LoginPassWord");
         window.location.reload();
     },
 

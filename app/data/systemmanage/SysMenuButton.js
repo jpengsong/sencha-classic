@@ -5,7 +5,7 @@ Ext.define('App.data.systemmanage.SysMenuButton', {
         me.dataSource = [
             { "SysMenuButtonId": "291548e6-5197-4a7a-99db-e2346c9666d4", "MenuId": "a7d00cf0-741b-44af-b90b-395698d64bc9", "BtnCode": "SysUser_Add", "BtnName": "新增", "Description": "", "Order": 1, "IsEnable": 1, "IsDel": 0 },
             { "SysMenuButtonId": "ee9775f9-57b5-4831-866d-5378d4f1a222", "MenuId": "a7d00cf0-741b-44af-b90b-395698d64bc9", "BtnCode": "SysUser_Edit", "BtnName": "编辑", "Description": "", "Order": 2, "IsEnable": 1, "IsDel": 0 },
-            { "SysMenuButtonId": "06ae0200-d625-4ae4-8655-89632a366e52", "MenuId": "a7d00cf0-741b-44af-b90b-395698d64bc9", "BtnCode": "SysUser_Del", "BtnName": "删除", "Description": "", "Order": 3, "IsEnable": 1, "IsDel": 0 },
+            { "SysMenuButtonId": "06ae0200-d625-4ae4-8655-89632a366e52", "MenuId": "a7d00cf0-741b-44af-b90b-395698d64bc9", "BtnCode": "SysUser_Del", "BtnName": "删除", "Description": "", "Order": 3, "IsEnable": 1, "0IsDel": 0 },
             { "SysMenuButtonId": "62e9a489-4c2d-40fa-9cd9-e4e8399dd18b", "MenuId": "a7d00cf0-741b-44af-b90b-395698d64bc9", "BtnCode": "SysUser_UserRole", "BtnName": "分配角色", "Description": "", "Order": 4, "IsEnable": 1, "IsDel": 0 },
             { "SysMenuButtonId": "64f1f216-1f1a-4dc9-9252-d66ffe657796", "MenuId": "a176b70f-4ba9-45b5-b021-c44b4215be93", "BtnCode": "SysOrg_Add", "BtnName": "新增", "Description": "", "Order": 1, "IsEnable": 1, "IsDel": 0 },
             { "SysMenuButtonId": "e25a0320-11b1-4a6f-ab11-ad23b3e92f87", "MenuId": "a176b70f-4ba9-45b5-b021-c44b4215be93", "BtnCode": "SysOrg_Edit", "BtnName": "编辑", "Description": "", "Order": 2, "IsEnable": 1, "IsDel": 0 },

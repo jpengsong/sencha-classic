@@ -5,7 +5,7 @@ Ext.define('App.data.systemmanage.SysOrg', {
 
         //数据来源
         me.dataSource = [
-            { "SysOrgId": "a9955f8c-cfdd-4f61-97a8-55bd9efe1306", "ParentOrgId": "", "Level": 1, "OrgName": "集团公司", "Description": "", "Sort": 0 },
+            { "SysOrgId": "a9955f8c-cfdd-4f61-97a8-55bd9efe1306", "ParentOrgId": "00000000-0000-0000-0000-000000000000", "Level": 1, "OrgName": "集团公司", "OrgCode": "",  "Description": "", "Sort": 0 },
             { "SysOrgId": "864c43ab-1887-4c8e-b8a5-0f10eac43fe6", "ParentOrgId": "a9955f8c-cfdd-4f61-97a8-55bd9efe1306", "Level": 2, "OrgName": "金融地产事业部", "OrgCode": "", "Description": "", "Sort": 100 },
             { "SysOrgId": "d1b0b243-870d-4c7d-8bff-a1511eb6fef5", "ParentOrgId": "a9955f8c-cfdd-4f61-97a8-55bd9efe1306", "Level": 2, "OrgName": "综合应用部", "OrgCode": "", "Description": "", "Sort": 200 },
             { "SysOrgId": "2d108446-e44f-4baa-953f-99457152c4cd", "ParentOrgId": "a9955f8c-cfdd-4f61-97a8-55bd9efe1306", "Level": 2, "OrgName": "资产监管事业部", "OrgCode": "", "Description": "", "Sort": 300 },

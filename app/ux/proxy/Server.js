@@ -4,7 +4,7 @@ Ext.define('App.ux.proxy.Server', {
     buildRequest: function (operation) {
         var me = this, request;
         request = new Ext.data.Request({
-            params: me.getExtraParams(),
+            params:Ext.apply({ RequestData: App.Ajax.getRequestData(me.getExtraParams()) }),
             action: operation.getAction(),
             records: operation.getRecords(),
             url: operation.getUrl(),

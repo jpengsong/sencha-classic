@@ -5,25 +5,36 @@ Ext.define("App.view.authentication.AuthenticationController", {
     //登录
     onLoginClick: function () {
         var me = this, refs = me.getReferences(), form = refs.form, userName = refs.userName.getValue(), userPwd = refs.userPwd.getValue();
-        var myMask = new Ext.LoadMask({
-            msg: '登录中...',
-            componentCls: "x-mask-ui",
-            target: Ext.getCmp("mainCardPanel")
-        });
-        myMask.show();
         if (form.isValid()) {
-            if (userName == "Admin" && userPwd == "123456") {
-                App.UserInfo.userName = userName;
-                App.UserInfo.userPwd = userPwd;
-                App.UserInfo.IsSuperUser = true; //默认超级管理员
-                App.UserInfo.Token = "7e5f5c69-cb23-4bd8-94ad-133c8e5dad2a";
-                App.UserInfo.UserID = "e415d214-2159-42b3-a50a-f8f407b061ef";
-                App.Cookie.SetCookie("user", Ext.encode({ userName: userName, userPwd: userPwd, IsSuperUser: true }));
-                me.redirectTo('user.login', true);
-            } else {
-                alert("用户名或密码不存在");
-            }
-            myMask.destroy();
+            App.Cookie.DeleteCookie("TokenGuid");
+            App.Cookie.DeleteCookie("LoginName");
+            App.Cookie.DeleteCookie("LoginPassWord");
+            App.Ajax.request({
+                url: "/api/Token",
+                method: "POST",
+                nosim: true,
+                type: "JSON",
+                showmask: true,
+                maskmsg: "登录中...",
+                params: {
+                    LoginName: userName,
+                    LoginPassWord: userPwd
+                },
+                success: function (rs) {
+                    var data = Ext.decode(rs.Data);
+                    App.UserInfo.Token = data.Token;
+                    App.UserInfo.IsSuperUser = data.IsSuperUser;
+                    App.UserInfo.UserID = data.UserID;
+                    App.UserInfo.UserName = data.UserName;
+                    App.Cookie.SetCookie("TokenGuid", data.Token);
+                    App.Cookie.SetCookie("LoginName", userName);
+                    App.Cookie.SetCookie("LoginPassWord", userPwd);
+                    me.redirectTo('user.login', true);
+                },
+                error: function (data) {
+                    App.Msg.Error("登录异常");
+                }
+            })
         } else {
             alert("请检查登录信息");
         }
@@ -31,11 +42,12 @@ Ext.define("App.view.authentication.AuthenticationController", {
 
     //登录页面初始化
     onloginAfterrender: function () {
-        var me=this,refs = me.getReferences();
-        if (!Ext.isEmpty(App.Cookie.GetCookie("user"))) {
-            var user = Ext.decode(App.Cookie.GetCookie("user"));
-            refs.userName.setValue(user.userName);
-            refs.userPwd.setValue(user.userPwd);
+        var me = this, refs = me.getReferences();
+        var loginName = App.Cookie.GetCookie("LoginName");
+        var loginPassWord = App.Cookie.GetCookie("LoginPassWord");
+        if (!Ext.isEmpty(loginName) && !Ext.isEmpty(loginPassWord)) {
+            refs.userName.setValue(loginName);
+            refs.userPwd.setValue(loginPassWord);
             me.onLoginClick();
         }
     }

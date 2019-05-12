@@ -12,7 +12,7 @@ Ext.define('App.store.systemmanage.sysrole.MenuTreeStore', {
             idField: "Id",
             parentField: "ParentId",
             isExpand: true,
-            rootId: "",
+            rootId: "00000000-0000-0000-0000-000000000000",
             checked:false
         },
         url: '~/api/SystemManage/SysMenu/GetSysMenuButtonTreeDetail',

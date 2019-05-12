@@ -9,10 +9,7 @@ Ext.define('App.ux.utility.UserInfo', {
          * 当前用户token
          */
         Token: null,
-        /**
-         * 当前用户refreshToken
-         */
-        RefreshToken: null,
+        
         /**
          * 是否是超级管理员
          */

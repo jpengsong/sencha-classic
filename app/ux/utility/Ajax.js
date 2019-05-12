@@ -24,18 +24,21 @@ Ext.define("App.ux.utility.Ajax", {
         * @static
         */
         request: function (option) {
-            var me = this, config, myMask;
+            var me = this, ajaxConfig, myMask;
             if (option.showmask) {
                 myMask = Ext.create({
-                    xtype:"loadmask",
+                    xtype: "loadmask",
                     msg: option.maskmsg || '正在请求数据...',
                     componentCls: "x-mask-ui",
                     target: Ext.getCmp("mainCardPanel")
                 });
                 myMask.show();
             }
-            config = {
-                url: (option.baseUrl || "") + (option.url || ""),
+            ajaxConfig = {
+                defaultHeaders: {
+                    "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+                },
+                url: option.url || "",
                 method: option.method || "POST",
                 nosim: Ext.isEmpty(option.nosim) ? true : option.nosim,
                 params: Ext.apply({ RequestData: me.getRequestData(option.params) }),
@@ -50,7 +53,11 @@ Ext.define("App.ux.utility.Ajax", {
                         responseData = Ext.decode(responseData);
                     }
                     if (Ext.isFunction(option.success)) {
-                        option.success(responseData);
+                        if (responseData.Code == "Public.I_0001") {
+                            option.success(responseData);
+                        } else {
+                            App.Msg.Info(responseData.Code);
+                        }
                     }
                 },
                 failure: function (msg) {
@@ -62,7 +69,12 @@ Ext.define("App.ux.utility.Ajax", {
                     }
                 }
             };
-            Ext.Ajax.request(config);
+
+            if (ajaxConfig.nosim) {
+                ajaxConfig.url = config.Url + ajaxConfig.url;
+            }
+
+            Ext.Ajax.request(ajaxConfig);
         },
 
         /**

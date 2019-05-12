@@ -65,7 +65,7 @@
             Empty: "00000000-0000-0000-0000-000000000000"
         },
 
-        //代理数据类型
+        //代理返回数据类型
         DataType:{
             /**
              * GridStore
@@ -85,7 +85,10 @@
         },
 
         //远程请求数据地址
-        Url:"http://127.0.0.1:8045",
+        //Url:"http://127.0.0.1:8045",
+          Url:"http://localhost:5868",
+
+
         
         //字段必填项
         AfterLabelTextRequired:['<span style="color:red;font-weight:bold">*</span>']

@@ -30,7 +30,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrg", {
                 requestdata: {
                     autoLoad: true,
                     params: function () {
-                        return { SysOrgId: "" };
+                        return { SysOrgId: "00000000-0000-0000-0000-000000000000" };
                     },
                     root: {
                         expanded: true,

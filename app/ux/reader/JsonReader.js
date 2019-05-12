@@ -18,54 +18,55 @@
     isExpand: false,
     isAllExpand: false,
     getResponseData: function (response) {
-        var me, responseData, data, error; me = this;
+        var me, data, error; me = this;
         try {
             data = Ext.decode(response.responseText);
-            content = data.Data;
-            if (Ext.isEmpty(data)) {
-                return new Ext.data.ResultSet({
-                    total: 0,
-                    records: [],
-                    success: true,
+            if (data.Code == "Public.I_0001") {
+                content = Ext.decode(data.Data);
+                if (Ext.isEmpty(data)) {
+                    return new Ext.data.ResultSet({
+                        total: 0,
+                        records: [],
+                        success: true,
+                        message: me.message
+                    });
+                }
+                if (content.List != undefined && content.List != null) {
+                    if (me.datatype == config.DataType.GridStore) {
+                        me.records = content.List;
+                        if (content.RecordCount != undefined && content.RecordCount != null) {
+                            me.total = content.RecordCount;
+                        } else {
+                            me.total = 0;
+                        }
+                    } else if (me.datatype == config.DataType.TreeStore) {
+                        me.records = App.TreeNode.bindTreeData(
+                            content.List,
+                            me.idField,
+                            me.parentField,
+                            me.iconClsField,
+                            me.isExpand,
+                            me.isAllExpand,
+                            me.rootId,
+                            me.checked);
+                        return me.records;
+                    } else if (me.datatype == config.DataType.ComboxStore) {
+                        me.records = content.List;
+                    }
+                } else {
+                    me.records = [];
+                }
+                if (data.Success) {
+                    me.success = data.Success;
+                }
+                var resultSet = new Ext.data.ResultSet({
+                    total: me.total,
+                    records: me.records,
+                    success: me.success,
                     message: me.message
                 });
+                return resultSet;
             }
-            if (content.List != undefined && content.List != null) {
-                if (me.datatype == config.DataType.GridStore) {
-                    me.records = content.List;
-                    if (content.RecordCount != undefined && content.RecordCount != null) {
-                        me.total = content.RecordCount;
-                    } else {
-                        me.total = 0;
-                    }
-                } else if (me.datatype == config.DataType.TreeStore) {
-                    me.records = App.TreeNode.bindTreeData(
-                        content.List,
-                        me.idField,
-                        me.parentField,
-                        me.iconClsField,
-                        me.isExpand,
-                        me.isAllExpand,
-                        me.rootId,
-                        me.checked);
-                    return me.records;
-                    alert(me.records);
-                } else if (me.datatype == config.DataType.ComboxStore) {
-                    me.records = content.List;
-                }
-            } else {
-                me.records = [];
-            }
-            if (data.Success) {
-                me.success = data.Success;
-            }
-            var resultSet = new Ext.data.ResultSet({
-                total: me.total,
-                records: me.records,
-                success: me.success,
-                message: me.message
-            });
-            return resultSet;
         } catch (ex) {
             error = new Ext.data.ResultSet({
                 total: 0,

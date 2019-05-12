@@ -82,8 +82,9 @@ Ext.define('App.data.Simulated', {
                         responseData.Data.RecordCount = responseData.Data.List.length;
                     }
                 }
-                //分页排序
-                if (!Ext.isEmpty(condition.PagingSetting)) {
+
+                 //分页
+                 if (!Ext.isEmpty(condition.PagingSetting)) {
                     var pagingSetting = condition.PagingSetting;
                     if (!Ext.isEmpty(pagingSetting.SortOrder) && !Ext.isEmpty(pagingSetting.SortBy)) {
                         var props = pagingSetting.SortOrder.split(','),
@@ -93,10 +94,6 @@ Ext.define('App.data.Simulated', {
                         if (props.length == dirs.length) {
                             for (var index in props) {
                                 fields.push({ direction: dirs[index], property: props[index] });
-                                // sortFn = me.makeSortFns((ctx.sortSpec = fields));
-                                // if (sortFn) {
-                                //     Ext.Array.sort(responseData.Data.List, sortFn);
-                                // }
                             }
                         }
                     }
@@ -108,6 +105,8 @@ Ext.define('App.data.Simulated', {
                     }
                 }
             }
+            
+            responseData.Data = Ext.encode(responseData.Data);
             return responseData;
         };
 
@@ -116,7 +115,7 @@ Ext.define('App.data.Simulated', {
                 Data: {},
                 Success: true,
                 Message: "",
-                Code: ""
+                Code: "Public.I_0001"
             }
             return responseData;
         };

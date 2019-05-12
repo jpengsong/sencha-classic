@@ -12,7 +12,7 @@ Ext.define('App.store.systemmanage.sysorg.TreeStore', {
             idField: "SysOrgId",
             parentField: "ParentOrgId",
             isExpand: true,
-            rootId: ""
+            rootId: "00000000-0000-0000-0000-000000000000"
         },
         url: '~/api/SystemManage/SysOrg/GetSysOrgTreeByRule',
     }
