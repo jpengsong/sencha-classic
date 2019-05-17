@@ -2,7 +2,7 @@
 /**
  * 操作ResponseCode的工具类
  */
-Ext.define('App.ux..ResponseCode', {
+Ext.define('App.ux.utility.ResponseCode', {
     alternateClassName: ['App.ResponseCode'],
 
     statics: {

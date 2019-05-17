@@ -112,7 +112,6 @@ Ext.define('App.data.systemmanage.SysMenuRole', {
                             i -= 1;
                         }
                     }
-                    debugger;
                     for (var i = 0; i < data.List.length; i++) {
                         SysMenuRole.push(data.List[i]);
                     }
