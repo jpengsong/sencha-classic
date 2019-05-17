@@ -1,5 +1,5 @@
 Ext.define("App.echart.EChart", {
-    xtype: "widget.echart",
+    alias: "widget.echart",
     extend: "Ext.panel.Panel",
     echart: null,
     setOption: function (option) {
