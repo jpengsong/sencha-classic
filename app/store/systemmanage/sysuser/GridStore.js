@@ -10,6 +10,10 @@ Ext.define('App.store.systemmanage.sysuser.GridStore', {
             type:"jsonreader",
             datatype:config.DataType.GridStore
         },
-        url: '~/api/SystemManage/SysUser/GetSysUserPage',
-    }
+        url: '/api/SystemManage/SysUser/GetSysUserPage',
+    },
+    sorters: [{
+        property: 'ModifyDate',
+        direction: 'DESC'
+    }]
 });

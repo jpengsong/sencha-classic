@@ -59,7 +59,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
             var me = this,
                 view = me.getView();
             App.Ajax.request({
-                url: "~/api/SystemManage/SysUser/AddSysUserRole",
+                url: "/api/SystemManage/SysUser/AddSysUserRole",
                 method: "POST",
                 nosim: false,
                 type: "JSON",

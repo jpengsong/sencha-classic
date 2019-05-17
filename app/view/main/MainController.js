@@ -62,6 +62,7 @@ Ext.define("App.view.main.MainController", {
         var me = this, refs = me.getReferences(), vm = me.getViewModel();
         if (!Ext.isEmpty(App.UserInfo.Token)) {
             var store = refs.navigationTreeList.getStore();
+            App.Page.setExtraParamData(store, {});
             if (!store.getAutoLoad()) {
                 store.setAutoLoad(true);
             }
@@ -194,11 +195,8 @@ Ext.define("App.view.main.MainController", {
 
     //退出登录
     onLogout: function () {
-        var me = this;
         App.UserInfo.Token = null;
         App.Cookie.DeleteCookie("TokenGuid");
-        App.Cookie.DeleteCookie("LoginName");
-        App.Cookie.DeleteCookie("LoginPassWord");
         window.location.reload();
     },
 

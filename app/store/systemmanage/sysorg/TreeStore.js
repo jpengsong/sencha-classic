@@ -14,6 +14,6 @@ Ext.define('App.store.systemmanage.sysorg.TreeStore', {
             isExpand: true,
             rootId: "00000000-0000-0000-0000-000000000000"
         },
-        url: '~/api/SystemManage/SysOrg/GetSysOrgTreeByRule',
+        url: '/api/SystemManage/SysOrg/GetSysOrgTreeByRule',
     }
 });

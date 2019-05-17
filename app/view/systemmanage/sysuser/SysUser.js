@@ -95,7 +95,9 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
                 type:"checkboxmodel"
             },
             bind: {
-                store: '{gridstore}'
+                store:{
+                    bindTo:'{gridstore}'
+                } 
             },
             columns: {
                 items: [

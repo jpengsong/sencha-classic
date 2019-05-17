@@ -161,7 +161,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                 model.set("PageType", selection.get("PageType"));
                 model.set("IsEnable", selection.get("IsEnable"));
                 model.set("Description", selection.get("Description"));
-                url = view.status == "add" ? "~/api/SystemManage/SysMenu/AddSysMenu" : "~/api/SystemManage/SysMenu/EditSysMenu";
+                url = view.status == "add" ? "/api/SystemManage/SysMenu/AddSysMenu" : "/api/SystemManage/SysMenu/EditSysMenu";
             } else {
                 model = Ext.create("App.model.systemmanage.SysMenu");
                 model.set("SysMenuButtonId", selection.get("Id"));
@@ -171,7 +171,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                 model.set("Order", selection.get("Order"));
                 model.set("IsEnable", selection.get("IsEnable"));
                 model.set("Description", selection.get("Description"));
-                url = view.status == "add" ? "~/api/SystemManage/SysMenuButton/AddSysMenuButton" : url = "~/api/SystemManage/SysMenuButton/EditSysMenuButton";
+                url = view.status == "add" ? "/api/SystemManage/SysMenuButton/AddSysMenuButton" : url = "/api/SystemManage/SysMenuButton/EditSysMenuButton";
             }
             if (refs.comboType.getValue() == 0 && refs.Name.validate() && refs.Order.validate() && refs.ViewType.validate() && refs.PageType.validate() ||
                 refs.comboType.getValue() == 1 && refs.Name.validate() && refs.Code.validate() && refs.Order.validate()) {

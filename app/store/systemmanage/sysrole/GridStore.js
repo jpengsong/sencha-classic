@@ -10,6 +10,6 @@ Ext.define('App.store.systemmanage.sysrole.GridStore', {
             type:"jsonreader",
             datatype:config.DataType.GridStore
         },
-        url: '~/api/SystemManage/SysRole/GetSysRolePage',
+        url: '/api/SystemManage/SysRole/GetSysRolePage',
     }
 });

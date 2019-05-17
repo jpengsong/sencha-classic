@@ -64,7 +64,7 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleEdit", {
                 form = refs.form;
             if (form.isValid()) {
                 App.Ajax.request({
-                    url: "~/api/SystemManage/SysRole/" + (view.status == "add" ? "AddSysRole" : "EditSysRole"),
+                    url: "/api/SystemManage/SysRole/" + (view.status == "add" ? "AddSysRole" : "EditSysRole"),
                     method: "POST",
                     nosim: false,
                     type: "JSON",

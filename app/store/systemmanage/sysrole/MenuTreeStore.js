@@ -15,6 +15,6 @@ Ext.define('App.store.systemmanage.sysrole.MenuTreeStore', {
             rootId: "00000000-0000-0000-0000-000000000000",
             checked:false
         },
-        url: '~/api/SystemManage/SysMenu/GetSysMenuButtonTreeDetail',
+        url: '/api/SystemManage/SysMenu/GetSysMenuButtonTreeDetail',
     }
 });

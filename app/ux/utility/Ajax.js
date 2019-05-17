@@ -56,7 +56,12 @@ Ext.define("App.ux.utility.Ajax", {
                         if (responseData.Code == "Public.I_0001") {
                             option.success(responseData);
                         } else {
-                            App.Msg.Info(responseData.Code);
+                            if (responseData.Code == "Public.E_0002") {
+                                App.Cookie.DeleteCookie("TokenGuid");
+                            } else {
+                                App.Msg.Info(responseData.Code);
+                            }
+
                         }
                     }
                 },

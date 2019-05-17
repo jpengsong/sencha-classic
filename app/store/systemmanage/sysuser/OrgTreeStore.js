@@ -1,19 +1,19 @@
-Ext.define('App.store.systemmanage.sysmenu.TreeStore', {
+Ext.define('App.store.systemmanage.sysuser.OrgTreeStore', {
     extend: 'Ext.data.TreeStore',
     autoLoad: false,
-    alias: 'store.systemmanage.sysmenu.treestore',
-    model: 'App.model.systemmanage.SysMenuButtonDetail',
+    alias: 'store.systemmanage.sysuser.orgtreestore',
+    model: 'App.model.systemmanage.SysOrg',
     proxy: {
         type: 'api',
         reader: {
             type:"jsonreader",
             rootProperty: "children",
             datatype: config.DataType.TreeStore,
-            idField: "Id",
-            parentField: "ParentId",
+            idField: "SysOrgId",
+            parentField: "ParentOrgId",
             isExpand: true,
             rootId: "00000000-0000-0000-0000-000000000000"
         },
-        url: '/api/SystemManage/SysMenu/GetSysMenuButtonTreeDetail',
+        url: '/api/SystemManage/SysOrg/GetSysOrgTreeByRule',
     }
 });

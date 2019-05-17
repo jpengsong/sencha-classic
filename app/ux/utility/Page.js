@@ -10,19 +10,10 @@ Ext.define('App.ux.utility.Page', {
         * @param {Object} component
         */
         getQueryItems: function (component) {
-            var queryItems = [], queryItem, fields = Ext.ComponentQuery.query("field", component);
+            var queryItems = {}, fields = Ext.ComponentQuery.query("field", component);
             Ext.Array.each(fields, function (field, index) {
-                queryItem = { key: "", Value: "", Method: "", Type: "" };
-                queryItem.key = field.name;
-                queryItem.Value = field.getValue();
-                if (!Ext.isEmpty(field.method)) {
-                    queryItem.Method = field.method;
-                }
-                if (!Ext.isEmpty(field.type)) {
-                    queryItem.Type = field.type;
-                }
-                if (!Ext.isEmpty(queryItem.key)&&!Ext.isEmpty(queryItem.Value)) {
-                    queryItems.push(queryItem);
+                if(!Ext.isEmpty(field.getValue())){
+                    queryItems[field.name] = field.getValue();
                 }
             })
             return queryItems;
@@ -34,7 +25,7 @@ Ext.define('App.ux.utility.Page', {
         * @param {Array} items 需要设置的QueryItems数组
         */
         setQueryItems: function (store, items) {
-            var me = this, queryItems = [];
+            var me = this, queryItems = {};
             if (!Ext.isEmpty(items)) {
                 queryItems = items;
             }

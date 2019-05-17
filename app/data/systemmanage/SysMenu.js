@@ -34,7 +34,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysMenu/GetSysMenuPage",
+            url: "/api/SystemManage/SysMenu/GetSysMenuPage",
             getData: function (ctx) {
                 var requestData = Ext.decode(ctx.params.RequestData), condition = me.getCondition(requestData),
                     responseData = me.SqlQuery(condition);
@@ -49,7 +49,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysMenu/GetSysMenuByRule",
+            url: "/api/SystemManage/SysMenu/GetSysMenuByRule",
             getData: function (ctx) {
                 return me.SqlQuery(null);
             }
@@ -61,7 +61,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
         var me = this;
         Ext.ux.ajax.SimManager.register({
             type: 'json',
-            url: "~/api/SystemManage/SysMenu/GetSysMenuButtonTreeDetail",
+            url: "/api/SystemManage/SysMenu/GetSysMenuButtonTreeDetail",
             getData: function (ctx) {
                 var menuBtnList = App.SimulateDB.Get("SysMenuButton"), list = [], responseData = me.ResponseData();
                 for (var i = 0; i < me.dataSource.length; i++) {
@@ -106,7 +106,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysMenu/AddSysMenu",
+            url: "/api/SystemManage/SysMenu/AddSysMenu",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data = Ext.decode(requestData.Data);
                 me.dataSource.unshift(data);
@@ -135,7 +135,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysMenu/EditSysMenu",
+            url: "/api/SystemManage/SysMenu/EditSysMenu",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
                 data = Ext.decode(requestData.Data);
@@ -170,7 +170,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysMenu/DeleteSysMenu",
+            url: "/api/SystemManage/SysMenu/DeleteSysMenu",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
                 data = Ext.decode(requestData.Data);

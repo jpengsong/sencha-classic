@@ -32,7 +32,7 @@ Ext.define('App.data.systemmanage.SysMenuRole', {
         var me = this;
         Ext.ux.ajax.SimManager.register({
             type: 'json',
-            url: "~/api/SystemManage/SysMenuRole/GetSysMenuRoleByRule",
+            url: "/api/SystemManage/SysMenuRole/GetSysMenuRoleByRule",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx),
                     responseData = me.ResponseData(),
@@ -99,7 +99,7 @@ Ext.define('App.data.systemmanage.SysMenuRole', {
         var me = this;
         Ext.ux.ajax.SimManager.register({
             type: 'json',
-            url: "~/api/SystemManage/SysMenuRole/AddSysMenuRole",
+            url: "/api/SystemManage/SysMenuRole/AddSysMenuRole",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx),
                     SysMenuRole = App.SimulateDB.Get("SysMenuRole"),

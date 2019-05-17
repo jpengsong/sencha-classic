@@ -5,6 +5,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
     //新增
     onAdd: function () {
         var me = this, record = Ext.create("App.model.systemmanage.SysUser");
+        console.info(record);
         Ext.widget({
             title: "新增用户",
             xtype: "sysuseredit",
@@ -16,7 +17,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                 },
                 stores: {
                     treestore: {
-                        type: "systemmanage.sysorg.treestore",
+                        type: "systemmanage.sysuser.orgtreestore",
                     }
                 }
             }
@@ -49,7 +50,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
 
     //删除
     onDelete: function () {
-        var me = this, view = me.getView(), grid = view.getGrid("Grid"), records, idArray = [];
+        var me = this, refs = me.getReferences(), grid = refs.grid, records, idArray = [];;
         if (App.Page.selectionModel(grid, true)) {
             records = grid.getSelectionModel().getSelection();
             Ext.each(records, function (record, index) {
@@ -59,20 +60,23 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                 function (btn) {
                     if (btn == "yes") {
                         App.Ajax.request({
-                            url: "~/api/SystemManage/SysUser/DeleteSysUser",
-                            method: "POST",
+                            url: "/api/SystemManage/SysUser/DeleteSysUser",
+                            method: "DELETE",
                             nosim: false,
                             type: "JSON",
                             showmask: true,
                             maskmsg: "正在删除...",
-                            params: idArray,
+                            params: idArray.join(","),
                             success: function (data) {
-                                App.Msg.Info("删除成功");
-                                var gridstore = grid.getStore();
-                                gridstore.loadPage(1);
+                                if (data.Success) {
+                                    App.Msg.Info("删除成功");
+                                    grid.getStore().loadPage(1);
+                                } else {
+                                    App.Msg.Error("删除失败");
+                                }
                             },
                             error: function (data) {
-                                App.Msg.Error("删除失败");
+                                App.Msg.Error("删除异常");
                             }
                         })
                     }
@@ -100,7 +104,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                             get: function () {
                                 var value = [], vm = this;
                                 App.Ajax.request({
-                                    url: "~/api/SystemManage/SysUser/GetSysUserRoleByRule",
+                                    url: "/api/SystemManage/SysUser/GetSysUserRoleByRule",
                                     method: "GET",
                                     nosim: false,
                                     type: "JSON",

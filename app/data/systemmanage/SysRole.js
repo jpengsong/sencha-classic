@@ -22,7 +22,7 @@ Ext.define('App.data.systemmanage.SysRole', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysRole/GetSysRolePage",
+            url: "/api/SystemManage/SysRole/GetSysRolePage",
             getData: function (ctx) {
                 var requestData = Ext.decode(ctx.params.RequestData), condition = me.getCondition(requestData),
                     responseData = me.SqlQuery(condition);
@@ -37,7 +37,7 @@ Ext.define('App.data.systemmanage.SysRole', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysRole/GetSysRoleAll",
+            url: "/api/SystemManage/SysRole/GetSysRoleAll",
             getData: function (ctx) {
                 var responseData = me.ResponseData();
                 responseData.Data = {};
@@ -53,7 +53,7 @@ Ext.define('App.data.systemmanage.SysRole', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysRole/AddSysRole",
+            url: "/api/SystemManage/SysRole/AddSysRole",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData();
                 me.dataSource.unshift(Ext.decode(requestData.Data));
@@ -68,7 +68,7 @@ Ext.define('App.data.systemmanage.SysRole', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysRole/EditSysRole",
+            url: "/api/SystemManage/SysRole/EditSysRole",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
                 data = Ext.decode(requestData.Data);
@@ -89,7 +89,7 @@ Ext.define('App.data.systemmanage.SysRole', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysRole/DeleteSysRole",
+            url: "/api/SystemManage/SysRole/DeleteSysRole",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
                 data = Ext.decode(requestData.Data);

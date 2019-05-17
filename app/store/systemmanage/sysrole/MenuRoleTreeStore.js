@@ -14,6 +14,6 @@ Ext.define('App.store.systemmanage.sysrole.MenuRoleTreeStore', {
             isExpand: true,
             rootId: "00000000-0000-0000-0000-000000000000"
         },
-        url: '~/api/SystemManage/SysMenuRole/GetSysMenuRoleByRule',
+        url: '/api/SystemManage/SysMenuRole/GetSysMenuRoleByRule',
     }
 });

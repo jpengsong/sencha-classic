@@ -35,14 +35,14 @@ Ext.define('App.data.systemmanage.SysUser', {
 
 
     //获取用户
-    GetSysUserById:function(){
+    GetSysUserById: function () {
         var me = this;
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysUser/GetSysUserById",
+            url: "/api/SystemManage/SysUser/GetSysUserById",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx),responseData = me.ResponseData(),
+                var requestData = me.requestData(ctx), responseData = me.ResponseData(),
                     data = Ext.decode(requestData.Data);
                 for (var j = 0; j < me.dataSource.length; j++) {
                     if (me.dataSource[j].SysUserId == data.userId) {
@@ -61,10 +61,21 @@ Ext.define('App.data.systemmanage.SysUser', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysUser/GetSysUserPage",
+            url: "/api/SystemManage/SysUser/GetSysUserPage",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx),
                     condition = me.getCondition(requestData);
+                if (!Ext.isEmpty(condition.QueryItems)) {
+                    var queryItems = [];
+                    for (var key in condition.QueryItems) {
+                        if(key=="UserName"){
+                            queryItems.push({ key: key, Value: condition.QueryItems[key], Method: config.QueryMethod.Like, Type: "" });
+                        }else if(key=="IsEnable"){
+                            queryItems.push({ key: key, Value: condition.QueryItems[key], Method: config.QueryMethod.Equal, Type: "" });
+                        }
+                    }
+                    condition.QueryItems = queryItems;
+                }
                 responseData = me.SqlQuery(condition);
                 return responseData;
             }
@@ -77,7 +88,7 @@ Ext.define('App.data.systemmanage.SysUser', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysUser/AddSysUser",
+            url: "/api/SystemManage/SysUser/AddSysUser",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData();
                 me.dataSource.unshift(Ext.decode(requestData.Data));
@@ -92,7 +103,7 @@ Ext.define('App.data.systemmanage.SysUser', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysUser/EditSysUser",
+            url: "/api/SystemManage/SysUser/EditSysUser",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
                 data = Ext.decode(requestData.Data);
@@ -113,7 +124,7 @@ Ext.define('App.data.systemmanage.SysUser', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysUser/DeleteSysUser",
+            url: "/api/SystemManage/SysUser/DeleteSysUser",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
                 data = Ext.decode(requestData.Data);
@@ -136,13 +147,13 @@ Ext.define('App.data.systemmanage.SysUser', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysUser/GetSysUserRoleByRule",
+            url: "/api/SystemManage/SysUser/GetSysUserRoleByRule",
             getData: function (ctx) {
                 var requestData = Ext.decode(ctx.params.RequestData),
                     sysUserRole = App.SimulateDB.Get("SysUserRole"),
                     data = Ext.decode(requestData.Data),
                     responseData = me.ResponseData();
-                    responseData.Data.List = [];
+                responseData.Data.List = [];
                 for (var i = 0; i < sysUserRole.length; i++) {
                     if (data.UserId == sysUserRole[i].UserId) {
                         responseData.Data.List.push(sysUserRole[i]);
@@ -159,7 +170,7 @@ Ext.define('App.data.systemmanage.SysUser', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysUser/AddSysUserRole",
+            url: "/api/SystemManage/SysUser/AddSysUserRole",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx),
                     sysUserRole = App.SimulateDB.Get("SysUserRole"),

@@ -7,7 +7,7 @@ Ext.define("App.view.authentication.BasicInfo", {
             user: function () {
                 var me = this;
                 App.Ajax.request({
-                    url: "~/api/SystemManage/SysUser/GetSysUserById",
+                    url: "/api/SystemManage/SysUser/GetSysUserById",
                     method: "GET",
                     nosim: false,
                     type: "JSON",

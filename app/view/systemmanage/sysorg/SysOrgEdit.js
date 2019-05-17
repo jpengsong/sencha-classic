@@ -105,7 +105,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
                 form = me.getReferences().form;
             if (form.isValid()) {
                 App.Ajax.request({
-                    url: "~/api/SystemManage/SysOrg/" + (view.status == "add" ? "AddSysOrg" : "EditSysOrg"),
+                    url: "/api/SystemManage/SysOrg/" + (view.status == "add" ? "AddSysOrg" : "EditSysOrg"),
                     method: "POST",
                     nosim: false,
                     type: "JSON",

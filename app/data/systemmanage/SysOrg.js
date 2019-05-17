@@ -30,7 +30,7 @@ Ext.define('App.data.systemmanage.SysOrg', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysOrg/GetSysOrgPage",
+            url: "/api/SystemManage/SysOrg/GetSysOrgPage",
             getData: function (ctx) {
                 var requestData = Ext.decode(ctx.params.RequestData), condition = me.getCondition(requestData),
                     responseData = me.SqlQuery(condition);
@@ -44,7 +44,7 @@ Ext.define('App.data.systemmanage.SysOrg', {
         var me = this;
         Ext.ux.ajax.SimManager.register({
             type: 'json',
-            url: "~/api/SystemManage/SysOrg/GetSysOrgTreeByRule",
+            url: "/api/SystemManage/SysOrg/GetSysOrgTreeByRule",
             getData: function (ctx) {
                 var requestData = Ext.decode(ctx.params.RequestData),
                     data = Ext.decode(requestData.Data);
@@ -60,7 +60,7 @@ Ext.define('App.data.systemmanage.SysOrg', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysOrg/AddSysOrg",
+            url: "/api/SystemManage/SysOrg/AddSysOrg",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data = Ext.decode(requestData.Data);
                 var obj = {
@@ -85,7 +85,7 @@ Ext.define('App.data.systemmanage.SysOrg', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysOrg/EditSysOrg",
+            url: "/api/SystemManage/SysOrg/EditSysOrg",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data = Ext.decode(requestData.Data);
                 var obj = {
@@ -115,7 +115,7 @@ Ext.define('App.data.systemmanage.SysOrg', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysOrg/DeleteSysOrg",
+            url: "/api/SystemManage/SysOrg/DeleteSysOrg",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
                 data = Ext.decode(requestData.Data);

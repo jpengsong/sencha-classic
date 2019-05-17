@@ -136,7 +136,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
                 function (btn) {
                     if (btn == "yes") {
                         App.Ajax.request({
-                            url: "~/api/SystemManage/SysOrg/DeleteSysOrg",
+                            url: "/api/SystemManage/SysOrg/DeleteSysOrg",
                             method: "POST",
                             nosim: false,
                             type: "JSON",

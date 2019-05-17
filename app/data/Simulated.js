@@ -105,7 +105,6 @@ Ext.define('App.data.Simulated', {
                     }
                 }
             }
-            
             responseData.Data = Ext.encode(responseData.Data);
             return responseData;
         };
@@ -139,6 +138,7 @@ Ext.define('App.data.Simulated', {
             }
             responseData.Data.List = array;
             responseData.Data.RecordCount = array.length;
+            responseData.Data = Ext.encode(responseData.Data);
             return responseData;
         };
 

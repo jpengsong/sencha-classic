@@ -28,7 +28,7 @@ Ext.define('App.data.systemmanage.SysMenuButton', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysMenuButton/AddSysMenuButton",
+            url: "/api/SystemManage/SysMenuButton/AddSysMenuButton",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data = Ext.decode(requestData.Data);
                 me.dataSource.unshift(data);
@@ -57,7 +57,7 @@ Ext.define('App.data.systemmanage.SysMenuButton', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysMenuButton/EditSysMenuButton",
+            url: "/api/SystemManage/SysMenuButton/EditSysMenuButton",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
                 data = Ext.decode(requestData.Data);
@@ -92,7 +92,7 @@ Ext.define('App.data.systemmanage.SysMenuButton', {
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             delay: 0,
-            url: "~/api/SystemManage/SysMenuButton/DeleteSysMenuButton",
+            url: "/api/SystemManage/SysMenuButton/DeleteSysMenuButton",
             getData: function (ctx) {
                 var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
                 data = Ext.decode(requestData.Data);

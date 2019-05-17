@@ -109,7 +109,7 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleMenu", {
                 ) 
             }
             App.Ajax.request({
-                url: "~/api/SystemManage/SysMenuRole/AddSysMenuRole",
+                url: "/api/SystemManage/SysMenuRole/AddSysMenuRole",
                 method: "POST",
                 nosim: false,
                 type: "JSON",

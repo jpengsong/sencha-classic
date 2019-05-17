@@ -84,7 +84,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuController", {
         if (App.Page.selectionModel(tree, true)) {
             selRecords = tree.getSelectionModel().getSelection();
             idArray.push(selRecords[0].get("Id"));
-            url = selRecords[0].get("Type") == "0" ? "~/api/SystemManage/SysMenu/DeleteSysMenu" : "~/api/SystemManage/SysMenuButton/DeleteSysMenuButton";
+            url = selRecords[0].get("Type") == "0" ? "/api/SystemManage/SysMenu/DeleteSysMenu" : "/api/SystemManage/SysMenuButton/DeleteSysMenuButton";
             Ext.Msg.confirm("提示", "确认删除选中的" + idArray.length + "项数据项吗？",
                 function (btn) {
                     if (btn == "yes") {

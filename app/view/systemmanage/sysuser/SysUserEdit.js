@@ -5,7 +5,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
     modal: true,
     width: 450,
     height: 550,
-    autoShow:true,
+    autoShow: true,
     layout: "fit",
     items: [
         {
@@ -22,7 +22,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                     height: 200,
                     rootVisible: false,
                     params: function () {
-                        return { SysOrgId: "" };
+                        return { SysOrgId: "00000000-0000-0000-0000-000000000000" };
                     },
                     bind: {
                         defautvalue: "{user.OrgId}",
@@ -46,7 +46,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                     fieldLabel: '用户名',
                 },
                 {
-                    xtype: "textfield",
+                    xtype: "passwordfield",
                     inputType: 'password',
                     fieldLabel: '密码',
                     bind: "{user.LoginPassWord}",
@@ -112,23 +112,31 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
         onSave: function () {
             var me = this,
                 view = me.getView(),
-                scope =view.scope,
+                scope = view.scope,
                 data = me.getViewModel().get("user").getData(),
                 refs = me.getReferences(),
                 form = refs.form;
             if (form.isValid()) {
                 App.Ajax.request({
-                    url: "~/api/SystemManage/SysUser/" + (view.status == "add" ? "AddSysUser" : "EditSysUser"),
-                    method: "POST",
+                    url: "/api/SystemManage/SysUser/" + (view.status == "add" ? "AddSysUser" : "EditSysUser"),
+                    method: (view.status == "add" ? "POST" : "PUT"),
                     nosim: false,
                     type: "JSON",
                     showmask: true,
                     maskmsg: "正在保存...",
                     params: data,
-                    success: function (data) {
-                        App.Msg.Info("保存成功");
-                        scope.grid.getStore().loadPage(1);
-                        view.close();
+                    success: function (response) {
+                        if (response.Success) {
+                            if (response.Data == "-1") {
+                                App.Msg.Warning("登录名重复");
+                            } else{
+                                App.Msg.Info("保存成功");
+                                scope.grid.getStore().loadPage(1);
+                                view.close();
+                            }
+                        } else {
+                            App.Msg.Info("保存失败");
+                        }
                     },
                     error: function (data) {
                         App.Msg.Error("保存异常");

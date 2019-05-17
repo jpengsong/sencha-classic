@@ -100,6 +100,7 @@ Ext.define("App.ux.plugin.RequestData", {
                     pagingSetting['SortOrder'] = sortOrder.join(',');
                     pagingSetting['SortBy'] = sortBy.join(',');
                 }
+                
                 App.Page.setExtraParamData(store, { PagingSetting: pagingSetting });
             }
         }
