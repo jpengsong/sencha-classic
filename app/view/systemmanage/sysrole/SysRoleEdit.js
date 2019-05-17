@@ -65,16 +65,20 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleEdit", {
             if (form.isValid()) {
                 App.Ajax.request({
                     url: "/api/SystemManage/SysRole/" + (view.status == "add" ? "AddSysRole" : "EditSysRole"),
-                    method: "POST",
+                    method: (view.status == "add" ? "POST" : "PUT"),
                     nosim: false,
                     type: "JSON",
                     showmask: true,
                     maskmsg: "正在保存...",
                     params: record.getData(),
                     success: function (data) {
-                        scope.grid.getStore().loadPage(1);
-                        view.close();
-                        App.Msg.Info("保存成功");
+                        if(data.Data=="1"){
+                            scope.grid.getStore().loadPage(1);
+                            view.close();
+                            App.Msg.Info("保存成功");
+                        }else{
+                            App.Msg.Info("保存失败");
+                        }
                     },
                     error: function (data) {
                         App.Msg.Error("保存异常");

@@ -1,6 +1,10 @@
+/**
+ * 模拟菜单和菜单接口
+ * 
+ */
 Ext.define('App.data.systemmanage.SysMenu', {
     extend: "App.data.Simulated",
-    init: function () {
+    Init: function () {
         var me = this;
         me.dataSource = [
             { "SysMenuId": "2ee4b173-4e09-44db-8550-23d54392077e", "ParentId": "00000000-0000-0000-0000-000000000000", "ViewType": "", "PageType": "", "MenuName": "页面", "Order": 0, "Description": "", "IconCls": "x-fa fa-tags", "IsEnable": 1, "isDel": 0 },
@@ -22,6 +26,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
         ];
         me.GetSysMenuPage();
         me.GetSysMenuByRule();
+        me.GetSysUserMenuByRule();
         me.GetSysMenuButtonTreeDetail();
         me.AddSysMenu();
         me.EditSysMenu();
@@ -39,6 +44,19 @@ Ext.define('App.data.systemmanage.SysMenu', {
                 var requestData = Ext.decode(ctx.params.RequestData), condition = me.getCondition(requestData),
                     responseData = me.SqlQuery(condition);
                 return responseData;
+            }
+        })
+    },
+    
+    //获取数据
+    GetSysUserMenuByRule: function () {
+        var me = this;
+        Ext.ux.ajax.SimManager.register({
+            type: 'json',
+            delay: 0,
+            url: "/api/SystemManage/SysMenu/GetSysUserMenuByRule",
+            getData: function (ctx) {
+                return me.SqlQuery(null);
             }
         })
     },
@@ -63,7 +81,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
             type: 'json',
             url: "/api/SystemManage/SysMenu/GetSysMenuButtonTreeDetail",
             getData: function (ctx) {
-                var menuBtnList = App.SimulateDB.Get("SysMenuButton"), list = [], responseData = me.ResponseData();
+                var menuBtnList = App.SimulateDB.Get("SysMenuButton"), list = [], responseData = {};
                 for (var i = 0; i < me.dataSource.length; i++) {
                     list.push({
                         Id: me.dataSource[i]["SysMenuId"],
@@ -94,7 +112,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
                         Type: "1"
                     })
                 }
-                responseData.Data.List = list;
+                responseData.List = list;
                 return responseData;
             }
         })
@@ -108,7 +126,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
             delay: 0,
             url: "/api/SystemManage/SysMenu/AddSysMenu",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data = Ext.decode(requestData.Data);
+                var data = me.RequestData(ctx).Data;
                 me.dataSource.unshift(data);
                 var model = {
                     Id: data["SysMenuId"],
@@ -123,8 +141,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
                     IconCls: data["IconCls"],
                     Type: "0"
                 }
-                responseData.Data = Ext.encode(model);
-                return responseData;
+                return model;
             }
         })
     },
@@ -137,8 +154,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
             delay: 0,
             url: "/api/SystemManage/SysMenu/EditSysMenu",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
-                data = Ext.decode(requestData.Data);
+                var data = me.RequestData(ctx).Data;
                 for (var i = 0; i < me.dataSource.length; i++) {
                     if (me.dataSource[i].SysMenuId == data.SysMenuId) {
                         Ext.apply(me.dataSource[i], data);
@@ -157,9 +173,9 @@ Ext.define('App.data.systemmanage.SysMenu', {
                     IsEnable: data["IsEnable"],
                     IconCls: data["IconCls"],
                     Type: "0"
-                }
-                responseData.Data = Ext.encode(model);
-                return responseData;
+                };
+                
+                return model;
             }
         })
     },
@@ -172,8 +188,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
             delay: 0,
             url: "/api/SystemManage/SysMenu/DeleteSysMenu",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
-                data = Ext.decode(requestData.Data);
+                var data = me.RequestData(ctx).Data;
                 for (var i = 0; i < data.length; i++) {
                     for (var j = 0; j < me.dataSource.length; j++) {
                         if (me.dataSource[j].SysMenuId == data[i]) {
@@ -182,7 +197,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
                         }
                     }
                 }
-                return responseData;
+                return 1;
             }
         })
     }

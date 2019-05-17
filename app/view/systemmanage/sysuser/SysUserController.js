@@ -68,7 +68,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                             maskmsg: "正在删除...",
                             params: idArray.join(","),
                             success: function (data) {
-                                if (data.Success) {
+                                if (data.Data=="1") {
                                     App.Msg.Info("删除成功");
                                     grid.getStore().loadPage(1);
                                 } else {
@@ -86,10 +86,10 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
 
     //分配角色
     onUserRole: function () {
-        var me = this, grid = me.getView().getGrid("Grid"), sysUserId, userRole;
+        var me = this,refs = me.getReferences(), grid =refs.grid, sysUserId;
         if (App.Page.selectionModel(grid, false)) {
             sysUserId = grid.getSelection()[0].get("SysUserId");
-            userRole = Ext.widget("sysuserrole", {
+            Ext.widget("sysuserrole", {
                 viewModel: {
                     data: {
                         UserId: sysUserId
@@ -110,8 +110,8 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                                     type: "JSON",
                                     params: { UserId: sysUserId },
                                     success: function (data) {
-                                        for (var i = 0; i < data.Data.List.length; i++) {
-                                            value.push(data.Data.List[i]["RoleId"]);
+                                        for (var i = 0; i < data.Data.length; i++) {
+                                            value.push(data.Data[i]["RoleId"]);
                                         }
                                         vm.set("value", value);
                                     }

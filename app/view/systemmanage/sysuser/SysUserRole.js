@@ -70,8 +70,13 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
                     RoleId: me.getReferences().itemselector.getValue().join(",")
                 },
                 success: function (data) {
-                    App.Msg.Info("保存成功");
-                    view.close();
+                    if (data.Data == "1") {
+                        App.Msg.Info("保存成功");
+                        view.close();
+                    } else {
+                        App.Msg.Info("保存失败");
+                    }
+
                 },
                 error: function (data) {
                     App.Msg.Error("保存异常");

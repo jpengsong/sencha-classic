@@ -1,6 +1,11 @@
+/**
+ * 模拟用户角色数据源
+ * 
+ */
 Ext.define('App.data.systemmanage.SysUserRole', {
     extend: "App.data.Simulated",
-    init: function () {
+    
+    Init: function () {
         var me = this;
         me.dataSource = [
             { "SysUserRoleId": "cbffea09-0244-4a76-9070-19c832f0fef3", "UserId": "d0a70e97-06dc-4a39-a3fc-a6ce347635eb", "RoleId": "5519da9e-ae64-40ad-b676-bbc724872c90" },

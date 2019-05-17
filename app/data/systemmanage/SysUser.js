@@ -1,6 +1,11 @@
+/**
+ * 模拟用户数据源和用户接口
+ * 
+ */
 Ext.define('App.data.systemmanage.SysUser', {
     extend: "App.data.Simulated",
-    init: function () {
+
+    Init: function () {
         var me = this;
         //数据源
         me.dataSource = [
@@ -33,7 +38,6 @@ Ext.define('App.data.systemmanage.SysUser', {
         me.AddSysUserRole();
     },
 
-
     //获取用户
     GetSysUserById: function () {
         var me = this;
@@ -42,15 +46,15 @@ Ext.define('App.data.systemmanage.SysUser', {
             delay: 0,
             url: "/api/SystemManage/SysUser/GetSysUserById",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData(),
-                    data = Ext.decode(requestData.Data);
+                var RequestData = me.RequestData(ctx), data,
+                    data = Ext.decode(RequestData.Data);
                 for (var j = 0; j < me.dataSource.length; j++) {
                     if (me.dataSource[j].SysUserId == data.userId) {
-                        responseData.Data = me.dataSource[j];
+                        data = me.dataSource[j];
                         break;
                     }
                 }
-                return responseData;
+                return data;
             }
         })
     },
@@ -63,21 +67,19 @@ Ext.define('App.data.systemmanage.SysUser', {
             delay: 0,
             url: "/api/SystemManage/SysUser/GetSysUserPage",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx),
-                    condition = me.getCondition(requestData);
+                var condition = me.RequestData(ctx).Data;
                 if (!Ext.isEmpty(condition.QueryItems)) {
                     var queryItems = [];
                     for (var key in condition.QueryItems) {
-                        if(key=="UserName"){
+                        if (key == "UserName") {
                             queryItems.push({ key: key, Value: condition.QueryItems[key], Method: config.QueryMethod.Like, Type: "" });
-                        }else if(key=="IsEnable"){
+                        } else if (key == "IsEnable") {
                             queryItems.push({ key: key, Value: condition.QueryItems[key], Method: config.QueryMethod.Equal, Type: "" });
                         }
                     }
                     condition.QueryItems = queryItems;
                 }
-                responseData = me.SqlQuery(condition);
-                return responseData;
+                return me.SqlQuery(condition);
             }
         })
     },
@@ -90,9 +92,8 @@ Ext.define('App.data.systemmanage.SysUser', {
             delay: 0,
             url: "/api/SystemManage/SysUser/AddSysUser",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData();
-                me.dataSource.unshift(Ext.decode(requestData.Data));
-                return responseData;
+                me.dataSource.unshift(me.RequestData(ctx).Data);
+                return 1;
             }
         })
     },
@@ -105,15 +106,14 @@ Ext.define('App.data.systemmanage.SysUser', {
             delay: 0,
             url: "/api/SystemManage/SysUser/EditSysUser",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
-                data = Ext.decode(requestData.Data);
+                var data = me.RequestData(ctx).Data;
                 for (var i = 0; i < me.dataSource.length; i++) {
                     if (me.dataSource[i].SysUserId == data.SysUserId) {
                         Ext.apply(me.dataSource[i], data);
                         break;
                     }
                 }
-                return responseData;
+                return 1;
             }
         })
     },
@@ -126,8 +126,7 @@ Ext.define('App.data.systemmanage.SysUser', {
             delay: 0,
             url: "/api/SystemManage/SysUser/DeleteSysUser",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
-                data = Ext.decode(requestData.Data);
+                var data = me.RequestData(ctx).Data.split(",");
                 for (var i = 0; i < data.length; i++) {
                     for (var j = 0; j < me.dataSource.length; j++) {
                         if (me.dataSource[j].SysUserId == data[i]) {
@@ -136,7 +135,7 @@ Ext.define('App.data.systemmanage.SysUser', {
                         }
                     }
                 }
-                return responseData;
+                return 1;
             }
         })
     },
@@ -149,17 +148,16 @@ Ext.define('App.data.systemmanage.SysUser', {
             delay: 0,
             url: "/api/SystemManage/SysUser/GetSysUserRoleByRule",
             getData: function (ctx) {
-                var requestData = Ext.decode(ctx.params.RequestData),
+                var RequestData = Ext.decode(ctx.params.RequestData),
                     sysUserRole = App.SimulateDB.Get("SysUserRole"),
-                    data = Ext.decode(requestData.Data),
-                    responseData = me.ResponseData();
-                responseData.Data.List = [];
+                    data = Ext.decode(RequestData.Data),
+                    response = new Array();
                 for (var i = 0; i < sysUserRole.length; i++) {
                     if (data.UserId == sysUserRole[i].UserId) {
-                        responseData.Data.List.push(sysUserRole[i]);
+                        response.push(sysUserRole[i]);
                     }
                 }
-                return responseData;
+                return response;
             }
         })
     },
@@ -172,10 +170,8 @@ Ext.define('App.data.systemmanage.SysUser', {
             delay: 0,
             url: "/api/SystemManage/SysUser/AddSysUserRole",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx),
-                    sysUserRole = App.SimulateDB.Get("SysUserRole"),
-                    responseData = me.ResponseData();
-                var data = Ext.decode(requestData.Data);
+                var data = me.RequestData(ctx).Data,
+                    sysUserRole = App.SimulateDB.Get("SysUserRole");
                 if (!Ext.isEmpty(data.UserId)) {
                     for (var i = 0; i < sysUserRole.length; i++) {
                         if (sysUserRole[i].UserId == data.UserId) {
@@ -194,7 +190,7 @@ Ext.define('App.data.systemmanage.SysUser', {
                         }
                     }
                 }
-                return responseData;
+                return 1;
             }
         })
     }

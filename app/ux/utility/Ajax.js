@@ -49,8 +49,9 @@ Ext.define("App.ux.utility.Ajax", {
                         myMask.destroy();
                     }
                     var responseData = response.responseText;
-                    if (option.type == "JSON") {
-                        responseData = Ext.decode(responseData);
+                    responseData = Ext.decode(responseData);
+                    if (option.type == "JSON" && responseData.Data != "") {
+                        responseData.Data = Ext.decode(responseData.Data);
                     }
                     if (Ext.isFunction(option.success)) {
                         if (responseData.Code == "Public.I_0001") {
@@ -75,10 +76,17 @@ Ext.define("App.ux.utility.Ajax", {
                 }
             };
 
+            //远程请求加上 config.url地址
             if (ajaxConfig.nosim) {
                 ajaxConfig.url = config.Url + ajaxConfig.url;
             }
-
+            
+            //本地模拟请求
+            if (!ajaxConfig.nosim) {
+                if(Ext.util.Format.uppercase(ajaxConfig.method)=="PUT"||Ext.util.Format.uppercase(ajaxConfig.method)=="DELETE"){
+                    ajaxConfig.method="POST";
+                }
+            }
             Ext.Ajax.request(ajaxConfig);
         },
 

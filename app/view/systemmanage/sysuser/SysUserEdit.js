@@ -117,6 +117,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                 refs = me.getReferences(),
                 form = refs.form;
             if (form.isValid()) {
+                console.info(data);
                 App.Ajax.request({
                     url: "/api/SystemManage/SysUser/" + (view.status == "add" ? "AddSysUser" : "EditSysUser"),
                     method: (view.status == "add" ? "POST" : "PUT"),

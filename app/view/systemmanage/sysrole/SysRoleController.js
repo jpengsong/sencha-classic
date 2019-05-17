@@ -4,7 +4,7 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleController", {
 
     //新增
     onAdd: function () {
-        var me = this,refs =me.getReferences();
+        var me = this, refs = me.getReferences();
         Ext.widget({
             scope: refs,
             xtype: "sysroleedit",
@@ -57,11 +57,15 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleController", {
                             maskmsg: "正在删除...",
                             params: idArray,
                             success: function (data) {
-                                App.Msg.Info("删除成功");
-                                refs.grid.getStore().loadPage(1);
+                                if (data.Data == "1") {
+                                    App.Msg.Info("删除成功");
+                                    refs.grid.getStore().loadPage(1);
+                                } else {
+                                    App.Msg.Info("删除失败");
+                                }
                             },
                             error: function (data) {
-                                App.Msg.Error("删除失败");
+                                App.Msg.Error("删除异常");
                             }
                         })
                     }

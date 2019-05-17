@@ -20,10 +20,10 @@
     getResponseData: function (response) {
         var me, data, error; me = this;
         try {
+            debugger;
             data = Ext.decode(response.responseText);
             if (data.Code == "Public.I_0001") {
-                content = Ext.decode(data.Data);
-                if (Ext.isEmpty(data)) {
+                if (Ext.isEmpty(data.Data)) {
                     return new Ext.data.ResultSet({
                         total: 0,
                         records: [],
@@ -31,31 +31,33 @@
                         message: me.message
                     });
                 }
-                if (content.List != undefined && content.List != null) {
-                    if (me.datatype == config.DataType.GridStore) {
-                        me.records = content.List;
-                        if (content.RecordCount != undefined && content.RecordCount != null) {
-                            me.total = content.RecordCount;
-                        } else {
-                            me.total = 0;
-                        }
-                    } else if (me.datatype == config.DataType.TreeStore) {
-                        me.records = App.TreeNode.bindTreeData(
-                            content.List,
-                            me.idField,
-                            me.parentField,
-                            me.iconClsField,
-                            me.isExpand,
-                            me.isAllExpand,
-                            me.rootId,
-                            me.checked);
-                        return me.records;
-                    } else if (me.datatype == config.DataType.ComboxStore) {
-                        me.records = content.List;
-                    }
-                } else {
-                    me.records = [];
+                content = Ext.decode(data.Data);
+                if (content.List == undefined && content.List == null) {
+                    content.List = content;
                 }
+
+                if (me.datatype == config.DataType.GridStore) {
+                    me.records = content.List;
+                    if (content.RecordCount != undefined && content.RecordCount != null) {
+                        me.total = content.RecordCount;
+                    } else {
+                        me.total = 0;
+                    }
+                } else if (me.datatype == config.DataType.TreeStore) {
+                    me.records = App.TreeNode.bindTreeData(
+                        content.List,
+                        me.idField,
+                        me.parentField,
+                        me.iconClsField,
+                        me.isExpand,
+                        me.isAllExpand,
+                        me.rootId,
+                        me.checked);
+                    return me.records;
+                } else if (me.datatype == config.DataType.ComboxStore) {
+                    me.records = content.List;
+                }
+
                 if (data.Success) {
                     me.success = data.Success;
                 }

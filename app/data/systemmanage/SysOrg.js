@@ -1,6 +1,11 @@
+/**
+ * 模拟组织机构数据源和组织机构接口
+ * 
+ */
 Ext.define('App.data.systemmanage.SysOrg', {
     extend: "App.data.Simulated",
-    init: function () {
+    
+    Init: function () {
         var me = this;
 
         //数据来源
@@ -32,9 +37,19 @@ Ext.define('App.data.systemmanage.SysOrg', {
             delay: 0,
             url: "/api/SystemManage/SysOrg/GetSysOrgPage",
             getData: function (ctx) {
-                var requestData = Ext.decode(ctx.params.RequestData), condition = me.getCondition(requestData),
-                    responseData = me.SqlQuery(condition);
-                return responseData;
+                var condition = me.RequestData(ctx).Data;
+                if (!Ext.isEmpty(condition.QueryItems)) {
+                    var queryItems = [];
+                    for (var key in condition.QueryItems) {
+                        if (key == "ParentOrgId") {
+                            queryItems.push({ key: key, Value: condition.QueryItems[key], Method: config.QueryMethod.Equal, Type: "" });
+                        } else if (key == "OrgName") {
+                            queryItems.push({ key: key, Value: condition.QueryItems[key], Method: config.QueryMethod.Like, Type: "" });
+                        }
+                    }
+                    condition.QueryItems = queryItems;
+                }
+                return me.SqlQuery(condition);
             }
         })
     },
@@ -46,8 +61,7 @@ Ext.define('App.data.systemmanage.SysOrg', {
             type: 'json',
             url: "/api/SystemManage/SysOrg/GetSysOrgTreeByRule",
             getData: function (ctx) {
-                var requestData = Ext.decode(ctx.params.RequestData),
-                    data = Ext.decode(requestData.Data);
+                var data = me.RequestData(ctx).Data;
                 responseData = me.getTreeData(me.dataSource, "SysOrgId", "ParentOrgId", data.SysOrgId);
                 return responseData;
             }
@@ -62,7 +76,7 @@ Ext.define('App.data.systemmanage.SysOrg', {
             delay: 0,
             url: "/api/SystemManage/SysOrg/AddSysOrg",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data = Ext.decode(requestData.Data);
+                var data = me.RequestData(ctx).Data;
                 var obj = {
                     SysOrgId: data.SysOrgId,
                     ParentOrgId: data.ParentOrgId,
@@ -74,7 +88,7 @@ Ext.define('App.data.systemmanage.SysOrg', {
                 }
                 me.dataSource.unshift(obj);
                 responseData.Data = obj;
-                return responseData;
+                return data;
             }
         })
     },
@@ -87,7 +101,7 @@ Ext.define('App.data.systemmanage.SysOrg', {
             delay: 0,
             url: "/api/SystemManage/SysOrg/EditSysOrg",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data = Ext.decode(requestData.Data);
+                var data = me.RequestData(ctx).Data;
                 var obj = {
                     SysOrgId: data.SysOrgId,
                     ParentOrgId: data.ParentOrgId,
@@ -103,8 +117,7 @@ Ext.define('App.data.systemmanage.SysOrg', {
                         break;
                     }
                 }
-                responseData.Data = obj;
-                return responseData;
+                return data;
             }
         })
     },
@@ -117,8 +130,7 @@ Ext.define('App.data.systemmanage.SysOrg', {
             delay: 0,
             url: "/api/SystemManage/SysOrg/DeleteSysOrg",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
-                data = Ext.decode(requestData.Data);
+                var data = me.RequestData(ctx).Data;
                 for (var i = 0; i < data.length; i++) {
                     for (var j = 0; j < me.dataSource.length; j++) {
                         if (me.dataSource[j].SysOrgId == data[i]) {
@@ -127,7 +139,7 @@ Ext.define('App.data.systemmanage.SysOrg', {
                         }
                     }
                 }
-                return responseData;
+                return 1;
             }
         })
     }

@@ -177,21 +177,25 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                 refs.comboType.getValue() == 1 && refs.Name.validate() && refs.Code.validate() && refs.Order.validate()) {
                 App.Ajax.request({
                     url: url,
-                    method: "POST",
+                    method:  (view.status == "add" ? "POST" : "PUT"),
                     nosim: false,
                     type: "JSON",
                     showmask: true,
                     maskmsg: "正在保存...",
                     params: model.data,
                     success: function (data) {
-                        if (view.status == "add") {
-                            newNode = Ext.create("App.model.systemmanage.SysMenuButtonDetail", Ext.decode(data.Data));
-                            App.TreeNode.appendNode(selNode,newNode);
+                        if (!Ext.isEmpty(data.Data)) {
+                            if (view.status == "add") {
+                                newNode = Ext.create("App.model.systemmanage.SysMenuButtonDetail",data.Data);
+                                App.TreeNode.appendNode(selNode, newNode);
+                            } else {
+                                App.TreeNode.updateNode(selNode,data.Data);
+                            }
+                            App.Msg.Info("保存成功");
+                            view.close();
                         } else {
-                            App.TreeNode.updateNode(selNode, Ext.decode(data.Data));
+                            App.Msg.Info("保存失败");
                         }
-                        App.Msg.Info("保存成功");
-                        view.close();
                     },
                     error: function (data) {
                         App.Msg.Error("保存异常");

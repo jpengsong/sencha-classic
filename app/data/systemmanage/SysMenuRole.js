@@ -1,6 +1,11 @@
+/**
+ * 模拟菜单角色数据源和菜单角色接口
+ * 
+ */
 Ext.define('App.data.systemmanage.SysMenuRole', {
     extend: "App.data.Simulated",
-    init: function () {
+    
+    Init: function () {
         var me = this;
         me.dataSource = [
             { "SysMenuRoleId": "86b5d730-def6-44ea-a96f-5efa90a24fe3", "MenuId": "84a758b5-179b-4893-8706-483167a2f250", "RoleId": "2d5d5db2-c08e-4ef9-b58f-3ef1d85eadf9", "Type": 0, "CreateUserId": "", "CreateUserName": "", "createDate": "" },
@@ -29,14 +34,12 @@ Ext.define('App.data.systemmanage.SysMenuRole', {
 
     //获取某一角色权限
     GetSysMenuRoleByRule: function () {
-        var me = this;
+        var me = this,data={};
         Ext.ux.ajax.SimManager.register({
             type: 'json',
             url: "/api/SystemManage/SysMenuRole/GetSysMenuRoleByRule",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx),
-                    responseData = me.ResponseData(),
-                    data = Ext.decode(requestData.Data),
+                var data = me.RequestData(ctx).Data,
                     ids = [],
                     menuList = App.SimulateDB.Get("SysMenu"),
                     menuBtnList = App.SimulateDB.Get("SysMenuButton"),
@@ -88,8 +91,8 @@ Ext.define('App.data.systemmanage.SysMenuRole', {
                         }
                     }
                 }
-                responseData.Data.List = list;
-                return responseData;
+                data.List=list;
+                return data;
             }
         })
     },
@@ -101,10 +104,8 @@ Ext.define('App.data.systemmanage.SysMenuRole', {
             type: 'json',
             url: "/api/SystemManage/SysMenuRole/AddSysMenuRole",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx),
-                    SysMenuRole = App.SimulateDB.Get("SysMenuRole"),
-                    responseData = me.ResponseData(),
-                    data = Ext.decode(requestData.Data);
+                var data = me.RequestData(ctx).Data,
+                    SysMenuRole = App.SimulateDB.Get("SysMenuRole");
                 if (!Ext.isEmpty(data.RoleId)) {
                     for (var i = 0; i < SysMenuRole.length; i++) {
                         if (SysMenuRole[i].RoleId == data.RoleId) {
@@ -116,7 +117,7 @@ Ext.define('App.data.systemmanage.SysMenuRole', {
                         SysMenuRole.push(data.List[i]);
                     }
                 }
-                return responseData;
+                return 1;
             }
         })
     }

@@ -8,7 +8,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
         Ext.override(querypanel, {
             getQueryItems: function () {
                 var queryItems = App.Page.getQueryItems(Ext.ComponentQuery.query("container[reference='searchcondition']", querypanel)[0]);
-                queryItems.push({ key: "ParentOrgId", Value: record.data.SysOrgId, Method: " = ", Type: "String" });
+                queryItems["ParentOrgId"] = record.data.SysOrgId;
                 return queryItems;
             }
         });
@@ -126,7 +126,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
 
     //删除
     onDelete: function () {
-        var me = this, refs = me.getView().scope.getReferences(), records, idArray = [];
+        var me = this, refs = me.getReferences(), records, idArray = [];
         if (App.Page.selectionModel(refs.grid, true)) {
             records = refs.grid.getSelectionModel().getSelection();
             Ext.each(records, function (record, index) {
@@ -144,12 +144,16 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
                             maskmsg: "正在删除...",
                             params: idArray,
                             success: function (data) {
-                                App.Msg.Info("删除成功");
-                                refs.grid.getStore().loadPage(1);
-                                App.TreeNode.updateChildNodes(refs.tree.getSelectionModel().getSelection()[0]);
+                                if (data.Data == "1") {
+                                    App.Msg.Info("删除成功");
+                                    refs.grid.getStore().loadPage(1);
+                                    App.TreeNode.updateChildNodes(refs.tree.getSelectionModel().getSelection()[0]);
+                                } else {
+                                    App.Msg.Error("删除失败");
+                                }
                             },
                             error: function (data) {
-                                App.Msg.Error("删除失败");
+                                App.Msg.Error("删除异常");
                             }
                         })
                     }

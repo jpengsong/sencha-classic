@@ -1,6 +1,6 @@
 $app-name:  dynamic( 'App' );
-$image-search-path: 'G:/ExtJS/Project/sencha-classic/build/development/App/purple/resources';
-$theme-name:  dynamic( 'theme-purple' );
+$image-search-path: 'G:/ExtJS/Project/sencha-classic/build/development/App/green/resources';
+$theme-name:  dynamic( 'theme-green' );
 $include-app-ajax: dynamic(true);;
 $include-app-application: dynamic(true);;
 $include-app-cookie: dynamic(true);;
@@ -12,6 +12,7 @@ $include-app-simulatedb: dynamic(true);;
 $include-app-treenode: dynamic(true);;
 $include-app-userinfo: dynamic(true);;
 $include-app-data-simulated: dynamic(true);;
+$include-app-data-authentication-authentication: dynamic(true);;
 $include-app-data-systemmanage-sysmenu: dynamic(true);;
 $include-app-data-systemmanage-sysmenubutton: dynamic(true);;
 $include-app-data-systemmanage-sysmenurole: dynamic(true);;
@@ -45,7 +46,6 @@ $include-app-store-systemmanage-sysuser-comboxrolestore: dynamic(true);;
 $include-app-store-systemmanage-sysuser-gridstore: dynamic(true);;
 $include-app-store-systemmanage-sysuser-orgtreestore: dynamic(true);;
 $include-app-store-systemmanage-sysuser-userrole: dynamic(true);;
-$include-app-ux--responsecode: dynamic(true);;
 $include-app-ux-app-viewcontroller: dynamic(true);;
 $include-app-ux-combox-comboxtree: dynamic(true);;
 $include-app-ux-page-page: dynamic(true);;
@@ -64,6 +64,7 @@ $include-app-ux-utility-cookie: dynamic(true);;
 $include-app-ux-utility-messagebox: dynamic(true);;
 $include-app-ux-utility-page: dynamic(true);;
 $include-app-ux-utility-privilege: dynamic(true);;
+$include-app-ux-utility-responsecode: dynamic(true);;
 $include-app-ux-utility-simulatedb: dynamic(true);;
 $include-app-ux-utility-treenode: dynamic(true);;
 $include-app-ux-utility-userinfo: dynamic(true);;
@@ -1318,7 +1319,8 @@ $include-config: dynamic(true);;
 $include-override-layout-component-dock: dynamic(true);;
 $include-override-panel-grid: dynamic(true);;
 $include-override-panel-panel: dynamic(true);;
-$output-paths: ("path": "../../purple/resources", "shared": "../../resources");
+$include-override-simlet-jsonsimlet: dynamic(true);;
+$output-paths: ("path": "../../green/resources", "shared": "../../resources");
 
 /* ======================== ETC ======================== */
 
@@ -1393,22 +1395,6 @@ $current-package: 'theme-green';
 $current-resource-root: $theme-green-resource-root;
 $relative-image-path-for-uis: $theme-green-resource-path;
 @import '../../../../../packages/local/theme-green/sass/etc/sencha-themer-defaults';
-
-/* including package theme-skyblue */
-$theme-skyblue-resource-root: '' !default;
-$theme-skyblue-resource-path: 'images' !default;
-$current-package: 'theme-skyblue';
-$current-resource-root: $theme-skyblue-resource-root;
-$relative-image-path-for-uis: $theme-skyblue-resource-path;
-@import '../../../../../packages/local/theme-skyblue/sass/etc/all';
-
-/* including package theme-purple */
-$theme-purple-resource-root: '' !default;
-$theme-purple-resource-path: 'images' !default;
-$current-package: 'theme-purple';
-$current-resource-root: $theme-purple-resource-root;
-$relative-image-path-for-uis: $theme-purple-resource-path;
-@import '../../../../../packages/local/theme-purple/sass/etc/all';
 
 /* including package charts */
 $charts-resource-root: 'charts' !default;
@@ -1622,22 +1608,6 @@ $current-package: 'theme-green';
 $current-resource-root: $theme-green-resource-root;
 $relative-image-path-for-uis: $theme-green-resource-path;
 @import '../../../../../packages/local/theme-green/sass/save';
-
-/* including package theme-skyblue */
-$theme-skyblue-resource-root: '' !default;
-$theme-skyblue-resource-path: 'images' !default;
-$current-package: 'theme-skyblue';
-$current-resource-root: $theme-skyblue-resource-root;
-$relative-image-path-for-uis: $theme-skyblue-resource-path;
-@import '../../../../../packages/local/theme-skyblue/sass/save';
-
-/* including package theme-purple */
-$theme-purple-resource-root: '' !default;
-$theme-purple-resource-path: 'images' !default;
-$current-package: 'theme-purple';
-$current-resource-root: $theme-purple-resource-root;
-$relative-image-path-for-uis: $theme-purple-resource-path;
-@import '../../../../../packages/local/theme-purple/sass/save';
 
 /* including package ux */
 $ux-resource-root: 'ux' !default;

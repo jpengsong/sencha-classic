@@ -1,7 +1,7 @@
 Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
     alias: "widget.sysorgedit",
     extend: "Ext.window.Window",
-    autoShow:true,
+    autoShow: true,
     maximizable: true,
     modal: true,
     width: 450,
@@ -24,7 +24,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
                     height: 200,
                     rootVisible: false,
                     params: function () {
-                        return { SysOrgId: "" };
+                        return { SysOrgId: "00000000-0000-0000-0000-000000000000" };
                     },
                     bind: {
                         defautvalue: "{org.ParentOrgId}",
@@ -101,26 +101,30 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
             var me = this,
                 view = me.getView(),
                 vm = me.getViewModel(),
-                scope=view.scope,
+                scope = view.scope,
                 form = me.getReferences().form;
             if (form.isValid()) {
                 App.Ajax.request({
                     url: "/api/SystemManage/SysOrg/" + (view.status == "add" ? "AddSysOrg" : "EditSysOrg"),
-                    method: "POST",
+                    method: (view.status == "add" ? "POST" : "PUT"),
                     nosim: false,
                     type: "JSON",
                     showmask: true,
                     maskmsg: "正在保存...",
                     params: vm.get("org").getData(),
                     success: function (data) {
-                        if (view.status == "add") {
-                            App.TreeNode.appendNode(vm.get("selRecord"), Ext.create("App.model.systemmanage.SysOrg", data.Data));
+                        if (!Ext.isEmpty(data.Data)) {
+                            if (view.status == "add") {
+                                App.TreeNode.appendNode(vm.get("selRecord"), Ext.create("App.model.systemmanage.SysOrg", data.Data));
+                            } else {
+                                App.TreeNode.updateNode(scope.tree.getStore().findNode("SysOrgId", data.Data.SysOrgId), data.Data);
+                            }
+                            scope.grid.getStore().loadPage(1);
+                            App.Msg.Info("保存成功");
+                            view.close();
                         } else {
-                            App.TreeNode.updateNode(scope.tree.getStore().findNode("SysOrgId", data.Data.SysOrgId), data.Data);
+                            App.Msg.Info("保存失败");
                         }
-                        scope.grid.getStore().loadPage(1);
-                        App.Msg.Info("保存成功");
-                        view.close();
                     },
                     error: function (data) {
                         App.Msg.Error("保存异常");

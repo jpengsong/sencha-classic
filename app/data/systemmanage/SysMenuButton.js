@@ -1,6 +1,11 @@
+/**
+ * 模拟菜单按钮和菜单按钮接口
+ * 
+ */
 Ext.define('App.data.systemmanage.SysMenuButton', {
     extend: "App.data.Simulated",
-    init: function () {
+    
+    Init: function () {
         var me = this;
         me.dataSource = [
             { "SysMenuButtonId": "291548e6-5197-4a7a-99db-e2346c9666d4", "MenuId": "a7d00cf0-741b-44af-b90b-395698d64bc9", "BtnCode": "SysUser_Add", "BtnName": "新增", "Description": "", "Order": 1, "IsEnable": 1, "IsDel": 0 },
