@@ -26,8 +26,8 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleMenu", {
                     rootVisible: false,
                     reference: "tree",
                     flex: 1,
-                    displayField: "Name",
-                    valueField: "Id",
+                    displayField: "MenuName",
+                    valueField: "SysMenuId",
                     bind: {
                         store: '{menutreestore}'
                     },
@@ -54,8 +54,8 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleMenu", {
                     xtype: "treepanel",
                     rootVisible: false,
                     flex: 1,
-                    displayField: "Name",
-                    valueField: "Id",
+                    displayField: "MenuName",
+                    valueField: "SysMenuId",
                     bind: {
                         store: '{menuroletreestore}'
                     }
@@ -102,16 +102,16 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleMenu", {
                 data.push(
                     {
                         SysMenRoleId:Ext.data.identifier.Uuid.create().generate(),
-                        MenuId:records[i].get("Id"),
+                        MenuId:records[i].get("SysMenuId"),
                         RoleId:roleId,
                         Type:records[i].get("Type")
                     }
                 ) 
             }
             App.Ajax.request({
-                url: "/api/SystemManage/SysMenuRole/AddSysMenuRole",
+                url: "/api/SystemManage/SysRole/AddSysMenuRole",
                 method: "POST",
-                nosim: false,
+                nosim: true,
                 type: "JSON",
                 showmask: true,
                 maskmsg: "正在保存...",
@@ -120,10 +120,14 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleMenu", {
                     List: data  
                 },
                 success: function (data) {
-                    App.Msg.Info("保存成功");
-                    var gridstore = view.references.grid.getStore();
-                    gridstore.loadPage(1);
-                    view.close();
+                    if(data.Data>0){
+                        App.Msg.Info("保存成功");
+                        var gridstore = view.references.grid.getStore();
+                        gridstore.loadPage(1);
+                        view.close();
+                    }else{
+                        App.Msg.Info("保存失败");
+                    }
                 },
                 error: function (data) {
                     App.Msg.Error("保存异常");
@@ -165,8 +169,8 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleMenu", {
             var me = this;
             if (me.storeSuccessful && me.allstoreSuccessful) {
                 Ext.Object.eachValue(store.byIdMap, function (node) {
-                    if (node.get("Id") != "root") {
-                        allstore.byIdMap[node.get("Id")].set("checked", true);
+                    if (node.get("SysMenuId") != "root") {
+                        allstore.byIdMap[node.get("SysMenuId")].set("checked", true);
                     }
                 })
             }

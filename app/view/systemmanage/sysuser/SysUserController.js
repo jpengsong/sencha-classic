@@ -17,7 +17,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                 },
                 stores: {
                     treestore: {
-                        type: "systemmanage.sysuser.orgtreestore",
+                        type: "systemmanage.sysuser.orgtreestore"
                     }
                 }
             }
@@ -40,7 +40,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                     },
                     stores: {
                         treestore: {
-                            type: "systemmanage.sysorg.treestore",
+                            type: "systemmanage.sysuser.orgtreestore"
                         }
                     }
                 }
@@ -62,7 +62,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                         App.Ajax.request({
                             url: "/api/SystemManage/SysUser/DeleteSysUser",
                             method: "DELETE",
-                            nosim: false,
+                            nosim: true,
                             type: "JSON",
                             showmask: true,
                             maskmsg: "正在删除...",
@@ -95,8 +95,8 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                         UserId: sysUserId
                     },
                     stores: {
-                        roleStore: {
-                            type: "systemmanage.sysuser.comboxrolestore"
+                        rolestore: {
+                            type: "systemmanage.sysuser.comboxroleStore"
                         }
                     },
                     formulas: {
@@ -104,9 +104,9 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                             get: function () {
                                 var value = [], vm = this;
                                 App.Ajax.request({
-                                    url: "/api/SystemManage/SysUser/GetSysUserRoleByRule",
+                                    url: "/api/SystemManage/SysUserRole/GetSysUserRoleByRule",
                                     method: "GET",
-                                    nosim: false,
+                                    nosim: true,
                                     type: "JSON",
                                     params: { UserId: sysUserId },
                                     success: function (data) {

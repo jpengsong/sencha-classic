@@ -64,13 +64,13 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenu", {
                 {
                     xtype: 'treecolumn',
                     text: '菜单名称',
-                    dataIndex: 'Name',
+                    dataIndex: 'MenuName',
                     width: 250,
                     sortable: true
                 },
                 {
                     text: '编码',
-                    dataIndex: 'Code',
+                    dataIndex: 'MenuCode',
                     width: 150,
                     sortable: true,
                     align: 'center'

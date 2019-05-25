@@ -35,13 +35,13 @@ Ext.define('App.data.systemmanage.SysMenuButton', {
             delay: 0,
             url: "/api/SystemManage/SysMenuButton/AddSysMenuButton",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data = Ext.decode(requestData.Data);
+                var data = me.RequestData(ctx).Data;
                 me.dataSource.unshift(data);
                 var model = {
-                    Id: data["SysMenuButtonId"],
+                    SysMenuId: data["SysMenuButtonId"],
                     ParentId: data["MenuId"],
-                    Code: data["BtnCode"],
-                    Name: data["BtnName"],
+                    MenuCode: data["BtnCode"],
+                    MenuName: data["BtnName"],
                     ViewType: "",
                     RouteId: "",
                     Description: "",
@@ -50,8 +50,7 @@ Ext.define('App.data.systemmanage.SysMenuButton', {
                     IconCls: "",
                     Type: "1"
                 }
-                responseData.Data = Ext.encode(model);
-                return responseData;
+                return model;
             }
         })
     },
@@ -64,8 +63,7 @@ Ext.define('App.data.systemmanage.SysMenuButton', {
             delay: 0,
             url: "/api/SystemManage/SysMenuButton/EditSysMenuButton",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
-                data = Ext.decode(requestData.Data);
+                var data = me.RequestData(ctx).Data;
                 for (var i = 0; i < me.dataSource.length; i++) {
                     if (me.dataSource[i].SysMenuButtonId == data.SysMenuButtonId) {
                         Ext.apply(me.dataSource[i], data);
@@ -73,10 +71,10 @@ Ext.define('App.data.systemmanage.SysMenuButton', {
                     }
                 }  
                 var model = {
-                    Id: data["SysMenuButtonId"],
+                    SysMenuId: data["SysMenuButtonId"],
                     ParentId: data["MenuId"],
-                    Code: data["BtnCode"],
-                    Name: data["BtnName"],
+                    MenuCode: data["BtnCode"],
+                    MenuName: data["BtnName"],
                     ViewType: "",
                     RouteId: "",
                     Description: "",
@@ -85,8 +83,7 @@ Ext.define('App.data.systemmanage.SysMenuButton', {
                     IconCls: "",
                     Type: "1"
                 }
-                responseData.Data = Ext.encode(model);
-                return responseData;
+                return model;
             }
         })
     },
@@ -99,8 +96,7 @@ Ext.define('App.data.systemmanage.SysMenuButton', {
             delay: 0,
             url: "/api/SystemManage/SysMenuButton/DeleteSysMenuButton",
             getData: function (ctx) {
-                var requestData = me.requestData(ctx), responseData = me.ResponseData(), data;
-                data = Ext.decode(requestData.Data);
+                var data = me.RequestData(ctx).Data;
                 for (var i = 0; i < data.length; i++) {
                     for (var j = 0; j < me.dataSource.length; j++) {
                         if (me.dataSource[j].SysMenuButtonId == data[i]) {
@@ -109,7 +105,7 @@ Ext.define('App.data.systemmanage.SysMenuButton', {
                         }
                     }
                 }
-                return responseData;
+                return 1;
             }
         })
     }

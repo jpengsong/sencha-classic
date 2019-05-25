@@ -18,13 +18,6 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
             layout: "form",
             items: [
                 {
-                    xtype: "textfield",
-                    fieldLabel: '父级',
-                    editable: false,
-                    reference: "parentName",
-                    bind: "{model.ParentName}"
-                },
-                {
                     xtype: "combobox",
                     reference: "comboType",
                     fieldLabel: "类型",
@@ -64,7 +57,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                     xtype: "textfield",
                     fieldLabel: '按钮编码',
                     reference: "Code",
-                    bind: "{model.Code}",
+                    bind: "{model.MenuCode}",
                     allowBlank: false,
                     afterLabelTextTpl: config.AfterLabelTextRequired
                 },
@@ -78,7 +71,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                     xtype: "textfield",
                     reference: "Name",
                     bind: {
-                        value: "{model.Name}",
+                        value: "{model.MenuName}",
                         fieldLabel: '{fieldlabelName}'
                     },
                     allowBlank: false,
@@ -145,32 +138,30 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                 view = me.getView(),
                 refs = me.getReferences(),
                 vm = me.getViewModel(),
-                selection = vm.get("model"),
+                model = vm.get("model"),
                 url,
                 selNode = vm.get("selNode"),
                 newNode,
-                model;
+                data={};
             if (refs.comboType.getValue() == 0) {
-                model = Ext.create("App.model.systemmanage.SysMenu");
-                model.set("SysMenuId", selection.get("Id"));
-                model.set("ParentId", selection.get("ParentId"));
-                model.set("MenuName", selection.get("Name"));
-                model.set("IconCls", selection.get("IconCls"));
-                model.set("Order", selection.get("Order"));
-                model.set("ViewType", selection.get("ViewType"));
-                model.set("PageType", selection.get("PageType"));
-                model.set("IsEnable", selection.get("IsEnable"));
-                model.set("Description", selection.get("Description"));
+                data.SysMenuId = model.get("SysMenuId");
+                data.ParentId = model.get("ParentId");
+                data.MenuName = model.get("MenuName");
+                data.IconCls = model.get("IconCls");
+                data.Order = model.get("Order");
+                data.ViewType = model.get("ViewType");
+                data.PageType = model.get("PageType");
+                data.IsEnable = model.get("IsEnable");
+                data.Description = model.get("Description");
                 url = view.status == "add" ? "/api/SystemManage/SysMenu/AddSysMenu" : "/api/SystemManage/SysMenu/EditSysMenu";
             } else {
-                model = Ext.create("App.model.systemmanage.SysMenu");
-                model.set("SysMenuButtonId", selection.get("Id"));
-                model.set("MenuId", selection.get("ParentId"));
-                model.set("btnCode", selection.get("Code"));
-                model.set("btnName", selection.get("Name"));
-                model.set("Order", selection.get("Order"));
-                model.set("IsEnable", selection.get("IsEnable"));
-                model.set("Description", selection.get("Description"));
+                data.SysMenuButtonId = model.get("SysMenuId");
+                data.MenuId = model.get("ParentId");
+                data.BtnCode = model.get("MenuCode");
+                data.BtnName = model.get("MenuName");
+                data.Order = model.get("Order");
+                data.IsEnable = model.get("IsEnable");
+                data.Description = model.get("Description");
                 url = view.status == "add" ? "/api/SystemManage/SysMenuButton/AddSysMenuButton" : url = "/api/SystemManage/SysMenuButton/EditSysMenuButton";
             }
             if (refs.comboType.getValue() == 0 && refs.Name.validate() && refs.Order.validate() && refs.ViewType.validate() && refs.PageType.validate() ||
@@ -178,11 +169,11 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                 App.Ajax.request({
                     url: url,
                     method:  (view.status == "add" ? "POST" : "PUT"),
-                    nosim: false,
+                    nosim: true,
                     type: "JSON",
                     showmask: true,
                     maskmsg: "正在保存...",
-                    params: model.data,
+                    params: data,
                     success: function (data) {
                         if (!Ext.isEmpty(data.Data)) {
                             if (view.status == "add") {
@@ -197,8 +188,8 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                             App.Msg.Info("保存失败");
                         }
                     },
-                    error: function (data) {
-                        App.Msg.Error("保存异常");
+                    error: function (msg) {
+                        App.Msg.Error(msg);
                     }
                 })
             }
@@ -232,7 +223,6 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
             var me = this, refs = me.getReferences();
             if (me.getView().status == "edit") {
                 refs.comboType.setDisabled(true);
-                refs.parentName.hide();
             }
         }
     }

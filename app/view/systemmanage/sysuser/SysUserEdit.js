@@ -44,6 +44,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                     allowBlank: false,
                     maxLength: 10,
                     fieldLabel: '用户名',
+                    afterLabelTextTpl: config.AfterLabelTextRequired
                 },
                 {
                     xtype: "passwordfield",
@@ -121,26 +122,22 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                 App.Ajax.request({
                     url: "/api/SystemManage/SysUser/" + (view.status == "add" ? "AddSysUser" : "EditSysUser"),
                     method: (view.status == "add" ? "POST" : "PUT"),
-                    nosim: false,
+                    nosim: true,
                     type: "JSON",
                     showmask: true,
                     maskmsg: "正在保存...",
                     params: data,
                     success: function (response) {
-                        if (response.Success) {
-                            if (response.Data == "-1") {
-                                App.Msg.Warning("登录名重复");
-                            } else{
-                                App.Msg.Info("保存成功");
-                                scope.grid.getStore().loadPage(1);
-                                view.close();
-                            }
+                        if (response.Data > 0) {
+                            App.Msg.Info("保存成功");
+                            scope.grid.getStore().loadPage(1);
+                            view.close();
                         } else {
                             App.Msg.Info("保存失败");
                         }
                     },
-                    error: function (data) {
-                        App.Msg.Error("保存异常");
+                    error: function (msg) {
+                        App.Msg.Error(msg);
                     }
                 })
             }

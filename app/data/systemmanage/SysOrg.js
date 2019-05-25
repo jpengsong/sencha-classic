@@ -87,8 +87,7 @@ Ext.define('App.data.systemmanage.SysOrg', {
                     Description: data.Description
                 }
                 me.dataSource.unshift(obj);
-                responseData.Data = obj;
-                return data;
+                return obj;
             }
         })
     },

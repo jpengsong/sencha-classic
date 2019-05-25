@@ -137,14 +137,14 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
                     if (btn == "yes") {
                         App.Ajax.request({
                             url: "/api/SystemManage/SysOrg/DeleteSysOrg",
-                            method: "POST",
-                            nosim: false,
+                            method: "DELETE",
+                            nosim: true,
                             type: "JSON",
                             showmask: true,
                             maskmsg: "正在删除...",
-                            params: idArray,
+                            params: idArray.join(','),
                             success: function (data) {
-                                if (data.Data == "1") {
+                                if (data.Data > 0) {
                                     App.Msg.Info("删除成功");
                                     refs.grid.getStore().loadPage(1);
                                     App.TreeNode.updateChildNodes(refs.tree.getSelectionModel().getSelection()[0]);
@@ -152,8 +152,8 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
                                     App.Msg.Error("删除失败");
                                 }
                             },
-                            error: function (data) {
-                                App.Msg.Error("删除异常");
+                            error: function (msg) {
+                                App.Msg.Error(msg);
                             }
                         })
                     }

@@ -20,7 +20,6 @@
     getResponseData: function (response) {
         var me, data, error; me = this;
         try {
-            debugger;
             data = Ext.decode(response.responseText);
             if (data.Code == "Public.I_0001") {
                 if (Ext.isEmpty(data.Data)) {
@@ -68,6 +67,8 @@
                     message: me.message
                 });
                 return resultSet;
+            }else{
+                
             }
         } catch (ex) {
             error = new Ext.data.ResultSet({

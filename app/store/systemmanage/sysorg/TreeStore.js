@@ -4,7 +4,7 @@ Ext.define('App.store.systemmanage.sysorg.TreeStore', {
     alias: 'store.systemmanage.sysorg.treestore',
     model: 'App.model.systemmanage.SysOrg',
     proxy: {
-        type: 'api',
+        type: 'server',
         reader: {
             type:"jsonreader",
             rootProperty: "children",

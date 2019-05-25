@@ -124,6 +124,6 @@ Ext.define('App.data.Simulated', {
         //存储到模拟数据集合中
         Ext.defer(function () {
             App.SimulateDB.Add(base.$className.substring(base.$className.lastIndexOf(".") + 1, base.$className.length), base.dataSource);
-        }, 1);
+        }, 100);
     }
 });

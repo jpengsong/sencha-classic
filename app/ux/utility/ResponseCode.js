@@ -28,10 +28,11 @@ Ext.define('App.ux.utility.ResponseCode', {
          */
         UserCanNotDoFunction: "Public.E_0002",
 
-        getType: function (code) {
-            var list = code.split('.');
-            var last = list[list.length - 1];
-            return last.substr(0, 1);
-        }
+        /**
+         * @property {String} 
+         * @readonly
+         * 请求用户未在系统登陆注册错误
+         */
+        UserNotLogon: "Public.E_0003",
     }
 });

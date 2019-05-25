@@ -53,26 +53,20 @@ Ext.define("App.ux.utility.Ajax", {
                     if (option.type == "JSON" && responseData.Data != "") {
                         responseData.Data = Ext.decode(responseData.Data);
                     }
-                    if (Ext.isFunction(option.success)) {
-                        if (responseData.Code == "Public.I_0001") {
-                            option.success(responseData);
-                        } else {
-                            if (responseData.Code == "Public.E_0002") {
-                                App.Cookie.DeleteCookie("TokenGuid");
-                            } else {
-                                App.Msg.Info(responseData.Code);
-                            }
-
-                        }
-                    }
+                    me.processData(responseData, option);
                 },
-                failure: function (msg) {
+                failure: function (response) {
                     if (option.showmask) {
                         myMask.destroy();
                     }
-                    if (Ext.isFunction(option.error)) {
-                        option.error(msg);
+                    if (response.status == 0) {
+                        App.Msg.Error("未连接到服务接口");
+                    } else {
+                        if (Ext.isFunction(option.error)) {
+                            option.error(response);
+                        }
                     }
+
                 }
             };
 
@@ -80,11 +74,11 @@ Ext.define("App.ux.utility.Ajax", {
             if (ajaxConfig.nosim) {
                 ajaxConfig.url = config.Url + ajaxConfig.url;
             }
-            
+
             //本地模拟请求
             if (!ajaxConfig.nosim) {
-                if(Ext.util.Format.uppercase(ajaxConfig.method)=="PUT"||Ext.util.Format.uppercase(ajaxConfig.method)=="DELETE"){
-                    ajaxConfig.method="POST";
+                if (Ext.util.Format.uppercase(ajaxConfig.method) == "PUT" || Ext.util.Format.uppercase(ajaxConfig.method) == "DELETE") {
+                    ajaxConfig.method = "POST";
                 }
             }
             Ext.Ajax.request(ajaxConfig);
@@ -125,6 +119,34 @@ Ext.define("App.ux.utility.Ajax", {
                 token = App.UserInfo.Token;
             }
             return token;
+        },
+
+        /**
+        * 处理返回结果
+        */
+        processData: function (responseData, option) {
+            //执行成功
+            if (responseData.Code.indexOf(".I_") > 0) {
+                if (Ext.isFunction(option.success)) {
+                    option.success(responseData);
+                }
+            } else {
+
+                //用户未登录
+                if (responseData.Code === App.ResponseCode.UserNotLogon) {
+                    App.Cookie.DeleteCookie("TokenGuid");
+                    window.location = document.location.href.substring(0, document.location.href.indexOf(document.location.pathname)) + "/#view.login";
+                    return;
+                }
+
+                //走异常处理
+                if (Ext.isFunction(option.error)) {
+                    option.error(responseData.Message);
+                }
+                else {
+                    App.Msg.Error(responseData.Message);
+                }
+            }
         }
     }
 })

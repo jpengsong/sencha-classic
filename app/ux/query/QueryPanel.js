@@ -1,7 +1,4 @@
 ﻿Ext.define("App.ux.query.QueryPanel", {
-    requires: [
-        'Ext.layout.container.Column'
-    ],
     extend: "Ext.Container",
     layout: 'border',
     style: {
@@ -18,14 +15,7 @@
             html: "<span class='x-fa fa-caret-right fa-lg' style='cursor:pointer'></span>",
             listeners: {
                 el: {
-                    click: function () {
-                        var queryregion = Ext.ComponentQuery.query("container[name='queryregion']")[0];
-                        if (queryregion.isHidden()) {
-                            queryregion.show();
-                        } else {
-                            queryregion.hide();
-                        }
-                    }
+                    click: "onCollapsed"
                 }
             }
         },
@@ -41,6 +31,18 @@
         }
     ],
     controller: {
+
+        //折叠
+        onCollapsed:function(){
+            var me=this;
+            var queryregion = Ext.ComponentQuery.query("container[name='queryregion']",me.getView())[0];
+            if (queryregion.isHidden()) {
+                queryregion.show();
+            } else {
+                queryregion.hide();
+            }
+        },
+
         //查询
         onSearch: function () {
             var me = this,
@@ -79,6 +81,7 @@
 
     initComponent: function () {
         var me, queryConfig, buttonConfig; me = this;
+        
         //查询条件
         queryConfig = Ext.apply({
             xtype: "container",

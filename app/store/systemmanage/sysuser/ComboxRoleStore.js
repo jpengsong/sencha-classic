@@ -1,14 +1,13 @@
 Ext.define('App.store.systemmanage.sysuser.ComboxRoleStore', {
-    autoLoad: true,
     extend: 'Ext.data.Store',
-    alias: 'store.systemmanage.sysuser.comboxrolestore',
+    alias: 'store.systemmanage.sysuser.comboxroleStore',
     model: 'App.model.systemmanage.SysRole',
     proxy: {
-        type: 'api',
+        type: 'server',
         reader: {
             type: "jsonreader",
             datatype: config.DataType.ComboxStore
         },
-        url: '/api/SystemManage/SysRole/GetSysRoleAll',
+        url: '/api/SystemManage/SysRole/GetSysRoleAll'
     }
 });

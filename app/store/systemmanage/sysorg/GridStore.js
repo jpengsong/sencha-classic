@@ -5,11 +5,15 @@ Ext.define('App.store.systemmanage.sysorg.GridStore', {
     pageSize: 10,
     remoteSort:true,
     proxy: {
-        type: 'api',
+        type: 'server',
         reader:{
             type:"jsonreader",
             datatype:config.DataType.GridStore
         },
         url: '/api/SystemManage/SysOrg/GetSysOrgPage',
-    }
+    },
+    sorters: [{
+        property: 'ModifyDate',
+        direction: 'DESC'
+    }]
 });

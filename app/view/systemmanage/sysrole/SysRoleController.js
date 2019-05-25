@@ -50,14 +50,14 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleController", {
                     if (btn == "yes") {
                         App.Ajax.request({
                             url: "/api/SystemManage/SysRole/DeleteSysRole",
-                            method: "POST",
-                            nosim: false,
+                            method: "DELETE",
+                            nosim: true,
                             type: "JSON",
                             showmask: true,
                             maskmsg: "正在删除...",
-                            params: idArray,
+                            params: idArray.join(","),
                             success: function (data) {
-                                if (data.Data == "1") {
+                                if (data.Data > 0) {
                                     App.Msg.Info("删除成功");
                                     refs.grid.getStore().loadPage(1);
                                 } else {

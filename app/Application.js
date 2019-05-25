@@ -13,13 +13,8 @@ Ext.define('App.Application', {
         'Ext.layout.container.Border',
         'Ext.layout.container.Column',
         'Ext.data.identifier.Uuid',
-        'Ext.dom.Query'
+        'Ext.dom.Query',
+        'Ext.ux.layout.ResponsiveColumn'
     ],
-    name: 'App',
-    init : function() {
-        // Ext.state.Manager.setProvider(new Ext.state.CookieProvider({
-        //     expires : new Date(Ext.Date.now() + (1000*60*60*24*90)) // 90 days
-        // }));
-    },
-    quickTips: true
+    name: 'App'
 });

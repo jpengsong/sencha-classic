@@ -6,8 +6,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuController", {
     onAdd: function () {
         var me = this, refs = me.getReferences(), model = Ext.create("App.model.systemmanage.SysMenuButtonDetail"), selRecords = refs.treepanel.getSelectionModel().getSelection();
         if (selRecords.length == 1) {
-            model.set("ParentId", selRecords[0].get("Id"));
-            model.set("ParentName", selRecords[0].get("Name"));
+            model.set("ParentId", selRecords[0].get("SysMenuId"));
             Ext.widget({
                 title: "新增菜单",
                 xtype: "sysmenuedit",
@@ -45,6 +44,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuController", {
     onEdit: function () {
         var me = this,refs = me.getReferences(), selRecords = refs.treepanel.getSelectionModel().getSelection();
         if (selRecords.length == 1) {
+            console.info(selRecords[0]);
             Ext.widget({
                 title: "编辑菜单",
                 xtype: "sysmenuedit",
@@ -83,19 +83,19 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuController", {
         var me = this, refs = me.getReferences(), tree = refs.treepanel, selRecords, idArray = [], url;
         if (App.Page.selectionModel(tree, true)) {
             selRecords = tree.getSelectionModel().getSelection();
-            idArray.push(selRecords[0].get("Id"));
+            idArray.push(selRecords[0].get("SysMenuId"));
             url = selRecords[0].get("Type") == "0" ? "/api/SystemManage/SysMenu/DeleteSysMenu" : "/api/SystemManage/SysMenuButton/DeleteSysMenuButton";
             Ext.Msg.confirm("提示", "确认删除选中的" + idArray.length + "项数据项吗？",
                 function (btn) {
                     if (btn == "yes") {
                         App.Ajax.request({
                             url: url,
-                            method: "POST",
-                            nosim: false,
+                            method: "DELETE",
+                            nosim: true,
                             type: "JSON",
                             showmask: true,
                             maskmsg: "正在删除...",
-                            params: idArray,
+                            params: idArray.join(','),
                             success: function (data) {
                                 App.Msg.Info("删除成功");
                                 selRecords[0].remove();

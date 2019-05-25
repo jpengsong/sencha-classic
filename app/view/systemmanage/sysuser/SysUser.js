@@ -5,9 +5,9 @@ Ext.define("App.view.systemmanage.sysuser.SysUser", {
     extend: "App.ux.page.Page",
     initComponent: function () {
         var me = this;
-        me.initQueryPanel();
-        me.initGridPanel();
-        me.callParent();
+         me.initQueryPanel();
+         me.initGridPanel();
+         me.callParent();
     },
 
     initQueryPanel: function () {

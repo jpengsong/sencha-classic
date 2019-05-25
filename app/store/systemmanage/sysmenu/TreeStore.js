@@ -4,12 +4,12 @@ Ext.define('App.store.systemmanage.sysmenu.TreeStore', {
     alias: 'store.systemmanage.sysmenu.treestore',
     model: 'App.model.systemmanage.SysMenuButtonDetail',
     proxy: {
-        type: 'api',
+        type: 'server',
         reader: {
             type:"jsonreader",
             rootProperty: "children",
             datatype: config.DataType.TreeStore,
-            idField: "Id",
+            idField: "SysMenuId",
             parentField: "ParentId",
             isExpand: true,
             rootId: "00000000-0000-0000-0000-000000000000"

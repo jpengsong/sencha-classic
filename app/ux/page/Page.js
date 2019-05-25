@@ -1,5 +1,6 @@
 ﻿Ext.define("App.ux.page.Page", {
     extend: "Ext.panel.Panel",
+    padding:"20px 20px",
     layout: {
         type: 'vbox',
         align: 'stretch'

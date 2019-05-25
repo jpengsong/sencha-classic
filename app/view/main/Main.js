@@ -1,7 +1,4 @@
 Ext.define("App.view.main.Main", {
-    mixin: [
-        'Ext.mixin.Responsive'
-    ],
     id: "mainCardPanel",
     reference: "mainCardPanel",
     extend: "Ext.container.Viewport",
@@ -144,13 +141,12 @@ Ext.define("App.view.main.Main", {
                             id: "mainTabPanel",
                             reference: "mainTabPanel",
                             ui: "tabpanel-default",
-                            flex: 1,
-                            autoDestroy: false,
+                            flex:1,
+                            suspendLayout :false,
                             defaults: {
                                 style: {
                                     background: '#f2f2f2'
-                                },
-                                padding: '15px 15px'
+                                }
                             },
                             items: [
                                 { xtype: "home" }

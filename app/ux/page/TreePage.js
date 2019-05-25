@@ -1,5 +1,6 @@
 ﻿Ext.define("App.ux.page.TreePage", {
     extend: "Ext.panel.Panel",
+    padding:"20px 20px",
     layout: {
         type: 'hbox',
         align: 'stretch'

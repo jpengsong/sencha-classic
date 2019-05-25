@@ -49,8 +49,10 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
         }
     ],
     initComponent: function () {
-        var me = this, viewModel = me.getViewModel();
-        me.items[0].store = viewModel.get("roleStore");
+        var me = this, viewModel = me.getViewModel();store =viewModel.get("rolestore");
+        App.Page.setExtraParamData(store,null);
+        store.setAutoLoad(true);
+        me.items[0].store = store;
         me.callParent();
     },
     controller: {
@@ -59,9 +61,9 @@ Ext.define("App.view.systemmanage.sysuser.SysUserRole", {
             var me = this,
                 view = me.getView();
             App.Ajax.request({
-                url: "/api/SystemManage/SysUser/AddSysUserRole",
+                url: "/api/SystemManage/SysUserRole/AddSysUserRole",
                 method: "POST",
-                nosim: false,
+                nosim: true,
                 type: "JSON",
                 showmask: true,
                 maskmsg: "正在保存...",

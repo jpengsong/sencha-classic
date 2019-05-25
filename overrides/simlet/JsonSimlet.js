@@ -9,15 +9,13 @@
 * 
 * 
 */
-Ext.define("override.simlet.JsonSimlet",{
-    override:"Ext.ux.ajax.JsonSimlet",
+Ext.define("override.simlet.JsonSimlet", {
+    override: "Ext.ux.ajax.JsonSimlet",
     doGet: function (ctx) {
-        try{
-
-       debugger;
         var me = this;
+        debugger;
         response = me.getData(ctx);
-        ret = me.callParent(arguments);
+        ret = {responseText:"",status:200,statusText:"OK"};
         responseData = {
             Data: {},
             Success: true,
@@ -28,20 +26,16 @@ Ext.define("override.simlet.JsonSimlet",{
         if (!Ext.isEmpty(response)) {
             if (Ext.typeOf(response) === "object" || Ext.typeOf(response) === "array") {
                 responseData.Data = Ext.encode(response);
-            }else{
-                responseData.Data =response;
+            } else {
+                responseData.Data = response;
             }
         }
         ret.responseText = Ext.encode(responseData);
-        return ret; 
-    }catch(e)
-    {
-
-        }
+        return ret;
     },
 
-    doPost : function(ctx) {
-        var me=this;
+    doPost: function (ctx) {
+        var me = this;
         return me.doGet(ctx);
     }
 })

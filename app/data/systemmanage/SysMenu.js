@@ -12,7 +12,6 @@ Ext.define('App.data.systemmanage.SysMenu', {
             { "SysMenuId": "a562d8b2-2990-4595-a9eb-04d0c8665710", "ParentId": "00000000-0000-0000-0000-000000000000", "ViewType": "", "PageType": "", "MenuName": "集成插件", "Order": 1, "Description": "", "IconCls": "x-fa fa-cogs", "IsEnable": 1, "isDel": 0 },
             { "SysMenuId": "186ffc34-1bc1-408c-a8d2-01f5a4499315", "ParentId": "00000000-0000-0000-0000-000000000000", "ViewType": "theme", "PageType": "tab", "MenuName": "主题", "Order": 3, "Description": "", "IconCls": "x-fa fa-tv", "IsEnable": 1, "isDel": 0 },
             //{ "SysMenuId": "b729e75c-518d-446e-b34b-d7b2f811fc1d", "ParentId": "00000000-0000-0000-0000-000000000000", "ViewType": "", "PageType": "", "MenuName": "开发注意事项", "Order": 0, "Description": "", "IconCls": "x-fa fa-warning", "IsEnable": 1, "isDel": 0 },
-            { "SysMenuId": "f34dd1b5-b570-4d63-8485-ac6ec3602c8f", "ParentId": "b729e75c-518d-446e-b34b-d7b2f811fc1d", "ViewType": "", "PageType": "", "MenuName": "ExtJS学习路线", "Order": 0, "Description": "", "IconCls": "x-fa fa-line-chart", "IsEnable": 1, "isDel": 0 },
             { "SysMenuId": "33167e29-8f7c-464b-a1d8-ff7e26d9d25f", "ParentId": "b729e75c-518d-446e-b34b-d7b2f811fc1d", "ViewType": "", "PageType": "", "MenuName": "命名规范", "Order": 0, "Description": "", "IconCls": "x-fa fa-tag", "IsEnable": 1, "isDel": 0 },
             { "SysMenuId": "3ea653dd-6eec-46ae-a12b-1c7cd42e7c4a", "ParentId": "b729e75c-518d-446e-b34b-d7b2f811fc1d", "ViewType": "", "PageType": "", "MenuName": "性能优化", "Order": 0, "Description": "", "IconCls": "x-fa fa-tag", "IsEnable": 1, "isDel": 0 },
             { "SysMenuId": "f0474f1f-5cf7-413d-9aec-d4c91ae55b9f", "ParentId": "00000000-0000-0000-0000-000000000000", "MenuCode": "SystemManage", "MenuName": "系统管理", "Order": 7, "Description": "", "IconCls": "x-fa fa-cog", "IsEnable": 1, "isDel": 0 },
@@ -81,13 +80,13 @@ Ext.define('App.data.systemmanage.SysMenu', {
             type: 'json',
             url: "/api/SystemManage/SysMenu/GetSysMenuButtonTreeDetail",
             getData: function (ctx) {
-                var menuBtnList = App.SimulateDB.Get("SysMenuButton"), list = [], responseData = {};
+                var menuBtnList = App.SimulateDB.Get("SysMenuButton"), list = [];
                 for (var i = 0; i < me.dataSource.length; i++) {
                     list.push({
-                        Id: me.dataSource[i]["SysMenuId"],
+                        SysMenuId: me.dataSource[i]["SysMenuId"],
                         ParentId: me.dataSource[i]["ParentId"],
-                        Code: "",
-                        Name: me.dataSource[i]["MenuName"],
+                        MenuCode: "",
+                        MenuName: me.dataSource[i]["MenuName"],
                         ViewType: me.dataSource[i]["ViewType"],
                         PageType: me.dataSource[i]["PageType"],
                         Description: me.dataSource[i]["Description"],
@@ -99,10 +98,10 @@ Ext.define('App.data.systemmanage.SysMenu', {
                 }
                 for (var i = 0; i < menuBtnList.length; i++) {
                     list.push({
-                        Id: menuBtnList[i]["SysMenuButtonId"],
+                        SysMenuId: menuBtnList[i]["SysMenuButtonId"],
                         ParentId: menuBtnList[i]["MenuId"],
-                        Code: menuBtnList[i]["BtnCode"],
-                        Name: menuBtnList[i]["BtnName"],
+                        MenuCode: menuBtnList[i]["BtnCode"],
+                        MenuName: menuBtnList[i]["BtnName"],
                         Description: menuBtnList[i]["Description"],
                         Order: menuBtnList[i]["Order"],
                         ViewType: "",
@@ -112,8 +111,7 @@ Ext.define('App.data.systemmanage.SysMenu', {
                         Type: "1"
                     })
                 }
-                responseData.List = list;
-                return responseData;
+                return list;
             }
         })
     },
@@ -129,10 +127,9 @@ Ext.define('App.data.systemmanage.SysMenu', {
                 var data = me.RequestData(ctx).Data;
                 me.dataSource.unshift(data);
                 var model = {
-                    Id: data["SysMenuId"],
+                    SysMenuId: data["SysMenuId"],
                     ParentId: data["ParentId"],
-                    Code: data["MenuCode"],
-                    Name: data["MenuName"],
+                    MenuName: data["MenuName"],
                     ViewType: data["ViewType"],
                     PageType: data["PageType"],
                     Description: data["Description"],
@@ -162,10 +159,10 @@ Ext.define('App.data.systemmanage.SysMenu', {
                     }
                 }
                 var model = {
-                    Id: data["SysMenuId"],
+                    SysMenuId: data["SysMenuId"],
                     ParentId: data["ParentId"],
-                    Code: data["MenuCode"],
-                    Name: data["MenuName"],
+                    MenuCode: data["MenuCode"],
+                    MenuName: data["MenuName"],
                     ViewType: data["ViewType"],
                     PageType: data["PageType"],
                     Description: data["Description"],

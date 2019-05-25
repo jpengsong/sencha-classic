@@ -34,8 +34,6 @@ Ext.define('App.data.systemmanage.SysUser', {
         me.AddSysUser();
         me.EditSysUser();
         me.DeleteSysUser();
-        me.GetSysUserRoleByRule();
-        me.AddSysUserRole();
     },
 
     //获取用户
@@ -132,61 +130,6 @@ Ext.define('App.data.systemmanage.SysUser', {
                         if (me.dataSource[j].SysUserId == data[i]) {
                             me.dataSource.splice(j, 1);
                             break;
-                        }
-                    }
-                }
-                return 1;
-            }
-        })
-    },
-
-    //获取某个用户下的所有角色
-    GetSysUserRoleByRule: function () {
-        var me = this;
-        Ext.ux.ajax.SimManager.register({
-            type: 'json',
-            delay: 0,
-            url: "/api/SystemManage/SysUser/GetSysUserRoleByRule",
-            getData: function (ctx) {
-                var RequestData = Ext.decode(ctx.params.RequestData),
-                    sysUserRole = App.SimulateDB.Get("SysUserRole"),
-                    data = Ext.decode(RequestData.Data),
-                    response = new Array();
-                for (var i = 0; i < sysUserRole.length; i++) {
-                    if (data.UserId == sysUserRole[i].UserId) {
-                        response.push(sysUserRole[i]);
-                    }
-                }
-                return response;
-            }
-        })
-    },
-
-    //添加用户的角色
-    AddSysUserRole: function () {
-        var me = this;
-        Ext.ux.ajax.SimManager.register({
-            type: 'json',
-            delay: 0,
-            url: "/api/SystemManage/SysUser/AddSysUserRole",
-            getData: function (ctx) {
-                var data = me.RequestData(ctx).Data,
-                    sysUserRole = App.SimulateDB.Get("SysUserRole");
-                if (!Ext.isEmpty(data.UserId)) {
-                    for (var i = 0; i < sysUserRole.length; i++) {
-                        if (sysUserRole[i].UserId == data.UserId) {
-                            sysUserRole.splice(i, 1);
-                            i -= 1;
-                        }
-                    }
-                    if (!Ext.isEmpty(data.RoleId)) {
-                        var roleIds = data.RoleId.split(",");
-                        for (var i = 0; i < roleIds.length; i++) {
-                            sysUserRole.push({
-                                SysUserRoleId: Ext.data.identifier.Uuid.create().generate(),
-                                UserId: data.UserId,
-                                RoleId: roleIds[i]
-                            });
                         }
                     }
                 }

@@ -134,6 +134,12 @@ Ext.define("App.view.main.MainController", {
                 mainLayout.setActiveItem(mainCard.add(newView));
             }
         }
+        
+        //新视图显示事件
+        if (newView) {
+            newView.fireEvent("viewShow", newView);
+        }
+
         //将当前视图保存到lastView中
         me.lastView = newView;
         //导航菜单选中对应的节点
