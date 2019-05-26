@@ -30,7 +30,7 @@ Ext.define("App.view.authentication.Login", {
             items: [
                 {
                     xtype: 'textfield',
-                    reference: 'userName',
+                    reference: 'loginName',
                     margin: "20 30 5 30",
                     emptyText: "用户名",
                     value: "Admin",
@@ -41,7 +41,7 @@ Ext.define("App.view.authentication.Login", {
                 },
                 {
                     xtype: 'textfield',
-                    reference: 'userPwd',
+                    reference: 'loginPwd',
                     value: "123456",
                     emptyText: "密码",
                     inputType: 'password',

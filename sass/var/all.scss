@@ -2,9 +2,10 @@
 //******************************************************全局主题变量******************************************************
 $button-small-border-width :0px;
 $button-medium-border-width :0px;
-
 $panel-body-border-width :0px;
 
+
+//****************响应样式**************
 .x-responsivecolumn-large {
     > .large-100 {
         @include responsivecolumn-item(100%);

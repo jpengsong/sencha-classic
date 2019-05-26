@@ -13,7 +13,6 @@ Ext.define("override.simlet.JsonSimlet", {
     override: "Ext.ux.ajax.JsonSimlet",
     doGet: function (ctx) {
         var me = this;
-        debugger;
         response = me.getData(ctx);
         ret = {responseText:"",status:200,statusText:"OK"};
         responseData = {

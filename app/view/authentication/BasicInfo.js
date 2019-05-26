@@ -1,39 +1,19 @@
 Ext.define("App.view.authentication.BasicInfo", {
     extend: "Ext.Window",
-    modal: true,
     xtype: "basicinfo",
-    viewModel: {
-        formulas: {
-            user: function () {
-                var me = this;
-                App.Ajax.request({
-                    url: "/api/SystemManage/SysUser/GetSysUserById",
-                    method: "GET",
-                    nosim: false,
-                    type: "JSON",
-                    async: false,
-                    params: { userId: App.UserInfo.UserID },
-                    success: function (data) {
-                        me.set("user",data.Data);
-                    }
-                })
-            }
-        }
-    },
     iconCls: "x-fa fa-user-circle",
     title: "个人资料",
+    modal: true,
     autoShow: true,
     width: 900,
     height: 400,
-    style: {
-        "border-width": "0px"
-    },
     layout: {
         type: 'table',
         columns: 7,
         tableAttrs: {
             style: {
                 width: '100%',
+                height: '100%',
                 "table-layout": "fixed",
                 "word-wrap": "break-word",
                 "text-align": "center",
@@ -51,17 +31,13 @@ Ext.define("App.view.authentication.BasicInfo", {
             html: "<b>姓名</b>"
         },
         {
-            bind: {
-                html: "{user.UserName}"
-            }
+            html: ""
         },
         {
             html: '<b>性别</b>'
         },
         {
-            bind: {
-                html: ""
-            }
+            html: ""
         },
         {
             html: '<b>出生年月</b>'
@@ -139,10 +115,5 @@ Ext.define("App.view.authentication.BasicInfo", {
             html: '',
             colspan: 3
         }
-    ],
-    listeners: {
-        maskclick: function (win) {
-            win.close();
-        }
-    }
+    ]
 })

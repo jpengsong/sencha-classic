@@ -19,14 +19,22 @@ Ext.define('App.ux.utility.UserInfo', {
          * UserID
          */
         UserID: null,
+
+        /**
+         * 账号名
+         */
+        LoginName: null,
+
         /**
          * 用户名
          */
         UserName: null,
+
         /**
          * 密码
          */
-        UserPassWord:null,
+        LoginPassWord:null,
+
         /**
          * 业务代码
          */

@@ -44,14 +44,14 @@ Ext.define('App.data.systemmanage.SysUser', {
             delay: 0,
             url: "/api/SystemManage/SysUser/GetSysUserById",
             getData: function (ctx) {
-                var RequestData = me.RequestData(ctx), data,
-                    data = Ext.decode(RequestData.Data);
+                var requestData = me.RequestData(ctx).Data,data;
                 for (var j = 0; j < me.dataSource.length; j++) {
-                    if (me.dataSource[j].SysUserId == data.userId) {
+                    if (me.dataSource[j].SysUserId == requestData.userId) {
                         data = me.dataSource[j];
                         break;
                     }
                 }
+                debugger;
                 return data;
             }
         })

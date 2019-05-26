@@ -1,9 +1,9 @@
 Ext.define('App.view.authentication.LockScreen', {
-    extend: 'Ext.window.Window',
+    extend: 'App.view.pages.Base',
     xtype: 'lockscreen',
+    controller: "authentication",
     autoShow: true,
     maximized: true,
-    closable: false,
     cls: 'auth-locked-window',
     title: "锁定",
     titleAlign: 'center',
@@ -18,21 +18,14 @@ Ext.define('App.view.authentication.LockScreen', {
     items: [
         {
             xtype: "container",
-            height: 120,
+            height: 70,
             cls: "base-backgroundcolor",
             layout: {
                 type: "hbox",
                 align: "center"
             },
             items: [
-                {
-                    xtype: "image",
-                    margin:"0 10px",
-                    src: "resources/images/updatepassword/q0.jpg",
-                    width:80,
-                    height:80
-                },
-                { xtype: "container",html:"Admin" }
+                { xtype: "container", html: "当前账户：Admin", margin: "0 10", style: { "font-size": "16px" } }
             ]
         },
         {
@@ -47,8 +40,7 @@ Ext.define('App.view.authentication.LockScreen', {
                 {
                     margin: "40 30 20 30",
                     xtype: 'textfield',
-                    reference: 'userPwd',
-                    value: "123456",
+                    reference: 'loginPwd',
                     emptyText: "密码",
                     inputType: 'password',
                     allowBlank: false,
@@ -72,7 +64,7 @@ Ext.define('App.view.authentication.LockScreen', {
                     iconAlign: "right",
                     iconCls: "x-fa fa-chevron-right",
                     listeners: {
-                        click: 'onLoginClick'
+                        click: 'onRemoveLock'
                     }
                 },
                 {
@@ -85,9 +77,8 @@ Ext.define('App.view.authentication.LockScreen', {
     ],
     listeners: {
         show: function (obj, eOpts) {
-            for (var i = 0; i < obj.tools.length; i++) {
-                obj.tools[i].setHidden(true);
-            }
+            App.UserInfo.Token = null;
+            App.Cookie.DeleteCookie("TokenGuid");
         }
     }
 })

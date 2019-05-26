@@ -1,40 +1,42 @@
-Ext.define("App.view.main.Home", {
+Ext.define("App.view.home.Home", {
     xtype: "home",
     routeId: "home",
     extend: "Ext.panel.Panel",
+    viewModel: "home",
     iconCls: "x-fa fa-laptop",
     title: "首页",
     scrollable: Ext.scroll.Scroller({ y: true, x: false }),
     bodyStyle: {
         background: '#f2f2f2'
     },
-    layout:{
-        type: 'responsivecolumn', states: { small: 800, medium: 1200, large: 0 } 
+    layout: {
+        type: 'responsivecolumn', states: { small: 800, medium: 1200, large: 0 }
     },
     items: [
+        { xtype: "button", text: "button", handler: "initUpload" },
         {
-            xtype: "panel",
-            height:147,
+            xtype: "component",
+            height: 147,
             responsiveCls: 'large-25 medium-50 small-100',
-            reference: "card1"
+            html: '<div class="home-card"><div class="home-card-header">访问量<span class="home-badge home-bg-blue homeadmin-badge">周</span></div><div class="home-card-body homeadmin-card-list"><p class="homeadmin-big-font">9,999,666</p><p>总计访问量<span class="homeadmin-span-color">88万 </span></p></div></div>'
         },
         {
-            xtype: "panel",
-            height:147,
+            xtype: "component",
+            height: 147,
             responsiveCls: 'large-25 medium-50 small-100',
-            reference: "card2"
+            html: '<div class="home-card"><div class="home-card-header">下载<span class="home-badge home-bg-cyan homeadmin-badge">月</span></div><div class="home-card-body homeadmin-card-list"><p class="homeadmin-big-font">33,555</p><p>新下载<span class="homeadmin-span-color">10% </span></p></div></div>'
         },
         {
-            xtype: "panel",
-            height:147,
+            xtype: "component",
+            height: 147,
             responsiveCls: 'large-25 medium-50 small-100',
-            reference: "card3"
+            html: '<div class="home-card"><div class="home-card-header">收入<span class="home-badge home-bg-green homeadmin-badge">年</span></div><div class="home-card-body homeadmin-card-list"><p class="homeadmin-big-font">999,666</p><p>总收入<span class="homeadmin-span-color">*** </span></p></div></div>'
         },
         {
-            xtype: "panel",
-            height:147,
+            xtype: "component",
+            height: 147,
             responsiveCls: 'large-25 medium-50 small-100',
-            reference: "card4"
+            html: '<div class="home-card"><div class="home-card-header">活跃用户<span class="home-badge home-bg-orange homeadmin-badge">月</span></div><div class="home-card-body homeadmin-card-list"><p class="homeadmin-big-font">66,666</p><p>最近一个月<span class="homeadmin-span-color">15% </span></p></div></div>'
         },
         {
             xtype: "echart",
@@ -46,17 +48,9 @@ Ext.define("App.view.main.Home", {
             xtype: "gridpanel",
             responsiveCls: 'large-50 medium-100 small-100',
             title: '本周活跃用户列表',
-            store: Ext.create('Ext.data.Store', {
-                fields: ['name', 'time', 'status', 'zan'],
-                data: [
-                    { name: '胡歌', time: '11:20', status: '在线', zan: '20' },
-                    { name: '彭于晏', time: '10:40', status: '在线', zan: '21' },
-                    { name: '靳东', time: '01:30', status: '离线', zan: '45' },
-                    { name: '吴尊', time: '21:40', status: '离线', zan: '30' },
-                    { name: '许上进', time: '09:30', status: '在线', zan: '20' },
-                    { name: '小蚊子', time: '21:18', status: '在线', zan: '78' }
-                ]
-            }),
+            bind: {
+                store: "{weekuserstore}"
+            },
             columns: [
                 {
                     text: '用户名', dataIndex: 'name', sortable: false, align: "center", flex: 1,
@@ -93,18 +87,9 @@ Ext.define("App.view.main.Home", {
             xtype: "gridpanel",
             responsiveCls: 'large-50 medium-100 small-100',
             title: '用户全国分布',
-            store: Ext.create('Ext.data.Store', {
-                storeId: 'simpsonsStore',
-                fields: ['sort', 'region', 'number'],
-                data: [
-                    { sort: '1', region: '浙江', number: '62310' },
-                    { sort: '2', region: '北京', number: '59190' },
-                    { sort: '3', region: '上海', number: '55891' },
-                    { sort: '4', region: '广东', number: '51919' },
-                    { sort: '5', region: '山东', number: '39231' },
-                    { sort: '6', region: '湖北', number: '37109' }
-                ]
-            }),
+            bind: {
+                store: "{countryspreadstore}"
+            },
             columns: [
                 { text: '排名', dataIndex: 'sort', width: 50, align: "center", sortable: false },
                 { text: '地区', dataIndex: 'region', flex: 1, align: "center", sortable: false },
@@ -119,18 +104,7 @@ Ext.define("App.view.main.Home", {
 
         onAfterrender: function () {
             var me = this;
-            me.initCardView();
             me.initVisitsChart();
-        },
-
-        //初始化卡图访问量
-        initCardView: function () {
-            var me = this, tpl, refs = me.getReferences();
-            tpl = '<div class="home-card"><div class="home-card-header">{0}<span class="home-badge home-bg-{1} homeadmin-badge">{2}</span></div><div class="home-card-body homeadmin-card-list"><p class="homeadmin-big-font">{3}</p><p>{4}<span class="homeadmin-span-color">{5} </span></p></div></div>';
-            refs.card1.setHtml(tpl.replace("{0}","访问量").replace("{1}","blue").replace("{2}","周").replace("{3}","9,999,666").replace("{4}","总计访问量").replace("{5}","88万"));
-            refs.card2.setHtml(tpl.replace("{0}","下载").replace("{1}","cyan").replace("{2}","月").replace("{3}","33,555").replace("{4}","新下载").replace("{5}","10%"));
-            refs.card3.setHtml(tpl.replace("{0}","收入").replace("{1}","green").replace("{2}","年").replace("{3}","999,666").replace("{4}","总收入").replace("{5}","***"));
-            refs.card4.setHtml(tpl.replace("{0}","活跃用户").replace("{1}","orange").replace("{2}","月").replace("{3}","66,666").replace("{4}","最近一个月").replace("{5}","15%"));
         },
 
         //初始化访问量图表
@@ -200,12 +174,14 @@ Ext.define("App.view.main.Home", {
                 modal: true,
                 layout: 'fit',
                 items: [
-                    { xtype: "multiplefileupload" }
+                    { xtype: "fileupload" }
                 ]
             });
-            fileupload = window.down("container");
             window.show();
-            fileupload.setOption({});
+            window.down("container[xtype='fileupload']").setOption({
+                server: "/api/SystemManage/SysUser/Upload",
+                formData: { User: "张三" }
+            });
         }
     }
 })
