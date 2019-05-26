@@ -50,6 +50,7 @@ Ext.define('App.view.authentication.LockScreen', {
                     maxLengthText: "最大长度不超过15位",
                     triggers: {
                         lock: {
+                            width:"40px",
                             cls: 'x-fa fa-lock lock-icon'
                         }
                     }

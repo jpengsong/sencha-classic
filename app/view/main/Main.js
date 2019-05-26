@@ -7,7 +7,6 @@ Ext.define("App.view.main.Main", {
     layout: 'card',
     activeItem: 0,
     items: [
-        { xtype: "login" },
         {
             xtype: "container",
             routeId: "main",

@@ -74,6 +74,7 @@ Ext.define("App.view.main.MainController", {
 
     //渲染视图
     setCurrentView: function (maincard, hashTag) {
+        debugger;
         var me, vm; me = this; vm = me.getViewModel(), refs = me.getReferences();
         //散列值转小写
         hashTag = (hashTag || '').toLowerCase();
@@ -86,7 +87,7 @@ Ext.define("App.view.main.MainController", {
         //从菜单查找routeId
         var node = treeStore == null ? treeStore : treeStore.findNode('ViewType', hashTag);
         //如果菜单和白名单没有找到，返回404
-        var view = node || vm.getStore("plist").find("ViewType", hashTag) > 0 ? hashTag : null || 'page404';
+        var view = node || vm.getStore("plist").find("ViewType", hashTag,0,false,true,true) > -1 ? hashTag : null || 'page404';
         //当前视图
         var lastView = me.lastView;
         //查找项
@@ -201,9 +202,10 @@ Ext.define("App.view.main.MainController", {
 
     //退出登录
     onLogout: function () {
+        var me =this;
         App.UserInfo.Token = null;
         App.Cookie.DeleteCookie("TokenGuid");
-        window.location.reload();
+        me.redirectTo('view.login', true);
     },
 
     //右侧弹出窗

@@ -1,29 +1,47 @@
 Ext.define("App.view.authentication.Login", {
     xtype: "login",
     routeId: "login",
-    extend: "Ext.panel.Panel",
-    bodyCls: "auth-login",
+    extend: 'App.view.pages.Base',
     controller: "authentication",
+    autoShow: true,
+    maximized: true,
+    cls: 'auth-login-window',
+    title: "登录",
+    titleAlign: 'center',
     layout: {
         type: "vbox",
         align: "center",
         pack: "center"
     },
+    defaults: {
+        width: 450
+    },
     items: [
         {
             xtype: "container",
-            html: "<span class='logo ext ext-sencha'></span><span class='label'>Sencha</span>"
+            height: 70,
+            cls: "base-backgroundcolor",
+            layout: {
+                type: "hbox",
+                align: "center",
+                pack:"center"
+            },
+            items: [
+                {
+                    xtype: "container",
+                    html: "<span class='logo ext ext-sencha'></span><span class='label'>Sencha</span>"
+                }
+            ]
         },
         {
             xtype: 'form',
-            bodyCls: "loginpanel",
             reference: "form",
             layout: {
                 type: "vbox",
                 align: "stretch"
             },
             defaults: {
-                margin: "5 30",
+                margin: "5 20",
                 width: 200,
                 height: 40
             },
@@ -31,30 +49,48 @@ Ext.define("App.view.authentication.Login", {
                 {
                     xtype: 'textfield',
                     reference: 'loginName',
-                    margin: "20 30 5 30",
+                    margin: "20 20 5 20",
+                    height: 50,
                     emptyText: "用户名",
                     value: "Admin",
                     allowBlank: false,
                     blankText: "用户名不允许为空",
                     maxLength: 15,
-                    maxLengthText: "最大长度不超过15位"
+                    maxLengthText: "最大长度不超过15位",
+                    triggers: {
+                        lock: {
+                            width:"40px",
+                            cls: 'x-fa fa-user  lock-icon'
+                        }
+                    }
                 },
                 {
                     xtype: 'textfield',
                     reference: 'loginPwd',
+                    height: 50,
                     value: "123456",
                     emptyText: "密码",
                     inputType: 'password',
                     allowBlank: false,
                     blankText: "密码不允许为空",
                     maxLength: 15,
-                    maxLengthText: "最大长度不超过15位"
+                    enableKeyEvents:true,
+                    maxLengthText: "最大长度不超过15位",
+                    triggers: {
+                        lock: {
+                            width:"40px",
+                            cls: 'x-fa fa-unlock-alt lock-icon'
+                        }
+                    }
                 },
                 {
                     xtype: "button",
-                    margin: "5 30 25 30",
+                    margin: "5 20 50 20",
+                    height: 50,
                     text: '登录',
                     formBind: true,
+                    iconAlign: "right",
+                    iconCls: "x-fa fa-chevron-right",
                     listeners: {
                         click: 'onLoginClick'
                     }
@@ -62,7 +98,7 @@ Ext.define("App.view.authentication.Login", {
             ]
         }
     ],
-    listeners:{
-        afterrender:"onloginAfterrender"
+    listeners: {
+        afterrender: "onloginAfterrender"
     }
 })

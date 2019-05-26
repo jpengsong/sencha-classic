@@ -13,7 +13,6 @@ Ext.define("App.view.home.Home", {
         type: 'responsivecolumn', states: { small: 800, medium: 1200, large: 0 }
     },
     items: [
-        { xtype: "button", text: "button", handler: "initUpload" },
         {
             xtype: "component",
             height: 147,
