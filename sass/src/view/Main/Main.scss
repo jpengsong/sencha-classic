@@ -4,7 +4,7 @@
 /*
     头部 logo
 */
-.x-container-head-logo-green{
+.x-container-main-logo-green{
     background-color : $base-color;
     text-align:center;
     color: rgba(255, 255, 255, 0.8);
@@ -16,7 +16,7 @@
     头部 toolbar
 */
 @include extjs-toolbar-ui  (
-    $ui:"head-toolbar-green",
+    $ui:"main-toolbar-green",
     $background-color : $base-color
 );
 
@@ -24,7 +24,7 @@
     头部 toolbar button
 */
 @include extjs-button-small-ui (
-    $ui:"head-toolbar-button-green",
+    $ui:"main-toolbar-button-green",
     $border-width : 0,
     $color:rgba(255,255,255,.7),
     $background-color:transparent
@@ -34,7 +34,7 @@
     左侧菜单
 */
 @include treelist-ui(
-    $ui:"navigation-green",
+    $ui:"main-navigation-green",
     $padding:0px 0px,                                             //TreeList边距
     $background-color:#28333E,                                  //背景颜色
     $item-text-color:rgba(255,255,255,.7),                      //文本颜色
@@ -58,7 +58,7 @@
     $tool-indicator-selected-width :5px                           //折叠选中某一项伪类宽度
 );
 
-.x-treelist-navigation-green{
+.x-treelist-main-navigation-green{
     .x-treelist-item-expanded > .x-treelist-row{
         background-color:rgba(0,0,0,.3) !important;
     }
@@ -112,7 +112,7 @@
 /*
     头部logo
 */
-.x-container-head-logo-purple{
+.x-container-main-logo-purple{
     background-color : #462c44;
     text-align:center;
     color: rgba(255, 255, 255, 0.8);
@@ -124,7 +124,7 @@
     头部 toolbar
 */
 @include extjs-toolbar-ui  (
-    $ui:"head-toolbar-purple",
+    $ui:"main-toolbar-purple",
     $background-color : $base-color
 );
 
@@ -132,17 +132,18 @@
     头部 toolbar button
 */
 @include extjs-button-small-ui (
-    $ui:"head-toolbar-button-purple",
+    $ui:"main-toolbar-button-purple",
     $border-width : 0,
     $color:rgba(255,255,255,.7),
     $background-color:transparent
 );
 
+
 /*
     左侧菜单
 */
 @include treelist-ui(
-    $ui:"navigation-purple",
+    $ui:"main-navigation-purple",
     $padding:0px 0px,                                             //TreeList边距
     $background-color:#50314f,                                  //背景颜色
     $item-text-color:rgba(255,255,255,.7),                      //文本颜色
@@ -166,7 +167,7 @@
     $tool-indicator-selected-width :5px                           //折叠选中某一项伪类宽度
 );
 
-.x-treelist-navigation-purple{
+.x-treelist-main-navigation-purple{
 
     //一级菜单项目图标
     .x-treelist-root-container > .x-treelist-item > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-icon,.x-treelist-item-tool{
@@ -202,14 +203,12 @@
 }
 
 
-
-
 //***************************************************************************Theme-crimson***************************************************************************
 
 /*
     头部logo
 */
-.x-container-head-logo-crimson{
+.x-container-main-logo-crimson{
     background-color : $base-color;
     text-align:center;
     color: rgba(255, 255, 255, 0.8);
@@ -221,7 +220,7 @@
     头部 toolbar
 */
 @include extjs-toolbar-ui  (
-    $ui:"head-toolbar-crimson",
+    $ui:"main-toolbar-crimson",
     $background-color : $base-color
 );
 
@@ -229,19 +228,20 @@
     头部 toolbar button
 */
 @include extjs-button-small-ui (
-    $ui:"head-toolbar-button-crimson",
+    $ui:"main-toolbar-button-crimson",
     $border-width : 0,
     $color:rgba(255,255,255,.7),
     $background-color:transparent
 );
 
+
 /*
     左侧菜单
 */
 @include treelist-ui(
-    $ui:"navigation-crimson",
+    $ui:"main-navigation-crimson",
     $padding:0px 0px,                                             //TreeList边距
-    $background-color:#f5f5f5,               //背景颜色
+    $background-color:#fff,                                     //背景颜色
     $item-text-color:#000,                                      //文本颜色
     $item-text-over-color:#666,                                 //悬浮文本颜色
     $item-text-font-size:15px,                                    //文本字体大小
@@ -249,7 +249,7 @@
     $row-over-background-color:transparent,                       //悬浮行颜色
     $item-expander-color:#000,                                  //箭头颜色
     $item-expander-width :20px,                                   //箭头宽度
-    $item-expanded-child-background-color:#f6f6f6,                 //展开子节点颜色    
+    $item-expanded-child-background-color:#fff,                 //展开子节点颜色    
     $item-line-height:45px,                                       //行高
     $item-icon-color:#000,                                      //图标颜色
     $item-icon-over-color:#666,                                 //图标悬浮颜色
@@ -258,25 +258,25 @@
     $row-indicator-selected-over-color :transparent,              //悬浮选中某一项伪类
     $row-indicator-over-color :lighten($base-color, 10%),         //悬浮某一项伪类  
     $row-indicator-width :5px,                                    //伪类宽 
-    $toolstrip-background-color:#f5f5f5,                           //折叠后背景颜色
+    $toolstrip-background-color:#fff,                           //折叠后背景颜色
     $tool-indicator-selected-color : lighten($base-color, 10%),   //折叠选中某一项伪类颜色
-    $tool-indicator-selected-width :5px,                           //折叠选中某一项伪类宽度
+    $tool-indicator-selected-width :5px,                          //折叠选中某一项伪类宽度
 );
 
 //一级菜单项目图标
-.x-treelist-navigation-crimson > .x-treelist-root-container > .x-treelist-item > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-icon,
-.x-treelist-navigation-crimson .x-treelist-item-tool{
+.x-treelist-main-navigation-crimson > .x-treelist-root-container > .x-treelist-item > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-icon,
+.x-treelist-main-navigation-crimson .x-treelist-item-tool{
     left:0px;
     padding-left: 18px;
     padding-right: 32px;
 };
 
 //一级菜单项内边距
-.x-treelist-navigation-crimson > .x-treelist-root-container > .x-treelist-item > .x-treelist-row{
+.x-treelist-main-navigation-crimson > .x-treelist-root-container > .x-treelist-item > .x-treelist-row{
     padding: 5px 0px !important;
 };
 
-.x-treelist-navigation-crimson{
+.x-treelist-main-navigation-crimson{
     .x-treelist-item-selected > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-text,
     .x-treelist-item-selected > .x-treelist-row > .x-treelist-item-wrap > .x-treelist-item-icon
     {
@@ -301,7 +301,7 @@
 
 //容器背景颜色
 .x-container-crimson {
-    background-color: #f5f5f5;
+    background-color: #fff;
 }
 
 
@@ -310,7 +310,7 @@
 /*
     头部 logo
 */
-.x-container-head-logo-skyblue{
+.x-container-main-logo-skyblue{
     background-color : $base-color;
     text-align:center;
     color: rgba(255, 255, 255, 0.8);
@@ -322,29 +322,27 @@
     头部 toolbar
 */
 @include extjs-toolbar-ui  (
-    $ui:"head-toolbar-skyblue",
-    $background-color:#fff
+    $ui:"main-toolbar-skyblue",
+    $background-color:#35baf6
 );
 
 /*
     头部 toolbar button
 */
 @include extjs-button-small-ui (
-    $ui:"head-toolbar-button-skyblue",
+    $ui:"main-toolbar-button-skyblue",
     $border-width : 0,
-    $color:#666,
-    $glyph-color :#666,
-    $arrow-glyph-color : #666,
-    $background-color:#fff
+    $color:rgba(255,255,255,.7),
+    $background-color:transparent
 );
 
 /*
     左侧菜单
 */
 @include treelist-ui(
-    $ui:"navigation-skyblue",
+    $ui:"main-navigation-skyblue",
     $padding:0px 0px,                                             //TreeList边距
-    $background-color:#28333E,                                  //背景颜色
+    $background-color:#32404e,                                  //背景颜色
     $item-text-color:rgba(255,255,255,.7),                      //文本颜色
     $item-text-over-color:#fff,                                 //悬浮文本颜色
     $item-text-font-size:15px,                                    //文本字体大小
@@ -352,7 +350,7 @@
     $row-over-background-color:transparent,                       //悬浮行颜色
     $item-expander-color:#fff,                                  //箭头颜色
     $item-expander-width :20px,                                   //箭头宽度
-    $item-expanded-child-background-color:rgba(0,0,0,.3),       //展开子节点颜色    
+    $item-expanded-child-background-color:#2c3845       ,       //展开子节点颜色    
     $item-line-height:45px,                                       //行高
     $item-icon-color:rgba(255,255,255,.7),                      //图标颜色
     $item-icon-over-color:#fff,                                 //图标悬浮颜色
@@ -361,19 +359,19 @@
     $row-indicator-selected-over-color :transparent,              //悬浮选中某一项伪类
     $row-indicator-over-color :lighten($base-color, 10%),         //悬浮某一项伪类
     $row-indicator-width :5px,                                    //伪类宽
-    $toolstrip-background-color:#28333E,                        //折叠后背景颜色
+    $toolstrip-background-color:#32404e,                        //折叠后背景颜色
     $tool-indicator-selected-color : lighten($base-color, 10%),   //折叠选中某一项伪类颜色
     $tool-indicator-selected-width :5px                           //折叠选中某一项伪类宽度
 );
 
 
-.x-treelist-navigation-skyblue{
+.x-treelist-main-navigation-skyblue{
     .x-treelist-item-expanded > .x-treelist-row{
-        background-color:rgba(0,0,0,.3) !important;
+        background-color:#2c3845 !important;
     }
     
     .x-treelist-item-collapsed > .x-treelist-row{
-        background-color:#28333E !important;
+        background-color:#32404e !important;
     }
 
     .x-treelist-item-selected > .x-treelist-row{
@@ -410,7 +408,7 @@
 
 //左侧菜单容器背景颜色
 .x-container-skyblue {
-    background-color: #28333E;
+    background-color: #32404e;
 }
 
 

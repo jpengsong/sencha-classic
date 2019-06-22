@@ -1,11 +1,11 @@
 //视图
 Ext.define('App.view.pages.Error404', {
-    extend: 'App.view.pages.Base',
+    extend: 'App.ux.page.Dialog',
     xtype: 'page404',
     items: [{
         xtype: 'container',
         width: 400,
-        cls: 'base-page-inner-container',
+        cls: 'ux-page-dialog-inner-container',
         layout: {
             type: 'vbox',
             align: 'center',
@@ -13,12 +13,12 @@ Ext.define('App.view.pages.Error404', {
         },
         items: [{
             xtype: 'label',
-            cls: 'base-page-top-text',
+            cls: 'ux-page-dialog-top-text',
             text: '404'
         },
         {
             xtype: 'label',
-            cls: 'base-page-desc',
+            cls: 'ux-page-dialog-desc',
             html: '<div>找不到该页面!</div><div>返回 <a href="#view.main"> 首页 </a></div>'
         },
         {

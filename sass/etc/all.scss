@@ -2,7 +2,7 @@
 //******************************************************全局样式******************************************************
 
 .base-backgroundcolor{
-    background-color: #009688 !important;
+    background-color: $base-color !important;
 }
 
 //****************遮罩样式**************
@@ -31,4 +31,15 @@
 //****************弹框文本居中**************
 .x-message-box >.x-window-bodyWrap >.x-window-body{
     line-height: 40px;
+}
+
+pre {
+    width: 100%;
+    margin: 15px 0 0 0;
+    padding: 20px;
+    border: 0;
+    border: 1px dotted #785;
+    background: #fff;
+    line-height: 1.4;
+    font-family: Consolas;
 }

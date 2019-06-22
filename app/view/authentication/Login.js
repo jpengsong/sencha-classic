@@ -1,11 +1,11 @@
 Ext.define("App.view.authentication.Login", {
     xtype: "login",
     routeId: "login",
-    extend: 'App.view.pages.Base',
+    extend: 'App.ux.page.Dialog',
     controller: "authentication",
     autoShow: true,
     maximized: true,
-    cls: 'auth-login-window',
+    cls: 'authentication-login',
     title: "登录",
     titleAlign: 'center',
     layout: {

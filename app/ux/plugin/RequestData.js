@@ -60,7 +60,7 @@ Ext.define("App.ux.plugin.RequestData", {
                 store.on("beforeload", me.onbeforeload);
                 store.setAutoLoad(me.autoLoad);
             }
-        },50);
+        },500);
     },
 
     destroy: function () {

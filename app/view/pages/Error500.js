@@ -1,10 +1,10 @@
 Ext.define('App.view.pages.Error500', {
-    extend: 'App.view.pages.Base',
+    extend: 'App.ux.page.Dialog',
     xtype: 'page500',
     items: [{
         xtype: 'container',
         width: 600,
-        cls: 'base-page-inner-container',
+        cls: 'ux-page-dialog-container',
         layout: {
             type: 'vbox',
             align: 'center',
@@ -12,12 +12,12 @@ Ext.define('App.view.pages.Error500', {
         },
         items: [{
                 xtype: 'label',
-                cls: 'base-page-top-text',
+                cls: 'ux-page-dialog-top-text',
                 text: '500'
             },
             {
                 xtype: 'label',
-                cls: 'base-page-desc',
+                cls: 'ux-page-dialog-desc',
                 html: '<div>出错啦！</div><div>返回 <a href="#view.main"> 首页 </a></div>'
             },
             {

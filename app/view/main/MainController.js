@@ -74,7 +74,6 @@ Ext.define("App.view.main.MainController", {
 
     //渲染视图
     setCurrentView: function (maincard, hashTag) {
-        debugger;
         var me, vm; me = this; vm = me.getViewModel(), refs = me.getReferences();
         //散列值转小写
         hashTag = (hashTag || '').toLowerCase();

@@ -4,7 +4,7 @@
     "version": "1.0.0.0",
     "framework": "ext",
     "toolkit": "classic",
-    "theme": "theme-purple",
+    "theme": "theme-crimson",
     "requires": [
         "font-awesome",
         "ux",
@@ -365,6 +365,10 @@
             "green": "classic",
             "theme": "theme-green"
         },
+        "crimson": {
+            "crimson": "classic",
+            "theme": "theme-crimson"
+        },
         "purple": {
             "purple": "classic",
             "theme": "theme-purple"
@@ -372,10 +376,6 @@
         "skyblue": {
             "skyblue": "classic",
             "theme": "theme-skyblue"
-        },
-        "crimson": {
-            "crimson": "classic",
-            "theme": "theme-crimson"
         }
     },
     "output": {

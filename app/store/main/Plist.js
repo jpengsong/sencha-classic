@@ -4,7 +4,6 @@ Ext.define('App.store.main.Plist', {
     fields: ["ViewType"],
     data: [
         { ViewType: "login" },
-        { ViewType: "home" },
         { ViewType: "page404" },
         { ViewType: "page500" },
         { ViewType: "lockscreen" }

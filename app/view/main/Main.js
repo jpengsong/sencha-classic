@@ -32,7 +32,7 @@ Ext.define("App.view.main.Main", {
                             border: 10,
                             html: "sencha",
                             bind: {
-                                UI: "head-logo-{theme}"
+                                UI: "main-logo-{theme}"
                             },
                         },
                         {
@@ -42,12 +42,12 @@ Ext.define("App.view.main.Main", {
                             flex: 1,
                             style: { "box-shadow": "0px 0px 0px 0.1px black" },
                             bind:{
-                                UI:"head-toolbar-{theme}"
+                                UI:"main-toolbar-{theme}"
                             },
                             defaults: {
                                 margin: '0 15',
                                 bind:{
-                                    UI:"head-toolbar-button-{theme}"
+                                    UI:"main-toolbar-button-{theme}"
                                 }
                             },
                             items: [
@@ -118,7 +118,7 @@ Ext.define("App.view.main.Main", {
                                     reference: "navigationTreeList",
                                     id: "navigationTreeList",
                                     bind: {
-                                        ui: "navigation-{theme}",
+                                        ui: "main-navigation-{theme}",
                                         store: '{navigation}'
                                     },
                                     defaults: {
@@ -141,7 +141,6 @@ Ext.define("App.view.main.Main", {
                             reference: "mainTabPanel",
                             ui: "tabpanel-default",
                             flex:1,
-                            suspendLayout :false,
                             defaults: {
                                 style: {
                                     background: '#f2f2f2'

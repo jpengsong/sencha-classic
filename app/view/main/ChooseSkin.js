@@ -4,7 +4,7 @@ Ext.define("App.view.main.ChooseSkin", {
     defaultType: "container",
     title: '配色方案',
     flex: true,
-    cls: "chooseskin",
+    cls: "main-chooseskin",
     layout: {
         type: 'table',
         columns: 2,

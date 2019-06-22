@@ -12,27 +12,24 @@ Ext.define("App.view.home.Home", {
     layout: {
         type: 'responsivecolumn', states: { small: 800, medium: 1200, large: 0 }
     },
+    defaultType:"component",
     items: [
         {
-            xtype: "component",
             height: 147,
             responsiveCls: 'large-25 medium-50 small-100',
             html: '<div class="home-card"><div class="home-card-header">访问量<span class="home-badge home-bg-blue homeadmin-badge">周</span></div><div class="home-card-body homeadmin-card-list"><p class="homeadmin-big-font">9,999,666</p><p>总计访问量<span class="homeadmin-span-color">88万 </span></p></div></div>'
         },
         {
-            xtype: "component",
             height: 147,
             responsiveCls: 'large-25 medium-50 small-100',
             html: '<div class="home-card"><div class="home-card-header">下载<span class="home-badge home-bg-cyan homeadmin-badge">月</span></div><div class="home-card-body homeadmin-card-list"><p class="homeadmin-big-font">33,555</p><p>新下载<span class="homeadmin-span-color">10% </span></p></div></div>'
         },
         {
-            xtype: "component",
             height: 147,
             responsiveCls: 'large-25 medium-50 small-100',
             html: '<div class="home-card"><div class="home-card-header">收入<span class="home-badge home-bg-green homeadmin-badge">年</span></div><div class="home-card-body homeadmin-card-list"><p class="homeadmin-big-font">999,666</p><p>总收入<span class="homeadmin-span-color">*** </span></p></div></div>'
         },
         {
-            xtype: "component",
             height: 147,
             responsiveCls: 'large-25 medium-50 small-100',
             html: '<div class="home-card"><div class="home-card-header">活跃用户<span class="home-badge home-bg-orange homeadmin-badge">月</span></div><div class="home-card-body homeadmin-card-list"><p class="homeadmin-big-font">66,666</p><p>最近一个月<span class="homeadmin-span-color">15% </span></p></div></div>'
