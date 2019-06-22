@@ -66,7 +66,7 @@ Ext.define("App.view.systemmanage.sysrole.SysRoleEdit", {
                 App.Ajax.request({
                     url: "/api/SystemManage/SysRole/" + (view.status == "add" ? "AddSysRole" : "EditSysRole"),
                     method: (view.status == "add" ? "POST" : "PUT"),
-                    nosim: true,
+                    nosim: false,
                     type: "JSON",
                     showmask: true,
                     maskmsg: "正在保存...",

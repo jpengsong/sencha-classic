@@ -18,7 +18,7 @@ Ext.define("App.view.authentication.AuthenticationController", {
             App.Ajax.request({
                 url: url,
                 method: "POST",
-                nosim: true,
+                nosim: false,
                 type: "JSON",
                 showmask: true,
                 maskmsg: "登录中...",

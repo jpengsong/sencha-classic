@@ -122,7 +122,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserEdit", {
                 App.Ajax.request({
                     url: "/api/SystemManage/SysUser/" + (view.status == "add" ? "AddSysUser" : "EditSysUser"),
                     method: (view.status == "add" ? "POST" : "PUT"),
-                    nosim: true,
+                    nosim: false,
                     type: "JSON",
                     showmask: true,
                     maskmsg: "正在保存...",

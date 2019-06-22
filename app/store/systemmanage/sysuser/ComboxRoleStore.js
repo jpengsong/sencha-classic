@@ -3,7 +3,7 @@ Ext.define('App.store.systemmanage.sysuser.ComboxRoleStore', {
     alias: 'store.systemmanage.sysuser.comboxroleStore',
     model: 'App.model.systemmanage.SysRole',
     proxy: {
-        type: 'server',
+        type: 'api',
         reader: {
             type: "jsonreader",
             datatype: config.DataType.ComboxStore

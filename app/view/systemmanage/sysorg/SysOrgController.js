@@ -138,7 +138,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgController", {
                         App.Ajax.request({
                             url: "/api/SystemManage/SysOrg/DeleteSysOrg",
                             method: "DELETE",
-                            nosim: true,
+                            nosim: false,
                             type: "JSON",
                             showmask: true,
                             maskmsg: "正在删除...",

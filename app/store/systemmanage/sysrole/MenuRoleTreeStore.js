@@ -4,7 +4,7 @@ Ext.define('App.store.systemmanage.sysrole.MenuRoleTreeStore', {
     model: 'App.model.systemmanage.SysMenuButtonDetail',
     autoLoad: false,
     proxy: {
-        type: 'server',
+        type: 'api',
         reader: {
             type:"jsonreader",
             rootProperty: "children",

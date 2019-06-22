@@ -3,7 +3,7 @@ Ext.define('App.store.main.Navigation', {
     alias: 'store.main.navigation',
     model: 'App.model.systemmanage.SysMenu',
     proxy: {
-        type: 'server',
+        type: 'api',
         url: '/api/SystemManage/SysMenu/GetSysUserMenuByRule',
         reader: {
             type:"jsonreader",
