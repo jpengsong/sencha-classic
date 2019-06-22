@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<sqlMap namespace="CRMS.Model.SystemManage.Entity"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <alias>
+    <typeAlias alias="SysUser" type="CRMS.Model.SystemManage.SysUserEntity" />
+  </alias>
+
+  <resultMaps>
+    <resultMap id="sysUserResultMap" class="SysUser">
+      <result property="SysUserId" column="SysUserId"/>
+      <result property="OrgId" column="OrgId"/>
+      <result property="UserName" column="UserName"/>
+      <result property="LoginName" column="LoginName"/>
+      <result property="LoginPassWord" column="LoginPassWord"/>
+      <result property="Mobile" column="Mobile"/>
+      <result property="Email" column="Email"/>
+      <result property="IsEnable" column="IsEnable"/>
+      <result property="CreateUserId" column="CreateUserId"/>
+      <result property="CreateUserName" column="CreateUserName"/>
+      <result property="CreateDate" column="CreateDate"/>
+      <result property="ModifyUserId" column="ModifyUserId"/>
+      <result property="ModifyUserName" column="ModifyUserName"/>
+      <result property="ModifyDate" column="ModifyDate"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+
+    <sql id="sysUserWhere">
+      <dynamic prepend="where">
+        <isNotEmpty prepend="and" property="UserName">
+          UserName  like '%'+#UserName#+'%'
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="LoginName">
+          LoginName  = #LoginName#
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="IsEnable">
+          IsEnable=#IsEnable#
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+
+    <select id="getAllSysUser">
+      select * from Sys_User
+    </select>
+
+    <select id="loginSysUser"  resultMap="sysUserResultMap" extends="getAllSysUser" parameterClass="hashtable">
+      WHERE LoginName=#LoginName# and LoginPassWord=#LoginPassWord#
+    </select>
+
+    <select id="getSysUserByRule" resultMap="sysUserResultMap"  parameterClass="hashtable" extends="getAllSysUser">
+      <include refid="sysUserWhere"></include>
+    </select>
+
+    <select id="getSysUserForPage"  resultMap="sysUserResultMap" parameterClass="hashtable">
+      SELECT  * FROM
+      (
+      SELECT  *, ROW_NUMBER() OVER (ORDER BY $SortOrder$ $SortBy$)as RowNum FROM (Select * from [Sys_User] where LoginName!='Admin') Sys_User
+      <include refid="sysUserWhere"></include>
+      ) [Sys_User]
+      <![CDATA[
+          WHERE RowNum > $PageIndex$ and RowNum <= $PageCount$
+      ]]>
+    </select>
+
+    <select id="getSysUserForPageCount" resultClass="int" parameterClass="SysUser">
+      SELECT COUNT(*)  FROM (Select * from [Sys_User] where LoginName!='Admin') Sys_User
+      <include refid="sysUserWhere"></include>
+    </select>
+
+    <insert id="insertSysUser" parameterClass="SysUser">
+      INSERT INTO [dbo].[Sys_User] (
+      [SysUserId],
+      [OrgId],
+      [UserName],
+      [LoginName],
+      [LoginPassWord],
+      [Mobile],
+      [Email],
+      [IsEnable],
+      [CreateUserId],
+      [CreateUserName],
+      [CreateDate],
+      [ModifyUserId],
+      [ModifyUserName],
+      [ModifyDate]
+      ) VALUES (
+      #SysUserId#,
+      #OrgId#,
+      #UserName#,
+      #LoginName#,
+      #LoginPassWord#,
+      #Mobile#,
+      #Email#,
+      #IsEnable#,
+      #CreateUserId#,
+      #CreateUserName#,
+      getdate(),
+      #ModifyUserId#,
+      #ModifyUserName#,
+      getdate()
+      )
+    </insert>
+
+    <update id="updateSysUser" parameterClass="SysUser">
+      UPDATE [dbo].[Sys_User] SET
+      [OrgId] = #OrgId#,
+      [UserName] = #UserName#,
+      [LoginName] = #LoginName#,
+      [LoginPassWord] = #LoginPassWord#,
+      [Mobile] = #Mobile#,
+      [Email] = #Email#,
+      [IsEnable] = #IsEnable#,
+      [ModifyUserId]=#ModifyUserId#,
+      [ModifyUserName]=#ModifyUserName#,
+      [ModifyDate] = getdate()
+
+      WHERE ([SysUserId] = #SysUserId#)
+    </update>
+
+    <delete id="deleteSysUser" parameterClass="String">
+      DELETE from [dbo].[Sys_User] WHERE   SysUserId in ('$ID$')
+    </delete>
+
+  </statements>
+</sqlMap>

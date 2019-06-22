@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<sqlMap namespace="CRMS.Model.SystemManage.Entity"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <alias>
+    <typeAlias alias="SysRole" type="CRMS.Model.SystemManage.SysRoleEntity" />
+  </alias>
+
+  <resultMaps>
+    <resultMap id="sysRoleResultMap" class="SysRole">
+      <result property="SysRoleId" column="SysRoleId"/>
+      <result property="RoleName" column="RoleName"/>
+      <result property="Description" column="Description"/>
+      <result property="IsDel" column="IsDel"/>
+      <result property="CreateUserId" column="CreateUserId"/>
+      <result property="CreateUserName" column="CreateUserName"/>
+      <result property="CreateDate" column="CreateDate"/>
+      <result property="ModifyUserId" column="ModifyUserId"/>
+      <result property="ModifyUserName" column="ModifyUserName"/>
+      <result property="ModifyDate" column="ModifyDate"/>
+
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+
+    <sql id="sysRoleWhere">
+      <dynamic prepend="where">
+        <isNotEmpty prepend="and" property="RoleName">
+          RoleName  like '%'+#RoleName#+'%'
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+
+    <select id="getAllSysRole"  resultMap="sysRoleResultMap">
+      select * from [dbo].[SYS_ROLE]
+    </select>
+
+    <!--获取角色列表-->
+    <select id="getSysRoleByRule" extends="getAllSysRole" resultMap="sysRoleResultMap" parameterClass="hashtable">
+      <include refid="sysRoleWhere"></include>
+    </select>
+
+    <!--获取角色分页列表-->
+    <select id="getSysRolePage" resultMap="sysRoleResultMap" parameterClass="hashtable">
+      SELECT  * FROM
+      (
+      SELECT  *, ROW_NUMBER() OVER (ORDER BY $SortOrder$ $SortBy$)as RowNum FROM [Sys_Role]
+      <include refid="sysRoleWhere"></include>
+      ) [Sys_Role]
+      <![CDATA[
+          WHERE RowNum > $PageIndex$ and RowNum <= $PageCount$
+      ]]>
+    </select>
+
+    <!--获取角色分页列表条数-->
+    <select id="getSysRolePageCount" resultClass="int" parameterClass="hashtable">
+      SELECT COUNT(*)  FROM [Sys_Role]
+      <include refid="sysRoleWhere"></include>
+    </select>
+
+    <!--添加角色-->
+    <insert id="insertSysRole"   parameterClass="SysRole">
+      <selectKey resultClass="Guid" property="SysRoleId" type="pre" >
+        select NEWID()
+      </selectKey>
+      INSERT INTO [dbo].[Sys_Role] (
+      [SysRoleId],
+      [RoleName],
+      [Description],
+      [IsDel],
+      [CreateUserId],
+      [CreateUserName],
+      [CreateDate],
+      [ModifyUserId],
+      [ModifyUserName],
+      [ModifyDate]
+      ) VALUES (
+      #SysRoleId#,
+      #RoleName#,
+      #Description#,
+      #IsDel#,
+      #CreateUserId#,
+      #CreateUserName#,
+      getdate(),
+      #ModifyUserId#,
+      #ModifyUserName#,
+      getdate()
+      )
+    </insert>
+
+    <!--编辑角色-->
+    <update id="updateSysRole" parameterClass="SysRole">
+      UPDATE [dbo].[Sys_Role] SET
+      [RoleName] = #RoleName#,
+      [Description] = #Description#,
+      [ModifyUserId]=#ModifyUserId#,
+      [ModifyUserName]=#ModifyUserName#,
+      [ModifyDate] = getdate()
+      WHERE ([SysRoleId] = #SysRoleId#)
+    </update>
+
+    <!--删除角色-->
+    <delete id="deleteSysRole" parameterClass="String">
+      DELETE from [dbo].[Sys_Role] WHERE   SysRoleId in ('$ID$')
+    </delete>
+
+    <!--获取角色下的菜单列表-->
+    <select id ="getSysMenuRoleByRule" resultClass="SysMenuButtonDetail" parameterClass="hashtable">
+      select * from (
+      select * from (select SysMenuId,ParentId,ViewType,PageType,'' as MenuCode,MenuName,[Description],[Order],IconCls,0 as IsEnable,0 as [Type] from SYS_MENU menu where IsEnable =1 and isDel = 0) sys_menu
+      union
+      select * from (select SysMenuButtonId as SysMenuId,MenuId as ParentId,'' as ViewType, '' as PageType, BtnCode as MenuCode, BtnName as MenuName,[Description],[Order], '' as IconCls,0 as IsEnable, 1 as [Type] from SYS_MENU_BUTTON where IsEnable =1 and isDel =0 ) sys_menu_button
+      ) sys_menu_detail  where SysMenuId in (select MenuId from SYS_MENU_ROLE where RoleId = #SysRoleId#)
+    </select>
+  </statements>
+</sqlMap>

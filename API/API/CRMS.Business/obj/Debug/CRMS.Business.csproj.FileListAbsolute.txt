@@ -1,0 +1,15 @@
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\bin\Debug\CRMS.Business.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\bin\Debug\CRMS.Business.pdb
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\bin\Debug\CRMS.Model.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\bin\Debug\IBatisNet.Common.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\bin\Debug\IBatisNet.DataMapper.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\bin\Debug\Newtonsoft.Json.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\bin\Debug\CRMS.Model.pdb
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\obj\Debug\CRMS.Business.csprojResolveAssemblyReference.cache
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\obj\Debug\CRMS.Business.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\obj\Debug\CRMS.Business.pdb
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\bin\Debug\CRMS.Utility.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\bin\Debug\CRMS.Utility.pdb
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\bin\Debug\Castle.DynamicProxy.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\bin\Debug\Castle.Core.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.Business\bin\Debug\IBatisNet.DataAccess.dll

@@ -1,0 +1,7 @@
+G:\ExtJS\Project\API\CRMSApi\CRMS.Model\bin\Debug\CRMS.Model.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.Model\bin\Debug\CRMS.Model.pdb
+G:\ExtJS\Project\API\CRMSApi\CRMS.Model\obj\Debug\CRMS.Model.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.Model\obj\Debug\CRMS.Model.pdb
+G:\ExtJS\Project\API\CRMSApi\CRMS.Model\bin\Debug\Newtonsoft.Json.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.Model\bin\Debug\CRMS.Model.dll.config
+G:\ExtJS\Project\API\CRMSApi\CRMS.Model\obj\Debug\CRMS.Model.csprojResolveAssemblyReference.cache

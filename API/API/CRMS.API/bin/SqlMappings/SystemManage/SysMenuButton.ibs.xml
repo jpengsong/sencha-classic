@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<sqlMap namespace="CRMS.Model.SystemManage.Entity"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <alias>
+    <typeAlias alias="SysMenuButton" type="CRMS.Model.SystemManage.SysMenuButtonEntity" />
+  </alias>
+  s
+  <resultMaps>
+    <resultMap id="sysMenuButtonResultMap" class="SysMenuButton">
+      <result property="SysMenuButtonId" column="SysMenuButtonId"/>
+      <result property="MenuId" column="MenuId"/>
+      <result property="BtnCode" column="BtnCode"/>
+      <result property="BtnName" column="BtnName"/>
+      <result property="Description" column="Description"/>
+      <result property="Order" column="Order"/>
+      <result property="IsEnable" column="IsEnable"/>
+      <result property="IsDel" column="IsDel"/>
+
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <!--添加菜单按钮-->
+    <insert id="insertSysMenuButton"   parameterClass="SysMenuButton">
+      <selectKey resultClass="Guid" property="SysMenuButtonId" type="pre" >
+        select NEWID()
+      </selectKey>
+      INSERT INTO [dbo].[Sys_Menu_Button](
+      [SysMenuButtonId],
+      [MenuId],
+      [BtnCode],
+      [BtnName],
+      [Description],
+      [Order],
+      [IsEnable],
+      [IsDel]
+      ) VALUES
+      (
+      #SysMenuButtonId#,
+      #MenuId#,
+      #BtnCode#,
+      #BtnName#,
+      #Description#,
+      #Order#,
+      #IsEnable#,
+      #IsDel#
+      )
+    </insert>
+
+    <!--编辑菜单按钮-->
+    <update id="updateSysMenuButton" parameterClass="SysMenuButton">
+      UPDATE [dbo].[Sys_Menu_Button] SET
+      [MenuId] = #MenuId#,
+      [BtnCode] = #BtnCode#,
+      [BtnName] = #BtnName#,
+      [Description] = #Description#,
+      [Order] = #Order#,
+      [IsEnable] = #IsEnable#,
+      [IsDel] = #IsDel#
+      WHERE ([SysMenuButtonId] = #SysMenuButtonId#)
+    </update>
+
+    <delete id="deleteSysMenuButton" parameterClass="String">
+      DELETE from [dbo].[Sys_Menu_Button] WHERE   SysMenuButtonId in ('$ID$')
+    </delete>
+
+
+  </statements>
+</sqlMap>

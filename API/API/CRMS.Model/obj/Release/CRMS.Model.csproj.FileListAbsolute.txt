@@ -1,0 +1,5 @@
+G:\ExtJS\Project\API\CRMSApi\CRMS.Model\bin\Release\CRMS.Model.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.Model\bin\Release\CRMS.Model.pdb
+G:\ExtJS\Project\API\CRMSApi\CRMS.Model\obj\Release\CRMS.Model.csprojResolveAssemblyReference.cache
+G:\ExtJS\Project\API\CRMSApi\CRMS.Model\obj\Release\CRMS.Model.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.Model\obj\Release\CRMS.Model.pdb

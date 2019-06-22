@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<sqlMap namespace="CRMS.Model.SystemManage.Entity"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <alias>
+    <typeAlias alias="SysMenu" type="CRMS.Model.SystemManage.SysMenuEntity" />
+    <typeAlias alias="SysMenuButtonDetail" type="CRMS.Model.SystemManage.SysMenuButtonDetailEntity" />
+  </alias>
+
+  <resultMaps>
+    
+    <resultMap id="sysMenuResultMap" class="SysMenu">
+      <result property="SysMenuId" column="SysMenuId"/>
+      <result property="ParentId" column="ParentId"/>
+      <result property="ViewType" column="ViewType"/>
+      <result property="PageType" column="PageType"/>
+      <result property="MenuName" column="MenuName"/>
+      <result property="Order" column="Order"/>
+      <result property="Description" column="Description"/>
+      <result property="IconCls" column="IconCls"/>
+      <result property="IsEnable" column="IsEnable"/>
+      <result property="IsDel" column="IsDel"/>
+    </resultMap>
+    
+    <resultMap id="sysMenuButtonDetailResultMap" class="SysMenuButtonDetail">
+      <result property="SysMenuId" column="SysMenuId"/>
+      <result property="ParentId" column="ParentId"/>
+      <result property="MenuCode" column="MenuCode"/>
+      <result property="MenuName" column="MenuName"/>
+      <result property="ViewType" column="ViewType"/>
+      <result property="PageType" column="PageType"/>
+      <result property="Description" column="Description"/>
+      <result property="Order" column="Order"/>
+      <result property="IsEnable" column="IsEnable"/>
+      <result property="IconCls" column="IconCls"/>
+      <result property="Type" column="Type"/>
+
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+
+    <sql id="sysMenuWhere">
+      <dynamic prepend="where">
+        <isNotEmpty prepend="and" property="ParentId">
+          ParentId=#ParentId#
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+
+    <!--获取所有菜单列表-->
+    <select id="getAllSysMenu" resultMap="sysMenuResultMap">
+      select * from (Select * from [Sys_Menu] where IsEnable =1 and isDel=0) Sys_Menu
+    </select>
+
+    <!--获取用户菜单列表-->
+    <select id="getSysUserMenuByRule" resultMap="sysMenuResultMap" extends="getAllSysMenu" parameterClass="hashtable">
+      where SysMenuId in (
+      select MenuId from SYS_MENU_ROLE where RoleId in (select RoleId from SYS_USER_ROLE where UserId =#SysUserId#) and Type=0
+      ) order by [Order]
+    </select>
+
+    <!--获取所有菜单详情-->
+    <select id="getSysUserMenuDetailByRule" resultMap="sysMenuButtonDetailResultMap">
+      select * from (
+          select * from (select SysMenuId,ParentId,ViewType,PageType,'' as MenuCode,MenuName,[Description],[Order],IconCls,IsEnable,0 as [Type] from SYS_MENU menu where isDel = 0) sys_menu
+          union
+          select * from (select SysMenuButtonId as SysMenuId,MenuId as ParentId,'' as ViewType, '' as PageType, BtnCode as MenuCode, BtnName as MenuName,[Description],[Order], '' as IconCls,IsEnable, 1 as [Type] from SYS_MENU_BUTTON where isDel =0 ) sys_menu_button
+      ) sys_menu_detail order by [Order] asc
+    </select>
+
+    <!--添加菜单-->
+    <insert id="insertSysMenu"   parameterClass="SysMenu">
+      <selectKey resultClass="Guid" property="SysMenuId" type="pre" >
+        select NEWID()
+      </selectKey>
+      INSERT INTO [dbo].[Sys_Menu](
+      [SysMenuId],
+      [ParentId],
+      [ViewType],
+      [PageType],
+      [MenuName],
+      [Order],
+      [Description],
+      [IconCls],
+      [IsEnable],
+      [IsDel]
+      ) VALUES
+      (
+      #SysMenuId#,
+      #ParentId#,
+      #ViewType#,
+      #PageType#,
+      #MenuName#,
+      #Order#,
+      #Description#,
+      #IconCls#,
+      #IsEnable#,
+      #IsDel#
+      )
+    </insert>
+
+    <!--编辑菜单-->
+    <update id="updateSysMenu" parameterClass="SysMenu">
+      UPDATE [dbo].[Sys_Menu] SET
+      [ViewType]=#ViewType#,
+      [PageType]=#PageType#,
+      [MenuName]=#MenuName#,
+      [Order]=#Order#,
+      [Description] = #Description#,
+      [IconCls] = #IconCls#,
+      [IsEnable] = #IsEnable#,
+      [IsDel] = #IsDel#
+      WHERE ([SysMenuId] = #SysMenuId#)
+    </update>
+
+    <delete id="deleteSysMenu" parameterClass="String">
+      DELETE from [dbo].[Sys_Menu] WHERE   SysMenuId in ('$ID$')
+    </delete>
+
+  </statements>
+</sqlMap>

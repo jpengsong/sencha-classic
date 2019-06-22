@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<sqlMap namespace="CRMS.Model.SystemManage.Entity"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <alias>
+    <typeAlias alias="SysOrg" type="CRMS.Model.SystemManage.SysOrgEntity" />
+  </alias>
+
+  <resultMaps>
+    <resultMap id="sysOrgResultMap" class="SysOrg">
+      <result property="SysOrgId" column="SysOrgId"/>
+      <result property="ParentOrgId" column="ParentOrgId"/>
+      <result property="Level" column="Level"/>
+      <result property="OrgName" column="OrgName"/>
+      <result property="OrgCode" column="OrgCode"/>
+      <result property="Description" column="Description"/>
+      <result property="Sort" column="Sort"/>
+      <result property="CreateUserId" column="CreateUserId"/>
+      <result property="CreateUserName" column="CreateUserName"/>
+      <result property="CreateDate" column="CreateDate"/>
+      <result property="ModifyUserId" column="ModifyUserId"/>
+      <result property="ModifyUserName" column="ModifyUserName"/>
+      <result property="ModifyDate" column="ModifyDate"/>
+
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    
+    <sql id="sysOrgWhere">
+      <dynamic prepend="where">
+        <isNotEmpty prepend="and" property="OrgName">
+          OrgName  like '%'+#OrgName#+'%'
+        </isNotEmpty>
+        <isNotEmpty prepend="and" property="ParentOrgId">
+          ParentOrgId  = #ParentOrgId#
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+    
+    <select id="getSysOrgAll"  resultMap="sysOrgResultMap">
+      select * from SYS_ORG
+    </select>
+
+    <select id="getSysOrgByRule"  resultMap="sysOrgResultMap" extends="getSysOrgAll" parameterClass="hashtable">
+      <include refid="sysOrgWhere"></include>
+    </select>
+
+    <select id="getSysOrgPage"  resultMap="sysOrgResultMap" parameterClass="hashtable">
+      SELECT  * FROM
+      (
+      SELECT  *, ROW_NUMBER() OVER (ORDER BY $SortOrder$ $SortBy$)as RowNum FROM [Sys_ORG]
+      <include refid="sysOrgWhere"></include>
+      ) [Sys_User]
+      <![CDATA[
+          WHERE RowNum > $PageIndex$ and RowNum <= $PageCount$
+      ]]>
+    </select>
+
+    <!--添加组织机构-->
+    <insert id="insertSysOrg"   parameterClass="SysOrg">
+      <selectKey resultClass="Guid" property="SysOrgId" type="pre" >
+        select NEWID()
+      </selectKey>
+      INSERT INTO [dbo].[SYS_ORG] (
+      [SysOrgId],
+      [ParentOrgId],
+      [Level],
+      [OrgName],
+      [OrgCode],
+      [Description],
+      [Sort],
+      [CreateUserId],
+      [CreateUserName],
+      [CreateDate],
+      [ModifyUserId],
+      [ModifyUserName],
+      [ModifyDate]
+      ) VALUES (
+      #SysOrgId#,
+      #ParentOrgId#,
+      #Level#,
+      #OrgName#,
+      #OrgCode#,
+      #Description#,
+      #Sort#,
+      #CreateUserId#,
+      #CreateUserName#,
+      getdate(),
+      #ModifyUserId#,
+      #ModifyUserName#,
+      getdate()
+      )
+    </insert>
+
+    <!--编辑组织机构-->
+    <update id="updateSysOrg" parameterClass="SysOrg">
+      UPDATE [dbo].[Sys_Org] SET
+      [ParentOrgId] = #ParentOrgId#,
+      [OrgName] = #OrgName#,
+      [OrgCode] = #OrgCode#,
+      [Sort] = #Sort#,
+      [Description] = #Description#,
+      [ModifyUserId]=#ModifyUserId#,
+      [ModifyUserName]=#ModifyUserName#,
+      [ModifyDate] = getdate()
+      WHERE ([SysOrgId] = #SysOrgId#)
+    </update>
+
+    <!--删除组织机构-->
+    <delete id="deleteSysOrg" parameterClass="String">
+      DELETE from [dbo].[Sys_Org] WHERE   SysOrgId in ('$ID$')
+    </delete>
+    
+    <select id="getSysOrgPageCount" resultClass="int" parameterClass="hashtable">
+      SELECT COUNT(*)  FROM [Sys_ORG]
+      <include refid="sysOrgWhere"></include>
+    </select>
+
+  </statements>
+</sqlMap>

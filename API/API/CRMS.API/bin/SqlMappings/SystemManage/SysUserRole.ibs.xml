@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<sqlMap namespace="CRMS.Model.SystemManage.Entity"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <alias>
+    <typeAlias alias="SysUserRole" type="CRMS.Model.SystemManage.SysUserRoleEntity" />
+  </alias>
+ 
+  <resultMaps>
+    <resultMap id="sysUserRoleResultMap" class="SysUserRole">
+      <result property="SysUserRoleId" column="SysUserRoleId"/>
+      <result property="UserId" column="UserId"/>
+      <result property="RoleId" column="RoleId"/>
+      
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+
+    <select id="getSysUserRoleByRule" resultMap="sysUserRoleResultMap"  parameterClass="hashtable" >
+      select * from SYS_USER_ROLE where UserId = #UserId#
+    </select>
+
+    <insert id="insertSysUserRole" parameterClass="ArrayList">
+      INSERT INTO [dbo].[SYS_USER_ROLE] (
+      [SysUserRoleId],
+      [UserId],
+      [RoleId]
+      ) VALUES 
+      <iterate conjunction=",">
+        (
+        NEWID(),
+        #[].UserId#,
+        #[].RoleId#
+        )
+      </iterate>
+    </insert>
+
+    <delete id="deleteSysUserRole" parameterClass="String">
+      DELETE from [dbo].[SYS_USER_ROLE] WHERE UserId in ('$ID$')
+    </delete>
+    
+  </statements>
+</sqlMap>

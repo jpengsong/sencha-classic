@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<sqlMap namespace="CRMS.Model.SystemManage.Entity"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <alias>
+    <typeAlias alias="SysMenu" type="CRMS.Model.SystemManager.SysMenuEntity" />
+  </alias>
+  s
+  <resultMaps>
+    <resultMap id="sysMenuResultMap" class="SysMenu">
+      <result property="SysMenuId" column="SysMenuId"/>
+      <result property="ParentId" column="ParentId"/>
+      <result property="ViewType" column="ViewType"/>
+      <result property="PageType" column="PageType"/>
+      <result property="MenuName" column="MenuName"/>
+      <result property="Order" column="Order"/>
+      <result property="Description" column="Description"/>
+      <result property="IconCls" column="IconCls"/>
+      <result property="IsEnable" column="IsEnable"/>
+      <result property="isDel" column="isDel"/>
+
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+
+    <sql id="sysMenuWhere">
+      <dynamic prepend="where">
+        <isNotEmpty prepend="and" property="ParentId">
+          ParentId=#ParentId#
+        </isNotEmpty>
+      </dynamic>
+    </sql>
+
+    <select id="getSysMenuByRule"  resultMap="sysMenuResultMap">
+      SELECT * FROM SYS_MENU where isDel=0
+      <include refid="sysMenuWhere"></include>
+    </select>
+
+    <select id="getSysMenuByRuleCount"  resultClass="System.Int32">
+      SELECT count(*) FROM SYS_MENU where isDel=0
+      <include refid="sysMenuWhere"></include>
+    </select>
+    
+  </statements>
+</sqlMap>

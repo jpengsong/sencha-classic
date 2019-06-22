@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E8DFA01E-493F-4284-BD60-3FBDAA294A4B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CRMS.Business</RootNamespace>
+    <AssemblyName>CRMS.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\CRMS.ReferenceLibrary\Packages\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy">
+      <HintPath>..\CRMS.ReferenceLibrary\Packages\Castle.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.Common">
+      <HintPath>..\CRMS.ReferenceLibrary\Packages\IBatisNet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.DataAccess">
+      <HintPath>..\CRMS.ReferenceLibrary\Packages\IBatisNet.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.DataMapper">
+      <HintPath>..\CRMS.ReferenceLibrary\Packages\IBatisNet.DataMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\CRMS.ReferenceLibrary\Packages\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authorization\AuthorizationBusiness.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Authorization\IAuthorizationBusiness.cs" />
+    <Compile Include="SystemManage\ISysMenuButtonBusiness.cs" />
+    <Compile Include="SystemManage\ISysMenuBusiness.cs" />
+    <Compile Include="SystemManage\ISysOrgBusiness.cs" />
+    <Compile Include="SystemManage\ISysUserRoleBusiness.cs" />
+    <Compile Include="SystemManage\SysMenuButtonBusiness.cs" />
+    <Compile Include="SystemManage\SysOrgBusiness.cs" />
+    <Compile Include="SystemManage\SysRoleBusiness.cs" />
+    <Compile Include="SystemManage\ISysRoleBusiness.cs" />
+    <Compile Include="SystemManage\SysUserBusiness.cs" />
+    <Compile Include="SystemManage\ISysUserBusiness.cs" />
+    <Compile Include="SystemManage\SysMenuBusiness.cs" />
+    <Compile Include="SystemManage\SysUserRoleBusiness.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CRMS.Model\CRMS.Model.csproj">
+      <Project>{54b6ebd4-0b32-41d3-9cac-5d0e2a4cdad5}</Project>
+      <Name>CRMS.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CRMS.Utility\CRMS.Utility.csproj">
+      <Project>{da9c38de-aa61-41ea-8cf1-16cc276d06a5}</Project>
+      <Name>CRMS.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

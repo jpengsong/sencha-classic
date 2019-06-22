@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<sqlMap namespace="CRMS.Model.SystemManage.Entity"
+	xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <alias>
+    <typeAlias alias="SysMenuRole" type="CRMS.Model.SystemManage.SysMenuRoleEntity" />
+  </alias>
+  
+  <resultMaps>
+    <resultMap id="sysMenuRoleResultMap" class="SysMenuRole">
+      <result property="SysMenuRoleId" column="SysMenuRoleId"/>
+      <result property="MenuId" column="MenuId"/>
+      <result property="RoleId" column="RoleId"/>
+      <result property="Type" column="Type"/>
+      <result property="CreateUserId" column="CreateUserId"/>
+      <result property="CreateUserName" column="CreateUserName"/>
+      <result property="CreateDate" column="CreateDate"/>
+
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+
+    <!--删除某一角色下的菜单-->
+    <delete id="deleteMenuRole" parameterClass="String">
+      DELETE from [dbo].[SYS_MENU_ROLE] WHERE  RoleId in ('$ID$')
+    </delete>
+
+    <!--添加某一角色下的菜单-->
+    <insert id="insertMenuRole"   parameterClass="ArrayList">
+      INSERT INTO [dbo].[SYS_MENU_ROLE] (
+      [SysMenuRoleId],
+      [MenuId],
+      [RoleId],
+      [Type],
+      [CreateUserId],
+      [CreateUserName],
+      [CreateDate]
+      ) VALUES
+      <iterate conjunction=",">
+        (
+        NEWID(),
+        #[].MenuId#,
+        #[].RoleId#,
+        #[].Type#,
+        #[].CreateUserId#,
+        #[].CreateUserName#,
+        getdate()
+        )
+      </iterate>
+    </insert>
+    
+  </statements>
+</sqlMap>

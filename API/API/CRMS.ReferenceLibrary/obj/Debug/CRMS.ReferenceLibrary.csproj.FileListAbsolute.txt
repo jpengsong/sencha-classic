@@ -1,0 +1,4 @@
+G:\ExtJS\Project\API\CRMSApi\CRMS.ReferenceLibrary\bin\Debug\CRMS.ReferenceLibrary.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.ReferenceLibrary\bin\Debug\CRMS.ReferenceLibrary.pdb
+G:\ExtJS\Project\API\CRMSApi\CRMS.ReferenceLibrary\obj\Debug\CRMS.ReferenceLibrary.dll
+G:\ExtJS\Project\API\CRMSApi\CRMS.ReferenceLibrary\obj\Debug\CRMS.ReferenceLibrary.pdb
