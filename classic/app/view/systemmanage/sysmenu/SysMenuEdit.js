@@ -169,7 +169,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuEdit", {
                 App.Ajax.request({
                     url: url,
                     method:  (view.status == "add" ? "POST" : "PUT"),
-                    nosim: false,
+                    nosim: true,
                     type: "JSON",
                     showmask: true,
                     maskmsg: "正在保存...",

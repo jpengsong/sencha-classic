@@ -3,7 +3,7 @@ Ext.define('App.store.systemmanage.sysuser.UserRole', {
     alias: 'store.systemmanage.sysuser.userrole',
     model: 'App.model.systemmanage.SysUserRole',
     proxy: {
-        type: 'api',
+        type: 'server',
         url: '/api/SystemManage/SysUserRole/GetSysUserRoleByRule',
         reader: {
             type: "jsonreader",

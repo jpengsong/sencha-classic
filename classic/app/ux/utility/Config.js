@@ -85,8 +85,8 @@
         },
 
         //远程请求数据地址
-        //Url:"http://127.0.0.1:8045",
-          Url:"http://localhost:5868",
+        //Url:"http://localhost:5868",
+          Url:"http://49.232.143.24:8081",
 
 
         

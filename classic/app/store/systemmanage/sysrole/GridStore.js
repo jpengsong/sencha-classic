@@ -5,7 +5,7 @@ Ext.define('App.store.systemmanage.sysrole.GridStore', {
     pageSize: 10,
     remoteSort:true,
     proxy: {
-        type: 'api',
+        type: 'server',
         reader: {
             type:"jsonreader",
             datatype:config.DataType.GridStore

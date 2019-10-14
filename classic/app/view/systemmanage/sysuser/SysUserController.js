@@ -62,7 +62,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                         App.Ajax.request({
                             url: "/api/SystemManage/SysUser/DeleteSysUser",
                             method: "DELETE",
-                            nosim: false,
+                            nosim: true,
                             type: "JSON",
                             showmask: true,
                             maskmsg: "正在删除...",
@@ -106,7 +106,7 @@ Ext.define("App.view.systemmanage.sysuser.SysUserController", {
                                 App.Ajax.request({
                                     url: "/api/SystemManage/SysUserRole/GetSysUserRoleByRule",
                                     method: "GET",
-                                    nosim: false,
+                                    nosim: true,
                                     type: "JSON",
                                     params: { UserId: sysUserId },
                                     success: function (data) {

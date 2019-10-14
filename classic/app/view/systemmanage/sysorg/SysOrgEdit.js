@@ -107,7 +107,7 @@ Ext.define("App.view.systemmanage.sysorg.SysOrgEdit", {
                 App.Ajax.request({
                     url: "/api/SystemManage/SysOrg/" + (view.status == "add" ? "AddSysOrg" : "EditSysOrg"),
                     method: (view.status == "add" ? "POST" : "PUT"),
-                    nosim: false,
+                    nosim: true,
                     type: "JSON",
                     showmask: true,
                     maskmsg: "正在保存...",

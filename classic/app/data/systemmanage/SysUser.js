@@ -51,7 +51,6 @@ Ext.define('App.data.systemmanage.SysUser', {
                         break;
                     }
                 }
-                debugger;
                 return data;
             }
         })

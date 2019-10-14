@@ -81,6 +81,7 @@ Ext.define("App.ux.utility.Ajax", {
                     ajaxConfig.method = "POST";
                 }
             }
+           
             Ext.Ajax.request(ajaxConfig);
         },
 

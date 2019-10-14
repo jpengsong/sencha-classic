@@ -91,7 +91,7 @@ Ext.define("App.view.systemmanage.sysmenu.SysMenuController", {
                         App.Ajax.request({
                             url: url,
                             method: "DELETE",
-                            nosim: false,
+                            nosim: true,
                             type: "JSON",
                             showmask: true,
                             maskmsg: "正在删除...",

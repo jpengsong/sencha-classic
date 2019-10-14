@@ -1,1 +1,1 @@
-cache_path = 'G:\ExtJS\Project\sencha-classic/build/.sass-cache'
+cache_path = 'g:\ExtJS\Project\sencha-classic\classic/build/.sass-cache'

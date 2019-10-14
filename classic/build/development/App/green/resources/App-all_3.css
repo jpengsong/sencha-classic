@@ -1,100 +1,100 @@
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:472 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:472 */
 .x-rtl.x-tab-bar-plain.x-tab-bar-tabpanel-default-left > .x-tab-bar-body-tabpanel-default {
     padding: 0 8px 0 0;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:477 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:477 */
 .x-tab-bar-plain.x-tab-bar-tabpanel-default-right > .x-tab-bar-body-tabpanel-default {
     padding: 0 8px 0 0;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:482 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:482 */
 .x-rtl.x-tab-bar-plain.x-tab-bar-tabpanel-default-right > .x-tab-bar-body-tabpanel-default {
     padding: 0 0 0 8px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:490 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:490 */
 .x-tab-bar-plain.x-tab-bar-tabpanel-default-horizontal {
     border-top-color: transparent;
     border-bottom-color: transparent;
     border-left-width: 0;
     border-right-width: 0;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:497 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:497 */
 .x-tab-bar-plain.x-tab-bar-tabpanel-default-vertical {
     border-right-color: transparent;
     border-left-color: transparent;
     border-top-width: 0;
     border-bottom-width: 0;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:611 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:611 */
 .x-tab-bar-horizontal > .x-tab-bar-body-tabpanel-default {
     min-height: 58px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:614 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:614 */
 .x-ie8m .x-tab-bar-horizontal > .x-tab-bar-body-tabpanel-default {
     min-height: 50px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:621 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:621 */
 .x-tab-bar-vertical > .x-tab-bar-body-tabpanel-default {
     min-width: 58px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:624 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:624 */
 .x-ie8m .x-tab-bar-vertical > .x-tab-bar-body-tabpanel-default {
     min-width: 50px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:632 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:632 */
 .x-tab-bar-tabpanel-default-top {
     background-image: none;
     background-color: #f6f6f6;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:642 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:642 */
 .x-tab-bar-tabpanel-default-bottom {
     background-image: none;
     background-color: #f6f6f6;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:652 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:652 */
 .x-tab-bar-tabpanel-default-left {
     background-image: none;
     background-color: #f6f6f6;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:662 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:662 */
 .x-tab-bar-tabpanel-default-right {
     background-image: none;
     background-color: #f6f6f6;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:182 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:182 */
 .x-tab-bar-tabpanel-default-scroller .x-box-scroller-body-horizontal {
     margin-left: 32px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:187 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:187 */
 .x-tab-bar-tabpanel-default-scroller.x-rtl .x-box-scroller-body-horizontal {
     margin-left: 0;
     margin-right: 32px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:195 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:195 */
 .x-tab-bar-tabpanel-default-vertical-scroller .x-box-scroller-body-vertical {
     margin-top: 32px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:200 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:200 */
 .x-box-scroller-tab-bar-tabpanel-default {
     cursor: pointer;
     color: #666;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:210 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:210 */
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-hover {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
     opacity: 0.6;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:216 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:216 */
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-pressed {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
     opacity: 0.7;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:222 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:222 */
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-disabled {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";
     opacity: 0.25;
     cursor: default;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:232 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:232 */
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-left,
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-right {
     width: 40px;
@@ -102,29 +102,29 @@
     top: 50%;
     margin-top: -12px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:259 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:259 */
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-left {
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 0;
     font: 16px/24px FontAwesome;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-left:before {
     content: "\f053";
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:284 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:284 */
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-right {
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 0;
     font: 16px/24px FontAwesome;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-right:before {
     content: "\f054";
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:311 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:311 */
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-top,
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-bottom {
     height: 40px;
@@ -132,79 +132,79 @@
     left: 50%;
     margin-left: -12px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:338 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:338 */
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-top {
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
     font: 16px/40px FontAwesome;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-top:before {
     content: "\f077";
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:363 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/layout/container/Box.scss:363 */
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-bottom {
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
     font: 16px/40px FontAwesome;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
 .x-box-scroller-tab-bar-tabpanel-default.x-box-scroller-bottom:before {
     content: "\f078";
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:704 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:704 */
 .x-tab-bar-more-icon {
     font: 16px/1 FontAwesome;
     color: #f0f0f0;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:132 */
 .x-tab-bar-more-icon:before {
     content: "\f0c9";
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:721 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:721 */
 .x-tab-bar-plain.x-tab-bar-tabpanel-default-scroller .x-box-scroller-body-horizontal {
     margin-left: 40px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:727 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:727 */
 .x-tab-bar-plain.x-tab-bar-tabpanel-default-vertical-scroller .x-box-scroller-body-vertical {
     margin-top: 32px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:732 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:732 */
 .x-tab-bar-plain .x-box-scroller-tab-bar-tabpanel-default {
     color: #929292;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:780 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:780 */
 .x-tab-bar-tabpanel-default-top .x-box-scroller-tab-bar-tabpanel-default {
     margin-top: -8px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:784 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:784 */
 .x-tab-bar-tabpanel-default-right .x-box-scroller-tab-bar-tabpanel-default {
     margin-left: -16px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:788 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:788 */
 .x-tab-bar-tabpanel-default-bottom .x-box-scroller-tab-bar-tabpanel-default {
     margin-top: -16px;
 }
-/* G:/ExtJS/Project/sencha-classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:792 */
+/* g:/ExtJS/Project/sencha-classic/classic/ext/classic/theme-neutral/sass/var/tab/Bar.scss:792 */
 .x-tab-bar-tabpanel-default-left .x-box-scroller-tab-bar-tabpanel-default {
     margin-left: -8px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:479 */
+/* g:/ExtJS/Project/sencha-classic/classic/sass/src/view/main/Main.scss:479 */
 .x-tab-bar-tabpanel-default-top > .x-tab-bar-body-tabpanel-default {
     padding: 0px 0px 0px 0px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/main/Main.scss:483 */
+/* g:/ExtJS/Project/sencha-classic/classic/sass/src/view/main/Main.scss:483 */
 .x-tab-bar-tabpanel-default-top .x-box-scroller-tab-bar-tabpanel-default {
     margin-top: -14px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Blank.scss:1 */
+/* g:/ExtJS/Project/sencha-classic/classic/sass/src/view/pages/Blank.scss:1 */
 .blank-page-container {
     text-align: center;
     color: #000;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Blank.scss:5 */
+/* g:/ExtJS/Project/sencha-classic/classic/sass/src/view/pages/Blank.scss:5 */
 .blank-page-container .fa-outer-class {
     margin: auto;
     width: 150px;
@@ -213,12 +213,12 @@
     background-color: #ebebeb;
     text-align: center;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Blank.scss:13 */
+/* g:/ExtJS/Project/sencha-classic/classic/sass/src/view/pages/Blank.scss:13 */
 .blank-page-container .fa-outer-class .x-fa:before {
     line-height: 150px;
     font-size: 80px;
 }
-/* G:/ExtJS/Project/sencha-classic/sass/src/view/pages/Blank.scss:19 */
+/* g:/ExtJS/Project/sencha-classic/classic/sass/src/view/pages/Blank.scss:19 */
 .blank-page-container h1 {
     margin: 5px;
     line-height: 30px;
